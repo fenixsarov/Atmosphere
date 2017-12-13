@@ -1,0 +1,6 @@
+mysql.cnf
+.idea/
+db.sqlite3
+*.pyc
+main.*.css
+runserver.sh

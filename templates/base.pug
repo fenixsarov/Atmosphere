@@ -1,0 +1,24 @@
+| {% load staticfiles %}
+| {% load compress %}
+!!! 5
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Фотостудия &quot;Атмосфера&quot;
+
+    link(rel="stylesheet", href="{% static 'css/bootstrap.css' %}")
+    link(rel="stylesheet", href="{% static 'cssfont-awesome.min.css' %}")
+
+    | {% compress css %}
+    //- link(rel="stylesheet", type="text/x-scss", charset="utf-8", href="{% static 'scss/main.scss' %}")
+    link(rel="stylesheet", type="text/css", charset="utf-8", href="{% static 'css/main.css' %}")
+    | {% endcompress %}
+
+  body
+    block content
+    //- include footer
+    script(src="{% static 'javascripts/jquery.min.js' %}")
+    script(src="{% static 'javascripts/bootstrap.js' %}")
+
