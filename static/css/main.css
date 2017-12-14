@@ -1,105 +1,127 @@
 body {
-  padding-bottom: 50px;
+  position: relative;
 }
 
-nav {
+/** NAVIGATION */
+.navigation {
   position: absolute;
   z-index: 1001;
+  width: 100%;
+  clear: both;
+  top: -500px;
 }
-
-.nav-panel {
+nav {
+  margin-top: 15px;
   background-color: rgba(91, 91, 91, 0.9);
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 5px;
 }
-
-.nav-panel > * {
+nav > * {
   text-align: center;
 }
-
-.nav-panel .logo img {
+nav .fa {
+  margin-right: 5px;
+}
+nav .logo img {
   width: 70%;
 }
-
-ul.nav {
+nav ul.nav {
   display: inline-block;
   text-align: center;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+  padding-left: 15px;
 }
-ul.nav li {
+nav ul.nav li {
   display: inline-block;
   text-align: center;
   border-right: 1px solid #FFFFFF;
 }
-
-ul.nav li:last-child {
+nav ul.nav li:last-child {
   border-right: none;
 }
-ul.nav li a {
+nav ul.nav li a {
   font-size: 16px;
   color: #C7C7C7 !important;
   transition: all 0.5s ease;
 }
-
-ul.nav li a:hover {
+nav ul.nav li a:hover {
   background-color: transparent;
   color: #FFFFFF !important;
 }
-
-.nav-panel .fa {
-  margin-right: 5px;
+nav ul.nav li a:focus {
+  background-color: transparent;
 }
-.nav-panel .address {
+
+nav .address {
   text-align: center;
   color: #C7C7C7;
 }
-.nav-panel .address .city {
+nav .address .city {
   font-size: 24px;
 }
-.nav-panel .address .city .fa-map-marker {
+nav .address .city .fa-map-marker {
   color: #EA423E;
   font-size: 30px;
 }
-.nav-panel .address .street {
+nav .address .street {
   text-align: center;
   border-bottom: 2px solid #C7C7C7;
   font-size: 15px;
   padding-bottom: 3px;
 }
-.nav-panel .address .phone {
+nav .address .phone {
   color: white;
   font-size: 17px;
   letter-spacing: 2px;
   padding-top: 5px;
 }
-
-.background {
+/** FIRST BACKGROUND */
+.background-paralax {
   position: relative;
+  min-height: 890px;
+  background-size: 200%;
+  /* background-image: url('../images/fon1.png');
+  background-size: 150%;
+  background-position: 50% 30%;
+  background-repeat: no-repeat; */
+  /* transition: background-position 1.5s ease; */
 }
-
-.background img {
+.background-paralax img {
   width: 100%;
 }
-.background .slogan {
+.background-paralax .slogan {
   position: absolute;
-  right: 15px;
+  width: 100%;
+  clear: both;
   top: 30%;
+  opacity: 0;
+  /* right: -100%; */
+  /* transition: right 1s ease-in; */
+}
+.background-paralax .content {
+  float: right;
+  clear: both;
   text-align: right;
   border-right: 7px solid #424141;
-  padding-right: 10px;
+  padding-right: 1em;
 
   color: #FFFFFF;
   font-weight: bolder;
   font-size: 40px;
 }
 
+.main-content {
+  z-index: 1000;
+  padding-top: 70px;
+  padding-bottom: 120px;
+}
 
 /** SCENERY */
 .scenery {
   position: relative;
   margin-top: 70px;
-  background-color: rgb(91, 91, 91);
-  padding: 30px;
 }
 .scenery .carousel-control .fa-chevron-left,
 .scenery .carousel-control .fa-chevron-right {
@@ -118,33 +140,36 @@ ul.nav li a:hover {
   right: 50%;
   margin-right: -10px;
 }
-
+#scenery-carousel {
+  background-color: rgb(91, 91, 91);
+  padding: 30px;
+}
 #scenery-carousel > .carousel-inner > .item > img {
   width: 100%;
-  max-height: 350px;
+  max-height: 500px;
+  margin: -10px;
 }
 
-.scenery .carousel-indicators {
+#scenery-carousel .carousel-indicators {
   position: absolute;
-  bottom: -30px;
-  right: 0px;
+  bottom: 3px;
+  right: 30px;
   list-style: none;
   text-align: center;
   margin-bottom: 0;
 }
-.scenery .carousel-indicators li {
+#scenery-carousel .carousel-indicators li {
   display: inline-block;
   cursor: pointer;
   background-color: #FFFFFF;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-left: 5px;
   transition: background-color 1s ease;
 }
-.scenery .carousel-indicators li.active {
+#scenery-carousel .carousel-indicators li.active {
   background-color: #EA423E !important;
 }
-
 
 /* EVENTS */
 .events {
@@ -157,7 +182,10 @@ ul.nav li a:hover {
 }
 
 .event > .content .image {
-  min-height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 250px;
 }
 .event > .content > .description {
   position: absolute;
@@ -184,13 +212,39 @@ ul.nav li a:hover {
   color: #FFFFFF;
 }
 
-
 /* TEAM */
-.team {
+.our-team {
+  background-image: url('../images/fon3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 15px;
   padding-top: 70px;
 }
-.team .content {
-  background-image: url('../images/fon3.png');
+.team {
+  color: #C7C7C7;
+  margin-bottom: 30px;
+}
+
+/* FOOTER */
+.footer {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 30px;
+  background-color: #424141;
+  border-radius: 5px;
+}
+
+.footer * {
+    color: #C7C7C7;
+}
+
+.footer .socials {
+  font-size: 20px;
+}
+.footer .socials .fa {
+  text-decoration: none;
+  margin: 15px;
 }
 /* .carousel-indicators {
   position: absolute;
