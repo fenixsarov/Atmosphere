@@ -1,117 +1,57 @@
 extends base
 | {% load staticfiles %}
 block content
-  body
-    .container-fluid.navigation
-      .row
-        nav.container
-          a(href="/").col-sm-2.logo
-            img(src="{% static 'images/logo.png' %}")
-          ul.nav.col-sm-7
-            li
-              a(href="#") АРЕНДА
-            li
-              a(href="#") ОБОРУДОВАНИЕ
-            li
-              a(href="#") УСЛУГИ
-            li
-              a(href="#") НАША КОМАНДА
-          .col-sm-3.address
-            .city
-              i.fa.fa-map-marker
-              span САРОВ
-            .street
-              span УЛ. ЖЕЛЕЗНОДОРОЖНАЯ Д.9
-            .phone
-              i.fa.fa-phone
-              span 8(930)290-1212
-    .container-fluid.background-paralax(data-parallax="scroll", data-image-src="{% static 'images/fon1.png' %}")
-      .row
-        .container-fluid.slogan
-          .row
-            .container
-              .row
-                span.content САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
-    .container-fluid.main-content(data-parallax="scroll", data-image-src="{% static '/images/fon2.png' %}", data-speed="0.8")
-      .row
-        .container
-          .row.scenery
-            .col-sm-12
-              #scenery-carousel.carousel.slide(data-ride="carousel")
-                .carousel-inner(role='listbox')
-                  .item.active
-                    img(src="{% static 'images/zones/6.png' %}")
-                  .item
-                    img(src="{% static 'images/zones/5.png' %}")
-                  .item
-                    img(src="{% static 'images/zones/4.png' %}")
-                a.left.carousel-control(href="#scenery-carousel", role="button", data-slide="prev")
-                  span.fa.fa-chevron-left(aria-hidden=true)
-                a.right.carousel-control(href="#scenery-carousel", role="button", data-slide="next")
-                  span.fa.fa-chevron-right(aria-hidden=true)
-                ol.carousel-indicators
-                  li.active(data-target="#scenery-carousel", data-slide-to="0")
-                  li(data-target="#scenery-carousel", data-slide-to="1")
-                  li(data-target="#scenery-carousel", data-slide-to="2")
-      .row
-        .container
-          .row.events
-            .col-sm-4.event
-              .content
-                .image(style="background-image: url('static/images/events/school.jpg')")
-                .description
-                  span ФОТОШКОЛА
-            .col-sm-4.event
-              .content
-                .image(style="background-image: url('static/images/events/measures.jpg')")
-                .description
-                  span МЕРОПРИЯТИЯ
-            .col-sm-4.event
-              .content
-                .image(style="background-image: url('static/images/events/masters.jpg')")
-                .description
-                  span МАСТЕР-КЛАССЫ
-    .container-fluid.our-team
-      .row
-        .container
-          .row.team
-            img.col-sm-8(src="{% static 'images/team.jpg' %}")
-            .col-sm-4
-              h2 НАША КОМАНДА
-              p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-      .row
-        .container
-          .row.footer
-            .col-sm-4.socials
-              div мы в соцсетях
-              div
-                a.fa.fa-vk.fa-icon
-                a.fa.fa-instagram.fa-icon
-                a.fa.fa-odnoklassniki.fa-icon
-            .col-sm-4
-              div.site-map карта сайта
-                div
-                  .col-sm-6.site-map-ul
-                    ul
-                      li
-                        a(href="#") аренда
-                      li
-                        a(href="#") услуги
-                      li
-                        a(href="#") наша команда
-                      li
-                        a(href="#") контакты
-                  .col-sm-6.site-map-ul
-                    ul
-                      li
-                        a(href="#") фотошкола
-                      li
-                        a(href="#") мероприятия
-                      li
-                        a(href="#") мастер-классы
-            .col-sm-3.col-sm-offset-1
-              div.contacts контакты
-              div.address
-                p адрес: Саров, ул. железнодорожная д. 9
-              div телефон:
-              div.phone 8(930)290-1212
+  .container-fluid.background-paralax(data-parallax="scroll", data-image-src="{% static 'images/fon1.png' %}")
+    .row
+      .container-fluid.slogan
+        .row
+          .container
+            .row
+              span.content САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
+  .container-fluid.main-content(data-parallax="scroll", data-image-src="{% static '/images/fon2.png' %}", data-speed="0.8")
+    .row
+      .container
+        .row.scenery
+          .col-sm-12
+            #scenery-carousel.carousel.slide(data-ride="carousel")
+              .carousel-inner(role='listbox')
+                .item.active
+                  img(src="{% static 'images/zones/6.png' %}")
+                .item
+                  img(src="{% static 'images/zones/5.png' %}")
+                .item
+                  img(src="{% static 'images/zones/4.png' %}")
+              a.left.carousel-control(href="#scenery-carousel", role="button", data-slide="prev")
+                span.fa.fa-chevron-left(aria-hidden=true)
+              a.right.carousel-control(href="#scenery-carousel", role="button", data-slide="next")
+                span.fa.fa-chevron-right(aria-hidden=true)
+              ol.carousel-indicators
+                li.active(data-target="#scenery-carousel", data-slide-to="0")
+                li(data-target="#scenery-carousel", data-slide-to="1")
+                li(data-target="#scenery-carousel", data-slide-to="2")
+    .row
+      .container
+        .row.events
+          .col-sm-4.event
+            .content
+              .image(style="background-image: url('static/images/events/school.jpg')")
+              .description
+                span ФОТОШКОЛА
+          .col-sm-4.event
+            .content
+              .image(style="background-image: url('static/images/events/measures.jpg')")
+              .description
+                span МЕРОПРИЯТИЯ
+          .col-sm-4.event
+            .content
+              .image(style="background-image: url('static/images/events/masters.jpg')")
+              .description
+                span МАСТЕР-КЛАССЫ
+  .container-fluid.our-team
+    .row
+      .container
+        .row.team
+          img.col-sm-8(src="{% static 'images/team.jpg' %}")
+          .col-sm-4
+            h2 НАША КОМАНДА
+            p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
