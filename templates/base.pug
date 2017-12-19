@@ -6,7 +6,7 @@ html(lang="en")
     meta(charset="UTF-8")    meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Фотостудия &quot;Атмосфера&quot;
-
+    link(rel="shortcut icon", type="image/png", href="{% static 'images/favicon.ico' %}")
     link(rel="stylesheet", href="{% static 'css/bootstrap.css' %}")
     link(rel="stylesheet", href="{% static 'css/font-awesome.min.css' %}")
 
@@ -14,17 +14,17 @@ html(lang="en")
     //- link(rel="stylesheet", type="text/x-scss", charset="utf-8", href="{% static 'scss/main.scss' %}")
     link(rel="stylesheet", type="text/css", charset="utf-8", href="{% static 'css/main.css' %}")
     | {% endcompress %}
+body
+  #preloader
+  include header
+  block content
 
-  body
-    #preloader
-    include header
-    block content
+  include footer
 
-    include footer
+  script(src="{% static 'javascripts/jquery.min.js' %}")
+  script(src="{% static 'javascripts/preloader.js' %}")
+  script(src="{% static 'javascripts/bootstrap.js' %}")
+  script(src="{% static 'javascripts/parallax.js' %}")
+  script(src="{% static 'javascripts/main.js' %}")
 
-    script(src="{% static 'javascripts/jquery.min.js' %}")
-    script(src="{% static 'javascripts/bootstrap.js' %}")
-    //script(src="{% static 'javascripts/preloader.js' %}")
-    script(src="{% static 'javascripts/parallax.js' %}")
-    script(src="{% static 'javascripts/main.js' %}")
 

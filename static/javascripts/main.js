@@ -11,7 +11,7 @@ $( function () {
 
   $( '.background-paralax' ).height( w_height );
 
-  startPage();
+  // startPage();
 
   $( window ).on( 'resize', function () {
     w_height = $( window ).height();
@@ -37,14 +37,6 @@ $( function () {
 } );
 
 function startPage() {
-
-  $(document).ready(function($) {
-    $(window).load(function() {
-      setTimeout(function() {
-        $('#preloader').fadeOut('slow', function() {});
-      }, 1000);
-    });
-  });
 
   $( '.navigation' ).animate( {
     top: '0px'
