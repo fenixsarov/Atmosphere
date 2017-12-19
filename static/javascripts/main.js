@@ -37,6 +37,15 @@ $( function () {
 } );
 
 function startPage() {
+
+  $(document).ready(function($) {
+    $(window).load(function() {
+      setTimeout(function() {
+        $('#preloader').fadeOut('slow', function() {});
+      }, 1000);
+    });
+  });
+
   $( '.navigation' ).animate( {
     top: '0px'
   }, 1000 );
