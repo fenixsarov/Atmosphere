@@ -1,12 +1,11 @@
 @import "reset";
+@import "fonts";
 
 body {
   position: relative;
   overflow: hidden;
 }
 
-
-@import "fonts";
 @import "preloader";
 @import "navigation";
 @import "paralax";
