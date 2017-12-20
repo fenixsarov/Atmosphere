@@ -37,6 +37,9 @@ $( function () {
 } );
 
 function startPage() {
+  $( 'body' ).css({
+      'overflow': 'visible'
+  });
 
   $( '.navigation' ).animate( {
     top: '0px'
