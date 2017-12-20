@@ -1,0 +1,91 @@
+/** NAVIGATION */
+.navigation {
+  position: absolute;
+  z-index: 1001;
+  width: 100%;
+  clear: both;
+  top: -500px;
+}
+nav {
+  margin-top: 15px;
+  background-color: rgba(91, 91, 91, 0.9);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+}
+nav > * {
+  text-align: center;
+}
+nav .fa {
+  margin-right: 5px;
+}
+nav .logo img {
+  width: 70%;
+}
+nav ul.nav {
+  display: inline-block;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  font-family: Comfortaa;
+  font-weight: 700;
+}
+nav ul.nav li {
+  display: inline-block;
+  text-align: center;
+  border-right: 1px solid #FFFFFF;
+}
+nav ul.nav li:last-child {
+  border-right: none;
+}
+nav ul.nav li a {
+  font-size: 14px;
+  color: #C7C7C7 !important;
+  transition: all 0.5s ease;
+}
+nav ul.nav li a:hover {
+  background-color: transparent;
+  color: #FFFFFF !important;
+}
+nav ul.nav li a:focus {
+  background-color: transparent;
+}
+
+nav .address {
+  text-align: center;
+  color: #C7C7C7;
+}
+nav .address .city {
+  font-size: 24px;
+  font-family: Comfortaa;
+  font-weight: 700;
+}
+nav .address .city .fa-map-marker {
+  color: #EA423E;
+  font-size: 30px;
+}
+nav .address .street {
+  text-align: center;
+  border-bottom: 2px solid #C7C7C7;
+  font-size: 15px;
+  padding-bottom: 3px;
+}
+nav .address .phone,
+.footer .phone {
+  color: white;
+  font-size: 17px;
+  letter-spacing: 2px;
+  padding-top: 5px;
+}
+/** FIRST BACKGROUND */
+.background-paralax {
+  position: relative;
+  min-height: 890px;
+  background-size: 200%;
+  /* background-image: url('../images/fon1.png');
+  background-size: 150%;
+  background-position: 50% 30%;
+  background-repeat: no-repeat; */
+  /* transition: background-position 1.5s ease; */
+}

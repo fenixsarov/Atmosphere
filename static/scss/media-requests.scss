@@ -1,0 +1,59 @@
+// MEDIA REQUESTS FOR ALL DISPLAY TYPES
+@media (min-width: 992px) and (max-width: 1199px) {
+  nav ul.nav {
+      padding-left: 5px;
+  }
+
+  nav .logo img {
+    padding-top: 7px;
+  }
+
+  nav .address .street {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  nav {
+    padding-top: 10px;
+  }
+
+  nav ul.nav {
+      padding-left: 0px;
+      padding-right: 0;
+
+  }
+  nav ul.nav li a {
+    font-size: 12px;
+    padding: 8px;
+    font-weight: 700;
+  }
+
+  nav .logo img {
+    padding-top: 7px;
+    width: 95%;
+  }
+
+  nav .address .street {
+    font-size: 10px;
+  }
+  nav .address .phone,
+  .footer .phone{
+    font-size: 14px;
+  }
+
+  .footer {
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+
+  .footer .site-map-ul,
+  .footer {
+    font-size: 12px;
+  }
+
+  .footer .address {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,52 @@
+/** SCENERY */
+.scenery {
+  position: relative;
+  margin-top: 70px;
+}
+.scenery .carousel-control .fa-chevron-left,
+.scenery .carousel-control .fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  z-index: 5;
+  font-size: 50px;
+  display: inline-block;
+}
+.scenery .carousel-control .fa-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+.scenery .carousel-control .fa-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+#scenery-carousel {
+  background-color: rgb(91, 91, 91);
+  padding: 30px;
+}
+#scenery-carousel > .carousel-inner > .item > img {
+  width: 100%;
+  max-height: 500px;
+  margin: -10px;
+}
+
+#scenery-carousel .carousel-indicators {
+  position: absolute;
+  bottom: 3px;
+  right: 30px;
+  list-style: none;
+  text-align: center;
+  margin-bottom: 0;
+}
+#scenery-carousel .carousel-indicators li {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+  transition: background-color 1s ease;
+}
+#scenery-carousel .carousel-indicators li.active {
+  background-color: #EA423E !important;
+}

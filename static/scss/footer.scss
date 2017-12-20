@@ -1,0 +1,51 @@
+
+/* FOOTER */
+.footer {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 30px;
+  background-color: #424141;
+  border-radius: 5px;
+  font-family: Comfortaa;
+  font-weight: 400;
+}
+
+.footer * {
+    color: #C7C7C7;
+}
+
+.footer .fa-icon {
+  font-size: 32px;
+}
+
+.footer .socials,
+.footer .site-map,
+.footer .contacts {
+  font-size: 20px;
+}
+.footer .socials .fa {
+  text-decoration: none;
+  margin: 15px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer ul {
+  padding-left: 0;
+}
+
+.footer .site-map-ul,
+.footer .address {
+  padding: 10px 0 0 0;
+  font-size: 14px;
+}
+
+.footer .phone {
+  padding: 0;
+}
+
+.footer li{
+  list-style-type: none;
+}

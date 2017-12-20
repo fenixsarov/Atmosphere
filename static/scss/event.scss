@@ -1,0 +1,42 @@
+/* EVENTS */
+.events {
+  margin-top: 70px;
+}
+.event > .content {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.event > .content .image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 250px;
+}
+.event > .content > .description {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(91, 91, 91, 0.9);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+
+  transition: all 0.5s ease;
+}
+
+.event > .content > .description > span {
+  font-size: 20px;
+  font-family: Comfortaa;
+  font-weight: 700;
+  color: #C7C7C7;
+  transition: all 0.5s ease;
+}
+.event:hover > .content > .description {
+  padding-bottom: 25px;
+}
+.event:hover > .content > .description > span {
+  font-size: 25px;
+  color: #FFFFFF;
+}
