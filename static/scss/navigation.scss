@@ -1,13 +1,17 @@
 /** NAVIGATION */
-.navigation {
+header {
   position: absolute;
-  z-index: 1001;
+  z-index: 500;
   width: 100%;
   clear: both;
-  top: -500px;
 }
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 15px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   background-color: rgba(91, 91, 91, 0.9);
   padding-top: 15px;
   padding-bottom: 15px;
@@ -25,9 +29,9 @@ nav .logo img {
 nav ul.nav {
   display: inline-block;
   text-align: center;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  padding-left: 15px;
+  // padding-top: 30px;
+  // padding-bottom: 20px;
+  // padding-left: 15px;
   font-family: Comfortaa;
   font-weight: 700;
 }

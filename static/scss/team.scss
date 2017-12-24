@@ -1,16 +1,13 @@
 /* TEAM */
 .our-team {
-  background-image: url('../images/fon3.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: $cl-main-gray;
   padding-bottom: 15px;
   padding-top: 70px;
   font-family: Comfortaa;
   font-weight: 400;
 }
 .team {
-  color: #d9d9d9;
+  color: $cl-default-text;
   margin-bottom: 30px;
   h2 {
     font-size: 120%;

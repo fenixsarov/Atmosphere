@@ -44,13 +44,7 @@ function hidePreload() {
   });
 }
 function startPage() {
-  $('.navigation').animate({
-    top: '0px'
-  }, 1000);
-
-  setTimeout(function () {
-    $('.background-paralax .slogan').animate({
-      opacity: '1'
-    }, 1400);
+  $('.background-paralax .slogan').animate({
+    opacity: '1'
   }, 700);
 }

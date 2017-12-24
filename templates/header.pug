@@ -1,24 +1,25 @@
 | {% load staticfiles %}
-.container-fluid.navigation
+header.container-fluid
   .row
-    nav.container
-      a(href="/").col-sm-2.logo
-        img(src="{% static 'images/logo.png' %}")
-      ul.nav.col-sm-7
-        li
-          a(href="#") АРЕНДА
-        li
-          a(href="#") ОБОРУДОВАНИЕ
-        li
-          a(href="#") УСЛУГИ
-        li
-          a(href="#") НАША КОМАНДА
-      .col-sm-3.address
-        .city
-          i.fa.fa-map-marker
-          span САРОВ
-        .street
-          span УЛ. ЖЕЛЕЗНОДОРОЖНАЯ Д.9
-        .phone
-          i.fa.fa-phone
-          span 8(930)290-1212
+    .container
+      nav.row
+        a(href="/").col-sm-2.logo
+          img(src="{% static 'images/logo.png' %}")
+        ul.nav.col-sm-7
+          li
+            a(href="#") АРЕНДА
+          li
+            a(href="#") ОБОРУДОВАНИЕ
+          li
+            a(href="#") УСЛУГИ
+          li
+            a(href="#") НАША КОМАНДА
+        .col-sm-3.address
+          .city
+            i.fa.fa-map-marker
+            span САРОВ
+          .street
+            span УЛ. ЖЕЛЕЗНОДОРОЖНАЯ Д.9
+          .phone
+            i.fa.fa-phone
+            span 8(930)290-1212
