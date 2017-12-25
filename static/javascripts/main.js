@@ -26,10 +26,10 @@ $(function () {
       sl_y -= delta / 2;
       paralax_sl.css({
         'top': `${sl_y}px`
-      })
+      });
 
-      if (prev_s > cur_s && sl_y < sl_y_range.min) paralax_sl.css('top', `${sl_y_range.min}px`)
-      if (prev_s < cur_s && sl_y > sl_y_range.max) paralax_sl.css('top', `${sl_y_range.max}px`)
+      if (prev_s > cur_s && sl_y < sl_y_range.min) paralax_sl.css('top', `${sl_y_range.min}px`);
+      if (prev_s < cur_s && sl_y > sl_y_range.max) paralax_sl.css('top', `${sl_y_range.max}px`);
     }
     prev_s = cur_s;
   });

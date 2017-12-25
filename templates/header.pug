@@ -1,20 +1,16 @@
-| {% load staticfiles %}
+{% load staticfiles %}
 header.container-fluid
   .row
     .container
-      nav.row
-        a(href="/").col-sm-2.logo
+      nav
+        a.atm-logo(href="/")
           img(src="{% static 'images/logo.png' %}")
-        ul.nav.col-sm-7
-          li
-            a(href="#") АРЕНДА
-          li
-            a(href="#") ОБОРУДОВАНИЕ
-          li
-            a(href="#") УСЛУГИ
-          li
-            a(href="#") НАША КОМАНДА
-        .col-sm-3.address
+        ul.atm-main-menu
+          li: a(href="#") АРЕНДА
+          li: a(href="#") ОБОРУДОВАНИЕ
+          li: a(href="#") УСЛУГИ
+          li: a(href="#") НАША КОМАНДА
+        .atm-address
           .city
             i.fa.fa-map-marker
             span САРОВ
