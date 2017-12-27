@@ -15,12 +15,14 @@
     position: absolute;
     right: 0;
     text-align: right;
-    margin-right: 3em;
+    margin-right: 0em;
     padding-right: 1.5em;
     top: 3em;
     border-right: 7px solid $cl-elements-gray;
     span {
       font-size: 2.4em;
+      font-family: Comfortaa;
+      font-weight: 700;
       color: #fff;
     }
   }

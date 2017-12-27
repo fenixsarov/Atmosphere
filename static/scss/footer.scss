@@ -8,6 +8,7 @@ footer {
   font-family: Comfortaa;
   font-weight: 400;
   color: $cl-default-text;
+  border-radius: 5px;
 
   .section {
     .header {
@@ -31,8 +32,7 @@ footer {
   .atm-socials {
     .content {
       a {
-        margin: 15px;
-        margin-left: 0;
+        margin: 15px 1.1em 15px 0;
         font-size: 3em;
       }
     }
