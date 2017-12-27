@@ -1,42 +1,59 @@
 /* EVENTS */
 .events {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
   margin-top: 70px;
-}
-.event > .content {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
+  margin-bottom: 70px;
 
-.event > .content .image {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 250px;
-}
-.event > .content > .description {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(91, 91, 91, 0.9);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
+  .event {
+    flex-basis: 100%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    &:last-child {
+      padding-right: 0;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    .content {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      .image {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 250px;
+      }
+      .description {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(91, 91, 91, 0.9);
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+        text-align: center;
 
-  transition: all 0.5s ease;
-}
-
-.event > .content > .description > span {
-  font-size: 20px;
-  font-family: Comfortaa;
-  font-weight: 700;
-  color: #C7C7C7;
-  transition: all 0.5s ease;
-}
-.event:hover > .content > .description {
-  padding-bottom: 25px;
-}
-.event:hover > .content > .description > span {
-  font-size: 25px;
-  color: #FFFFFF;
+        transition: all 0.5s ease;
+        span {
+          font-size: 1.25em;
+          font-family: Comfortaa;
+          font-weight: 700;
+          color: #C7C7C7;
+          transition: all 0.5s ease;
+        }
+      }
+        &:hover {
+        .description {
+          padding-bottom: 2.5%;
+          span {
+            font-size: 1.56em;
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
 }

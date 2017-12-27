@@ -1,18 +1,19 @@
 
 /* FOOTER */
 footer {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  display: flex;
+  justify-content: space-between;
   padding: 50px;
   background-color: $cl-elements-gray;
   font-family: Comfortaa;
   font-weight: 400;
   color: $cl-default-text;
-  
+
   .section {
     .header {
       margin-bottom: 1em;
       text-align: left;
+      font-size: 1.3em;
     }
     .content {
       font-size: .7em;
@@ -39,7 +40,10 @@ footer {
   .atm-site-map {
     text-align: center;
     ul {
+      display: flex;
+      flex-wrap: wrap;
       li {
+        flex-basis: 50%;
         text-align: left;
         list-style: none;
       }
@@ -55,56 +59,4 @@ footer {
       }
     }
   }
-  // .header {
-  //   font-size: 1.25em;
-  // }
-  // .content {
-  //   font-size: 1.2em;
-  // }
-  // & a {
-  //   text-decoration: none;
-  //   color: #FFFFFF;
-    
-  //   padding-right: 7px;
-  //   transition: all 0.3s;
-
-  //   &:hover {
-  //     color: rgb(236, 236, 236);
-  //     transform: scale(1.3);
-  //   }
-  // }
-  // & .fa {
-  //   font-size: 1.5em;
-  //   text-decoration: none;
-  //   margin: 15px;
-  //   margin-left: 0;
-  // }
-  
-  // .phone {
-  //   color: #FFFFFF;
-  //   letter-spacing: 3px;
-  //   padding-top: 5px;
-  // }
 }
-
-// footer a {
-//   text-decoration: none;
-// }
-
-// footer ul {
-//   padding-left: 0;
-// }
-
-// footer .site-map-ul,
-// footer .address {
-//   padding: 10px 0 0 0;
-//   font-size: .875em;
-// }
-
-// footer .phone {
-//   padding: 0;
-// }
-
-// footer li{
-//   list-style-type: none;
-// }

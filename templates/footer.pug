@@ -1,37 +1,36 @@
 | {% load staticfiles %}
-.row
-  .container
-    footer.row
-      .col-sm-2.section.atm-socials
-        .header мы в соцсетях
-        .content
-          a.fa.fa-vk(href="#")
-          a.fa.fa-instagram(href="#")
-          a.fa.fa-odnoklassniki(href="#")
-      .col-sm-4.col-sm-offset-2.section.atm-site-map
-        .header карта сайта
-        .content
-          ul.row
-            li.col-sm-6
-              a(href="#") аренда
-            li.col-sm-6
-              a(href="#") услуги
-            li.col-sm-6
-              a(href="#") наша команда
-            li.col-sm-6
-              a(href="#") контакты
-            li.col-sm-6
-              a(href="#") фотошкола
-            li.col-sm-6
-              a(href="#") мероприятия
-            li.col-sm-6
-              a(href="#") мастер-классы 
-      .col-sm-2.col-sm-offset-2.section.atm-contacts
-        .header контакты
-        .content
-          .address
-            div адрес: Саров
-            div ул. железнодорожная д. 9
-          .phone
-            div телефон:
-            .big-text 8(930)290-1212
+.flex-container#footer
+  footer
+    .section.atm-socials
+      .header мы в соцсетях
+      .content
+        a.fa.fa-vk(href="#")
+        a.fa.fa-instagram(href="#")
+        a.fa.fa-odnoklassniki(href="#")
+    .section.atm-site-map
+      .header карта сайта
+      .content
+        ul
+          li
+            a(href="#") аренда
+          li
+            a(href="#") услуги
+          li
+            a(href="#") наша команда
+          li
+            a(href="#") контакты
+          li
+            a(href="#") фотошкола
+          li
+            a(href="#") мероприятия
+          li
+            a(href="#") мастер-классы
+    .section.atm-contacts
+      .header контакты
+      .content
+        .address
+          div адрес: Саров
+          div ул. железнодорожная д. 9
+        .phone
+          div телефон:
+          .big-text 8(930)290-1212

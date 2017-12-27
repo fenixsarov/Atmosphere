@@ -1,59 +1,54 @@
 extends base
 | {% load staticfiles %}
 block content
-  .container-fluid.background-paralax(data-parallax="scroll", data-image-src="{% static 'images/fon1.png' %}")
-    .row
-      .container-fluid.slogan
-        .row
-          .container
-            .row
-              span.content САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
-  .container-fluid.main-content(data-parallax="scroll", data-image-src="{% static '/images/fon2.png' %}", data-speed="0.8")
-    .row
-      .container
-        .row.scenery
-          .col-sm-12
-            #scenery-carousel.carousel.slide(data-ride="carousel")
-              .carousel-inner(role='listbox')
-                .item.active
-                  img(src="{% static 'images/zones/6.png' %}")
-                .item
-                  img(src="{% static 'images/zones/5.png' %}")
-                .item
-                  img(src="{% static 'images/zones/4.png' %}")
-              a.left.carousel-control(href="#scenery-carousel", role="button", data-slide="prev")
-                span.fa.fa-chevron-left(aria-hidden=true)
-              a.right.carousel-control(href="#scenery-carousel", role="button", data-slide="next")
-                span.fa.fa-chevron-right(aria-hidden=true)
-              ol.carousel-indicators
-                li.active(data-target="#scenery-carousel", data-slide-to="0")
-                li(data-target="#scenery-carousel", data-slide-to="1")
-                li(data-target="#scenery-carousel", data-slide-to="2")
-    .row
-      .container
-        .row.events
-          .col-sm-4.event
-            .content
-              .image(style="background-image: url('static/images/events/school.jpg')")
-              .description
-                span ФОТОШКОЛА
-          .col-sm-4.event
-            .content
-              .image(style="background-image: url('static/images/events/measures.jpg')")
-              .description
-                span МЕРОПРИЯТИЯ
-          .col-sm-4.event
-            .content
-              .image(style="background-image: url('static/images/events/masters.jpg')")
-              .description
-                span МАСТЕР-КЛАССЫ
-  .container-fluid.our-team
-    .row
-      .container
-        .row.team
-          img.col-sm-8(src="{% static 'images/team.jpg' %}")
-          .col-sm-4
-            h2 НАША КОМАНДА
-            p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
+  .flex-container-fluid#atm-header
+    include header
+    .flex-container.flex-grow
+      .atm-slogan
+        span.content.parallax-content САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
+    .parallax-content.parallax-img(data-parallax-speed="0.5")
+  .flex-container-fluid#main-content
+    .parallax-content.parallax-img(data-parallax-speed="1")
+    .flex-container.scenery
+      #scenery-carousel.carousel.slide(data-ride="carousel")
+        .carousel-inner(role='listbox')
+          .item.active
+            img(src="{% static 'images/zones/6.png' %}")
+          .item
+            img(src="{% static 'images/zones/5.png' %}")
+          .item
+            img(src="{% static 'images/zones/4.png' %}")
+        a.left.carousel-control(href="#scenery-carousel", role="button", data-slide="prev")
+          span.fa.fa-chevron-left(aria-hidden=true)
+        a.right.carousel-control(href="#scenery-carousel", role="button", data-slide="next")
+          span.fa.fa-chevron-right(aria-hidden=true)
+        ol.carousel-indicators
+          li.active(data-target="#scenery-carousel", data-slide-to="0")
+          li(data-target="#scenery-carousel", data-slide-to="1")
+          li(data-target="#scenery-carousel", data-slide-to="2")
+    .flex-container
+      .events
+        .event
+          .content
+            .image(style="background-image: url('static/images/events/school.jpg')")
+            .description
+              span ФОТОШКОЛА
+        .event
+          .content
+            .image(style="background-image: url('static/images/events/measures.jpg')")
+            .description
+              span МЕРОПРИЯТИЯ
+        .event
+          .content
+            .image(style="background-image: url('static/images/events/masters.jpg')")
+            .description
+              span МАСТЕР-КЛАССЫ
+  .flex-container-fluid#our-team
+    .flex-container
+      .team
+        .photo
+          img(src="{% static 'images/team.jpg' %}")
+        .description
+          h2 НАША КОМАНДА
+          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
     include ./footer.pug
-  
