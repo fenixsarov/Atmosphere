@@ -21,6 +21,7 @@ nav {
   .atm-logo {
     display: flex;
     justify-content: center;
+    flex-basis: 20%;
     align-items: center;
     img {
       width: 70%;
@@ -36,10 +37,18 @@ nav {
       a {
         text-align: center;
         flex-basis: 100%;
+        align-self: center;
         color: #C7C7C7;
         font-weight: 700;
         text-decoration: none;
-        padding: 8px 15px;
+        padding: 10px 15px;
+        border-right: 2px solid #FFFFFF;
+        border-bottom: none;
+      }
+      &:last-child {
+        a {
+          border-right: none;
+        }
       }
     }
   }
@@ -132,6 +141,18 @@ nav {
 }
 @media (min-width: 768px) {
   nav {
+    .atm-logo {
+      img {
+        width: 50%;
+      }
+    }
+    .atm-main-menu {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .atm-address {
+      font-size: .8em;
+    }
     .atm-socials {
       a {
         border-radius: 3px;
@@ -144,19 +165,7 @@ nav {
 }
 @media (min-width: 992px) {
   nav {
-    .atm-main-menu {
-      li {
-        a {
-          border-right: 1px solid #FFFFFF;
-          border-bottom: none;
-        }
-        &:last-child {
-          a {
-            border-right: none;
-          }
-        }
-      }
-    }
+
   }
 }
 @media (min-width: 1200px) {

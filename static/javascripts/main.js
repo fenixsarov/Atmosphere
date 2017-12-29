@@ -29,6 +29,7 @@ $( function () {
         $prlx_main.css( 'position', 'absolute' );
       }
       if ( cur_s > header_height ) {
+        // mainContentParallax( cur_s );
         $prlx_main.css( 'position', 'fixed' );
       }
     } );
@@ -41,7 +42,7 @@ $( function () {
     $prlx_slogan.css( 'top', ( slogan_start + c_scroll * 0.3 ) + 'px' );
   }
   function mainContentParallax( c_scroll ) {
-    $prlx_main.css( 'top', ( c_scroll ) + 'px' );
+    $prlx_main.css( 'top', ( c_scroll - header_height ) + 'px' );
   }
 } );
 function hidePreload() {

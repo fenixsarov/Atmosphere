@@ -1,22 +1,29 @@
 
 /* FOOTER */
+#footer {
+  background-color: $cl-main-gray;
+  padding-bottom: 17px;
+}
 footer {
   display: flex;
   justify-content: space-between;
-  padding: 50px;
+  padding: 30px;
   background-color: $cl-elements-gray;
   font-family: Comfortaa;
   font-weight: 400;
   color: $cl-default-text;
-  border-radius: 5px;
+  // border-radius: 5px;
 
   .section {
+    display: flex;
+    flex-direction: column;
     .header {
       margin-bottom: 1em;
       text-align: left;
       font-size: 1.3em;
     }
     .content {
+      display: flex;
       font-size: .7em;
       a {
         text-decoration: none;
@@ -32,17 +39,24 @@ footer {
   .atm-socials {
     .content {
       a {
+        font-size: .5em;
         margin: 15px 1.1em 15px 0;
         font-size: 3em;
       }
     }
   }
   .atm-site-map {
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
+    .header {
+      text-align: center;
+    }
     ul {
       display: flex;
       flex-wrap: wrap;
       li {
+        font-size: 1.5em;
         flex-basis: 50%;
         text-align: left;
         list-style: none;
@@ -51,7 +65,13 @@ footer {
   }
   .atm-contacts {
     .content {
+      flex-direction: column;
+      font-size: 1.2em;
+      flex-wrap: nowrap;
       & > div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
         margin-top: 15px;
       }
       .big-text {
@@ -59,4 +79,17 @@ footer {
       }
     }
   }
+}
+
+@media (max-width: 768px){
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+@media (min-width: 1200px) {
+
 }

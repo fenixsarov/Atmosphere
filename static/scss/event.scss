@@ -2,8 +2,6 @@
 .events {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
   margin-top: 70px;
   margin-bottom: 70px;
 
@@ -54,6 +52,16 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .events {
+    flex-direction: column;
+    .event {
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 }
