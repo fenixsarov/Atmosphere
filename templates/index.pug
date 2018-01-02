@@ -1,13 +1,12 @@
 extends base
 | {% load staticfiles %}
 block content
-  .container-fluid.background-paralax(data-parallax="scroll", data-image-src="{% static 'images/fon1.png' %}")
+  .container-fluid.background-paralax
     .row
-      .container-fluid.slogan
-        .row
-          .container
-            .row
-              span.content САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
+      .slogan
+        .container
+          .row
+            span.content САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
   .container-fluid.main-content(data-parallax="scroll", data-image-src="{% static '/images/fon2.png' %}", data-speed="0.8")
     .row
       .container

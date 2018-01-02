@@ -1,15 +1,19 @@
-
-.background-paralax img {
-  width: 100%;
-}
-.background-paralax .slogan {
-  position: absolute;
-  width: 100%;
-  clear: both;
-  top: 30%;
-  opacity: 0;
-  /* right: -100%; */
-  /* transition: right 1s ease-in; */
+.background-paralax {
+  border: 1px solid gray;
+  position: relative;
+  background: url('../images/fon1.png') no-repeat center;
+  background-size: 120%;
+  .slogan {
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    opacity: 0;
+    span {
+      margin-right: 30px;
+    }
+    /* right: -100%; */
+    /* transition: right 1s ease-in; */
+  }
 }
 .background-paralax .content {
   float: right;
