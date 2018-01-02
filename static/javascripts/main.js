@@ -1,47 +1,50 @@
 $(function () {
   hidePreload();
-  var prev_s = $(document).scrollTop();
+  let prev_s = $(window).scrollTop();
   var w_height = $(window).height();
 
-  let paralax_background = $('.background-paralax');
-  var paralax_sl = $('.background-paralax .slogan');
+  let $header = $('#atm-header');
+  let $prlx_img1 = $('#atm-header .parallax-img');
+  let $prlx_slogan = $('#atm-header .atm-slogan');
+  let $prlx_main = $('#main-content .parallax-img');
 
-  let def_sl_spos = Number(paralax_sl.css('top').slice(0, -2));
+  let slogan_start = $prlx_slogan[0].offsetTop;
+  let header_height = w_height;
 
-  var sl_y_range = {
-    min: Number(paralax_sl.css('top').slice(0, -2)),
-    max: w_height - paralax_sl.height() - 5
-  };
-
-  $('.background-paralax').height(w_height);
+  $header.height(w_height);
 
   $(window).on('resize', function () {
     w_height = $(window).height();
-    $('.background-paralax').height(w_height);
+    $header.height(w_height);
+    header_height = w_height;
   });
 
   $(window).scroll(function (e) {
     var cur_s = $(this).scrollTop();
-    var delta = prev_s - cur_s;
+    let direction = (prev_s - cur_s) < 0 ? 1 : -1;
 
-    if (cur_s < paralax_background.height()) {
-      requestAnimationFrame(function () {
-        // paralax_background.css('background-position-y', (0 - (cur_s * 0.3)) + 'px');
-        // paralax_background.css('height', (0 - (cur_s * 0.3)) + 'px');
-      });
-    }
-    if (cur_s < sl_y_range.max) {
-      requestAnimationFrame(function () {
-        paralax_sl.css('top', (def_sl_spos + (cur_s * 0.5)) + 'px');
+    requestAnimationFrame(function () {
+      if (cur_s <= header_height) {
+        headerParallax(cur_s);
+        $prlx_main.css('position', 'absolute');
+      }
+      if (cur_s > header_height) {
+        // mainContentParallax( cur_s );
+        $prlx_main.css('position', 'fixed');
+      }
+    });
 
-        if (prev_s > cur_s && sl_y < sl_y_range.min) paralax_sl.css('top', `${sl_y_range.min}px`);
-        if (prev_s < cur_s && sl_y > sl_y_range.max) paralax_sl.css('top', `${sl_y_range.max}px`);
-      });
-    }
     prev_s = cur_s;
   });
-});
 
+  function headerParallax(c_scroll) {
+    $prlx_img1.css('top', (c_scroll * 0.5) + 'px');
+    $prlx_slogan.css('top', (slogan_start + c_scroll * 0.3) + 'px');
+  }
+  function mainContentParallax(c_scroll) {
+    $prlx_main.css('top', (c_scroll - header_height) + 'px');
+  }
+});
 function hidePreload() {
   $('#preloader').fadeOut('slow', function () {
     $('body').css({

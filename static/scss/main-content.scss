@@ -1,0 +1,13 @@
+@import "scenery";
+@import "event";
+
+#main-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  .parallax-content.parallax-img {
+    background-image: url('../images/fon2.png');
+    background-position: top center;
+  }
+}
