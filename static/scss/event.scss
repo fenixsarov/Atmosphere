@@ -3,20 +3,21 @@ section#events {
   position: relative;
   .bg-img {
     position: absolute;
-    top: 0;
+    top: -10%;
     left: 0;
+    z-index: 0;
     background-image: url('../images/live-photo.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 120%;
     width: 100%;
   }
 }
 .events {
+  padding-top: 90vh;
+  padding-bottom: 50px;
   .event {
-    padding-top: 90vh;
-    padding-bottom: 50px;
     .content {
       position: relative;
       overflow: hidden;

@@ -1,3 +1,12 @@
+let $carouselContent = null,
+  carouselIsAnimate = null,
+  carouselIndex = null,
+  carouselContentChild = null,
+  carouselLength = null,
+  carouselLastItem = null,
+  carouselFirstItem = null,
+  autoSlide = null;
+
 $(function () {
   hidePreload();
   let prev_s = $(window).scrollTop();
@@ -8,20 +17,35 @@ $(function () {
   let $prlx_slogan = $('#atm-header .atm-slogan');
   let $prlx_main = $('#main-content .parallax-img');
 
-  let $carousel = $("#scenery-carousel");
+  // CAROUSEL
+  $carouselContent = $("#scenery-carousel > .content");
+  carouselIsAnimate = false;
+  carouselIndex = 0;
+  carouselContentChild = $carouselContent.children();
+  carouselLength = carouselContentChild.length;
+  carouselLastItem = carouselContentChild[carouselLength - 1];
+  carouselFirstItem = $carouselContent.children()[0];
 
-  setInterval(function () {
-    slideTo($carousel);
-  }, 1500);
+  $('.carousel-control.left').on('click', function (e) {
+    slideLeft();
+  });
+  $('.carousel-control.right').on('click', function (e) {
+    slideRight();
+  });
+  $('#scenery-carousel').on('mouseover', function () {
+    clearInterval(autoSlide);
+  });
+  $('#scenery-carousel').on('mouseout', function () {
+    autoRotateSlide();
+  })
+
+  autoRotateSlide();
 
   let slogan_start = $prlx_slogan[0].offsetTop;
   let header_height = w_height;
 
-  // $header.height(w_height);
-
   $(window).on('resize', function () {
     w_height = $(window).height();
-    // $header.height(w_height);
     header_height = w_height;
   });
 
@@ -67,6 +91,66 @@ function startPage() {
     opacity: '1'
   }, 700);
 }
+
+function autoRotateSlide() {
+  autoSlide = setInterval(function () {
+    slideRight();
+  }, 2500);
+}
+function slideRight() {
+  if (carouselIsAnimate) {
+    return;
+  }
+  carouselIsAnimate = true;
+  carouselIndex++;
+
+  if (carouselIndex >= carouselLength) {
+    carouselContentChild.each(function (i) {
+      $(this).animate({
+        'left': i * $(this).width()
+      }, 1000, function () {
+        carouselIsAnimate = false;
+      });
+    });
+    carouselIndex = 0;
+  } else {
+    carouselContentChild.each(function (i) {
+      $(this).animate({
+        'left': $(this).position().left - $(this).width()
+      }, 1000, function () {
+        carouselIsAnimate = false;
+      });
+    });
+  }
+}
+function slideLeft(carousel) {
+  if (carouselIsAnimate) {
+    return;
+  }
+  carouselIsAnimate = true;
+  carouselIndex--;
+
+  if (carouselIndex < 0) {
+    carouselContentChild.each(function (i) {
+      $(this).animate({
+        'left': $(this).position().left - (carouselLength - 1) * $(this).width()
+      }, 1000, function () {
+        carouselIsAnimate = false;
+      });
+    });
+    carouselIndex = carouselLength - 1;
+  } else {
+    carouselContentChild.each(function (i) {
+      $(this).animate({
+        'left': $(this).position().left + $(this).width()
+      }, 1000, function () {
+        carouselIsAnimate = false;
+      });
+    });
+  }
+}
+
+
 function slideTo(carousel, number) {
   let item = carousel.find('.item');
   let item_count = item.length;

@@ -2,8 +2,7 @@
 
 #atm-header {
   position: relative;
-  // z-index: 1;
-  overflow: hidden;
+  z-index: 0;
   
   height: 100vh;
   
@@ -14,7 +13,7 @@
     left: 0;
     background-image: url('../images/header/header-background.png');
     background-size: cover;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
   }
   .atm-slogan {

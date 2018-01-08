@@ -4,7 +4,8 @@ $size-socials-btn: 1.5em;
 
 header {
   font-family: $header-font;
-  z-index: 5;
+  z-index: 2;
+  position: relative;
 }
 nav {
   position: relative;
