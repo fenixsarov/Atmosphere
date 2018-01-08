@@ -1,4 +1,33 @@
-$cl-main-gray: rgb(137, 137, 137);
-$cl-elements-gray: rgb(66, 65, 65);
+@font-face {
+  font-family: 'MyriadPro';
+  src: url("../fonts/MyriadPro.otf");
+}
+// @font-face {
+//   font-family: "Montserrat-Medium";
+//   // src: url('../fonts/montserrat/Montserrat-Medium.ttf');
+//   font-weight: 500;
+// }
+// @font-face {
+//   font-family: "Montserrat-Regular";
+//   // src: url('../fonts/montserrat/Montserrat-Regular.ttf');
+//   font-weight: 400;
+// }
+// @font-face {
+//   font-family: "Montserrat-Light";
+//   // src: url('../fonts/montserrat/Montserrat-Light.ttf');
+//   font-weight: 300;
+// }
 
-$cl-default-text: rgb(199, 199, 199);
+// $cl-main-gray: rgba(0, 0, 0, .5);
+$cl-main-gray: rgb(58,54,54);
+$cl-elements-gray: rgb(66, 65, 65);
+$cl-socials-gray: rgb(32, 22, 0);
+$cl-atm-red: rgb(235, 67, 63);
+
+$cl-default-text: rgb(255,255,255);
+
+// $main-font-medium: 'Montserrat-Medium', sans-serif;
+$main-font: 'Montserrat', sans-serif;
+// $main-font-light: 'Montserrat-Light', sans-serif;
+
+$header-font: 'MyraidPro';

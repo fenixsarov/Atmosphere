@@ -1,29 +1,38 @@
 @import "navigation";
 
 #atm-header {
-  z-index: 1;
+  position: relative;
+  // z-index: 1;
   overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-
+  
+  height: 100vh;
+  
   .parallax-content.parallax-img {
-    background-image: url('../images/fon1.png');
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: url('../images/header/header-background.png');
     background-size: cover;
+    height: 100vh;
+    width: 100%;
   }
   .atm-slogan {
-    z-index: 1;
-    position: absolute;
-    right: 0;
+    margin-top: 10vh;
+    z-index: 2;
     text-align: right;
-    margin-right: 0em;
-    padding-right: 1.5em;
-    top: 3em;
-    border-right: 7px solid $cl-elements-gray;
-    span {
-      font-size: 2.4em;
-      font-family: Comfortaa;
-      font-weight: 700;
-      color: #fff;
+    .content {
+      border-right: 7px solid $cl-atm-red;
+      margin-right: 1.5em;
+      padding-right: 1em;
+      
+      span {
+        font-family: $main-font;
+        font-weight: 500;
+        text-shadow: 0px 0px 50px #000000;
+        font-size: 2.4em;
+        color: #fff;
+      }
     }
   }
 }
@@ -34,7 +43,7 @@
 }
 @media (min-width: 768px) {
   .atm-slogan {
-    font-size: 1.3em;
+    font-size: 1em;
   }
 }
 

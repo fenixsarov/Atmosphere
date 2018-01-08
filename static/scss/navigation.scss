@@ -3,84 +3,71 @@
 $size-socials-btn: 1.5em;
 
 header {
-  z-index: 1;
-  width: 100%;
+  font-family: $header-font;
+  z-index: 5;
 }
 nav {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1em;
-  background-color: rgba(91, 91, 91, 0.9);
+  z-index: 1000;
+  
+  font-family: $main-font;
+  color: $cl-default-text;
+  
+  background-color: rgba(0, 0, 0, .5);
   padding: 1em;
   margin-bottom: $size-socials-btn * 2;
-  font-family: Comfortaa;
-  border-radius: 5px;
+  margin-top: 0;
 
   .atm-logo {
-    display: flex;
-    justify-content: center;
-    flex-basis: 20%;
-    align-items: center;
-    img {
-      width: 70%;
-    }
+    text-align: center;
   }
   .atm-main-menu {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     list-style: none;
+    align-items: center;
     li {
       display: flex;
-      a {
-        text-align: center;
-        flex-basis: 100%;
-        align-self: center;
-        color: #C7C7C7;
-        font-weight: 700;
-        text-decoration: none;
-        padding: 10px 15px;
-        border-right: 2px solid #FFFFFF;
-        border-bottom: none;
-      }
+      justify-content: center;
+      align-items: center;
+      flex-basis: 25%;
+      padding: 1em;
+      border-right: 2px solid #FFFFFF;
       &:last-child {
-        a {
-          border-right: none;
-        }
+        border-right: none;
+      }
+      a {
+        cursor: pointer;
+        color: $cl-default-text;
+        text-decoration: none;
       }
     }
   }
   .atm-address {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    color: #C7C7C7;
-
+    .row div {
+      // padding-bottom: 1rem;
+    }
     .city {
-      font-size: 1.5em;
-      font-weight: 700;
-      .fa-map-marker {
-        color: #EA423E;
-        font-size: 1.5em;
-        margin-right: 5px;
+      font-size: 2em;
+      font-weight: 200;
+      span {
+        letter-spacing: 0.7em;
       }
     }
     .street {
-      border-bottom: 2px solid #C7C7C7;
-      font-size: 1em;
-      padding-bottom: 3px;
+      font-weight: 100;
     }
     .phone {
-      text-align: right;
-      color: white;
-      font-size: 1em;
-      letter-spacing: 5px;
-      padding-top: 5px;
-      .fa {
-        margin-right: 5px;
+      span {
+        letter-spacing: .5em;
       }
+    }
+    i {
+      &.fa-map-marker {
+        color: $cl-atm-red;
+      }
+      text-align: center;
+      min-width: 20px;
+      margin-right: 15px;
     }
   }
   .atm-socials {
@@ -90,83 +77,48 @@ nav {
     justify-content: flex-end;
     font-size: 1.5em;
     right: 20px;
-    bottom: -$size-socials-btn + 0.3em;
+    bottom: -$size-socials-btn;
     a {
+      cursor: pointer;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #FFF;
-      margin: 5px;
+      margin-left: 10px;
       text-decoration: none;
+      background-color: $cl-socials-gray;
+      & > .fa {
+        z-index: 10;
+      }
+      & > .chain {
+        position: absolute;
+        z-index: 9;
+        width: 0;
+        height: 0;
+        border-top: $size-socials-btn solid $cl-socials-gray;
+        border-left: $size-socials-btn / 2 solid transparent;
+        border-right: $size-socials-btn / 2 solid transparent;
+        left: -$size-socials-btn / 2;
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    flex-wrap: wrap;
-    .atm-logo {
-      img {
-        width: 40%;
-      }
-    }
-    .atm-main-menu {
-      justify-content: space-between;
-    }
-    .atm-address {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      text-align: center;
-      .phone {
-        text-align: center;
-        flex-basis: 100%;
-        padding: 1em;
-      }
-    }
-    .atm-socials {
-      position: relative;
-      bottom: 0;
-    }
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .atm-main-menu {
-    flex-basis: 50%;
-    li {
-      flex-basis: 100%;
-    }
-  }
+  
 }
 @media (min-width: 768px) {
-  nav {
-    .atm-logo {
-      img {
-        width: 50%;
-      }
-    }
-    .atm-main-menu {
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
-    .atm-address {
-      font-size: .8em;
-    }
     .atm-socials {
       a {
-        border-radius: 3px;
-        background-color: $cl-elements-gray;
         width: $size-socials-btn;
         height: $size-socials-btn;
       }
     }
-  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
 }
 @media (min-width: 992px) {
-  nav {
-
-  }
 }
 @media (min-width: 1200px) {
 }

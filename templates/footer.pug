@@ -1,39 +1,36 @@
 | {% load staticfiles %}
-.flex-container-fluid#footer
-  .flex-container
-    footer
-      .section.atm-socials
-        .header мы в соцсетях
-        .content
-          a.fa.fa-vk(href="#")
-          a.fa.fa-instagram(href="#")
-          a.fa.fa-odnoklassniki(href="#")
-      .section.atm-site-map
-        .header карта сайта
-        .content
-          ul
-            li
-              a(href="#") аренда
-            li
-              a(href="#") услуги
-            li
-              a(href="#") наша команда
-            li
-              a(href="#") контакты
-            li
-              a(href="#") фотошкола
-            li
-              a(href="#") мероприятия
-            li
-              a(href="#") мастер-классы
-      .section.atm-contacts
-        .header контакты
-        .content
-          .address
-            div
-              p адрес: Саров
-            div
-              p ул.&nbsp;железнодорожная&nbsp;д.&nbsp;9
-          .phone
-            div  телефон:
-            .big-text 8(930)290-1212
+section.container-fluid#footer
+  .row
+    .container
+      footer.col-xs-12
+        .row
+          .atm-socials.col-sm-2.col-sm-offset-1
+            .header мы в соцсетях
+            .content
+              a.fa.fa-vk(href="#")
+              i.fa.fa-ellipsis-h
+              a.fa.fa-instagram(href="#")
+              i.fa.fa-ellipsis-h
+              a.fa.fa-odnoklassniki-square(href="#")
+          .atm-site-map.col-sm-5.col-sm-offset-1
+            .header карта сайта
+            .content
+              ul
+                li: a(href="#") аренда
+                li: a(href="#") услуги
+                li: a(href="#") наша команда
+                li: a(href="#") контакты
+                li: a(href="#") фотошкола
+                li: a(href="#") мероприятия
+                li: a(href="#") мастер-классы
+          .atm-contacts.col-sm-2
+            .header контакты
+            .content
+              .address
+                div
+                  p адрес: Саров
+                div
+                  p ул.&nbsp;железнодорожная&nbsp;д.&nbsp;9
+              .phone
+                div  телефон:
+                .big-text 8&#8194;(930)&#8194;290-1212

@@ -1,24 +1,9 @@
 | {% load staticfiles %}
-header.flex-container
-  nav
-    a.atm-logo(href="/")
-      img(src="{% static 'images/logo.png' %}")
-    ul.atm-main-menu
-      li: a(href="#") АРЕНДА
-      li: a(href="#") ОБОРУДОВАНИЕ
-      li: a(href="#") УСЛУГИ
-      li: a(href="#") НАША КОМАНДА
-    .atm-address
-      .city
-        i.fa.fa-map-marker
-        span САРОВ
-      .street
-        span УЛ. ЖЕЛЕЗНОДОРОЖНАЯ Д.9
-      .phone
-        i.fa.fa-phone
-        span 8(930)290-1212
-    .atm-socials
-      a(href="#")
-        i.fa.fa-instagram
-      a(href="#")
-        i.fa.fa-vk
+.container-fluid#atm-header
+  .parallax-content.parallax-img
+  header.row
+    include navigation
+  .row
+    .container.atm-slogan
+      div.content
+        span САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!

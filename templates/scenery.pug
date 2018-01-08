@@ -1,0 +1,17 @@
+| {% load staticfiles %}
+.row.scenery
+  .container
+    .row
+      #scenery-carousel.col-xs-12
+        ul.content
+          li.item.active
+          li.item
+          li.item
+        ol.carousel-indicators
+          li.active(data-slide-to="0")
+          li(data-slide-to="1")
+          li(data-slide-to="2")
+        a.left.carousel-control(href="#scenery-carousel", role="button", data-slide="prev")
+          span.fa.fa-chevron-left(aria-hidden=true)
+        a.right.carousel-control(href="#scenery-carousel", role="button", data-slide="next")
+          span.fa.fa-chevron-right(aria-hidden=true)

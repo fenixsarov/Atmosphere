@@ -1,0 +1,48 @@
+| {% load staticfiles %}
+nav.container
+  .row.beetwen-xs.middle-xs
+    a.col-sm-2.atm-logo(href="/")
+      img(src="{% static 'images/logo.png' %}")
+    .col-sm-7
+      ul.box.atm-main-menu
+        li: a(href="#") АРЕНДА
+        li: a(href="#") ОБОРУДОВАНИЕ
+        li: a(href="#") УСЛУГИ
+        li: a(href="#") НАША&nbsp;КОМАНДА
+    .col-sm-3.atm-address
+      .box.box-container
+        .row
+          .col-sm-12.city
+            .row
+              .col-xs-1.pics 
+                i.fa.fa-map-marker
+              .col-xs-11.desc
+                span САРОВ
+          .col-sm-12
+            .row
+              .col-xs-1.pics
+                i.fa.fa-ellipsis-v
+              .col-xs-12
+          .col-sm-12.street
+            .row
+              .col-xs-1.pics
+                i.fa.fa-home
+              .col-xs-11.desc
+                span ЖЕЛЕЗНОДОРОЖНАЯ&nbsp;Д.9
+          .col-sm-12
+            .row
+              .col-xs-1.pics
+                i.fa.fa-ellipsis-v
+              .col-xs-12
+          .col-sm-12.phone 
+            .row
+              .col-xs-1.pics
+                i.fa.fa-phone-square
+              .col-xs-11.desc
+                span 8(930)290-1212
+    .atm-socials
+      a(href="#")
+        span.chain
+        i.fa.fa-vk
+      a.instagram(href="#")
+        i.fa.fa-instagram
