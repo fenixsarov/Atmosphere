@@ -1,29 +1,31 @@
 // MEDIA REQUESTS FOR ALL DISPLAY TYPES
 $flex_margin: 15px;
 
-.flex-container-fluid {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.container {
+  max-width: 960px;
 }
-.flex-container {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  flex-wrap: wrap;
-  & > * {
-    flex-basis: 100%;
-  }
-}
-.flex-grow {
-  flex-grow: 1;
-}
+// .flex-container-fluid {
+//   position: relative;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-start;
+//   flex-wrap: wrap;
+// }
+// .flex-container {
+//   position: relative;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-start;
+//   max-width: 960px;
+//   margin: 0 auto;
+//   flex-wrap: wrap;
+//   & > * {
+//     flex-basis: 100%;
+//   }
+// }
+// .flex-grow {
+//   flex-grow: 1;
+// }
 @media (max-width: 768px){
   body {
     font-size: 10px;

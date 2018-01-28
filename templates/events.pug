@@ -1,43 +1,48 @@
 | {% load staticfiles %}
-.bg-img
-.row.events
-  .container
-    .row
-      .event.col-xs-12.col-md-4
-        .content
-          .image.event-1
-          .description
-            div.name ФОТОШКОЛА
-            div.desc Текст, отображающийся при наведении
-      .event.col-xs-12.col-md-4
-        .content
-          .image.event-2
-          .description
-            div.name МЕРОПРИЯТИЯ
-            div.desc Текст, отображающийся при наведении
-      .event.col-xs-12.col-md-4
-        .content
-          .image.event-3
-          .description
-            div.name МАСТЕР-КЛАССЫ
-            div.desc Текст, отображающийся при наведении
-      //- .parallax-content.parallax-img
-      //- .container
-      //-   .row
-      //-     .col-xs-12
-      //-       .box.box-container
-      //-         .event.col-xs-12.col-sm-4
-      //-           .content
-      //-             .image(style="background-image: url('static/images/events/school.jpg')")
-      //-             .description
-      //-               span ФОТОШКОЛА
-      //-         .event.col-xs-12.col-sm-4
-      //-           .content
-      //-             .image(style="background-image: url('static/images/events/measures.jpg')")
-      //-             .description
-      //-               span МЕРОПРИЯТИЯ
-      //-         .event.col-xs-12.col-sm-4
-      //-           .content
-      //-             .image(style="background-image: url('static/images/events/masters.jpg')")
-      //-             .description
-      //-               span МАСТЕР-КЛАССЫ
+//- .bg-img
+video(loop, preload, autoplay, poster="{% static 'video/poster.png' %}")
+  source(src="{% static 'video/steam-apple.mp4' %}" type='video/mp4')
+  source(src="{% static 'video/steam.mp4' %}" type='video/mp4')
+  source(src="{% static 'video/steam.webm' %}" type='video/webm')
+.container-fluid
+  .row
+    .container.events
+      .row.events
+        .event.col-xs-12.col-md-4
+          .content
+            .image.event-1
+            .description
+              div.name ФОТОШКОЛА
+              div.desc Текст, отображающийся при наведении
+        .event.col-xs-12.col-md-4
+          .content
+            .image.event-2
+            .description
+              div.name МЕРОПРИЯТИЯ
+              div.desc Текст, отображающийся при наведении
+        .event.col-xs-12.col-md-4
+          .content
+            .image.event-3
+            .description
+              div.name МАСТЕР-КЛАССЫ
+              div.desc Текст, отображающийся при наведении
+        //- .parallax-content.parallax-img
+        //- .container
+        //-   .row
+        //-     .col-xs-12
+        //-       .box.box-container
+        //-         .event.col-xs-12.col-sm-4
+        //-           .content
+        //-             .image(style="background-image: url('static/images/events/school.jpg')")
+        //-             .description
+        //-               span ФОТОШКОЛА
+        //-         .event.col-xs-12.col-sm-4
+        //-           .content
+        //-             .image(style="background-image: url('static/images/events/measures.jpg')")
+        //-             .description
+        //-               span МЕРОПРИЯТИЯ
+        //-         .event.col-xs-12.col-sm-4
+        //-           .content
+        //-             .image(style="background-image: url('static/images/events/masters.jpg')")
+        //-             .description
+        //-               span МАСТЕР-КЛАССЫ

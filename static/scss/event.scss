@@ -1,22 +1,28 @@
 /* EVENTS */
 section#events {
   position: relative;
-  .bg-img {
-    position: absolute;
-    top: -10%;
-    left: 0;
+  video {
+    margin-top: -110px;
+    margin-bottom: -150px;
     z-index: 0;
-    background-image: url('../images/live-photo.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 120%;
-    width: 100%;
+    width: 100vw;
   }
+  // .bg-img {
+  //   position: absolute;
+  //   top: -10%;
+  //   left: 0;
+  //   z-index: 0;
+  //   // background-image: url('../images/atmsteam.gif');
+  //   // background-position: center;
+  //   // background-size: cover;
+  //   // background-repeat: no-repeat;
+  //   height: 120%;
+  //   width: 100%;
+  // }
 }
 .events {
-  padding-top: 90vh;
-  padding-bottom: 50px;
+  // padding-top: 90vh;
+  // padding-bottom: 50px;
   .event {
     .content {
       position: relative;
