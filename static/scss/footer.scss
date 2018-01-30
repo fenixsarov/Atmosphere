@@ -8,10 +8,12 @@ footer {
   background-color: $cl-half-black;
   color: $cl-default-text;
   padding: 2em;
+  padding-top: 2.3em;
+  color: white;
   
   .header {
-    margin-bottom: 2em;
-    font-size: 1.3em;
+    margin-bottom: 1.05em;
+    font-size: 1.0em;
   }
   .content {
     font-family: $main-font;
@@ -22,6 +24,8 @@ footer {
     color: #FFFFFF;
   }
   .atm-socials {
+    font-size: 1.03em;
+    padding-left: 2.97rem;
     .content {
       display: flex;
       justify-content: flex-start;
@@ -30,27 +34,35 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.4em;
+        font-size: 1.2em;
         padding: .5em;
         &:first-child {
-          padding-left: 0;
+          padding-left: 0rem;
         }
         // margin: 15px 1.1em 15px 0;
       }
     }
   }
   .atm-site-map {
-    margin-left: 20px;
+    margin-left: 0.6em;
     margin-right: 20px;
     ul {
       display: flex;
       flex-wrap: wrap;
+      font-size: 0.71em;
+      padding-top: 0.45em;
+      margin-top: 0;
+      list-style: none;
       li {
-        font-size: 1em;
-        flex-basis: 33.33333%;
+        flex-basis: 29.35%;
         font-weight: 100;
         text-align: left;
-        list-style: none;
+        list-style-type: none;
+        width: auto;
+        a {
+          font-weight: 300;
+          color: white;
+        }
       }
     }
   }
@@ -59,17 +71,25 @@ footer {
       flex-direction: column;
       flex-wrap: nowrap;
       font-family: $main-font;
-      font-weight: 200;
+      font-weight: 300;
+      font-size: 0.75em;
+      .address {
+        margin-top: 1.87em;
+        p {
+          margin-bottom: 0.45em;
+        }
+      }
       & > div {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        margin-top: 15px;
+        margin-top: 0;
       }
       .big-text {
-        font-size: 1.3em;
+        font-size: 1.1em;
         font-family: $main-font;
-        font-weight: 500;
+        font-weight: 600;
+        margin-top: 0.45em;
       }
     }
   }
