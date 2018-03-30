@@ -7,7 +7,6 @@ ez-setup==0.9
 libsass==0.13.4
 olefile==0.44
 packaging==16.8
-Pillow==4.1.1
 pyparsing==2.2.0
 pypugjs==5.1.*
 pytz==2017.2
