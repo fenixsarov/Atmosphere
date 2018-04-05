@@ -1,12 +1,12 @@
 extends base
 | {% load staticfiles %}
 block content
-  include header
+  include includes/header_inc
   //- .container-fluid#main-content
   section.container-fluid#scenery
-    include scenery
+    include includes/scenery_inc
   section#events
-    include events
+    include includes/events_inc
   section.container-fluid#our-team
-    include team
-  include footer
+    include includes/team_inc
+  include includes/footer_inc

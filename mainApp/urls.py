@@ -1,6 +1,16 @@
 from django.conf.urls import url
-from mainApp import views
+#from mainApp import views
+from mainApp.views import *
 
 urlpatterns = (
-    url(r'^$', views.main, name='index'),
+    # url(r'^$', views.main, name='index'),
+    url(r'^$', Main.as_view()),
+    url(r'^halls/$', Halls.as_view()),
+    url(r'^graduations/$', Graduations.as_view()),
+    url(r'^sessions/$', Sessions.as_view()),
+    url(r'^school/$', School.as_view()),
+    url(r'^events/$', Events.as_view()),
+    url(r'^about/$', About.as_view()),
 )
+
+
