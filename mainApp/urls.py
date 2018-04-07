@@ -11,6 +11,7 @@ urlpatterns = (
     url(r'^school/$', School.as_view()),
     url(r'^events/$', Events.as_view()),
     url(r'^about/$', About.as_view()),
+    url(r'^useful/$', Useful.as_view()),
 )
 
 

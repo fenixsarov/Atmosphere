@@ -47,5 +47,8 @@ class About(BaseView):
     page_name = 'about'
 
 
+class Useful(BaseView):
+    template_name = 'useful.pug'
+    page_name = 'useful'
 
 # Create your views here.

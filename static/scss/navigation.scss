@@ -1,6 +1,6 @@
 /** NAVIGATION */
 
-$size-socials-btn: 2em;
+$size-socials-btn: 1.8em;
 
 header {
   z-index: 2;
@@ -91,10 +91,14 @@ nav {
   // display: flex;
   // align-items: stretch;
   // justify-content: flex-end;
+  #atm-socials-align {
+    padding-right: 0;
+  }
   font-size: 1.5em;
   // right: 20px;
   // bottom: -$size-socials-btn;
-  padding-right: 20px;
+  padding-right: 0;
+
   .atm-socials-container {
     display: flex;
     justify-content: flex-end;
@@ -106,7 +110,7 @@ nav {
       justify-content: center;
       align-items: center;
       color: #FFF;
-      margin-left: 10px;
+      margin-left: 0;
       text-decoration: none;
       
       width: $size-socials-btn;
@@ -121,9 +125,9 @@ nav {
         z-index: 9;
         width: 0;
         height: 0;
-        border-top: $size-socials-btn solid $cl-socials-gray;
+        border-top: $size-socials-btn solid #fff;
         border-left: $size-socials-btn / 2 solid transparent;
-        border-right: $size-socials-btn / 2 solid transparent;
+        border-right: $size-socials-btn solid #fff;
         left: -$size-socials-btn / 2;
       }
     }
