@@ -1,52 +1,57 @@
 | {% load staticfiles %}
-header.container
-  nav.row.beetwen-xs.middle-xs
-    a.col-sm-2.atm-logo(href="/")
-      img(src="{% static 'images/logo.png' %}")
-    .col-sm-7
-      ul.box.atm-main-menu
-        li: a(href="/sessions") ФОТОСЕССИИ
-        li: a(href="/school") ФОТОШКОЛА
-        li: a(href="/events") МЕРОПРИЯТИЯ
-        li: a(href="/about") О&nbsp;НАС
-    .col-sm-3.atm-address
-      .box.box-container
-        .row
-          .col-sm-12.city
-            .row
-              .col-xs-2.pics 
-                img(src="{% static 'images/bulavka.png' %}")
-                //- i.fa.fa-map-marker
-              .col-xs-10.desc
-                span С А Р О В
-          .col-sm-12.leader
-            .row
-              .col-xs-2.pics
-                i.fa.fa-ellipsis-v
-              .col-xs-10
-          .col-sm-12.street
-            .row
-              .col-xs-2.pics
-                i.fa.fa-home
-              .col-xs-10.desc
-                span ЖЕЛЕЗНОДОРОЖНАЯ&nbsp;Д.9
-          .col-sm-12
-            .row
-              .col-xs-2.pics
-                i.fa.fa-ellipsis-v
-              .col-xs-10
-          .col-sm-12.phone 
-            .row
-              .col-xs-2.pics
-                i.fa.fa-phone-square
-              .col-xs-10.desc
-                span 8(930)290-1212
-  .row.atm-socials
-    .col-md-offset-10.col-md-2#atm-socials-align
-      .atm-socials-container
-        a(href="https://vk.com/atmosphera_sarov")
-          span.chain
-          i.fa
-            img(src="{% static 'images/header/vk_logo_22px.png' %}", width="23px", height="23px" )
-        a.instagram(href="https://www.instagram.com/atmospherasarov/")
-          i.fa.fa-instagram
+.col-md
+  .row
+    nav.col-md
+      .row
+        a.col-md-2.atm-logo(href="/")
+          img(src="{% static 'images/logo.png' %}")
+        .col-md-8.atm-main-menu
+          ul.row
+            li.col-md.atm-main-menu-item
+              a(href="#") ФОТОСЕССИИ
+              ul.atm-main-menu-submenu
+                li.col-md: a(href="#") СЪЁМКИ
+                li.col-md: a(href="#") ЗАЛЫ
+                li.col-md: a(href="#") ВЫПУСКНЫЕ СЪЁМКИ
+            li.atm-menu-splitter
+            li.col-md.atm-main-menu-item
+              a(href="#") ФОТОШКОЛА
+              ul.atm-main-menu-submenu
+                li.col-md: a(href="#") ПОЛЕЗНОЕ
+            li.atm-menu-splitter
+            li.col-md.atm-main-menu-item
+              a(href="#") МЕРОПРИЯТИЯ
+              ul.atm-main-menu-submenu
+                li.col-md: a(href="#") МАСТЕР-КЛАССЫ
+            li.atm-menu-splitter
+            li.col-md.atm-main-menu-item: a(href="#") О НАС
+        .col-md-2.atm-main-address
+          .row.city
+            .col-md-2.pics 
+              i.fa.fa-map-marker-alt
+            .col-md-10.desc
+              span САРОВ
+          .row
+            .col-md-2.pics
+              i.fa.fa-ellipsis-v
+            .col-md-10
+          .row.street
+            .col-md-2.pics
+              i.fa.fa-home
+            .col-md-10.desc
+              span ЖЕЛЕЗНОДОРОЖНАЯ&nbsp;Д.9
+          .row
+            .col-md-2.pics
+              i.fa.fa-ellipsis-v
+            .col-md-10
+          .row.phone 
+            .col-md-2.pics
+              i.fa.fa-phone-square
+            .col-md-10.desc
+              span 8(930)290-1212
+  .row.end-sm.atm-socials
+    a.atm-socials-vk(href="https://vk.com/atmosphera_sarov")
+      span.chain
+      i.fab.fa-vk
+    a.atm-socials-instagram(href="https://www.instagram.com/atmospherasarov/")
+      i.fab.fa-instagram

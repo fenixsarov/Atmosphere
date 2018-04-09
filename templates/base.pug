@@ -9,17 +9,16 @@ html(lang="en")
     title Фотостудия &quot;Атмосфера&quot;
     link(rel="shortcut icon", type="image/png", href="{% static 'images/favicon.ico' %}")
     link(rel="stylesheet", href="{% static 'css/normalize.css' %}")
-    link(rel="stylesheet", href="{% static 'css/flexboxgrid.min.css' %}")
-    link(rel="stylesheet", href="{% static 'css/font-awesome.min.css' %}")
+    link(rel="stylesheet", href="{% static 'css/flexboxgrid.css' %}")
+    link(rel="stylesheet", href="{% static 'css/fontawesome.css' %}")
 
-    link(href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet")
+    //- link(href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet")
     
     | {% compress css %}
     link(rel="stylesheet", type="text/x-scss", charset="utf-8", href="{% static 'scss/main.scss' %}")
     | {% endcompress %}
 
     script(src="{% static 'javascripts/jquery.min.js' %}")
-    script(src="{% static 'javascripts/main.js' %}")
-body
-  #preloader
-  block content
+    //- script(src="{% static 'javascripts/main.js' %}")
+  body
+    block content

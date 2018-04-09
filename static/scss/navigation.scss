@@ -1,135 +1,153 @@
-/** NAVIGATION */
-
-$size-socials-btn: 1.8em;
-
-header {
-  z-index: 2;
-  position: relative;
-}
 nav {
   position: relative;
+  justify-content: space-between;
+  background-color: rgba(86, 79, 79, .8);
+  align-items: center;
   z-index: 1000;
-  
-  font-family: $main-font;
-  color: $cl-default-text;
-  
-  background-color: $cl-half-black;
-  padding: 15px;
-  margin-top: 0;
-
+  padding: 20px 30px !important;
+  & > .row {
+    align-items: center;
+  }
   .atm-logo {
-    text-align: center;
     img {
-      width: 75%;
+      width: 90%;
     }
   }
   .atm-main-menu {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    font-size: 15px;
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-basis: 25%;
-      padding: 1em;
-      border-right: 2px solid #FFFFFF;
-      &:last-child {
-        border-right: none;
+    & > ul {
+      position: relative;
+      font-size: 18px;
+      align-items: flex-start;
+      list-style: none;
+      font-family: 'MontserratMedium';
+      color: $cl-default-text;
+      font-size: 18px;
+      // line-height: 50px;
+      // letter-spacing: 20px;
+      .atm-menu-splitter {
+        border-left: 1px solid #FFFFFF;
+        height: 18px;
       }
-      a {
-        cursor: pointer;
-        color: $cl-default-text;
-        text-decoration: none;
+      .atm-main-menu-item {
+        position: relative;
+        display: inline-block;
+        color: #FFFFFF;
+        text-align: center;
+        &:hover {
+          & > a:after {
+            width: 70%;
+          }
+          & > .atm-main-menu-submenu {
+            display: block;
+          }
+        }
+        a {
+          cursor: pointer;
+          position: relative;
+          display: block;
+          padding-bottom: 5px 15px;
+          border-bottom: 1px solid transparent;
+          text-align: center;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            
+            border-top: 1px solid #FFFFFF;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            transition: width .3s ease-in;
+          }
+        }
       }
     }
   }
-  .atm-address {
+  .atm-main-menu-submenu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    margin-top: -7px;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    li {
+      min-width:170px;
+      float:none;
+      display:list-item;
+      position: relative;
+      text-align: center;
+      &:first-child {
+        padding-top: 21px;
+      }
+    }
+    a {
+      display: block;
+      font-family: 'MontserratMedium';
+      font-size: 14px;
+      padding: 15px;
+      margin: 2px 0;
+      color: #FFFFFF;
+      cursor: pointer;
+      background-color: rgba(95, 87, 87, .9);
+      text-align: center;
+      &:hover {
+        background-color: rgb(178, 31, 36);
+      }
+    }
+  }
+  .atm-main-address {
+    font-family: 'MontserratMedium';
     .pics {
       text-align: center;
-    }
-    .desc {
       align-self: center;
     }
+    
     .city {
-      font-size: 2em;
-      font-weight: 200;
       .pics {
-        img {
-          width: 100%;
-        }
+        font-size: 18px;
       }
-      span {
-        display: block;
-        letter-spacing: 3px;
+      .desc {
+        font-size: 31px;
+        letter-spacing: 9px;
       }
     }
     .street {
-      font-weight: 100;
-      font-size: 13px;
+      .desc {
+        font-size: 11px;
+      }
     }
     .phone {
-      span {
-        letter-spacing: 0.29em;
-      }
-    }
-    i {
-      text-align: center;
-      min-width: 20px;
-      &.fa-map-marker {
-        color: $cl-atm-red;
-      }
-      &.fa-home {
-        font-size:1.3em;
+      .desc {
+        font-size: 20px;
       }
     }
   }
 }
+$atm-socials-btn-size: 47px;
 .atm-socials {
-  // position: absolute;
-  // display: flex;
-  // align-items: stretch;
-  // justify-content: flex-end;
-  #atm-socials-align {
-    padding-right: 0;
-  }
-  font-size: 1.5em;
-  // right: 20px;
-  // bottom: -$size-socials-btn;
-  padding-right: 0;
-
-  .atm-socials-container {
-    display: flex;
-    justify-content: flex-end;
-    align-content: flex-start;
-    a {
-      cursor: pointer;
+  a {
+    font-size: 24px;
+    padding: 10px;
+    &.atm-socials-vk {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #FFF;
-      margin-left: 0;
-      text-decoration: none;
-      
-      width: $size-socials-btn;
-      height: $size-socials-btn;
-      
-      background-color: $cl-socials-gray;
-      & > .fa {
-        z-index: 10;
-      }
+      background-color: rgb(255, 255, 255);
+      color: rgb(13, 17, 16);
       & > .chain {
         position: absolute;
         z-index: 9;
         width: 0;
         height: 0;
-        border-top: $size-socials-btn solid #fff;
-        border-left: $size-socials-btn / 2 solid transparent;
-        border-right: $size-socials-btn solid #fff;
-        left: -$size-socials-btn / 2;
+        border-top: $atm-socials-btn-size solid #fff;
+        border-left: $atm-socials-btn-size / 2 solid transparent;
+        left: -$atm-socials-btn-size / 2;
+        top: 0;
       }
+    }
+    &.atm-socials-instagram {
+      margin-left: 4px;
+      background-color: rgb(13, 17, 16);
     }
   }
 }
