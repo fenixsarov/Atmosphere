@@ -1,57 +1,65 @@
 | {% load staticfiles %}
-.col-md
-  .row
-    nav.col-md
-      .row
-        a.col-md-2.atm-logo(href="/")
-          img(src="{% static 'images/logo.png' %}")
-        .col-md-8.atm-main-menu
-          ul.row
-            li.col-md.atm-main-menu-item
-              a(href="#") ФОТОСЕССИИ
-              ul.atm-main-menu-submenu
-                li.col-md: a(href="#") СЪЁМКИ
-                li.col-md: a(href="#") ЗАЛЫ
-                li.col-md: a(href="#") ВЫПУСКНЫЕ СЪЁМКИ
-            li.atm-menu-splitter
-            li.col-md.atm-main-menu-item
-              a(href="#") ФОТОШКОЛА
-              ul.atm-main-menu-submenu
-                li.col-md: a(href="#") ПОЛЕЗНОЕ
-            li.atm-menu-splitter
-            li.col-md.atm-main-menu-item
-              a(href="#") МЕРОПРИЯТИЯ
-              ul.atm-main-menu-submenu
-                li.col-md: a(href="#") МАСТЕР-КЛАССЫ
-            li.atm-menu-splitter
-            li.col-md.atm-main-menu-item: a(href="#") О НАС
-        .col-md-2.atm-main-address
-          .row.city
-            .col-md-2.pics 
-              i.fa.fa-map-marker-alt
-            .col-md-10.desc
-              span САРОВ
-          .row
-            .col-md-2.pics
-              i.fa.fa-ellipsis-v
-            .col-md-10
-          .row.street
-            .col-md-2.pics
-              i.fa.fa-home
-            .col-md-10.desc
-              span ЖЕЛЕЗНОДОРОЖНАЯ&nbsp;Д.9
-          .row
-            .col-md-2.pics
-              i.fa.fa-ellipsis-v
-            .col-md-10
-          .row.phone 
-            .col-md-2.pics
-              i.fa.fa-phone-square
-            .col-md-10.desc
-              span 8(930)290-1212
-  .row.end-sm.atm-socials
-    a.atm-socials-vk(href="https://vk.com/atmosphera_sarov")
-      span.chain
-      i.fab.fa-vk
-    a.atm-socials-instagram(href="https://www.instagram.com/atmospherasarov/")
-      i.fab.fa-instagram
+//- - var under_menu = [{"text": "ТЕМНЫЙ ЗАЛ","rel":"action"},{"text": "СВЕТЛЫЙ ЗАЛ", "rel":"action"}]
+section#atm-navigation
+  .container
+    .row
+      .col-md.atm-main-nav
+        nav.row
+          a.col-md-2.atm-logo(href="/")
+            img(src="{% static 'images/logo.png' %}")
+          .col-md-8.atm-main-menu
+            ul.row
+              li.col-md.atm-main-menu-item
+                a(href="#") ФОТОСЕССИИ
+                ul.atm-main-menu-submenu
+                  li.col-md.atm-submenu-item: a(href="/sessions") СЪЁМКИ
+                  li.col-md.atm-submenu-item: a(href="/halls") ЗАЛЫ
+                  li.col-md.atm-submenu-item: a(href="/graduations") ВЫПУСКНЫЕ СЪЁМКИ
+              li.atm-menu-splitter
+              li.col-md.atm-main-menu-item
+                a(href="#") ФОТОШКОЛА
+                ul.atm-main-menu-submenu
+                  li.col-md.atm-submenu-item: a(href="/useful") ПОЛЕЗНОЕ
+              li.atm-menu-splitter
+              li.col-md.atm-main-menu-item
+                a(href="#") МЕРОПРИЯТИЯ
+                ul.atm-main-menu-submenu
+                  li.col-md.atm-submenu-item: a(href="/school") МАСТЕР-КЛАССЫ
+              li.atm-menu-splitter
+              li.col-md.atm-main-menu-item: a(href="/about") О НАС
+          .col-md-2.atm-main-address
+            .row.city
+              .col-md-2.pics 
+                i.fa.fa-map-marker-alt
+              .col-md-10.desc
+                span САРОВ
+            .row
+              .col-md-2.pics
+                i.fa.fa-ellipsis-v
+              .col-md-10
+            .row.street
+              .col-md-2.pics
+                i.fa.fa-home
+              .col-md-10.desc
+                span ЖЕЛЕЗНОДОРОЖНАЯ&nbsp;Д.9
+            .row
+              .col-md-2.pics
+                i.fa.fa-ellipsis-v
+              .col-md-10
+            .row.phone 
+              .col-md-2.pics
+                i.fa.fa-phone-square
+              .col-md-10.desc
+                span 8(930)290-1212
+        .row.atm-under-menu-panel
+          .col-md-10.center-md
+            if under_menu
+              ul.atm-under-menu
+                each um_item in under_menu
+                  li.atm-submenu-item: a(href="#") #{um_item.text}
+          .col-md-2.end-md.atm-socials
+            a.atm-socials-vk(href="https://vk.com/atmosphera_sarov")
+              span.chain
+              i.fab.fa-vk
+            a.atm-socials-instagram(href="https://www.instagram.com/atmospherasarov/")
+              i.fab.fa-instagram

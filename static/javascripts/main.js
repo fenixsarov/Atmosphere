@@ -13,9 +13,7 @@ $(function () {
   var w_height = $(window).height();
 
   let $header = $('#atm-header');
-  let $prlx_img1 = $('#atm-header .parallax-img');
-  let $prlx_slogan = $('#atm-header .atm-slogan');
-  let $prlx_main = $('#main-content .parallax-img');
+  let $prlx_img1 = $('#atm-header-slogan-section .parallax-img');
 
   // CAROUSEL
   $carouselContent = $("#scenery-carousel > .content");
@@ -41,7 +39,6 @@ $(function () {
 
   autoRotateSlide();
 
-  let slogan_start = $prlx_slogan[0].offsetTop;
   let header_height = w_height;
 
   $(window).on('resize', function () {
@@ -68,8 +65,8 @@ $(function () {
   });
 
   function headerParallax(c_scroll) {
+    console.log("SCROOL");
     $prlx_img1.css('top', (c_scroll * 0.5) + 'px');
-    // $prlx_slogan.css('top', (slogan_start + c_scroll * 0.3) + 'px');
   }
   function mainContentParallax(c_scroll) {
     $prlx_main.css('top', (c_scroll - header_height) + 'px');

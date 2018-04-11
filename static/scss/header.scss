@@ -1,52 +1,105 @@
 @import "navigation";
 
-nav {
+#atm-header-slogan-section {
   position: relative;
-  z-index: 0;
-  
-  // height: 100vh;
-  // min-height: 500px;
-  
-  // .parallax-content.parallax-img {
-  //   position: absolute;
-  //   z-index: 1;
-  //   top: 0;
-  //   left: 0;
-  //   background-image: url('../images/header/header-background.png');
-  //   background-size: cover;
-  //   height: 130vh;
-  //   min-height: 500px;
-  //   width: 100%;
-  // }
-  // .atm-slogan {
-  //   z-index: 3;
-  //   .slogan {
-  //     border-right: 7px solid $cl-atm-red;
-  //     text-align: right;
-  //     margin-right: 20px;
-  //     margin-top: 15vh;
-  //     span {
-  //       display: inline-block;
-  //       padding-right: 48px;
-  //       font-family: $main-font;
-  //       font-weight: 500;
-  //       text-shadow: 0px 0px 50px #000000;
-  //       font-size: 2.6em;
-  //       color: #fff;
-  //     }
-  //   }
-    // display: flex;
-    // justify-content: flex-end;
-    // align-content: center;
-    
-    // z-index: 3;
-    // margin-top: 10vh;
-    // text-align: right;
-    // border-right: 7px solid $cl-atm-red;
-    // margin-right: 20px;
-    // padding-right: 1em;
-  // }
+  min-height: 750px;
+  .parallax-img {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    right: -10px;
+    bottom: 0;
+    // margin-left: -10px;
+    // margin-right: -10px;
+    // padding: 0;
+    // max-width: inherit;
+    background-image: url('../images/header/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  .atm-header-img-container {
+    // margin-left: -10px;
+    // margin-right: -10px;
+    overflow: hidden;
+    max-height: 750px;
+    .parallax-img {
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/header/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+    }
+    // .atm-header-img-container
+  }
+  .atm-slogan {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    z-index: 3;
+    .slogan {
+      border-right: 7px solid $cl-atm-red;
+      text-align: right;
+      span {
+        display: inline-block;
+        padding-right: 48px;
+        font-family: $main-font;
+        font-weight: 500;
+        text-shadow: 0px 0px 50px #000000;
+        font-size: 2.6em;
+        color: #fff;
+      }
+    }
+  }
 }
+// nav {
+//   position: relative;
+//   z-index: 0;
+  
+//   // height: 100vh;
+//   // min-height: 500px;
+  
+//   // .parallax-content.parallax-img {
+//   //   position: absolute;
+//   //   z-index: 1;
+//   //   top: 0;
+//   //   left: 0;
+//   //   background-image: url('../images/header/header-background.png');
+//   //   background-size: cover;
+//   //   height: 130vh;
+//   //   min-height: 500px;
+//   //   width: 100%;
+//   // }
+//   // .atm-slogan {
+//   //   z-index: 3;
+//   //   .slogan {
+//   //     border-right: 7px solid $cl-atm-red;
+//   //     text-align: right;
+//   //     margin-right: 20px;
+//   //     margin-top: 15vh;
+//   //     span {
+//   //       display: inline-block;
+//   //       padding-right: 48px;
+//   //       font-family: $main-font;
+//   //       font-weight: 500;
+//   //       text-shadow: 0px 0px 50px #000000;
+//   //       font-size: 2.6em;
+//   //       color: #fff;
+//   //     }
+//   //   }
+//     // display: flex;
+//     // justify-content: flex-end;
+//     // align-content: center;
+    
+//     // z-index: 3;
+//     // margin-top: 10vh;
+//     // text-align: right;
+//     // border-right: 7px solid $cl-atm-red;
+//     // margin-right: 20px;
+//     // padding-right: 1em;
+//   // }
+// }
 @media (max-width: 768px) {
   .atm-slogan {
     font-size: 1em;

@@ -1,93 +1,126 @@
-nav {
+#atm-navigation {
+  position: absolute;
+  width: 100%;
+}
+.atm-main-nav {
   position: relative;
-  justify-content: space-between;
-  background-color: rgba(86, 79, 79, .8);
-  align-items: center;
+  top: 0;
   z-index: 1000;
-  padding: 20px 30px !important;
-  & > .row {
+  nav {
+    position: relative;
+    background-color: rgba(0, 0, 0, .5);
     align-items: center;
-  }
-  .atm-logo {
-    img {
-      width: 90%;
-    }
-  }
-  .atm-main-menu {
-    & > ul {
-      position: relative;
-      font-size: 18px;
-      align-items: flex-start;
-      list-style: none;
-      font-family: 'MontserratMedium';
-      color: $cl-default-text;
-      font-size: 18px;
-      // line-height: 50px;
-      // letter-spacing: 20px;
-      .atm-menu-splitter {
-        border-left: 1px solid #FFFFFF;
-        height: 18px;
+    z-index: 10;
+    padding: 20px 10px !important;
+    .atm-logo {
+      img {
+        width: 90%;
       }
-      .atm-main-menu-item {
+    }
+    .atm-main-menu {
+      & > ul {
         position: relative;
-        display: inline-block;
-        color: #FFFFFF;
-        text-align: center;
-        &:hover {
-          & > a:after {
-            width: 70%;
+        font-size: 18px;
+        list-style: none;
+        font-family: 'MontserratMedium';
+        color: $cl-default-text;
+        font-size: 18px;
+        .atm-menu-splitter {
+          border-left: 1px solid #FFFFFF;
+          height: 18px;
+        }
+        .atm-main-menu-item {
+          position: relative;
+          display: inline-block;
+          color: #FFFFFF;
+          text-align: center;
+          &:hover {
+            & > a:after {
+              width: 70%;
+            }
+            & > .atm-main-menu-submenu {
+              display: block;
+            }
           }
-          & > .atm-main-menu-submenu {
+          a {
+            cursor: pointer;
+            position: relative;
             display: block;
+            padding-bottom: 5px 15px;
+            border-bottom: 1px solid transparent;
+            text-align: center;
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: -8px;
+              
+              border-top: 1px solid #FFFFFF;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 0%;
+              transition: width .3s ease-in;
+            }
           }
+        }
+      }
+    }
+    .atm-main-menu-submenu {
+      display: none;
+      position: absolute;
+      list-style-type: none;
+      margin-top: -7px;
+      top: 100%;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%);
+      li {
+        &:first-child {
+          padding-top: 21px;
         }
         a {
-          cursor: pointer;
-          position: relative;
-          display: block;
-          padding-bottom: 5px 15px;
-          border-bottom: 1px solid transparent;
-          text-align: center;
-          &:after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            
-            border-top: 1px solid #FFFFFF;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0%;
-            transition: width .3s ease-in;
-          }
+          margin: 4px 0;
+        }
+      }
+    }
+    .atm-main-address {
+      font-family: 'MontserratMedium';
+      .pics {
+        text-align: center;
+        align-self: center;
+      }
+      
+      .city {
+        .pics {
+          font-size: 18px;
+        }
+        .desc {
+          font-size: 31px;
+          letter-spacing: 9px;
+        }
+      }
+      .street {
+        .desc {
+          font-size: 11px;
+        }
+      }
+      .phone {
+        .desc {
+          font-size: 20px;
         }
       }
     }
   }
-  .atm-main-menu-submenu {
-    display: none;
-    position: absolute;
-    list-style-type: none;
-    margin-top: -7px;
-    top: 100%;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    li {
-      min-width:170px;
-      float:none;
-      display:list-item;
-      position: relative;
-      text-align: center;
-      &:first-child {
-        padding-top: 21px;
-      }
-    }
+  .atm-submenu-item {
+    min-width:170px;
+    float:none;
+    display:list-item;
+    position: relative;
+    text-align: center;
     a {
       display: block;
       font-family: 'MontserratMedium';
       font-size: 14px;
       padding: 15px;
-      margin: 2px 0;
       color: #FFFFFF;
       cursor: pointer;
       background-color: rgba(95, 87, 87, .9);
@@ -97,57 +130,47 @@ nav {
       }
     }
   }
-  .atm-main-address {
-    font-family: 'MontserratMedium';
-    .pics {
-      text-align: center;
-      align-self: center;
+  $atm-socials-btn-size: 47px;
+  .atm-under-menu-panel {
+    z-index: 2;
+  }
+  .atm-under-menu {
+    position: relative;
+    z-index: 1;
+    display: inline;
+    list-style: none;
+    .atm-submenu-item {
+      display: inline-block;
     }
-    
-    .city {
-      .pics {
-        font-size: 18px;
-      }
-      .desc {
-        font-size: 31px;
-        letter-spacing: 9px;
-      }
-    }
-    .street {
-      .desc {
-        font-size: 11px;
-      }
-    }
-    .phone {
-      .desc {
-        font-size: 20px;
-      }
+    .atm-under-menu_button {
+      
     }
   }
-}
-$atm-socials-btn-size: 47px;
-.atm-socials {
-  a {
-    font-size: 24px;
-    padding: 10px;
-    &.atm-socials-vk {
-      position: relative;
-      background-color: rgb(255, 255, 255);
-      color: rgb(13, 17, 16);
-      & > .chain {
-        position: absolute;
-        z-index: 9;
-        width: 0;
-        height: 0;
-        border-top: $atm-socials-btn-size solid #fff;
-        border-left: $atm-socials-btn-size / 2 solid transparent;
-        left: -$atm-socials-btn-size / 2;
-        top: 0;
+  .atm-socials {
+    padding-right: 0;
+    a {
+      display: inline-block;
+      font-size: 24px;
+      padding: 10px;
+      &.atm-socials-vk {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        color: rgb(13, 17, 16);
+        & > .chain {
+          position: absolute;
+          z-index: 9;
+          width: 0;
+          height: 0;
+          border-top: $atm-socials-btn-size solid #fff;
+          border-left: $atm-socials-btn-size / 2 solid transparent;
+          left: -$atm-socials-btn-size / 2;
+          top: 0;
+        }
       }
-    }
-    &.atm-socials-instagram {
-      margin-left: 4px;
-      background-color: rgb(13, 17, 16);
+      &.atm-socials-instagram {
+        margin-left: 4px;
+        background-color: rgb(13, 17, 16);
+      }
     }
   }
 }
