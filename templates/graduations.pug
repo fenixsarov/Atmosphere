@@ -1,3 +1,41 @@
 extends base
 | {% load staticfiles %}
+prepend page
+  - var title = "Выпускные съёмки"
 block content
+  {% static '/images/gallery/graduations' as imageUrl %}
+  - var gallery_item = ['9vrb9iGOII8.jpg','CIPMljq-678.jpg', 'Fa5WTp1mxdE.jpg', 'NQlzFFrRxYo.jpg', 'YZtXXpEzdm4.jpg', 'aER8JACIkao.jpg', 'rMmIgSM5W8g.jpg', 'wI3nPagwI3U.jpg', 'CIFRZeC9JVk.jpg', 'CsTbBPo7SbI.jpg', 'GlDoogxTb4g.jpg', 'ODHLi0dO4vU.jpg', 'ZkXyy-z6N5A.jpg', 'coTTVNVazAU.jpg', 'sZYyubVwWxs.jpg'];
+  mixin check_btn(text, id)
+    .check_btn
+      .btn(for="#{id}")
+        input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
+        label(for="#{id}")
+          label.check_btn-label(for="#{id}") #{text}
+          a(href="#") ЗАБРОНИРОВАТЬ
+          img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
+  
+  include includes/navigation_inc
+  section
+    .container.page_mainheader
+      .row
+        .col-md-8
+          img(src="{% static '/images/bg/graduations-mainheader-img.png' %}")
+        .col-md-4.description
+          h1 НАША КОМАНДА
+          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
+  //- include ./mixins/check_btn.pug
+  section
+    .container.graduations_checkbtn
+      .row.around-xs
+        .col-md-4
+          +check_btn('ШКОЛА', 'school')
+        .col-md-4
+          +check_btn('ДЕТСКИЙ<br>САД', 'kindergarten')
+        .col-md-4
+          +check_btn('ПЕЧАТЬ<br>АЛЬБОМОВ', 'album_print')
+  section
+    .container.page_photogallery
+      .row
+         - each item in gallery_item
+          div.col-md-3
+            .img(style="background-image: url('#{imageUrl}/#{item}')")

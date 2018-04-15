@@ -1,3 +1,26 @@
 extends base
 | {% load staticfiles %}
+prepend page
+  - var title = "Залы"
 block content
+  - var under_menu = [{"text": "ТЁМНЫЙ ЗАЛ"}, {"text": "СВЕТЛЫЙ ЗАЛ"}];
+  include includes/navigation_inc
+  section
+    .container.page_mainheader
+      .row
+        .col-md-7
+          img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
+        .col-md-5.description
+          h1 ТЁМНЫЙ ЗАЛ
+          p Для тех, кто любит потемнее и по-брутельнее.
+          p Размер зала: 75 кв.м.
+          p Интерьер зала:<br>
+           | - 4 фактурных стены для разноплановых идей<br>
+           | - лампочки Эдиссона для интереных эффектов<br>
+           | - деревянный пол, покрытый лаком
+          p Стоимость аренды зала:<br>
+           | будни	12:00-14:00	650 руб/час,<br>
+           | будни	14:00-17:00	850 руб/час,<br>
+           | будни	17:00-20:00	1000 руб/час,<br>
+           | выходные		         1300 руб./час
+          a.atm-btn-reserved(href="#") ЗАБРОНИРОВАТЬ

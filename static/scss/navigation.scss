@@ -1,187 +1,197 @@
-#atm-navigation {
-  position: absolute;
-  width: 100%;
+.atm-navigation-absolute {
+    position: absolute;
+    width: 100%;
 }
-.atm-main-nav {
-  position: relative;
-  top: 0;
-  z-index: 1000;
-  nav {
+
+#atm-navigation {}
+
+nav.atm-main-nav {
     position: relative;
+    top: 0;
+    z-index: 1000;
     background-color: rgba(0, 0, 0, .5);
-    align-items: center;
-    z-index: 10;
-    padding: 20px 10px !important;
+    padding: 20px 30px !important;
     .atm-logo {
-      img {
-        width: 90%;
-      }
+        img {
+            width: 90%;
+        }
     }
     .atm-main-menu {
-      & > ul {
         position: relative;
-        font-size: 18px;
         list-style: none;
         font-family: 'MontserratMedium';
         color: $cl-default-text;
-        font-size: 18px;
+        font-size: 15px;
+        letter-spacing: 0px;
         .atm-menu-splitter {
-          border-left: 1px solid #FFFFFF;
-          height: 18px;
+            border-left: 1px solid #FFFFFF;
+            height: 18px;
         }
         .atm-main-menu-item {
-          position: relative;
-          display: inline-block;
-          color: #FFFFFF;
-          text-align: center;
-          &:hover {
-            & > a:after {
-              width: 70%;
-            }
-            & > .atm-main-menu-submenu {
-              display: block;
-            }
-          }
-          a {
-            cursor: pointer;
             position: relative;
-            display: block;
-            padding-bottom: 5px 15px;
-            border-bottom: 1px solid transparent;
+            display: inline-block;
+            color: #FFFFFF;
             text-align: center;
-            &:after {
-              content: "";
-              position: absolute;
-              bottom: -8px;
-              
-              border-top: 1px solid #FFFFFF;
-              left: 50%;
-              transform: translateX(-50%);
-              width: 0%;
-              transition: width .3s ease-in;
+            &:hover {
+                &>a:after {
+                    width: 70%;
+                }
+                &>.atm-main-menu-submenu {
+                    display: block;
+                }
             }
-          }
+            a {
+                cursor: pointer;
+                position: relative;
+                display: block;
+                padding-bottom: 5px 15px;
+                border-bottom: 1px solid transparent;
+                text-align: center;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: -8px;
+                    border-top: 1px solid #FFFFFF;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0%;
+                    transition: width .3s ease-in;
+                }
+            }
         }
-      }
     }
     .atm-main-menu-submenu {
-      display: none;
-      position: absolute;
-      list-style-type: none;
-      margin-top: -7px;
-      top: 100%;
-      left: 50%;
-      width: 100%;
-      transform: translateX(-50%);
-      li {
-        &:first-child {
-          padding-top: 21px;
+        display: none;
+        position: absolute;
+        list-style-type: none;
+        margin-top: -7px;
+        top: 100%;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        li {
+            &:first-child {
+                padding-top: 21px;
+            }
+            a {
+                margin: 4px 0;
+            }
         }
-        a {
-          margin: 4px 0;
-        }
-      }
     }
     .atm-main-address {
-      font-family: 'MontserratMedium';
-      .pics {
-        text-align: center;
-        align-self: center;
-      }
-      
-      .city {
-        .pics {
-          font-size: 18px;
-        }
+        font-family: 'MontserratMedium';
+        .pics {}
         .desc {
-          font-size: 31px;
-          letter-spacing: 9px;
+            text-align: left;
         }
-      }
-      .street {
-        .desc {
-          font-size: 11px;
+        .city {
+            .pics {
+                font-size: 18px;
+            }
+            .desc {
+                font-size: 31px;
+                letter-spacing: 14px;
+            }
         }
-      }
-      .phone {
-        .desc {
-          font-size: 20px;
+        .street {
+            .desc {
+                font-size: 11px;
+                letter-spacing: 1px;
+            }
         }
-      }
+        .phone {
+            .desc {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+        }
     }
-  }
-  .atm-submenu-item {
-    min-width:170px;
-    float:none;
-    display:list-item;
+}
+
+.atm-submenu-item {
+    min-width: 170px;
+    float: none;
+    display: list-item;
     position: relative;
     text-align: center;
+    z-index: 100;
     a {
-      display: block;
-      font-family: 'MontserratMedium';
-      font-size: 14px;
-      padding: 15px;
-      color: #FFFFFF;
-      cursor: pointer;
-      background-color: rgba(95, 87, 87, .9);
-      text-align: center;
-      &:hover {
-        background-color: rgb(178, 31, 36);
-      }
+        display: block;
+        font-family: 'MontserratMedium';
+        font-size: 14px;
+        padding: 15px;
+        color: #FFFFFF;
+        cursor: pointer;
+        background-color: rgba(95, 87, 87, .9);
+        text-align: center;
+        &:hover {
+            background-color: rgb(178, 31, 36);
+        }
     }
-  }
-  $atm-socials-btn-size: 47px;
-  .atm-under-menu-panel {
-    z-index: 2;
-  }
-  .atm-under-menu {
+}
+
+$atm-socials-btn-size: 47px;
+.atm-under-menu-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.atm-under-menu {
     position: relative;
     z-index: 1;
     display: inline;
     list-style: none;
     .atm-submenu-item {
-      display: inline-block;
+        display: inline-block;
     }
-    .atm-under-menu_button {
-      
-    }
-  }
-  .atm-socials {
-    padding-right: 0;
-    a {
-      display: inline-block;
-      font-size: 24px;
-      padding: 10px;
-      &.atm-socials-vk {
-        position: relative;
-        background-color: rgb(255, 255, 255);
-        color: rgb(13, 17, 16);
-        & > .chain {
-          position: absolute;
-          z-index: 9;
-          width: 0;
-          height: 0;
-          border-top: $atm-socials-btn-size solid #fff;
-          border-left: $atm-socials-btn-size / 2 solid transparent;
-          left: -$atm-socials-btn-size / 2;
-          top: 0;
-        }
-      }
-      &.atm-socials-instagram {
-        margin-left: 4px;
-        background-color: rgb(13, 17, 16);
-      }
-    }
-  }
 }
 
-@media (max-width: 768px) {
+.atm-socials {
+    position: relative;
+    z-index: 50;
+    a {
+        display: inline-block;
+        font-size: 24px;
+        padding: 10px;
+        transition: all .3s ease-in;
+        &.atm-socials-vk {
+            position: relative;
+            background-color: rgb(255, 255, 255);
+            color: rgb(13, 17, 16); // transition: all .3s ease-in;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: $atm-socials-btn-size solid #fff;
+                border-left: $atm-socials-btn-size / 2 solid transparent;
+                left: -$atm-socials-btn-size / 2;
+                top: 0;
+                transition: all .3s ease-in;
+            }
+        }
+        &.atm-socials-instagram {
+            margin-left: 4px;
+            background-color: rgb(13, 17, 16);
+        }
+        &:hover {
+            background-color: rgba(95, 87, 87, .9);
+            color: #FFFFFF;
+            &.atm-socials-vk {
+                &::before {
+                    border-top-color: rgba(95, 87, 87, .9);
+                }
+            }
+        }
+    }
 }
-@media (min-width: 768px) {
-}
-@media (min-width: 768px) and (max-width: 991px) {
-}
-@media (min-width: 992px) {
-}
-@media (min-width: 1200px) {
-}
+
+@media (max-width: 768px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}

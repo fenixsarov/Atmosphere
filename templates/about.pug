@@ -1,3 +1,6 @@
 extends base
 | {% load staticfiles %}
+prepend page
+  - var title = "О Нас"
 block content
+  include includes/navigation_inc

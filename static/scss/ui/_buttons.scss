@@ -1,0 +1,26 @@
+.atm-btn {
+    display: inline-block;
+    font-family: 'MontserratMedium';
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 14px 42px;
+    cursor: pointer;
+}
+
+.atm-btn-default {
+    @extend .atm-btn;
+    border: 1px solid #FFFFFF;
+    &:hover {
+        background-color: #534d4d;
+    }
+}
+
+.atm-btn-reserved {
+    @extend .atm-btn-default;
+    background-color: #b2070f;
+}
+
+.atm-btn-detailed {
+    @extend .atm-btn-default;
+    background-color: #16140f;
+}

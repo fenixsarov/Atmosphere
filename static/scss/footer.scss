@@ -1,13 +1,10 @@
 
 /* FOOTER */
 section#footer {
-  background-color: $cl-main-gray;
   padding-bottom: 17px;
 }
 footer {
-  background-color: $cl-half-black;
   color: $cl-default-text;
-  padding: 2em;
   padding-top: 2.3em;
   color: white;
   
@@ -24,8 +21,9 @@ footer {
     color: #FFFFFF;
   }
   .atm-socials {
+    flex-direction: column;
     font-size: 1.03em;
-    padding-left: 2.97rem;
+    margin-bottom: 40px;
     .content {
       display: flex;
       justify-content: flex-start;
@@ -42,6 +40,10 @@ footer {
         // margin: 15px 1.1em 15px 0;
       }
     }
+  }
+  .atm-confidential {
+    flex-direction: column;
+    font-size: 12px;
   }
   .atm-site-map {
     margin-left: 0.6em;

@@ -16,7 +16,7 @@ $(function () {
   let $prlx_img1 = $('#atm-header-slogan-section .parallax-img');
 
   // CAROUSEL
-  $carouselContent = $("#scenery-carousel > .content");
+  $carouselContent = $("#scenery-carousel .content");
   carouselIsAnimate = false;
   carouselIndex = 0;
   carouselContentChild = $carouselContent.children();
@@ -35,7 +35,7 @@ $(function () {
   });
   $('#scenery-carousel').on('mouseout', function () {
     autoRotateSlide();
-  })
+  });
 
   autoRotateSlide();
 
@@ -146,7 +146,6 @@ function slideLeft(carousel) {
     });
   }
 }
-
 
 function slideTo(carousel, number) {
   let item = carousel.find('.item');

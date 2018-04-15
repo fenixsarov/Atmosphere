@@ -1,17 +1,23 @@
 | {% load staticfiles %}
-.row.scenery
+section#scenery
   .container
     .row
-      #scenery-carousel.col-xs-12
-        ul.content
-          li.item.active
-          li.item
-          li.item
-        ol.carousel-indicators
-          li.active(data-slide-to="0")
-          li(data-slide-to="1")
-          li(data-slide-to="2")
-        a.left.carousel-control(role="button", data-slide="prev")
-          span.fa.fa-chevron-left(aria-hidden=true)
-        a.right.carousel-control(role="button", data-slide="next")
-          span.fa.fa-chevron-right(aria-hidden=true)
+      .col-md
+        .box.box-conainer#scenery-carousel
+          .row
+            ul.col-md.content
+              li.item.active
+              li.item
+              li.item
+          .row.center-md.middle-md.carousel-indicators
+            .col-md-3
+              .box
+                .row
+                  a.col-md-1.carousel-control.left(role="button", data-slide="prev")
+                    span.fa.fa-chevron-left(aria-hidden=true)
+                  ol.col-md-10
+                    li.active(data-slide-to="0")
+                    li(data-slide-to="1")
+                    li(data-slide-to="2")
+                  a.col-md-1.carousel-control.right(role="button", data-slide="next")
+                    span.fa.fa-chevron-right(aria-hidden=true)
