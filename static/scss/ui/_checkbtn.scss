@@ -1,5 +1,4 @@
 .check_btn {
-  background-image: url("../images/bg/checkbtn-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,8 +7,8 @@
     input[type="radio"] {
       display: none;
       &:checked+label {
-        border-color: transparent;
-        background-color: rgb(33, 33, 31);
+        border-color: rgb(255, 255, 255);
+        ; // background-color: rgb(33, 33, 31);
         a {
           display: block;
         }
@@ -21,7 +20,7 @@
     &>label {
       position: relative;
       cursor: pointer;
-      border: 6px solid rgb(100, 100, 100);
+      border: 6px solid rgba(100, 100, 100, .5);
       height: 149px; // ВЫСЧИТАНЫ ИЗ PS (размер в PS / 15.6)
       display: block;
       text-align: center;

@@ -3,80 +3,80 @@
 @import "fonts";
 @import "ui/ui";
 body {
-    font-family: $main-font, sans-serif;
-    background-color: rgb(33, 33, 31);
-    background-image: url('../images/bg/main-bg-top.png'), url('../images/bg/main-bg-bottom.png');
-    background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover;
-    background-position: top center, bottom center;
-    color: $cl-default-text;
-    position: relative;
+  font-family: $main-font, sans-serif;
+  background-color: rgb(33, 33, 31);
+  background-image: url('../images/bg/main-bg-bottom.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: top center, bottom center;
+  color: $cl-default-text;
+  position: relative;
 }
 
 a {
-    text-decoration: none;
-    color: $cl-default-text;
-    transition: color .5s ease;
-    &:hover {
-        color: #C7C7C7;
-    }
-    &:focus {
-        background-color: transparent;
-    }
+  text-decoration: none;
+  color: $cl-default-text;
+  transition: color .5s ease;
+  &:hover {
+    color: #C7C7C7;
+  }
+  &:focus {
+    background-color: transparent;
+  }
 }
 
 .fa-map-marker-alt {
-    color: rgb(186, 61, 64);
+  color: rgb(186, 61, 64);
 }
 
 section {
-    .description {
-        font-family: "MontserratLight";
-        h1 {
-            font-size: 30px;
-            letter-spacing: 9px;
-            margin-bottom: 45px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 30px;
-        }
+  .description {
+    font-family: "MontserratLight";
+    h1 {
+      font-size: 30px;
+      letter-spacing: 9px;
+      margin-bottom: 45px;
     }
+    p {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
 }
 
 .page_mainheader {
-    margin-top: 20px;
-    img {
-        width: 100%; // margin-top: -47px; // Высота кнопок socials
-    }
-    .description {
-        padding-top: 32px;
-    }
+  margin-top: 20px;
+  img {
+    width: 100%; // margin-top: -47px; // Высота кнопок socials
+  }
+  .description {
+    padding-top: 32px;
+  }
 }
 
 .page_photogallery {
-    .col-md-3 {
-        flex-grow: 1;
-        max-width: initial;
-        overflow: hidden;
-        margin-top: 1rem;
-    }
-    .col-md-3:nth-child(2) {
-        flex-basis: 50%;
-        max-width: 50%;
-    }
-    .col-md-3:nth-child(4n) {
-        flex-basis: 50%;
-        max-width: 50%;
-    }
-    .img {
-        background-size: cover;
-        background-position-y: 30%;
-        background-position-x: center;
-        background-repeat: no-repeat;
-        height: 240px;
-        cursor: pointer;
-    }
+  .col-md-3 {
+    flex-grow: 1;
+    max-width: initial;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .col-md-3:nth-child(2) {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .col-md-3:nth-child(4n) {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .img {
+    background-size: cover;
+    background-position-y: 30%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height: 240px;
+    cursor: pointer;
+  }
 }
 
 @import "parallax";
