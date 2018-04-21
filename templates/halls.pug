@@ -2,9 +2,8 @@ extends base
 | {% load staticfiles %}
 prepend page
   - var title = "Залы"
-block content
   - var under_menu = [{"text": "ТЁМНЫЙ ЗАЛ"}, {"text": "СВЕТЛЫЙ ЗАЛ"}];
-  include includes/navigation_inc
+block content
   section
     .container.page_mainheader
       .row

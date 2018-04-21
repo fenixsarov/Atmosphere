@@ -1,10 +1,9 @@
 extends base
 prepend page
   - var title = "Атмосфера"
+  - var header_absolute = "atm-navigation-absolute";
 | {% load staticfiles %}
 block content
-  - var header_absolute = "atm-navigation-absolute";
-  include includes/navigation_inc
   include includes/header_inc
   //- .container-fluid#main-content
   include includes/scenery_inc

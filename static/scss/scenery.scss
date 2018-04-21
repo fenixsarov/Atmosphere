@@ -2,15 +2,13 @@
 section#scenery {
   position: relative;
   z-index: 2;
-  margin-top: -100px;
+  margin-top: -60px;
   .content {
     overflow: hidden;
   }
 }
 
-$carousel-padding: 100px 30px;
-$indicators-size: 12px;
-
+$carousel-padding: 60px 25px;
 #scenery-carousel {
   position: relative;
   overflow: hidden;
@@ -24,16 +22,13 @@ $indicators-size: 12px;
     height: 50vh;
     min-height: 500px;
     list-style: none;
-    
     .item {
       position: absolute;
       width: 100%;
       height: 100%;
-      
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       &:nth-child(1) {
         background-image: url("../images/scenery/1.jpg");
       }
@@ -48,11 +43,11 @@ $indicators-size: 12px;
     }
   }
   .carousel-indicators {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    // padding-top: 23px;
+    // height 76px
+    $indicators-size: 12px;
+    padding-top: 19px;
+    padding-bottom: 19px; // padding-top: 23px;
     // margin-bottom: -23px;
-    
     ol {
       list-style: none;
       text-align: center;
@@ -67,7 +62,6 @@ $indicators-size: 12px;
         height: $indicators-size;
         margin-left: $indicators-size;
         transition: background-color 1s ease;
-        
         &.active {
           background-color: #EA423E;
         }
@@ -81,8 +75,7 @@ $indicators-size: 12px;
     }
   }
   .carousel-control {
-    cursor: pointer;
-    // position: absolute;
+    cursor: pointer; // position: absolute;
     // display: flex;
     // align-items: center;
     // text-decoration: none;

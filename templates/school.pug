@@ -5,15 +5,17 @@ prepend page
 block content
   {% static '/images/gallery/master' as imageUrl %}
   - var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
-  mixin check_btn(text, id)
+  mixin check_btn(text, id, active)
     .check_btn
       .btn(for="#{id}")
-        input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
+        - if active
+          input(id="#{id}", type="radio", name="radio_btn", value="#{id}", checked)
+        - else
+          input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
         label(for="#{id}")
           label.check_btn-label(for="#{id}") #{text}
           a(href="#") ЗАПИСАТЬСЯ
           img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
-  include ./includes/navigation_inc
   section
     .container.page_mainheader
       .row
@@ -26,7 +28,7 @@ block content
     .container.school_checkbtn
       .row
         .col-md-4
-          +check_btn('ФРУКТОВЫЙ БУКЕТ', 'fruit_bouquet')
+          +check_btn('ФРУКТОВЫЙ БУКЕТ', 'fruit_bouquet', true)
         .col-md-4
           +check_btn('ЛЕТТЕРИНГ', 'letting')
         .col-md-4
