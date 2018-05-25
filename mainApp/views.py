@@ -37,6 +37,11 @@ class School(BaseView):
     page_name = 'school'
 
 
+class MasterClass(BaseView):
+    template_name = 'masterclass.pug'
+    page_name = 'masterclass'
+
+
 class Events(BaseView):
     template_name = 'events.pug'
     page_name = 'events'
