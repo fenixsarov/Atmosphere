@@ -2,15 +2,25 @@ extends base
 | {% load staticfiles %}
 prepend page
   - var title = "Залы"
-  - var under_menu = [{"text": "ТЁМНЫЙ ЗАЛ"}, {"text": "СВЕТЛЫЙ ЗАЛ"}];
+  - var under_menu = [{"text": "ТЁМНЫЙ ЗАЛ", "desc": "dark"}, {"text": "СВЕТЛЫЙ ЗАЛ", "desc": "light"}];
+  //- var under_menu = {1:'ТЁМНЫЙ ЗАЛ',2:'СВЕТЛЫЙ ЗАЛ'}
+
 block content
   section
     .container.page_mainheader
       .row
         .col-md-7
+          | {% if request.session.view == "dark" %}
           img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
+          | {% else  %}
+          img(src="{% static '/images/bg/halls-white-mainheader-img.jpg' %}")
+          | {% endif %}
         .col-md-5.description
+          | {% if request.session.view == "dark" %}
           h1 ТЁМНЫЙ ЗАЛ
+          | {% else  %}
+          h1 СВЕТЛЫЙ ЗАЛ
+          | {% endif %}
           p Для тех, кто любит потемнее и по-брутельнее.
           p Размер зала: 75 кв.м.
           p Интерьер зала:<br>

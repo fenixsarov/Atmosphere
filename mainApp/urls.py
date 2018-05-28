@@ -6,6 +6,7 @@ urlpatterns = (
     # url(r'^$', views.main, name='index'),
     url(r'^$', Main.as_view()),
     url(r'^halls/$', Halls.as_view()),
+    url(r'^halls/hallschange/$', HallsChange.as_view(), name='hallschange'),
     url(r'^graduations/$', Graduations.as_view()),
     url(r'^sessions/$', Sessions.as_view()),
     url(r'^school/$', School.as_view()),
