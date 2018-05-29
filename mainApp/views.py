@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.views.generic import View
 from django.conf import settings
 
@@ -22,6 +23,14 @@ class Halls(BaseView):
     page_name = 'halls'
 
 
+class HallsChange(BaseView):
+    # template_name = 'halls.pug'
+    # page_name = 'halls'
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        return HttpResponse('ok', content_type='text/html')
+
+
 class Graduations(BaseView):
     template_name = 'graduations.pug'
     page_name = 'graduations'
@@ -35,6 +44,11 @@ class Sessions(BaseView):
 class School(BaseView):
     template_name = 'school.pug'
     page_name = 'school'
+
+
+class MasterClass(BaseView):
+    template_name = 'masterclass.pug'
+    page_name = 'masterclass'
 
 
 class Events(BaseView):

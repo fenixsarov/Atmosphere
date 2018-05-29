@@ -69,8 +69,11 @@ section#atm-navigation(class='#{header_absolute}')
       .col-md-10.center-md
         if under_menu
           ul.atm-under-menu
+            - var val = "dark"
             each um_item in under_menu
-              li.atm-submenu-item: a(href="#") #{um_item.text}
+              - if um_item.desc != "dark"
+                val = "light"
+              li.atm-submenu-item: a.view(href="javascript:", data-desc=val) #{um_item.text}
       .col-md-2.end-md.atm-socials
         a.atm-socials-vk(href="https://vk.com/atmosphera_sarov")
           span.chain
