@@ -1,0 +1,13 @@
+mixin plate(img_src, header, description, _align)
+  - var align = _align ? _align : "plate_left-align";
+  section
+    .container
+      .row
+        .col-md.plate(class="#{align}")
+          .row
+            .col-md-6.plate__img-preview
+              img(src="#{img_src}")
+            .col-md-6
+              h2.plate__header #{header}
+              p.plate__description #{description}
+              
