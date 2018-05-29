@@ -17,17 +17,19 @@ block content
           a(href="#") ЗАПИСАТЬСЯ
           img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
   mixin plate(img_src, header, description, _align)
-    - var align = _align ? _align : "plate_left-align";
+    //- - var align = _align ? _align : "plate_left-align";
     section
       .container
         .row
-          .col-md.plate(class="#{align}")
-            .row
-              .col-md-6.plate__img-preview
-                img(src="#{img_src}")
-              .col-md-6
-                h2.plate__header #{header}
-                p.plate__description #{description}
+          .col-md
+            .box.plate(class="#{_align}")
+              .row
+                .col-md-6.img
+                  img.plate__img-preview(src="#{imageUrl}/#{img_src}")
+                .col-md-6
+                  .plate__description
+                    h2.header #{header}
+                    p.description #{description}
   section
     .container.page_mainheader
       .row
@@ -38,9 +40,9 @@ block content
           p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
   
   - var plate_text = "Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!";
-  +plate("#{imageUrl}/1FaQK5pnte8.jpg", "как подготовиться к съёмке", plate_text)
-  +plate("#{imageUrl}/1FaQK5pnte8.jpg", "как подготовиться к съёмке", plate_text, "plate_right-align")
-  //section
+  +plate("1FaQK5pnte8.jpg", "как подготовиться к съёмке", plate_text)
+  +plate("1FaQK5pnte8.jpg", "как подготовиться к съёмке", plate_text, "plate_right-align")
+  //- //section
     .container.school_checkbtn
       .row
         .col-md-4
