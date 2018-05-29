@@ -24,8 +24,9 @@ block content
           .col-md
             .box.plate(class="#{_align}")
               .row
-                .col-md-6.img
-                  img.plate__img-preview(src="#{imageUrl}/#{img_src}")
+                .col-md-6.plate__img
+                  .plate__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
+                  //- img.plate__img-preview(src="#{imageUrl}/#{img_src}")
                 .col-md-6
                   .plate__description
                     h2.header #{header}
@@ -41,7 +42,7 @@ block content
   
   - var plate_text = "Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!";
   +plate("1FaQK5pnte8.jpg", "как подготовиться к съёмке", plate_text)
-  +plate("1FaQK5pnte8.jpg", "как подготовиться к съёмке", plate_text, "plate_right-align")
+  +plate("7kHQp6mrVfk.jpg", "как выбрать фотографа", plate_text, "plate_right-align")
   //- //section
     .container.school_checkbtn
       .row

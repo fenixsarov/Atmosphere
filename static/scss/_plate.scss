@@ -7,7 +7,12 @@
   padding: 20px;
   margin-bottom: 15px;
   .plate__img-preview {
-    width: 100%;
+    min-height: 400px;
+    height: 400px;
+    max-height: 400px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .plate__description {
     font-family: 'MontserratLight';
@@ -21,12 +26,12 @@
     }
   }
   &.plate_left-align {
-    .img {
+    .plate__img {
       order: 0;
     }
   }
   &.plate_right-align {
-    .img {
+    .plate__img {
       order: 1;
     }
   }
