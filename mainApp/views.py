@@ -23,9 +23,7 @@ class Halls(BaseView):
     page_name = 'halls'
 
 
-class HallsChange(BaseView):
-    # template_name = 'halls.pug'
-    # page_name = 'halls'
+class HallsChange(View):
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
         return HttpResponse('ok', content_type='text/html')
