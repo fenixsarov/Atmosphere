@@ -26,12 +26,14 @@ block content
               .row
                 .col-md-6.plate__img
                   .plate__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
-                  //- img.plate__img-preview(src="#{imageUrl}/#{img_src}")
                 .col-md-6
                   .plate__description
                     h2.header #{header}
                     p.description #{description}
-  section
+                    .plate__more-btn-container
+                      a.plate__more-btn
+                        i.fa.fa-plus-circle
+  //section
     .container.page_mainheader
       .row
         .col-md-8
