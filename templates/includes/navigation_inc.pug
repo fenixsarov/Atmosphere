@@ -71,8 +71,21 @@ section#atm-navigation(class='#{header_absolute}')
           ul.atm-under-menu
             - var val = "dark"
             each um_item in under_menu
-              - if um_item.desc != "dark"
+              if um_item.desc == "dark"
+                val = "dark"
+              if um_item.desc == "light"
                 val = "light"
+              if um_item.desc == "family"
+                val = "family"
+              if um_item.desc == "individual"
+                val = "individual"
+              if um_item.desc == "child"
+                val = "child"
+              if um_item.desc == "portrait"
+                val = "portrait"
+              if um_item.desc == "lovestory"
+                val = "lovestory"
+
               li.atm-submenu-item: a.view(href="javascript:", data-desc=val) #{um_item.text}
       .col-md-2.end-md.atm-socials
         a.atm-socials-vk(href="https://vk.com/atmosphera_sarov")

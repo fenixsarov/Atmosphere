@@ -1,5 +1,40 @@
 extends base
 | {% load staticfiles %}
 prepend page
-  - var title = "SESSIONS"
+  - var title = "ФОТСЕССИИ"
+  - var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
+  //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
+  section
+    .container.page_mainheader
+      .row
+        .col-md-7
+          | {% if request.session.view == "family" %}
+          img(src="{% static '/images/bg/family-img-0.jpg' %}")
+          | {% elif request.session.view == "individual" %}
+          img(src="{% static '/images/bg/individual-img-0.jpg' %}")
+          | {% elif request.session.view == "child"%}
+          img(src="{% static '/images/bg/child-img-0.jpg' %}")
+          | {% elif request.session.view == "portrait" %}
+          img(src="{% static '/images/bg/portrait-img-0.jpg' %}")
+          | {% elif request.session.view == "lovestory" %}
+          img(src="{% static '/images/bg/lovestory-img-0.jpg' %}")
+          | {% endif %}
+        .col-md-5.description
+          | {% if request.session.view == "family" %}
+          h1 СЕМЕЙНАЯ
+          | {% elif request.session.view == "individual" %}
+          h1 ИНДИВИДУАЛЬНАЯ
+          | {% elif request.session.view == "child" %}
+          h1 ДЕТСКАЯ
+          | {% elif request.session.view == "portrait" %}
+          h1 ПОРТРЕТ
+          | {% elif request.session.view == "lovestory" %}
+          h1 LOVESTORY
+          | {% endif %}
+          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
+          - var iterator = [1, 2, 3, 4]
+          each i in iterator
+            p <br>
+
+          a.atm-btn-reserved(href="#") ЗАБРОНИРОВАТЬ

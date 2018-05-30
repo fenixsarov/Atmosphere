@@ -41,6 +41,14 @@ class Sessions(BaseView):
     page_name = 'sessions'
 
 
+class SessionsChange(BaseView):
+    # template_name = 'halls.pug'
+    # page_name = 'halls'
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        return HttpResponse('ok', content_type='text/html')
+
+
 class School(BaseView):
     template_name = 'school.pug'
     page_name = 'school'

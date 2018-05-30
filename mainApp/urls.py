@@ -9,6 +9,7 @@ urlpatterns = (
     url(r'^halls/hallschange/$', HallsChange.as_view(), name='hallschange'),
     url(r'^graduations/$', Graduations.as_view()),
     url(r'^sessions/$', Sessions.as_view()),
+    url(r'^halls/sessionschange/$', SessionsChange.as_view(), name='sessionschange'),
     url(r'^school/$', School.as_view()),
     url(r'^masterclass/$', MasterClass.as_view()),
     url(r'^events/$', Events.as_view()),
