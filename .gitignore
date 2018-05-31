@@ -1,5 +1,6 @@
 mysql.cnf
 .idea/
+.vscode/
 db.sqlite3
 *.pyc
 main.*.css
