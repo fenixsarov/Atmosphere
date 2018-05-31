@@ -9,6 +9,7 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
+
           | {% if request.session.view == "family" %}
           img(src="{% static '/images/bg/family-img-0.jpg' %}")
           | {% elif request.session.view == "individual" %}
@@ -19,7 +20,10 @@ block content
           img(src="{% static '/images/bg/portrait-img-0.jpg' %}")
           | {% elif request.session.view == "lovestory" %}
           img(src="{% static '/images/bg/lovestory-img-0.jpg' %}")
+          | {% else %}
+          img(src="{% static '/images/bg/family-img-0.jpg' %}")
           | {% endif %}
+
         .col-md-5.description
           | {% if request.session.view == "family" %}
           h1 СЕМЕЙНАЯ
