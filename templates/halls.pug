@@ -1,5 +1,6 @@
 extends base
 | {% load staticfiles %}
+
 prepend page
   - var title = "Залы"
   - var under_menu = [{"text": "ТЁМНЫЙ ЗАЛ", "desc": "dark"}, {"text": "СВЕТЛЫЙ ЗАЛ", "desc": "light"}];
@@ -11,27 +12,40 @@ block content
       .row
         .col-md-7
           | {% if request.session.view == "dark" %}
-          img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
+          //img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
+          | {% include 'includes/darkhalls_slider_inc.html' %}
           | {% elif request.session.view == "light" %}
           img(src="{% static '/images/bg/halls-white-mainheader-img.jpg' %}")
           | {% else %}
-          img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
+          //img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
+          | {% include 'includes/darkhalls_slider_inc.html' %}
           | {% endif %}
         .col-md-5.description
           | {% if request.session.view == "dark" %}
           h1 ТЁМНЫЙ ЗАЛ
-          | {% else  %}
-          h1 СВЕТЛЫЙ ЗАЛ
-          | {% endif %}
           p Для тех, кто любит потемнее и по-брутельнее.
           p Размер зала: 75 кв.м.
           p Интерьер зала:<br>
-           | - 4 фактурных стены для разноплановых идей<br>
-           | - лампочки Эдиссона для интереных эффектов<br>
-           | - деревянный пол, покрытый лаком
+            | - 4 фактурных стены для разноплановых идей<br>
+            | - лампочки Эдиссона для интереных эффектов<br>
+            | - деревянный пол, покрытый лаком
           p Стоимость аренды зала:<br>
-           | будни	12:00-14:00	650 руб/час,<br>
-           | будни	14:00-17:00	850 руб/час,<br>
-           | будни	17:00-20:00	1000 руб/час,<br>
-           | выходные		         1300 руб./час
+            | будни	12:00-14:00	650 руб/час,<br>
+            | будни	14:00-17:00	850 руб/час,<br>
+            | будни	17:00-20:00	1000 руб/час,<br>
+            | выходные		         1300 руб./час
+
+          | {% elif request.session.view == "light" %}
+          h1 СВЕТЛЫЙ ЗАЛ
+          p Светлый зал с утончённым дизайном для семейных или свадебных съёмок, а также для индивидуальных.
+          p <br>
+          p Размер зала: ~50 кв.м.
+          p <br>
+          p Стоимость аренды зала:<br>
+            | 1500 руб./час
+          - var iterator = [1, 2, 3]
+          each i in iterator
+              p <br>
+          | {% endif %}
+
           a.atm-btn-reserved(href="#") ЗАБРОНИРОВАТЬ
