@@ -15,7 +15,8 @@ block content
           //img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
           | {% include 'includes/darkhalls_slider_inc.html' %}
           | {% elif request.session.view == "light" %}
-          img(src="{% static '/images/bg/halls-white-mainheader-img.jpg' %}")
+          //img(src="{% static '/images/bg/halls-white-mainheader-img.jpg' %}")
+          | {% include 'includes/whitehalls_slider_inc.html' %}
           | {% else %}
           //img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
           | {% include 'includes/darkhalls_slider_inc.html' %}
@@ -43,7 +44,7 @@ block content
           p <br>
           p Стоимость аренды зала:<br>
             | 1500 руб./час
-          - var iterator = [1, 2, 3]
+          - var iterator = [1, 2]
           each i in iterator
               p <br>
           | {% endif %}
