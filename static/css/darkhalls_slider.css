@@ -1,39 +1,41 @@
-/*jssor slider loading skin double-tail-spin css*/
-.jssorl-004-double-tail-spin img {
-    animation-name: jssorl-004-double-tail-spin;
-    animation-duration: 1.6s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes jssorl-004-double-tail-spin {
-    from {
-        transform: rotate(0deg);
+    /*jssor slider loading skin double-tail-spin css*/
+    .jssorl-004-double-tail-spin img {
+        animation-name: jssorl-004-double-tail-spin;
+        animation-duration: 1.6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
     }
 
-    to {
-        transform: rotate(360deg);
+    @keyframes jssorl-004-double-tail-spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
     }
-}
 
-/*jssor slider bullet skin 061 css*/
-.jssorb061 {position:absolute;}
-.jssorb061 .i {position:absolute;cursor:pointer;}
-.jssorb061 .i .b {fill:#fff;stroke:#000;stroke-width:400;stroke-miterlimit:10;stroke-opacity:0.5;}
-.jssorb061 .i:hover .b {fill-opacity:.7;}
-.jssorb061 .iav .b {fill:#00fbff;stroke:#00bbff;stroke-opacity:.7;stroke-width:2000;}
-.jssorb061 .i.idn {opacity:.3;}
+    /*jssor slider bullet skin 032 css*/
+    .jssorb032 {position:absolute;}
+    .jssorb032 .i {position:absolute;cursor:pointer;}
+    .jssorb032 .i .b {fill:#fff;fill-opacity:0.7;stroke:#000;stroke-width:1200;stroke-miterlimit:10;stroke-opacity:0.25;}
+    .jssorb032 .i:hover .b {fill:#000;fill-opacity:.6;stroke:#fff;stroke-opacity:.35;}
+    .jssorb032 .iav .b {fill:#000;fill-opacity:1;stroke:#fff;stroke-opacity:.35;}
+    .jssorb032 .i.idn {opacity:.3;}
 
-/*jssor slider arrow skin 101 css*/
-.jssora101 {display:block;position:absolute;opacity:.8;cursor:pointer;}
-.jssora101 .c {fill:#fff;fill-opacity:0.7;}
-.jssora101 .a {fill:#333;}
-.jssora101:hover {opacity:1;}
-.jssora101.jssora101dn {opacity:.6;}
-.jssora101.jssora101ds {opacity:.3;pointer-events:none;}
+    /*jssor slider arrow skin 053 css*/
+    .jssora053 {display:block;position:absolute;cursor:pointer;}
+    .jssora053 .a {fill:none;stroke:#fff;stroke-width:640;stroke-miterlimit:10;}
+    .jssora053:hover {opacity:.8;}
+    .jssora053.jssora053dn {opacity:.5;}
+    .jssora053.jssora053ds {opacity:.3;pointer-events:none;}
 
-/*jssor slider thumbnail skin 052 css*/
-.jssort052 .p {position:absolute;top:0;left:0;background-color:#fff;}
-.jssort052 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.45;}
-.jssort052 .p:hover .t{opacity:.8;}
-.jssort052 .pav .t, .jssort052 .pdn .t, .jssort052 .p:hover.pdn .t{opacity:1;}
+    /*jssor slider thumbnail skin 111 css*/
+    .jssort111-120-80 .p {position:absolute;top:0;left:0;width:120px;height:80px;background-color:#000;}
+    .jssort111-120-80 .p img {position:absolute;top:0;left:0;width:100%;height:100%;}
+    .jssort111-120-80 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.45;}
+    .jssort111-120-80 .p:hover .t{opacity:.8;}
+    .jssort111-120-80 .pav .t, .jssort111-120-80 .pdn .t, .jssort111-120-80 .p:hover.pdn .t{opacity:1;}
+    .jssort111-120-80 .ti {position:absolute;bottom:0px;left:0px;width:100%;height:22.4px;line-height:22.4px;text-align:center;font-size:9.6px;color:#fff;background-color:rgba(0,0,0,.3)}
+    .jssort111-120-80 .pav .ti, .jssort111-120-80 .pdn .ti, .jssort111-120-80 .p:hover.pdn .ti{color:#000;background-color:rgba(255,255,255,.6);}
