@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.conf import settings
 
+
 # debug = settings.DEBUG
 
 class BaseView(View):
@@ -74,8 +75,23 @@ class SessionsChange(BaseView):
 
 
 class School(BaseView):
+    plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
+    plate_desc = [{'image': '1FaQK5pnte8.jpg', 'header': 'ФРУКТОВЫЙ БУКЕТ', 'plate_text': plate_text},
+                  {'image': '7kHQp6mrVfk.jpg', 'header': 'ЛЕТТЕРИНГ', 'plate_text': plate_text},
+                  {'image': 'FUZzw8lt8So.jpg', 'header': 'МАСЛЯНАЯ ЖИВОПИСЬ', 'plate_text': plate_text},
+                  {'image': 'SmFTgH6yXho.jpg', 'header': 'АКВАРЕЛЬ', 'plate_text': plate_text},
+                  {'image': 'YAFDz1ZWNSQ.jpg', 'header': 'КРУЖКА', 'plate_text': plate_text},
+                  {'image': 'kbpDgPi_W6A.jpg', 'header': 'SWEETBOX', 'plate_text': plate_text},
+                  {'image': '34lYmz5ASEk.jpg', 'header': 'ФЛОРАРИУМ', 'plate_text': plate_text},
+                  {'image': '8arKte_-Khc.jpg', 'header': 'КИТАЙСКАЯ ЖИВОПИСЬ', 'plate_text': plate_text}
+                  ]
     template_name = 'school.pug'
     page_name = 'school'
+
+    def get(self, request):
+        return render(request, self.template_name, {'page': self.page_name,
+                                                    'plate_desc': self.plate_desc
+                                                    })
 
 
 class MasterClass(BaseView):
