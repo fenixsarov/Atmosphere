@@ -21,6 +21,32 @@ class Main(BaseView):
 class Halls(BaseView):
     template_name = 'halls.pug'
     page_name = 'halls'
+    halls_list = ['dark', 'light']
+    darkhall_imgs = [
+        '/images/darkhalls/darkhall_img_0.jpg',
+        '/images/darkhalls/darkhall_img_1.jpg',
+        '/images/darkhalls/darkhall_img_2.jpg',
+        '/images/darkhalls/darkhall_img_3.jpg',
+        '/images/darkhalls/darkhall_img_4.jpg',
+        '/images/darkhalls/darkhall_img_5.jpg',
+        '/images/darkhalls/darkhall_img_6.jpg',
+    ]
+
+    lighthall_imgs = [
+        '/images/whitehall/lighthall_img_0.jpg',
+        '/images/whitehall/lighthall_img_1.jpg',
+        '/images/whitehall/lighthall_img_2.jpg',
+        '/images/whitehall/lighthall_img_3.jpg',
+        '/images/whitehall/lighthall_img_4.jpg',
+        '/images/whitehall/lighthall_img_5.jpg',
+        '/images/whitehall/lighthall_img_6.jpg',
+    ]
+
+    def get(self, request):
+        return render(request, self.template_name, {'page': self.page_name,
+                                                    'halls_list': self.halls_list,
+                                                    'darkhall_imgs': self.darkhall_imgs,
+                                                    'lighthall_imgs': self.lighthall_imgs})
 
 
 class HallsChange(View):

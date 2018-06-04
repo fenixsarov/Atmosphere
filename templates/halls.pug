@@ -11,16 +11,7 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
-          | {% if request.session.view == "dark" %}
-          //img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
-          | {% include 'includes/darkhalls_slider_inc.html' %}
-          | {% elif request.session.view == "light" %}
-          //img(src="{% static '/images/bg/halls-white-mainheader-img.jpg' %}")
-          | {% include 'includes/whitehalls_slider_inc.html' %}
-          | {% else %}
-          //img(src="{% static '/images/bg/halls-black-mainheader-img.png' %}")
-          | {% include 'includes/darkhalls_slider_inc.html' %}
-          | {% endif %}
+          | {% include 'includes/halls_slider_inc.html' %}
         .col-md-5.description
           | {% if request.session.view == "dark" %}
           h1 ТЁМНЫЙ ЗАЛ
@@ -47,6 +38,21 @@ block content
           - var iterator = [1, 2, 3]
           each i in iterator
               p <br>
+
+          | {% else %}
+          h1 ТЁМНЫЙ ЗАЛ
+          p Для тех, кто любит потемнее и по-брутельнее.
+          p Размер зала: 75 кв.м.
+          p Интерьер зала:<br>
+            | - 4 фактурных стены для разноплановых идей<br>
+            | - лампочки Эдиссона для интереных эффектов<br>
+            | - деревянный пол, покрытый лаком
+          p Стоимость аренды зала:<br>
+            | будни	12:00-14:00	650 руб/час,<br>
+            | будни	14:00-17:00	850 руб/час,<br>
+            | будни	17:00-20:00	1000 руб/час,<br>
+            | выходные		         1300 руб./час
+
           | {% endif %}
 
           a.atm-btn-reserved(href="#") ЗАБРОНИРОВАТЬ

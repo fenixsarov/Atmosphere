@@ -2,9 +2,18 @@
 <!-- Generator: Jssor Slider Maker -->
 {#<script src="/jssor/jssor.slider-27.1.0.min.js" type="text/javascript"></script>#}
 {% load static from staticfiles %}
+{% load new_tags %}
 
-<script type="text/javascript" src="{% static '/javascripts/darkhalls_slider.js' %}"></script>
-<link rel="stylesheet" href="{% static '/css/darkhalls_slider.css' %}">
+{% if request.session.view == "dark"  %}
+    {% assign hall_imgs darkhall_imgs %}
+{% elif request.session.view == "light" %}
+    {% assign hall_imgs lighthall_imgs %}
+{% else %}
+    {% assign hall_imgs darkhall_imgs %}
+{% endif %}
+
+<script type="text/javascript" src="{% static '/javascripts/halls_slider.js' %}"></script>
+<link rel="stylesheet" href="{% static '/css/halls_slider.css' %}">
 
 <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:720px;height:605px;overflow:hidden;visibility:hidden;">
     <!-- Loading Screen -->
@@ -12,34 +21,12 @@
         <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="{% static '/images/darkhalls/double-tail-spin.svg' %}" />
     </div>
     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:720px;height:605px;overflow:hidden;">
+        {% for img in hall_imgs %}
         <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/zweor-qu4wc.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/zweor-qu4wc.jpg' %}" />
+            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static img %}" />
+            <img data-u="thumb" src="{% static img %}" />
         </div>
-        <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/vnngleljqlm.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/vnngleljqlm.jpg' %}" />
-        </div>
-        <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/inmheu6cjvi.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/inmheu6cjvi.jpg' %}" />
-        </div>
-        <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/utj-8tiecr0.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/utj-8tiecr0.jpg' %}" />
-        </div>
-        <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/ow3pnir8zvk.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/ow3pnir8zvk.jpg' %}" />
-        </div>
-        <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/sdh6wggqlds.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/sdh6wggqlds.jpg' %}" />
-        </div>
-        <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static '/images/darkhalls/rljbtl0o6cq.jpg' %}" />
-            <img data-u="thumb" src="{% static '/images/darkhalls/rljbtl0o6cq.jpg' %}" />
-        </div>
+        {% endfor %}
     </div>
     <!-- Thumbnail Navigator -->
     <div data-u="thumbnavigator" class="jssort052" style="position:absolute;left:55px;bottom:0px;width:610px;height:80px;" data-autocenter="1" data-scale-bottom="0.75">
