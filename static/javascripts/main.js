@@ -65,7 +65,6 @@ $(function () {
   });
 
   function headerParallax(c_scroll) {
-    console.log("SCROOL");
     $prlx_img1.css('top', (c_scroll * 0.5) + 'px');
   }
 
@@ -181,5 +180,46 @@ function slideTo(carousel, number) {
 }
 
 function bindPlateEvents() {
+  $('.plate__more-btn')
+    .on('click', function (evt) {
+      let $plate = $(this).closest('.plate');
+      let $fullPlate = null;
+      let plate_img = $plate.find('.plate__img-preview').clone();
+      let plate_header = $plate.find('.header').clone();
+      let plate_description = $plate.find('.description').clone();
+      let close_btn = $('<a class="full-plate__close-btn far fa-times-circle"></a>')
+        .one('click', function (evt) {
+          $fullPlate.animate({
+            'top': -$($fullPlate).height()
+          }, 300, function () {
+            $(this).remove();
+            $('body').css('overflow', 'auto');
+          });
+        });
 
+
+      let $tmpDiv = $('<div class="full-plate__content container">')
+        .append(close_btn)
+        .append(plate_img)
+        .append(plate_header)
+        .append(plate_description)
+        .append(plate_description.clone())
+        .append(plate_description.clone());
+
+      $fullPlate = $('<div>')
+        .addClass('full-plate')
+        .append($tmpDiv);
+
+      $('body').css('overflow', 'hidden');
+
+      $fullPlate
+        .appendTo('body')
+        .css({
+          'top': $(window).scrollTop() - $(window).height(),
+          'visibility': 'visible'
+        })
+        .animate({
+          'top': $(window).scrollTop()
+        }, 500);
+    });
 }
