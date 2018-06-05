@@ -1,21 +1,10 @@
 extends base
 | {% load staticfiles %}
+include mixins/check_btn.pug
 prepend page
   - var title = "Выпускные съёмки"
 block content
-  {% static '/images/gallery/graduations' as imageUrl %}
-  - var gallery_item = ['9vrb9iGOII8.jpg','CIPMljq-678.jpg', 'Fa5WTp1mxdE.jpg', 'NQlzFFrRxYo.jpg', 'YZtXXpEzdm4.jpg', 'aER8JACIkao.jpg', 'rMmIgSM5W8g.jpg', 'wI3nPagwI3U.jpg', 'CIFRZeC9JVk.jpg', 'CsTbBPo7SbI.jpg', 'GlDoogxTb4g.jpg', 'ODHLi0dO4vU.jpg', 'ZkXyy-z6N5A.jpg', 'coTTVNVazAU.jpg', 'sZYyubVwWxs.jpg'];
-  mixin check_btn(text, id, active)
-    .check_btn
-      .btn(for="#{id}")
-        - if active
-          input(id="#{id}", type="radio", name="radio_btn", value="#{id}", checked)
-        - else
-          input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
-        label(for="#{id}")
-          label.check_btn-label(for="#{id}") #{text}
-          a(href="#") ЗАБРОНИРОВАТЬ
-          img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
+  | {% static '/images' as imageUrl %}
   section
     .container.page_mainheader
       .row
@@ -37,6 +26,6 @@ block content
   section
     .container.page_photogallery
       .row
-         - each item in gallery_item
+         each item in gallery_imgs
           div.col-md-3
             .img(style="background-image: url('#{imageUrl}/#{item}')")

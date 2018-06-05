@@ -1,7 +1,7 @@
 extends base
+| {% load staticfiles %}
 include mixins/plate.pug
 include mixins/check_btn.pug
-| {% load staticfiles %}
 prepend page
   - var title = "Мастер-класс"
 block content
@@ -17,7 +17,7 @@ block content
         .col-md-4.description
           h1 МАСТЕР КЛАССЫ
           p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-  
+
   section
     .container
       .row
@@ -27,6 +27,7 @@ block content
 
           //+plate("1FaQK5pnte8.jpg", "ФРУКТОВЫЙ БУКЕТ", plate_text)
           //+plate("7kHQp6mrVfk.jpg", "ЛЕТТЕРИНГ", plate_text, "plate_right-align")
+
 
   //- //section
     .container.school_checkbtn

@@ -59,6 +59,19 @@ class HallsChange(View):
 class Graduations(BaseView):
     template_name = 'graduations.pug'
     page_name = 'graduations'
+    gallery_imgs = ['gallery/graduations/9vrb9iGOII8.jpg', 'gallery/graduations/CIPMljq-678.jpg',
+                    'gallery/graduations/Fa5WTp1mxdE.jpg', 'gallery/graduations/NQlzFFrRxYo.jpg',
+                    'gallery/graduations/YZtXXpEzdm4.jpg',
+                    'gallery/graduations/aER8JACIkao.jpg', 'gallery/graduations/rMmIgSM5W8g.jpg',
+                    'gallery/graduations/wI3nPagwI3U.jpg', 'gallery/graduations/CIFRZeC9JVk.jpg',
+                    'gallery/graduations/CsTbBPo7SbI.jpg',
+                    'gallery/graduations/GlDoogxTb4g.jpg', 'gallery/graduations/ODHLi0dO4vU.jpg',
+                    'gallery/graduations/ZkXyy-z6N5A.jpg', 'gallery/graduations/coTTVNVazAU.jpg',
+                    'gallery/graduations/sZYyubVwWxs.jpg']
+
+    def get(self, request):
+        return render(request, self.template_name, {'page': self.page_name,
+                                                    'gallery_imgs': self.gallery_imgs})
 
 
 class Sessions(BaseView):
