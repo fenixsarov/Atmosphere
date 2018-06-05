@@ -3,6 +3,7 @@
 {#<script src="/jssor/jssor.slider-27.1.0.min.js" type="text/javascript"></script>#}
 {% load static from staticfiles %}
 {% load new_tags %}
+{% static 'images' as imageUrl %}
 
 {% if request.session.view == "dark"  %}
     {% assign hall_imgs darkhall_imgs %}
@@ -24,8 +25,10 @@
 
         {% for img in hall_imgs %}
         <div data-p="165.625">
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{% static img %}" />
-            <img data-u="thumb" src="{% static img %}" />
+            {% with imageUrl|add:'/'|add:img as src  %}
+            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{{ src }}" />
+            <img data-u="thumb" src="{{ src }}" />
+            {% endwith %}
         </div>
         {% endfor %}
     </div>
