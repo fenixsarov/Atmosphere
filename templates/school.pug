@@ -1,35 +1,14 @@
 extends base
+include mixins/plate.pug
+include mixins/check_btn.pug
 | {% load staticfiles %}
 prepend page
   //- - var title = "Мастер-класс"
 block content
   | {% static '/images/gallery/master' as imageUrl %}
-  - var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
-  mixin check_btn(text, id, active)
-    .check_btn
-      .btn(for="#{id}")
-        - if active
-          input(id="#{id}", type="radio", name="radio_btn", value="#{id}", checked)
-        - else
-          input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
-        label(for="#{id}")
-          label.check_btn-label(for="#{id}") #{text}
-          a(href="#") ЗАПИСАТЬСЯ
-          img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
+  //- var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
 
-  mixin plate(img_src, header, description, _align)
-    //- - var align = _align ? _align : "plate_left-align";
-    .box.plate(class="#{_align}")
-      .row
-        .col-md-6.plate__img
-          .plate__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
-        .col-md-6
-          .plate__description
-            h2.header #{header}
-            p.description #{description}
-            .plate__more-btn-container
-              a.plate__more-btn
-                i.fa.fa-plus-circle
+
   //section
     .container.page_mainheader
       .row
@@ -39,7 +18,6 @@ block content
           h1 МАСТЕР КЛАССЫ
           p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
   
-  //- var plate_text = "Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!";
   section
     .container
       .row
@@ -49,12 +27,7 @@ block content
 
           //+plate("1FaQK5pnte8.jpg", "ФРУКТОВЫЙ БУКЕТ", plate_text)
           //+plate("7kHQp6mrVfk.jpg", "ЛЕТТЕРИНГ", plate_text, "plate_right-align")
-          //+plate("FUZzw8lt8So.jpg", "МАСЛЯНАЯ ЖИВОПИСЬ", plate_text)
-          //+plate("SmFTgH6yXho.jpg", "АКВАРЕЛЬ", plate_text, "plate_right-align")
-          //+plate("YAFDz1ZWNSQ.jpg", "КРУЖКА", plate_text)
-          //+plate("kbpDgPi_W6A.jpg", "SWEETBOX", plate_text, "plate_right-align")
-          //+plate("34lYmz5ASEk.jpg", "ФЛОРАРИУМ", plate_text)
-          //+plate("8arKte_-Khc.jpg", "КИТАЙСКАЯ ЖИВОПИСЬ", plate_text, "plate_right-align")
+
   //- //section
     .container.school_checkbtn
       .row
@@ -75,8 +48,8 @@ block content
         .col-md-4
           +check_btn('КИТАЙСКАЯ ЖИВОПИСЬ', 'chinese_art')
   //section
-    .container.page_photogallery
-      .row
-        - each item in gallery_item
-          div(class="col-md-3")
-            .img(style="background-image: url('#{imageUrl}/#{item}')")
+  //  .container.page_photogallery
+  //    .row
+  //      - each item in gallery_item
+  //        div(class="col-md-3")
+  //          .img(style="background-image: url('#{imageUrl}/#{item}')")

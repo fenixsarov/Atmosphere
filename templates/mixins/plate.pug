@@ -1,13 +1,13 @@
 mixin plate(img_src, header, description, _align)
-  - var align = _align ? _align : "plate_left-align";
-  section
-    .container
-      .row
-        .col-md.plate(class="#{align}")
-          .row
-            .col-md-6.plate__img-preview
-              img(src="#{img_src}")
-            .col-md-6
-              h2.plate__header #{header}
-              p.plate__description #{description}
-              
+  //- - var align = _align ? _align : "plate_left-align";
+  .box.plate(class="#{_align}")
+    .row
+      .col-md-6.plate__img
+        .plate__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
+      .col-md-6
+        .plate__description
+          h2.header #{header}
+          p.description #{description}
+          .plate__more-btn-container
+            a.plate__more-btn
+              i.fa.fa-plus-circle
