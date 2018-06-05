@@ -3,9 +3,9 @@ include mixins/plate.pug
 include mixins/check_btn.pug
 | {% load staticfiles %}
 prepend page
-  //- - var title = "Мастер-класс"
+  - var title = "Мастер-класс"
 block content
-  | {% static '/images/gallery/master' as imageUrl %}
+  | {% static '/images' as imageUrl %}
   //- var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
 
 
