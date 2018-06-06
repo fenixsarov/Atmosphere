@@ -187,7 +187,7 @@ function bindPlateEvents() {
         'height': '286px',
         'max-height': '286px'
       });
-    })
+    });
   // $('.plate__more-btn')
   //   .on('click', function (evt) {
   //     let $parentPlate = $(this).closest('.plate');
