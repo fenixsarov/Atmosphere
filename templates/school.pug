@@ -1,33 +1,22 @@
 extends base
 | {% load staticfiles %}
-include mixins/plate.pug
+include mixins/plate_new.pug
 include mixins/check_btn.pug
 prepend page
   - var title = "Мастер-класс"
 block content
   | {% static '/images' as imageUrl %}
   //- var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
-
-
-  //section
-    .container.page_mainheader
-      .row
-        .col-md-8
-          img(src="{% static '/images/bg/school-mainheader-img.jpg' %}")
-        .col-md-4.description
-          h1 МАСТЕР КЛАССЫ
-          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-
+  
   section
     .container
       .row
-        .col-md
-          each item in plate_desc
-            +plate(item.image, item.header, item.plate_text)
-
-          //+plate("1FaQK5pnte8.jpg", "ФРУКТОВЫЙ БУКЕТ", plate_text)
-          //+plate("7kHQp6mrVfk.jpg", "ЛЕТТЕРИНГ", plate_text, "plate_right-align")
-
+        each item in plate_desc
+          +plate_new(item.image, item.header)
+        //- //.col-md
+        //-   each item in plate_desc
+        //-     +plate_new(item.image,item.header)
+        //-     //+plate(item.image, item.header, item.plate_text)
 
   //- //section
     .container.school_checkbtn
