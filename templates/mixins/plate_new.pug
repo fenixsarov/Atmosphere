@@ -1,5 +1,6 @@
-mixin plate_new(img_src, header)
+mixin plate_new(img_src, header, description)
   .plate_new
     .plate_new__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
     .plate_new__description
-      .plate_new__description_text #{header}
+      .plate_new__description_header #{header}
+      .plate_new__description_text #{description}

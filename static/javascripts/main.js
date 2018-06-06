@@ -183,9 +183,9 @@ function bindPlateEvents() {
   $('.plate_new')
     .each(function () {
       $(this).css({
-        'min-height': $(this).width(),
-        'height': $(this).width(),
-        'max-height': $(this).width()
+        'min-height': '286px',
+        'height': '286px',
+        'max-height': '286px'
       });
     })
   // $('.plate__more-btn')
