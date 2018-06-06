@@ -10,20 +10,6 @@ block content
       .row
         .col-md-7
           | {% include 'includes/universal_slider_inc.html' %}
-          //| {% if request.session.view == "family" %}
-          ////img(src="{% static '/images/bg/family-img-0.jpg' %}")
-          //| {% include 'includes/halls_slider_inc.html' %}
-          //| {% elif request.session.view == "individual" %}
-          //img(src="{% static '/images/bg/individual-img-0.jpg' %}")
-          //| {% elif request.session.view == "child"%}
-          //img(src="{% static '/images/bg/child-img-0.jpg' %}")
-          //| {% elif request.session.view == "portrait" %}
-          //img(src="{% static '/images/bg/portrait-img-0.jpg' %}")
-          //| {% elif request.session.view == "lovestory" %}
-          //img(src="{% static '/images/bg/lovestory-img-0.jpg' %}")
-          //| {% else %}
-          //img(src="{% static '/images/bg/family-img-0.jpg' %}")
-          //| {% endif %}
 
         .col-md-5.description
           | {% if request.session.view == "family" %}
