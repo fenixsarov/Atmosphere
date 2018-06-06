@@ -1,5 +1,26 @@
 extends base
 | {% load staticfiles %}
+include mixins/plate.pug
+include mixins/check_btn.pug
 prepend page
   - var title = "Полезное"
 block content
+  | {% static '/images' as imageUrl %}
+  section
+    .container.page_mainheader
+      .row
+        .col-md-6
+          | {% with imageUrl|add:'/'|add:main_imgs.0 as img %}
+          img(src="#{img}")
+          | {% endwith %}
+        .col-md-6.description
+          h1 КАК <br> ПОДГОТОВИТЬСЯ <br> К СЪЕМКЕ
+          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
+
+  section
+    .container.plate_container
+      .row
+        each item in plate_desc
+          .col-md
+            each item in plate_desc
+              +plate(item.image, item.header, item.plate_text)
