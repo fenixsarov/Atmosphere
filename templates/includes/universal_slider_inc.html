@@ -5,26 +5,26 @@
 {% load new_tags %}
 {% static 'images' as imageUrl %}
 
-{% if not request.session.view and page == 'halls' %}
+{% if page == 'halls' %}
     {% assign hall_imgs darkhall_imgs %}
 {% endif %}
-{% if not request.session.view and page == 'sessions' %}
+{% if page == 'sessions' %}
     {% assign hall_imgs family_imgs %}
 {% endif %}
 
-{% if request.session.view == "dark"  %}
+{% if request.session.view == "dark" and page == 'halls' %}
     {% assign hall_imgs darkhall_imgs %}
-{% elif request.session.view == "light" %}
+{% elif request.session.view == "light" and page == 'halls'%}
     {% assign hall_imgs lighthall_imgs %}
-{% elif request.session.view == "family" %}
+{% elif request.session.view == "family" and page == 'sessions' %}
     {% assign hall_imgs family_imgs %}
-{% elif request.session.view == "individual" %}
+{% elif request.session.view == "individual" and page == 'sessions' %}
     {% assign hall_imgs individual_imgs %}
-{% elif request.session.view == "child" %}
+{% elif request.session.view == "child" and page == 'sessions' %}
     {% assign hall_imgs child_imgs %}
-{% elif request.session.view == "portrait" %}
+{% elif request.session.view == "portrait" and page == 'sessions' %}
     {% assign hall_imgs portrait_imgs %}
-{% elif request.session.view == "lovestory" %}
+{% elif request.session.view == "lovestory" and page == 'sessions' %}
     {% assign hall_imgs lovestory_imgs %}
 {% endif %}
 
