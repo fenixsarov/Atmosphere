@@ -78,6 +78,63 @@ class Sessions(BaseView):
     template_name = 'sessions.pug'
     page_name = 'sessions'
 
+    family_imgs = [
+        'sessions/family/family_img_0.jpg',
+        'sessions/family/family_img_1.jpg',
+        'sessions/family/family_img_2.jpg',
+        'sessions/family/family_img_3.jpg',
+        'sessions/family/family_img_4.jpg',
+        'sessions/family/family_img_5.jpg',
+        'sessions/family/family_img_6.jpg',
+        'sessions/family/family_img_7.jpg',
+    ]
+    individual_imgs = [
+        'sessions/individual/individual_img_0.jpg',
+        'sessions/individual/individual_img_1.jpg',
+        'sessions/individual/individual_img_2.jpg',
+        'sessions/individual/individual_img_3.jpg',
+        'sessions/individual/individual_img_4.jpg',
+        'sessions/individual/individual_img_5.jpg',
+        'sessions/individual/individual_img_6.jpg',
+    ]
+    child_imgs = [
+        'sessions/child/child_img_0.jpg',
+        'sessions/child/child_img_1.jpg',
+        'sessions/child/child_img_2.jpg',
+        'sessions/child/child_img_3.jpg',
+        'sessions/child/child_img_4.jpg',
+        'sessions/child/child_img_5.jpg',
+        'sessions/child/child_img_6.jpg',
+    ]
+    portrait_imgs = [
+        'sessions/portrait/portrait_img_0.jpg',
+        'sessions/portrait/portrait_img_1.jpg',
+        'sessions/portrait/portrait_img_2.jpg',
+        'sessions/portrait/portrait_img_3.jpg',
+        'sessions/portrait/portrait_img_4.jpg',
+        'sessions/portrait/portrait_img_5.jpg',
+        'sessions/portrait/portrait_img_6.jpg',
+
+    ]
+    lovestory_imgs = [
+        'sessions/lovestory/lovestory_img_0.jpg',
+        'sessions/lovestory/lovestory_img_1.jpg',
+        'sessions/lovestory/lovestory_img_2.jpg',
+        'sessions/lovestory/lovestory_img_3.jpg',
+        'sessions/lovestory/lovestory_img_4.jpg',
+        'sessions/lovestory/lovestory_img_5.jpg',
+        'sessions/lovestory/lovestory_img_6.jpg',
+    ]
+
+    def get(self, request):
+        return render(request, self.template_name, {'page': self.page_name,
+                                                    'family_imgs': self.family_imgs,
+                                                    'individual_imgs': self.individual_imgs,
+                                                    'child_imgs': self.child_imgs,
+                                                    'portrait_imgs': self.portrait_imgs,
+                                                    'lovestory_imgs': self.lovestory_imgs,
+                                                    })
+
 
 class SessionsChange(BaseView):
     # template_name = 'halls.pug'

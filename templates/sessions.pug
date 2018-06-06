@@ -9,20 +9,21 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
-
-          | {% if request.session.view == "family" %}
-          img(src="{% static '/images/bg/family-img-0.jpg' %}")
-          | {% elif request.session.view == "individual" %}
-          img(src="{% static '/images/bg/individual-img-0.jpg' %}")
-          | {% elif request.session.view == "child"%}
-          img(src="{% static '/images/bg/child-img-0.jpg' %}")
-          | {% elif request.session.view == "portrait" %}
-          img(src="{% static '/images/bg/portrait-img-0.jpg' %}")
-          | {% elif request.session.view == "lovestory" %}
-          img(src="{% static '/images/bg/lovestory-img-0.jpg' %}")
-          | {% else %}
-          img(src="{% static '/images/bg/family-img-0.jpg' %}")
-          | {% endif %}
+          | {% include 'includes/universal_slider_inc.html' %}
+          //| {% if request.session.view == "family" %}
+          ////img(src="{% static '/images/bg/family-img-0.jpg' %}")
+          //| {% include 'includes/halls_slider_inc.html' %}
+          //| {% elif request.session.view == "individual" %}
+          //img(src="{% static '/images/bg/individual-img-0.jpg' %}")
+          //| {% elif request.session.view == "child"%}
+          //img(src="{% static '/images/bg/child-img-0.jpg' %}")
+          //| {% elif request.session.view == "portrait" %}
+          //img(src="{% static '/images/bg/portrait-img-0.jpg' %}")
+          //| {% elif request.session.view == "lovestory" %}
+          //img(src="{% static '/images/bg/lovestory-img-0.jpg' %}")
+          //| {% else %}
+          //img(src="{% static '/images/bg/family-img-0.jpg' %}")
+          //| {% endif %}
 
         .col-md-5.description
           | {% if request.session.view == "family" %}
@@ -39,7 +40,7 @@ block content
           h1 СЕМЕЙНАЯ
           | {% endif %}
           p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-          - var iterator = [1, 2, 3, 4]
+          - var iterator = [1, 2, 3, 4, 5]
           each i in iterator
             p <br>
 

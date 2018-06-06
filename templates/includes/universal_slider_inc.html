@@ -5,12 +5,27 @@
 {% load new_tags %}
 {% static 'images' as imageUrl %}
 
+{% if not request.session.view and page == 'halls' %}
+    {% assign hall_imgs darkhall_imgs %}
+{% endif %}
+{% if not request.session.view and page == 'sessions' %}
+    {% assign hall_imgs family_imgs %}
+{% endif %}
+
 {% if request.session.view == "dark"  %}
     {% assign hall_imgs darkhall_imgs %}
 {% elif request.session.view == "light" %}
     {% assign hall_imgs lighthall_imgs %}
-{% else %}
-    {% assign hall_imgs darkhall_imgs %}
+{% elif request.session.view == "family" %}
+    {% assign hall_imgs family_imgs %}
+{% elif request.session.view == "individual" %}
+    {% assign hall_imgs individual_imgs %}
+{% elif request.session.view == "child" %}
+    {% assign hall_imgs child_imgs %}
+{% elif request.session.view == "portrait" %}
+    {% assign hall_imgs portrait_imgs %}
+{% elif request.session.view == "lovestory" %}
+    {% assign hall_imgs lovestory_imgs %}
 {% endif %}
 
 <script type="text/javascript" src="{% static '/javascripts/halls_slider.js' %}"></script>
