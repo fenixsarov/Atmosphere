@@ -12,7 +12,8 @@ block content
     .container
       .row
         each item in plate_desc
-          +plate_new(item.image, item.header)
+          .col-md-4
+            +plate_new(item.image, item.header, item.plate_text)
         //- //.col-md
         //-   each item in plate_desc
         //-     +plate_new(item.image,item.header)
