@@ -1,30 +1,21 @@
 extends base
 | {% load staticfiles %}
+include mixins/plate_new.pug
+include mixins/check_btn.pug
 prepend page
   - var title = "Мастер-класс"
 block content
-  {% static '/images/gallery/master' as imageUrl %}
-  - var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
-  mixin check_btn(text, id, active)
-    .check_btn
-      .btn(for="#{id}")
-        - if active
-          input(id="#{id}", type="radio", name="radio_btn", value="#{id}", checked)
-        - else
-          input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
-        label(for="#{id}")
-          label.check_btn-label(for="#{id}") #{text}
-          a(href="#") ЗАПИСАТЬСЯ
-          img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
+  | {% static '/images' as imageUrl %}
+  //- var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
+
   section
-    .container.page_mainheader
+    .container.plate_container
       .row
-        .col-md-8
-          img(src="{% static '/images/bg/school-mainheader-img.jpg' %}")
-        .col-md-4.description
-          h1 МАСТЕР КЛАССЫ
-          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-  section
+        each item in plate_desc
+          .col-md-3
+            +plate_new(item.image, item.header, item.plate_text)
+
+  //- //section
     .container.school_checkbtn
       .row
         .col-md-4
@@ -43,9 +34,9 @@ block content
           +check_btn('ФЛОРАРИУМ', 'florarium')
         .col-md-4
           +check_btn('КИТАЙСКАЯ ЖИВОПИСЬ', 'chinese_art')
-  section
-    .container.page_photogallery
-      .row
-        - each item in gallery_item
-          div(class="col-md-3")
-            .img(style="background-image: url('#{imageUrl}/#{item}')")
+  //section
+  //  .container.page_photogallery
+  //    .row
+  //      - each item in gallery_item
+  //        div(class="col-md-3")
+  //          .img(style="background-image: url('#{imageUrl}/#{item}')")

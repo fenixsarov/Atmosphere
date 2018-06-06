@@ -1,42 +1,32 @@
 extends base
 | {% load staticfiles %}
-include mixins/plate_new.pug
 include mixins/check_btn.pug
 prepend page
-  - var title = "Мастер-класс"
+  - var title = "Фотошкола"
 block content
   | {% static '/images' as imageUrl %}
-  //- var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
-  
   section
-    .container.plate_container
+    .container.page_mainheader
       .row
-        each item in plate_desc
-          .col-md-3
-            +plate_new(item.image, item.header, item.plate_text)
-
-  //- //section
-    .container.school_checkbtn
+        .col-md-7
+          img(src="{% static '/images/school/school_main_img_0.jpg' %}")
+        .col-md-5.description
+          h1 НАША КОМАНДА
+          p #{main_text}
+          //p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
+  //- include ./mixins/check_btn.pug
+  section
+    .container.graduations_checkbtn
+      .row.around-xs
+        .col-md-4
+          +check_btn('ФОТОГРАФИЯ <br>С НУЛЯ', 'school', "true")
+        .col-md-4
+          +check_btn('ОСНОВЫ<br>СТУДИЙНОЙ<br>СЪЁМКИ', 'kindergarten')
+        .col-md-4
+          +check_btn('РЕТУШЬ<br>ПОРТРЕТА', 'album_print')
+  section
+    .container.page_photogallery
       .row
-        .col-md-4
-          +check_btn('ФРУКТОВЫЙ БУКЕТ', 'fruit_bouquet', true)
-        .col-md-4
-          +check_btn('ЛЕТТЕРИНГ', 'letting')
-        .col-md-4
-          +check_btn('МАСЛЯНАЯ ЖИВОПИСЬ', 'oil_painting')
-        .col-md-4
-          +check_btn('АКВАРЕЛЬ', 'watercolor')
-        .col-md-4
-          +check_btn('КРУЖКА', 'cup')
-        .col-md-4
-          +check_btn('SWEETBOX', 'sweetbox')
-        .col-md-4
-          +check_btn('ФЛОРАРИУМ', 'florarium')
-        .col-md-4
-          +check_btn('КИТАЙСКАЯ ЖИВОПИСЬ', 'chinese_art')
-  //section
-  //  .container.page_photogallery
-  //    .row
-  //      - each item in gallery_item
-  //        div(class="col-md-3")
-  //          .img(style="background-image: url('#{imageUrl}/#{item}')")
+         each item in school_imgs
+          div.col-md-3
+            .img(style="background-image: url('#{imageUrl}/#{item}')")

@@ -145,6 +145,25 @@ class SessionsChange(BaseView):
 
 
 class School(BaseView):
+    template_name = 'school.pug'
+    page_name = 'school'
+    main_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
+    school_imgs = ['school/school_img_0.jpg', 'school/school_img_1.jpg', 'school/school_img_2.jpg',
+                   'school/school_img_3.jpg', 'school/school_img_4.jpg', 'school/school_img_5.jpg',
+                   'school/school_img_6.jpg', 'school/school_img_7.jpg', 'school/school_img_8.jpg',
+                   'school/school_img_9.jpg', 'school/school_img_10.jpg', 'school/school_img_11.jpg',
+                   'school/school_img_12.jpg', 'school/school_img_13.jpg', 'school/school_img_14.jpg',
+                   ]
+
+    def get(self, request):
+        return render(request, self.template_name, {'page': self.page_name,
+                                                    'school_imgs': self.school_imgs,
+                                                    'main_text': self.main_text})
+
+
+class MasterClass(BaseView):
+    template_name = 'masterclass.pug'
+    page_name = 'masterclass'
     plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
     plate_desc = [{'image': 'gallery/master/1FaQK5pnte8.jpg', 'header': 'ФРУКТОВЫЙ БУКЕТ', 'plate_text': plate_text},
                   {'image': 'gallery/master/7kHQp6mrVfk.jpg', 'header': 'ЛЕТТЕРИНГ', 'plate_text': plate_text},
@@ -155,18 +174,11 @@ class School(BaseView):
                   {'image': 'gallery/master/34lYmz5ASEk.jpg', 'header': 'ФЛОРАРИУМ', 'plate_text': plate_text},
                   {'image': 'gallery/master/8arKte_-Khc.jpg', 'header': 'КИТАЙСКАЯ ЖИВОПИСЬ', 'plate_text': plate_text}
                   ]
-    template_name = 'school.pug'
-    page_name = 'school'
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,
                                                     'plate_desc': self.plate_desc
                                                     })
-
-
-class MasterClass(BaseView):
-    template_name = 'masterclass.pug'
-    page_name = 'masterclass'
 
 
 class Events(BaseView):
