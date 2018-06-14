@@ -1,6 +1,8 @@
 extends base
 | {% load staticfiles %}
 include mixins/check_btn.pug
+include mixins/photogallery_item.pug
+
 prepend page
   - var title = "Выпускные съёмки"
 block content
@@ -26,7 +28,5 @@ block content
   section
     .container.page_photogallery
       .row
-         each item in gallery_imgs
-          div.col-md-3
-            div.img-container
-              .img(style="background-image: url('#{imageUrl}/#{item}')")
+        each item in gallery_imgs
+          +photogallery_item()
