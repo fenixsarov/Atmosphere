@@ -71,6 +71,9 @@ section {
     flex-basis: 50%;
     max-width: 50%;
   }
+  .img-container {
+    overflow: hidden;
+  }
   .img {
     background-size: cover;
     background-position-y: 30%;
@@ -78,6 +81,10 @@ section {
     background-repeat: no-repeat;
     height: 240px;
     cursor: pointer;
+    transition: all .5s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 

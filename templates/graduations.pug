@@ -28,4 +28,5 @@ block content
       .row
          each item in gallery_imgs
           div.col-md-3
-            .img(style="background-image: url('#{imageUrl}/#{item}')")
+            div.img-container
+              .img(style="background-image: url('#{imageUrl}/#{item}')")
