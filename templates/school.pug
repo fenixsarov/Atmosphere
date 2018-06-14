@@ -1,6 +1,14 @@
 extends base
 | {% load staticfiles %}
 include mixins/check_btn.pug
+//- include mixins/photogallery_item.pug
+
+mixin photogallery_item(_url)
+  .col-md-3
+    .img-container 
+      .img(style="background-image: url({% static '#{imageUrl}/#{_url}' %})")
+      /// КАК БЛИН НУЖНО ТАКОЙ ПАРАМЕТР ПОДАВАТЬ? Еще один вид ковычек?
+
 prepend page
   - var title = "Фотошкола"
 block content
@@ -27,7 +35,8 @@ block content
   section
     .container.page_photogallery
       .row
-         each item in school_imgs
-          div.col-md-3
-            .img(style="background-image: url('#{imageUrl}/#{item}')")
-            //.img(style="background-image: url('/#{item}')")
+        each item in school_imgs
+          +photogallery_item(item) 
+          // Я НЕ ЯБУ КАК ЭТО БЛЯТЬ ДОЛЖНО РАБОТАТЬ! ВСЯКИЕ ВАРИАНТЫ ПОПРОБОВАЛ
+          // МИКСИН НЕ РАБОТАЕТ ЕСЛИ ЕГО ИНКЛУДИТЬ
+          // И НЕ РАБОТАЕТ ПАРАМЕТР ЕСЛИ ЕГО ПОДАВАТЬ как параметр...Как блять нужно делать эту очевидную вещь???

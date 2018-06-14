@@ -71,13 +71,20 @@ section {
     flex-basis: 50%;
     max-width: 50%;
   }
+  .img-container {
+    overflow: hidden;
+  }
   .img {
     background-size: cover;
     background-position-y: 30%;
     background-position-x: center;
     background-repeat: no-repeat;
-    height: 240px;
+    height: 350px;
     cursor: pointer;
+    transition: all .5s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 
