@@ -157,6 +157,10 @@ class School(BaseView):
 
     # school_imgs = []
     # for img in Image.objects.all():
+    #     if img.gallery and img.gallery.id == 1:
+    #         school_imgs.append(img.file.url)
+
+    # for img in Image.objects.all():
     #     school_imgs.append(img.file.url)
 
     def get(self, request):
