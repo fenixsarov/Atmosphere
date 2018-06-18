@@ -2,17 +2,17 @@ extends base
 | {% load staticfiles %}
 include mixins/check_btn.pug
 //- include mixins/photogallery_item.pug
-
+| {% static '/images' as imageUrl %}
 mixin photogallery_item(_url)
   .col-md-3
     .img-container 
-      .img(style="background-image: url({% static '#{imageUrl}/#{_url}' %})")
+      .img(style="background-image: url( '#{_url}' )")
       /// КАК БЛИН НУЖНО ТАКОЙ ПАРАМЕТР ПОДАВАТЬ? Еще один вид ковычек?
 
 prepend page
   - var title = "Фотошкола"
 block content
-  | {% static '/images' as imageUrl %}
+
   section
     .container.page_mainheader
       .row
