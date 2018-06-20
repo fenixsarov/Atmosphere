@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View
 from django.conf import settings
-
+from .models import *
 
 # debug = settings.DEBUG
 
@@ -154,6 +154,14 @@ class School(BaseView):
                    'school/school_img_9.jpg', 'school/school_img_10.jpg', 'school/school_img_11.jpg',
                    'school/school_img_12.jpg', 'school/school_img_13.jpg', 'school/school_img_14.jpg',
                    ]
+
+    # school_imgs = []
+    # for img in Image.objects.all():
+    #     if img.gallery and img.gallery.id == 1:
+    #         school_imgs.append(img.file.url)
+
+    # for img in Image.objects.all():
+    #     school_imgs.append(img.file.url)
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,

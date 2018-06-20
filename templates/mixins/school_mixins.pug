@@ -1,0 +1,18 @@
+| {% load staticfiles %}
+mixin check_btn(text, id, active)
+  .check_btn
+    .btn(for="#{id}")
+      - if active
+        input(id="#{id}", type="radio", name="radio_btn", value="#{id}", checked)
+      - else
+        input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
+      label(for="#{id}")
+        label.check_btn-label(for="#{id}") #{text}
+        a(href="#") ЗАБРОНИРОВАТЬ
+        img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
+
+mixin photogallery_item(_url)
+    .col-md-3
+        .img-container
+            .img(style="background-image: url('#{imageUrl}/#{_url}')")
+            //.img(style="background-image: url('/#{_url}')")

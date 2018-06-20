@@ -1,12 +1,12 @@
 extends base
 | {% load staticfiles %}
-//- include mixins/mixins
+include mixins/school_mixins.pug
 
 prepend page
   - var title = "Фотошкола"
 block content
-  include mixins/check_btn.pug
   | {% static '/images' as imageUrl %}
+
   section
     .container.page_mainheader
       .row
@@ -29,7 +29,5 @@ block content
     .container.page_photogallery
       .row
         each item in school_imgs
-          +photogallery_item(item) 
-          // Я НЕ ЯБУ КАК ЭТО БЛЯТЬ ДОЛЖНО РАБОТАТЬ! ВСЯКИЕ ВАРИАНТЫ ПОПРОБОВАЛ
-          // МИКСИН НЕ РАБОТАЕТ ЕСЛИ ЕГО ИНКЛУДИТЬ
-          // И НЕ РАБОТАЕТ ПАРАМЕТР ЕСЛИ ЕГО ПОДАВАТЬ как параметр...Как блять нужно делать эту очевидную вещь???
+          +photogallery_item(item)
+         
