@@ -13,7 +13,7 @@ $carousel-padding: 60px 25px;
   position: relative;
   overflow: hidden;
   padding: $carousel-padding;
-  padding-bottom: 0; // background-color: rgba(33, 33, 31, .65);
+  padding-bottom: 0;
   background: -moz-linear-gradient(left, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
   background: -webkit-linear-gradient(left, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
   background: linear-gradient(to right, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
@@ -46,11 +46,9 @@ $carousel-padding: 60px 25px;
     }
   }
   .carousel-indicators {
-    // height 76px
     $indicators-size: 12px;
     padding-top: 15px;
-    padding-bottom: 15px; // padding-top: 23px;
-    // margin-bottom: -23px;
+    padding-bottom: 15px;
     ol {
       list-style: none;
       display: flex;
@@ -81,14 +79,7 @@ $carousel-padding: 60px 25px;
   }
   .carousel-control {
     font-size: 33px;
-    cursor: pointer; // position: absolute;
-    // display: flex;
-    // align-items: center;
-    // text-decoration: none;
-    // color: #fff;
-    // padding-left: 50px;
-    // padding-right: 50px;
-    // height: 100%;
+    cursor: pointer;
     &.left {
       left: $carousel-padding;
     }
