@@ -1,17 +1,11 @@
 extends base
 | {% load staticfiles %}
-include mixins/check_btn.pug
-//- include mixins/photogallery_item.pug
-
-mixin photogallery_item(_url)
-  .col-md-3
-    .img-container 
-      .img(style="background-image: url({% static '#{imageUrl}/#{_url}' %})")
-      /// КАК БЛИН НУЖНО ТАКОЙ ПАРАМЕТР ПОДАВАТЬ? Еще один вид ковычек?
+//- include mixins/mixins
 
 prepend page
   - var title = "Фотошкола"
 block content
+  include mixins/check_btn.pug
   | {% static '/images' as imageUrl %}
   section
     .container.page_mainheader
@@ -22,7 +16,6 @@ block content
           h1 НАША КОМАНДА
           p #{main_text}
           //p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-  //- include ./mixins/check_btn.pug
   section
     .container.graduations_checkbtn
       .row.around-xs
