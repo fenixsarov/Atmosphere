@@ -3,7 +3,8 @@ mixin plate(img_src, header, description, _align)
   .box.plate(class="#{_align}")
     .row
       .col-md-6.plate__img
-        .plate__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
+        //.plate__img-preview(style="background-image: url('#{imageUrl}/#{img_src}')")
+        .plate__img-preview(style="background-image: url('/#{img_src}')")
       .col-md-6
         .plate__description
           h2.header #{header}

@@ -21,6 +21,7 @@ class Gallery(models.Model):
     class Meta:
         verbose_name_plural = 'Galleries'
     title = models.CharField('Title', max_length=20)
+    desc = models.TextField(verbose_name='Описание на странице', max_length=256)
 
     def __str__(self):
         return self.title
