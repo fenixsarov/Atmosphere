@@ -87,8 +87,9 @@ $(function () {
     $bgHeader.css({
       height: $navContainer[0].offsetHeight + 20,
       width: $navContainer[0].offsetWidth + 20,
-      left: -(Number($navContainer.css('padding-left').replace('px', '')) + 10)
-    });
+      left: -(Number($navContainer.css('padding-left').replace('px', '')) + 10),
+      display: 'block'
+    })
   }
   ////// Plate events
   bindPlateEvents();
