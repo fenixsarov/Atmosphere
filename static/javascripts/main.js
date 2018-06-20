@@ -65,6 +65,8 @@ $(function () {
     });
 
     prev_s = cur_s;
+
+    // BG Header
   });
 
   function headerParallax(c_scroll) {
@@ -79,7 +81,15 @@ $(function () {
 
   }
 
-
+  let $bgHeader = $('.atm-navigation__bg-img');
+  if ($bgHeader) {
+    $navContainer = $('.atm-nav-container');
+    $bgHeader.css({
+      height: $navContainer[0].offsetHeight + 20,
+      width: $navContainer[0].offsetWidth + 20,
+      left: -(Number($navContainer.css('padding-left').replace('px', '')) + 10)
+    });
+  }
   ////// Plate events
   bindPlateEvents();
 });

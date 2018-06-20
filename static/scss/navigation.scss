@@ -7,6 +7,20 @@
   margin-bottom: 1em;
 }
 
+.atm-nav-container {
+  position: relative;
+}
+
+.atm-navigation__bg-img {
+  position: absolute;
+  background-image: url('/static/images/header/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-left: inherit;
+  padding-right: inherit;
+}
+
 nav.atm-main-nav {
   position: relative;
   top: 0;
