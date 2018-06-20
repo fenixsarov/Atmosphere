@@ -12,11 +12,10 @@
 }
 
 .atm-navigation__bg-img {
-  position: absolute;
-  background-image: url('/static/images/header/background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+  position: absolute; // background-image: url('/static/images/header/background-header.png');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: top center;
   padding-left: inherit;
   padding-right: inherit;
 }
