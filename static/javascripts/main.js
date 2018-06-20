@@ -17,6 +17,9 @@ $(function () {
 
   // CAROUSEL
   $carouselContent = $("#scenery-carousel .content");
+  $carouselContent.css({
+    'height': $carouselContent.width() / 3
+  });
   carouselIsAnimate = false;
   carouselIndex = 0;
   carouselContentChild = $carouselContent.children();
