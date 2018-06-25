@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.conf import settings
 from .models import *
+import random
 
 
 # debug = settings.DEBUG
@@ -45,6 +46,10 @@ class Halls(BaseView):
     ]
 
     def get(self, request):
+        for i in range(0, random.randint(1, 5)):
+            random.shuffle(self.darkhall_imgs)
+            random.shuffle(self.lighthall_imgs)
+
         return render(request, self.template_name, {'page': self.page_name,
                                                     'halls_list': self.halls_list,
                                                     'darkhall_imgs': self.darkhall_imgs,
@@ -135,6 +140,12 @@ class Sessions(BaseView):
     ]
 
     def get(self, request):
+        for i in range(0, random.randint(1, 5)):
+            random.shuffle(self.family_imgs)
+            random.shuffle(self.individual_imgs)
+            random.shuffle(self.child_imgs)
+            random.shuffle(self.portrait_imgs)
+            random.shuffle(self.lovestory_imgs)
         return render(request, self.template_name, {'page': self.page_name,
                                                     'family_imgs': self.family_imgs,
                                                     'individual_imgs': self.individual_imgs,
@@ -192,7 +203,7 @@ class MasterClass(BaseView):
     #               {'image': 'gallery/master/34lYmz5ASEk.jpg', 'header': 'ФЛОРАРИУМ', 'plate_text': plate_text},
     #               {'image': 'gallery/master/8arKte_-Khc.jpg', 'header': 'КИТАЙСКАЯ ЖИВОПИСЬ', 'plate_text': plate_text}
     #               ]
-
+    main_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
     plate_desc = []
     for img in Image.objects.all():
         if img.gallery and img.gallery.id == 3:
@@ -203,7 +214,8 @@ class MasterClass(BaseView):
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,
-                                                    'plate_desc': self.plate_desc
+                                                    'plate_desc': self.plate_desc,
+                                                    'main_text': self.main_text
                                                     })
 
 

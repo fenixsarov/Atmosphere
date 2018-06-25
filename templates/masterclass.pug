@@ -9,6 +9,14 @@ block content
   //- var gallery_item = ["1FaQK5pnte8.jpg", "7kHQp6mrVfk.jpg", "FUZzw8lt8So.jpg", "SmFTgH6yXho.jpg", "YAFDz1ZWNSQ.jpg", "kbpDgPi_W6A.jpg","34lYmz5ASEk.jpg", "8arKte_-Khc.jpg", "HJ7gVmH4K8Q.jpg", "TUCKmNgjNiU.jpg", "aF6kq0_WbUo.jpg", "vrAMBUR_1v0.jpg","3aXOMK0qDh8.jpg", "CXY2y86j0HM.jpg", "MbzHAkcOTX4.jpg", "U1dBoRoFums.jpg", "eSh1MORd0-E.jpg"];
 
   section
+    .container.page_mainheader
+      .row
+        .col-md-7
+          img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}")
+        .col-md-5.description
+          h1 МАСТЕР-КЛАССЫ
+          p #{main_text}
+  section
     .container.plate_container
       .row
         each item in plate_desc
