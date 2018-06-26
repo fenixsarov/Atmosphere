@@ -128,7 +128,11 @@
   flex-basis: 33.333%;
   transition: all .5s ease;
   margin-bottom: 1rem;
+  cursor: pointer;
   &:hover {
+    .plate_new__header {
+      opacity: 0; // bottom: -30px;
+    }
     .plate_new__description_header {
       transform: scale(1);
       opacity: 1;
@@ -138,7 +142,7 @@
       opacity: 1;
     }
     .plate_new__description {
-      background-color: rgba(128, 128, 128, 0.6);
+      background-color: rgba(41, 41, 41, 0.6);
     }
     .plate_new__img-preview {
       transform: scale(1.4);
@@ -174,6 +178,17 @@
   transition: all .5s ease; // top: 50%;
   // left: 50%;
   // transform: translateX(-50%) translateY(-50%);
+}
+
+.plate_new__header {
+  position: absolute;
+  opacity: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 1em;
+  background-color: rgba(34, 34, 34, 0.8); // transition: all .3s ease;
 }
 
 .plate_new__description_header {
