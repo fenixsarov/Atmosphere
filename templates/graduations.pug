@@ -8,6 +8,7 @@ prepend page
   - var title = "Выпускные съёмки"
 block content
   | {% static '/images' as imageUrl %}
+  - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
   section
     .container.page_mainheader
       .row
@@ -16,19 +17,26 @@ block content
         .col-md-5.description
           h1 ВЫПУСКНЫЕ СЪЁМКИ
           p #{main_text}
-          //p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
-  //- include ./mixins/check_btn.pug
+
   section
     .container.graduations_checkbtn
       .row.around-xs
-        .col-md-4
-          +check_btn('ШКОЛА', 'school', "true")
-        .col-md-4
-          +check_btn('ДЕТСКИЙ<br>САД', 'kindergarten')
-        .col-md-4
-          +check_btn('ПЕЧАТЬ<br>АЛЬБОМОВ', 'album_print')
+        each btn in graduation_list
+          .col-md-4
+            +check_btn(btn.label, btn.id, btn.active)
+
   section
     .container.page_photogallery
       .row
+        | {% if request.session.view == "school" %}
         each item in gallery_imgs
           +photogallery_item(item)
+        | {% elif request.session.view == "kindergarten" %}
+        each item in gallery_imgs
+          +photogallery_item(item)
+        | {% elif request.session.view == "album_print" %}
+        each item in gallery_imgs
+          +photogallery_item(item)
+        | {% else %}
+        p HAHAHA
+        | {% endif %}

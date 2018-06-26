@@ -87,6 +87,11 @@ class Graduations(BaseView):
                                                     'main_text': self.main_text})
 
 
+class GraduationsChange(View):
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        return HttpResponse('ok', content_type='text/html')
+
 class Sessions(BaseView):
     template_name = 'sessions.pug'
     page_name = 'sessions'
