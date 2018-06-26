@@ -1,5 +1,6 @@
 | {% load staticfiles %}
 //- .bg-img
+{% static '/images/events' as url %}
 section#events
   .container
     .row
@@ -11,26 +12,26 @@ section#events
                   .col-md.bg-color
           .row.event-container
             .event.col-md
-              .content(href="/useful")
-                .image.event-1
+              a.content(href="/school")
+                .image(style="background-image: url('#{url}/school.png');")
                 .description
                   div.name ФОТОШКОЛА
                   div.desc Текст, отображающийся при наведении
             .event.col-md
-              .content(href="/school")
-                .image.event-2
+              a.content(href="/#")
+                .image(style="background-image: url('#{url}/measures.png');")
                 .description
                   div.name СОБЫТИЯ
                   div.desc Текст, отображающийся при наведении
             .event.col-md
-              .content(href="/masterclass")
-                .image.event-3
+              a.content(href="/masterclass")
+                .image(style="background-image: url('#{url}/masters.png');")
                 .description
-                  div.name МАСТЕР-КЛАССЫ
+                  div.name ТЕКСТ
                   div.desc Текст, отображающийся при наведении
             .event.col-md
-              .content(href="/masterclass")
-                .image.event-3
+              a.content(href="/masterclass")
+                .image(style="background-image: url('#{url}/measures.png');")
                 .description
-                  div.name МАСТЕР-КЛАССЫ
+                  div.name ТЕКСТ
                   div.desc Текст, отображающийся при наведении

@@ -18,21 +18,6 @@ block content
   - var url = imageUrl + "/page_headers/masterclass.png"
   - var desc = "Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!"
   +page_header(url, "МАСТЕР КЛАСС", desc)
-
-  //- - var gallery_item = ["9vrb9iGOII8.jpg", "CIPMljq-678.jpg" ,"Fa5WTp1mxdE.jpg" ,"NQlzFFrRxYo.jpg" ,"YZtXXpEzdm4.jpg" ,"aER8JACIkao.jpg" ,"rMmIgSM5W8g.jpg" ,"wI3nPagwI3U.jpg", "CIFRZeC9JVk.jpg" ,"CsTbBPo7SbI.jpg" ,"GlDoogxTb4g.jpg" ,"ODHLi0dO4vU.jpg", "ZkXyy-z6N5A.jpg" ,"coTTVNVazAU.jpg" ,"sZYyubVwWxs.jpg" ,"zIWGbws2jow.jpg"];
-  //- .container.page_photogallery
-  //-   .row
-  //-     - each item in gallery_item
-  //-       div(class="col-md-3")
-  //-         .img(style="background-image: url('#{imageUrl}/gallery/graduations/#{item}')")
-  //- section
-    .container.page_mainheader
-      .row
-        .col-md-7
-          img(src="{% static '/images/bg/graduations-mainheader-img.png' %}")
-        .col-md-5.description
-          h1 НАША КОМАНДА
-          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
   
   section.atm-plate-gallery
     .container.plate_container
@@ -40,23 +25,3 @@ block content
         each item in plate_desc
           .col-md-3
             +plate_new(item.image, item.header, item.plate_text)
-
-  //- //section
-    .container.school_checkbtn
-      .row
-        .col-md-4
-          +check_btn('ФРУКТОВЫЙ БУКЕТ', 'fruit_bouquet', true)
-        .col-md-4
-          +check_btn('ЛЕТТЕРИНГ', 'letting')
-        .col-md-4
-          +check_btn('МАСЛЯНАЯ ЖИВОПИСЬ', 'oil_painting')
-        .col-md-4
-          +check_btn('АКВАРЕЛЬ', 'watercolor')
-        .col-md-4
-          +check_btn('КРУЖКА', 'cup')
-        .col-md-4
-          +check_btn('SWEETBOX', 'sweetbox')
-        .col-md-4
-          +check_btn('ФЛОРАРИУМ', 'florarium')
-        .col-md-4
-          +check_btn('КИТАЙСКАЯ ЖИВОПИСЬ', 'chinese_art')

@@ -1,12 +1,44 @@
 extends base
-prepend page
-  - var title = ""
-  - var header_absolute = "atm-navigation-absolute";
 | {% load staticfiles %}
+include mixins/mixins.pug
+
+prepend page
+  - var title = "Главная страница"
+  - var header_absolute = "atm-navigation-absolute";
+
 block content
   include includes/header_inc
-  //- .container-fluid#main-content
   include includes/scenery_inc
   include includes/livephoto_inc
-  include includes/events_inc
+  
+  {% static '/images' as imageUrl %}
+  section#events
+    .container
+        .row
+          .col-md
+            .box.box-container
+              .row.event-container
+                - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
+                | {% with imageUrl|add:'/events/' as src  %}
+                - var srcImg = src + evt_img[0]
+                +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
+                - var srcImg1 = src + evt_img[1]
+                +event("#", "события", "Текст, отображающийся при наведении", srcImg1)
+                - var srcImg2 = src + evt_img[2]
+                +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
+                - var srcImg3 = src + evt_img[3]
+                +event("/useful", "полезное", "Текст, отображающийся при наведении", srcImg3)
+                | {% endwith %}
+    //- .container
+      .row
+        .col-md
+          .box.box-container
+            .row
+              .col-md-7
+                .box.box-container
+                  .col-md.bg-color
+                    .row.event-container
+                      +event("/school", "фотошкола", "Текст, отображающийся при наведении", "#{url}/school.png")
+  
+  //- include includes/events_inc
   include includes/team_inc

@@ -8,7 +8,7 @@ mixin check_btn(text, id, active)
         input(id="#{id}", type="radio", name="radio_btn", value="#{id}")
       label(for="#{id}")
         label.check_btn-label(for="#{id}") #{text}
-        a(href="#") ЗАБРОНИРОВАТЬ
+        a.view(href="javascript:", data-descc="#{id}") ЗАБРОНИРОВАТЬ
         img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
 
 mixin photogallery_item(_url)

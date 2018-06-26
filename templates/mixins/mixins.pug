@@ -1,4 +1,12 @@
-include mixins/check_btn.pug
+//- include mixins/check_btn.pug
 //- include plate.pug
 //- include plate_new.pug
-include mixins/photogallery_item.pug
+//- include mixins/photogallery_item.pug
+
+mixin event(url, header, description, bg_img)
+  .event.col-md
+    .content(href=url)
+      .image(style="background-image: url('#{bg_img}');")
+      .description
+        div.name #{header}
+        div.desc #{description}
