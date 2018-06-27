@@ -3,8 +3,22 @@
 //- include plate_new.pug
 //- include mixins/photogallery_item.pug
 
+mixin plate(img_src, header, description, _align)
+  //- - var align = _align ? _align : "plate_left-align"; url('#{imageUrl}/#{img_src}')
+  .box.plate(class="#{_align}")
+    .row
+      .col-md-6.col-xs-12.plate__img-container
+        .plate__img-preview(style="background-image: url('#{img_src}')")
+      .col-md-6.col-xs-12.plate__description-container
+        .plate__description
+          h2.header #{header}
+          p.description #{description}
+          .plate__more-btn-container
+            a.plate__more-btn
+              i.fa.fa-plus-circle
+
 mixin event(url, header, description, bg_img)
-  .event.col-md
+  .event.col-md.col-sm-6.col-xs-12
     .content(href=url)
       .image(style="background-image: url('#{bg_img}');")
       .description

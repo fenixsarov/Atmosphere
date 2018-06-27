@@ -29,7 +29,7 @@ nav.atm-main-nav {
   padding: 20px 30px !important;
   .atm-logo {
     img {
-      width: 90%;
+      width: 80%;
     }
   }
   .atm-main-menu {
@@ -146,7 +146,7 @@ nav.atm-main-nav {
   }
 }
 
-$atm-socials-btn-size: 47px;
+$atm-socials-btn-size: 42px;
 .atm-under-menu-panel {
   position: relative;
   z-index: 1;
@@ -159,6 +159,7 @@ $atm-socials-btn-size: 47px;
   list-style: none;
   .atm-submenu-item {
     display: inline-block;
+    text-transform: uppercase;
   }
 }
 
@@ -167,8 +168,8 @@ $atm-socials-btn-size: 47px;
   z-index: 50;
   a {
     display: inline-block;
-    font-size: 24px;
-    padding: 10px;
+    font-size: 25px;
+    padding: 7px;
     transition: all .3s ease-in;
     &.atm-socials-vk {
       position: relative;

@@ -59,6 +59,12 @@
   }
 }
 
+.plate_left-align {
+  .plate__img-container {
+    order: 2;
+  }
+}
+
 .full-plate {
   position: absolute;
   visibility: hidden;

@@ -16,17 +16,13 @@ block content
           p #{main_text}
   section
     .container
-      .row
-        .col-md
-          .box.box-container
-            .row.event-container
-              | {% static '/images' as imageUrl %}
-              | {% with imageUrl|add:'/school/' as src  %}
-              - var srcImg = src + evt_img[0]
-              +event('#', 'ФОТОГРАФИЯ', 'Текст, отображающийся при наведении', srcImg)
-              - var srcImg1 = src + evt_img[1]
-              +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Текст, отображающийся при наведении', srcImg1)
-              - var srcImg2 = src + evt_img[2]
-              +event('#', 'РЕТУШЬ ПОРТРЕТА', 'Текст, отображающийся при наведении', srcImg2)
-              | {% endwith %}
-              
+      .row.event-container
+        | {% static '/images' as imageUrl %}
+        | {% with imageUrl|add:'/school/' as src  %}
+        - var srcImg = src + evt_img[0]
+        +event('#', 'ФОТОГРАФИЯ', 'Текст, отображающийся при наведении', srcImg)
+        - var srcImg1 = src + evt_img[1]
+        +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Текст, отображающийся при наведении', srcImg1)
+        - var srcImg2 = src + evt_img[2]
+        +event('#', 'РЕТУШЬ ПОРТРЕТА', 'Текст, отображающийся при наведении', srcImg2)
+        | {% endwith %}
