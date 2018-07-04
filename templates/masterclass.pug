@@ -11,17 +11,16 @@ block content
       .container.page_mainheader
         .row
           .col-md-7
-            img(src="#{img_src}")
+            img(src="/#{img_src}")
           .col-md-5.description
-            h1= header
+            h1 {{ header|upper }}
             p= description
-  - var url = imageUrl + "/page_headers/masterclass.png"
-  - var desc = "Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!"
-  +page_header(url, "МАСТЕР КЛАСС", desc)
+
+  +page_header(desc_image, title, main_text)
   
   section.atm-plate-gallery
     .container.plate_container
       .row
         each item in plate_desc
           .col-md-3
-            +plate_new(item.image, item.header, item.plate_text)
+            +plate_new(item.image, item.title, item.plate_text)

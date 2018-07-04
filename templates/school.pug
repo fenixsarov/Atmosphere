@@ -10,9 +10,9 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
-          img(src="{% static '/images/page_headers/school.png' %}")
+          img(src="/#{desc_image}")
         .col-md-5.description
-          h1 ФОТОШКОЛА
+          h1 {{ title|upper }}
           p #{main_text}
   section
     .container

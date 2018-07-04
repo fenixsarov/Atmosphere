@@ -269,3 +269,4 @@ function bindPlateEvents() {
   //     //   }, 500);
   //   });
 }
+

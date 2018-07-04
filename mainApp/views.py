@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import View
+from django.template import loader
 from django.conf import settings
 from .models import *
 import random
@@ -58,6 +59,7 @@ class Halls(BaseView):
 
 class HallsChange(View):
     def get(self, request):
+        print(Picture.objects.count())
         self.request.session['view'] = self.request.GET['view']
         return HttpResponse('ok', content_type='text/html')
 
@@ -65,32 +67,65 @@ class HallsChange(View):
 class Graduations(BaseView):
     template_name = 'graduations.pug'
     page_name = 'graduations'
-    # gallery_imgs = ['gallery/graduations/9vrb9iGOII8.jpg', 'gallery/graduations/CIPMljq-678.jpg',
-    #                 'gallery/graduations/Fa5WTp1mxdE.jpg', 'gallery/graduations/NQlzFFrRxYo.jpg',
-    #                 'gallery/graduations/YZtXXpEzdm4.jpg',
-    #                 'gallery/graduations/aER8JACIkao.jpg', 'gallery/graduations/rMmIgSM5W8g.jpg',
-    #                 'gallery/graduations/wI3nPagwI3U.jpg', 'gallery/graduations/CIFRZeC9JVk.jpg',
-    #                 'gallery/graduations/CsTbBPo7SbI.jpg',
-    #                 'gallery/graduations/GlDoogxTb4g.jpg', 'gallery/graduations/ODHLi0dO4vU.jpg',
-    #                 'gallery/graduations/ZkXyy-z6N5A.jpg', 'gallery/graduations/coTTVNVazAU.jpg',
-    #                 'gallery/graduations/sZYyubVwWxs.jpg']
+    gallery_imgs = ['static/images/graduations/9vrb9iGOII8.jpg', 'static/images/graduations/CIPMljq-678.jpg',
+                    'static/images/graduations/Fa5WTp1mxdE.jpg', 'static/images/graduations/NQlzFFrRxYo.jpg',
+                    'static/images/graduations/YZtXXpEzdm4.jpg',
+                    'static/images/graduations/aER8JACIkao.jpg', 'static/images/graduations/rMmIgSM5W8g.jpg',
+                    'static/images/graduations/wI3nPagwI3U.jpg', 'static/images/graduations/CIFRZeC9JVk.jpg',
+                    'static/images/graduations/CsTbBPo7SbI.jpg',
+                    'static/images/graduations/GlDoogxTb4g.jpg', 'static/images/graduations/ODHLi0dO4vU.jpg',
+                    'static/images/graduations/ZkXyy-z6N5A.jpg', 'static/images/graduations/coTTVNVazAU.jpg',
+                    'static/images/graduations/sZYyubVwWxs.jpg']
     main_text = ''
-    gallery_imgs = []
-    for img in Image.objects.all():
-        if img.gallery and img.gallery.id == 2:
-            gallery_imgs.append(img.file.url)
-            main_text = img.gallery.desc
+    # gallery_imgs = []
+    title = ''
+    desc_image = ''
+    try:
+        # Getting data for page description (title, description, image)
+        obj = DescriptionsList.objects.get(service_name=page_name)
+        title = obj.title
+        main_text = obj.desc
+        desc_image = obj.file.url
+
+    except BaseException as e:
+        print(e)
+    # for img in Picture.objects.all():
+    #     if img.gallery and img.gallery.id == 2:
+    #         gallery_imgs.append(img.file.url)
+    #         main_text = img.gallery.desc
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,
                                                     'gallery_imgs': self.gallery_imgs,
-                                                    'main_text': self.main_text})
+                                                    'title': self.title,
+                                                    'main_text': self.main_text,
+                                                    'desc_image': self.desc_image
+                                                    })
 
 
 class GraduationsChange(View):
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
-        return HttpResponse('ok', content_type='text/html')
+        gallery_imgs = []
+        html = ''
+        if self.request.is_ajax:
+            if self.request.session['view'] == 'school':
+                for img in PicGraduations.objects.filter(galleryGraduations__service_name='school'):
+                    gallery_imgs.append(img.file.url)
+
+            elif self.request.session['view'] == 'kindergarten':
+                for img in PicGraduations.objects.filter(galleryGraduations__service_name='kindergarten'):
+                    gallery_imgs.append(img.file.url)
+
+            elif self.request.session['view'] == 'printing':
+                for img in PicGraduations.objects.filter(galleryGraduations__service_name='printing'):
+                    gallery_imgs.append(img.file.url)
+
+
+            html = loader.render_to_string('mixins/photogallery_item_inc.html', {'gallery_imgs': gallery_imgs}, request=request)
+
+        return JsonResponse({'response': 'ok', 'html': html})
+
 
 class Sessions(BaseView):
     template_name = 'sessions.pug'
@@ -181,18 +216,23 @@ class School(BaseView):
 
     main_text = ''
     school_imgs = []
-    for img in Image.objects.all():
-        if img.gallery and img.gallery.id == 1:
-            school_imgs.append(img.file.url)
-            main_text = img.gallery.desc
+    try:
+        # Getting data for page description (title, description, image)
+        obj = DescriptionsList.objects.get(service_name=page_name)
+        title = obj.title
+        main_text = obj.desc
+        desc_image = obj.file.url
 
-    # for img in Image.objects.all():
-    #     school_imgs.append(img.file.url)
+    except BaseException as e:
+        print(e)
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,
                                                     'school_imgs': self.school_imgs,
-                                                    'main_text': self.main_text})
+                                                    'main_text': self.main_text,
+                                                    'title': self.title,
+                                                    'desc_image': self.desc_image
+                                                    })
 
 
 class MasterClass(BaseView):
@@ -208,19 +248,36 @@ class MasterClass(BaseView):
     #               {'image': 'gallery/master/34lYmz5ASEk.jpg', 'header': 'ФЛОРАРИУМ', 'plate_text': plate_text},
     #               {'image': 'gallery/master/8arKte_-Khc.jpg', 'header': 'КИТАЙСКАЯ ЖИВОПИСЬ', 'plate_text': plate_text}
     #               ]
-    main_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
+
     plate_desc = []
-    for img in Image.objects.all():
-        if img.gallery and img.gallery.id == 3:
-            plate_desc.append({'image': img.file.url,
-                               'header': 'ЗАГОЛОВОК',
-                               'plate_text': img.gallery.desc
+
+    main_text = ''
+    title = ''
+    desc_image = ''
+
+    try:
+        # Getting data for page description (title, description, image)
+        obj = DescriptionsList.objects.get(service_name=page_name)
+        title = obj.title
+        main_text = obj.desc
+        desc_image = obj.file.url
+
+        # Getting images and description for masterclasses
+        for mc in Masterclass.objects.all():
+            plate_desc.append({'image': mc.desc_image.url,
+                               'title': mc.title,
+                               'plate_text': mc.short_desc
                                })
+
+    except BaseException as e:
+        print(e)
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,
                                                     'plate_desc': self.plate_desc,
-                                                    'main_text': self.main_text
+                                                    'main_text': self.main_text,
+                                                    'title': self.title,
+                                                    'desc_image': self.desc_image
                                                     })
 
 
@@ -241,23 +298,38 @@ class Useful(BaseView):
     # plate_desc = [
     #     {'image': 'useful/useful_plate_img_0.jpg', 'header': 'КАК ВЫБРАТЬ \n ФОТОГРАФА', 'plate_text': plate_text},
     # ]
-    main_text = ''
     main_imgs = ['useful/useful_main_img_0.jpg']
-
     plate_desc = []
-    for img in Image.objects.all():
-        if img.gallery and img.gallery.id == 4:
-            plate_desc.append({'image': img.file.url,
-                               'header': 'КАК ВЫБРАТЬ \n ФОТОГРАФА',
-                               'plate_text': img.gallery.desc
-                               })
-            main_text = img.gallery.desc
+
+    main_text = ''
+    title = ''
+    desc_image = ''
+
+    try:
+        # Getting data for page description (title, description, image)
+        obj = DescriptionsList.objects.get(service_name=page_name)
+        title = obj.title
+        main_text = obj.desc
+        desc_image = obj.file.url
+
+    except BaseException as e:
+        print(e)
+
+    # for img in Picture.objects.all():
+    #     if img.gallery and img.gallery.id == 4:
+    #         plate_desc.append({'image': img.file.url,
+    #                            'header': 'КАК ВЫБРАТЬ \n ФОТОГРАФА',
+    #                            'plate_text': img.gallery.desc
+    #                            })
+    #         main_text = img.gallery.desc
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,
                                                     'plate_desc': self.plate_desc,
                                                     'main_imgs': self.main_imgs,
-                                                    'main_text': self.main_text
+                                                    'main_text': self.main_text,
+                                                    'title': self.title,
+                                                    'desc_image': self.desc_image
                                                     })
 
 # Create your views here.
