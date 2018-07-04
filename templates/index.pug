@@ -14,31 +14,16 @@ block content
   {% static '/images' as imageUrl %}
   section#events
     .container
-        .row
-          .col-md
-            .box.box-container
-              .row.event-container
-                - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
-                | {% with imageUrl|add:'/events/' as src  %}
-                - var srcImg = src + evt_img[0]
-                +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
-                - var srcImg1 = src + evt_img[1]
-                +event("#", "события", "Текст, отображающийся при наведении", srcImg1)
-                - var srcImg2 = src + evt_img[2]
-                +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
-                - var srcImg3 = src + evt_img[3]
-                +event("/useful", "полезное", "Текст, отображающийся при наведении", srcImg3)
-                | {% endwith %}
-    //- .container
-      .row
-        .col-md
-          .box.box-container
-            .row
-              .col-md-7
-                .box.box-container
-                  .col-md.bg-color
-                    .row.event-container
-                      +event("/school", "фотошкола", "Текст, отображающийся при наведении", "#{url}/school.png")
-  
-  //- include includes/events_inc
+        .row.event-container
+          - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
+          | {% with imageUrl|add:'/events/' as src  %}
+          - var srcImg = src + evt_img[0]
+          +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
+          - var srcImg1 = src + evt_img[1]
+          +event("#", "события", "Текст, отображающийся при наведении", srcImg1)
+          - var srcImg2 = src + evt_img[2]
+          +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
+          - var srcImg3 = src + evt_img[3]
+          +event("/useful", "полезное", "Текст, отображающийся при наведении", srcImg3)
+          | {% endwith %}
   include includes/team_inc
