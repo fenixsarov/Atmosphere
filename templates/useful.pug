@@ -1,10 +1,9 @@
 extends base
 | {% load staticfiles %}
-include mixins/plate.pug
+include mixins/mixins.pug
 prepend page
   - var title = "Полезное"
 block content
-  | {% static '/images' as imageUrl %}
   section
     .container.page_mainheader
       .row
@@ -14,7 +13,6 @@ block content
           h1 {{ title | upper }}
           // КАК <br> ПОДГОТОВИТЬСЯ <br> К СЪЕМКЕ
           p #{main_text}
-          //p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
 
   section
     .container.plate_container

@@ -79,9 +79,9 @@ class PicGraduations(Picture):
         verbose_name_plural = 'Все изображения со страницы выпускных съёмок'
 
 
-
+# Этот класс описывает верхние части страниц, где есть описание и фотография контекста
 class DescriptionsList(models.Model):
-    title = models.CharField('Title', max_length=20)
+    title = models.CharField('Title', max_length=30)
     file = models.FileField(upload_to="static/images/school")
     desc = models.TextField(verbose_name='Описание на странице', max_length=256)
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='description')
@@ -93,7 +93,17 @@ class DescriptionsList(models.Model):
         return self.title
 
 
+class UsefulArticle(models.Model):
+    title = models.CharField('Title', max_length=30)
+    desc = models.TextField(verbose_name='Описание статьи', max_length=256)
+    desc_image = models.FileField(upload_to="static/images/school", verbose_name='Картинка к статье')
+    service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='article')
 
+    class Meta:
+        verbose_name_plural = 'Статьи на странице "Полезное"'
+
+    def __str__(self):
+        return self.title
 
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/school/')

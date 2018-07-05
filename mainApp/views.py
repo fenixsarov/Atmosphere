@@ -312,16 +312,15 @@ class Useful(BaseView):
         main_text = obj.desc
         desc_image = obj.file.url
 
+        for article in UsefulArticle.objects.all():
+            plate_desc.append({'image': article.desc_image.url,
+                               'header': article.title,
+                               'plate_text': article.desc
+                               })
+
+
     except BaseException as e:
         print(e)
-
-    # for img in Picture.objects.all():
-    #     if img.gallery and img.gallery.id == 4:
-    #         plate_desc.append({'image': img.file.url,
-    #                            'header': 'КАК ВЫБРАТЬ \n ФОТОГРАФА',
-    #                            'plate_text': img.gallery.desc
-    #                            })
-    #         main_text = img.gallery.desc
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name,

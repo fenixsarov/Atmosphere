@@ -65,6 +65,10 @@ class PicGraduationsAdmin(PictureAdmin):
     list_display = ['filename', 'title']
 
 
+class UsefulArticleAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+
 admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(Image, ImageAdmin)
 admin.site.register(DescriptionsList)
@@ -73,4 +77,5 @@ admin.site.register(Masterclass, MasterclassAdmin)
 admin.site.register(PicMasterclass, PicMasterclassAdmin)
 admin.site.register(Graduations, GraduationsAdmin)
 admin.site.register(PicGraduations, PicGraduationsAdmin)
+admin.site.register(UsefulArticle, UsefulArticleAdmin)
 # Register your models here.
