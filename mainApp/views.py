@@ -121,10 +121,10 @@ class GraduationsChange(View):
                 for img in PicGraduations.objects.filter(galleryGraduations__service_name='printing'):
                     gallery_imgs.append(img.file.url)
 
+            pug = loader.render_to_string('mixins/photogallery_item.pug', {'gallery_imgs': gallery_imgs})
+            # html = loader.render_to_string('mixins/photogallery_item_inc.html', {'gallery_imgs': gallery_imgs}, request=request)
 
-            html = loader.render_to_string('mixins/photogallery_item_inc.html', {'gallery_imgs': gallery_imgs}, request=request)
-
-        return JsonResponse({'response': 'ok', 'html': html})
+        return JsonResponse({'response': 'ok', 'html': pug})
 
 
 class Sessions(BaseView):
