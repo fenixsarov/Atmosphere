@@ -1,0 +1,9 @@
+| {% load staticfiles %}
+| {% for item in plate_desc %}
+.col-md-3
+  .plate_new
+    .plate_new__img-preview(style="background-image: url('/{{ item.image }}')")
+    .plate_new__description
+      .plate_new__description_header {{ item.title }}
+      .plate_new__description_text {{ item.desc }}
+| {% endfor %}

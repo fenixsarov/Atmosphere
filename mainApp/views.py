@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import View
 from django.template import loader
+from pypugjs.ext.django import loader as pug_loader
 from django.conf import settings
 from .models import *
 import random
@@ -238,19 +239,7 @@ class School(BaseView):
 class MasterClass(BaseView):
     template_name = 'masterclass.pug'
     page_name = 'masterclass'
-    # plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
-    # plate_desc = [{'image': 'gallery/master/1FaQK5pnte8.jpg', 'header': 'ФРУКТОВЫЙ БУКЕТ', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/7kHQp6mrVfk.jpg', 'header': 'ЛЕТТЕРИНГ', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/FUZzw8lt8So.jpg', 'header': 'МАСЛЯНАЯ ЖИВОПИСЬ', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/SmFTgH6yXho.jpg', 'header': 'АКВАРЕЛЬ', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/YAFDz1ZWNSQ.jpg', 'header': 'КРУЖКА', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/kbpDgPi_W6A.jpg', 'header': 'SWEETBOX', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/34lYmz5ASEk.jpg', 'header': 'ФЛОРАРИУМ', 'plate_text': plate_text},
-    #               {'image': 'gallery/master/8arKte_-Khc.jpg', 'header': 'КИТАЙСКАЯ ЖИВОПИСЬ', 'plate_text': plate_text}
-    #               ]
-
     plate_desc = []
-
     main_text = ''
     title = ''
     desc_image = ''
@@ -279,6 +268,27 @@ class MasterClass(BaseView):
                                                     'title': self.title,
                                                     'desc_image': self.desc_image
                                                     })
+
+
+class MasterClassChange(View):
+    plate_desc = []
+
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        if self.request.is_ajax:
+            self.plate_desc.clear()
+            try:
+                for mc in Masterclass.objects.all():
+                    self.plate_desc.append({'image': mc.desc_image.url,
+                                            'title': mc.title,
+                                            'plate_text': mc.short_desc
+                                            })
+            except BaseException as e:
+                print(e)
+
+            pug = loader.render_to_string('mixins/plate_masterclass.pug', {'plate_desc': self.plate_desc})
+
+        return JsonResponse({'response': 'ok', 'html': pug})
 
 
 class Events(BaseView):

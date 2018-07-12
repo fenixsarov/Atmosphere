@@ -20,7 +20,9 @@ block content
   
   section.atm-plate-gallery
     .container.plate_container
-      .row
-        each item in plate_desc
-          .col-md-3
-            +plate_new(item.image, item.title, item.plate_text)
+      .row#masterclass_plates
+         //- each item in plate_desc
+         //-   .col-md-3
+         //-     +plate_new(item.image, item.title, item.plate_text)
+
+  script(src="{% static 'javascripts/masterclass.js' %}")
