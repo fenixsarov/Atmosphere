@@ -242,7 +242,7 @@ class MasterClass(BaseView):
         for mc in Masterclass.objects.all():
             plate_desc.append({'image': mc.desc_image.url,
                                'title': mc.title,
-                               'plate_text': mc.short_desc
+                               'desc': mc.short_desc
                                })
 
     except BaseException as e:
@@ -268,7 +268,7 @@ class MasterClassChange(View):
                 for mc in Masterclass.objects.all():
                     self.plate_desc.append({'image': mc.desc_image.url,
                                             'title': mc.title,
-                                            'plate_text': mc.short_desc
+                                            'desc': mc.short_desc
                                             })
             except BaseException as e:
                 print(e)
@@ -292,9 +292,7 @@ class Useful(BaseView):
     template_name = 'useful.pug'
     page_name = 'useful'
     # plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
-    # plate_desc = [
-    #     {'image': 'useful/useful_plate_img_0.jpg', 'header': 'КАК ВЫБРАТЬ \n ФОТОГРАФА', 'plate_text': plate_text},
-    # ]
+
     main_imgs = ['useful/useful_main_img_0.jpg']
     plate_desc = []
 

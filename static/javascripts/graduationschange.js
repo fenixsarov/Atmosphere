@@ -1,25 +1,16 @@
 jQuery(document).ready(function ($) {
-    $.ajax({
-        type: "GET",
-        url: "/graduations/graduationschange/",
-        data: {
-            'view': 'school',
-        },
-        dataType: "json",
-        cache: false,
-        success: function (response) {
-            if (response.response == 'ok') {
-                $('#graduations_images').html(response.html);
-            }
-        }
-    });
+    GraduationsChange();
     $('.view').click(GraduationsChange);
     function GraduationsChange() {
+        var data_desc = $(this).attr('data-desc');
+        if ($(this).attr('data-desc') == undefined){
+            data_desc = 'school';
+        }
         $.ajax({
             type: "GET",
             url: "/graduations/graduationschange/",
             data:{
-                'view':$(this).attr('data-desc'),
+                'view': data_desc,
             },
             dataType: "json",
             cache: false,

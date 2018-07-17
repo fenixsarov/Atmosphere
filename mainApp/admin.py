@@ -80,10 +80,10 @@ class PicProductAdmin(PictureAdmin):
     list_display = ['filename', 'title']
 
 
-admin.site.register(Gallery, GalleryAdmin)
+# admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(Image, ImageAdmin)
+# admin.site.register(Picture, PictureAdmin)
 admin.site.register(DescriptionsList)
-admin.site.register(Picture, PictureAdmin)
 admin.site.register(Masterclass, MasterclassAdmin)
 admin.site.register(PicMasterclass, PicMasterclassAdmin)
 admin.site.register(Graduations, GraduationsAdmin)

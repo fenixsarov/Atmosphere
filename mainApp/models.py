@@ -1,9 +1,9 @@
 from django.db import models
 from django import forms
 
-
 # Create your models here.
 
+# Two abstract classes for saving and grouping images
 class Gallery(models.Model):
     title = models.CharField('Title', max_length=20)
     desc = models.TextField(verbose_name='Описание на странице', max_length=256)
@@ -12,21 +12,23 @@ class Gallery(models.Model):
     def __str__(self):
         return self.title
 
-    class Meta:
-        verbose_name_plural = 'Галереи изображений'
+    # class Meta:
+    #     abstract = True
+
 
 class Picture(models.Model):
-    gallery = models.ForeignKey(Gallery, related_name='images', blank=True, null=True)
+    # gallery = models.ForeignKey(Gallery, related_name='images', blank=True, null=True)
     title = models.CharField(verbose_name="Название картинки", max_length=32)
-    file = models.FileField(upload_to="static/images/school")
+    file = models.FileField(upload_to="static/images/upload_imgs")
     desc = models.TextField(verbose_name='Описание изображения', max_length=128, blank=True, null=True)
 
     def __str__(self):
         return self.filename
 
-    class Meta:
+    # class Meta:
         # verbose_name = "Изображения"
-        verbose_name_plural = "Все изображения"
+        # verbose_name_plural = "Все изображения"
+        # abstract = True
 
     @property
     def filename(self):
@@ -41,14 +43,14 @@ class Masterclass(models.Model):
     num_of_place = models.IntegerField(verbose_name='Количество мест', default=10)
     short_desc = models.TextField(verbose_name='Кракое описание мастер-класса', max_length=256)
     full_desc = models.TextField(verbose_name='Полное описание мастер-класса', max_length=512)
-    desc_image = models.FileField(upload_to="static/images/school", verbose_name='Титульное изображение')
+    desc_image = models.FileField(upload_to="static/images/upload_imgs", verbose_name='Титульное изображение')
     # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Мастерклассы'
+        verbose_name_plural = '2.2 Мастерклассы'
 
 
 class PicMasterclass(Picture):
@@ -69,7 +71,7 @@ class Graduations(models.Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Выпускные съёмки'
+        verbose_name_plural = '1.3 Выпускные съёмки'
 
 
 class PicGraduations(Picture):
@@ -82,25 +84,26 @@ class PicGraduations(Picture):
 # Этот класс описывает верхние части страниц, где есть описание и фотография контекста
 class DescriptionsList(models.Model):
     title = models.CharField('Title', max_length=30)
-    file = models.FileField(upload_to="static/images/school")
+    file = models.FileField(upload_to="static/images/upload_imgs")
     desc = models.TextField(verbose_name='Описание на странице', max_length=256)
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='description')
 
     class Meta:
-        verbose_name_plural = 'Список описаний страниц'
+        verbose_name_plural = '0. Список описаний страниц'
 
     def __str__(self):
         return self.title
 
 
+# Models for describe article on useful page
 class UsefulArticle(models.Model):
     title = models.CharField('Title', max_length=30)
     desc = models.TextField(verbose_name='Описание статьи', max_length=256)
-    desc_image = models.FileField(upload_to="static/images/school", verbose_name='Картинка к статье')
+    desc_image = models.FileField(upload_to="static/images/upload_imgs", verbose_name='Картинка к статье')
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='article')
 
     class Meta:
-        verbose_name_plural = 'Статьи на странице "Полезное"'
+        verbose_name_plural = '2.3 Статьи на странице "Полезное"'
 
     def __str__(self):
         return self.title
@@ -125,7 +128,7 @@ class Hall(Product):
     price = models.IntegerField(verbose_name='Стоимость', default=1500)
 
     class Meta(Product.Meta):
-        verbose_name_plural = 'Залы'
+        verbose_name_plural = '1.2 Залы'
 
 
 class PicHalls(Picture):
@@ -137,18 +140,18 @@ class PicHalls(Picture):
 
 class Session(Product):
     class Meta(Product.Meta):
-        verbose_name_plural = 'Фотосессии'
+        verbose_name_plural = '1.1 Съёмки'
 
 
 class PicSession(Picture):
     gallerySession = models.ForeignKey(Session, related_name='images', blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = 'Все изображения фотосессий'
+        verbose_name_plural = 'Все изображения съёмок'
 
 
 # class Image(models.Model):
-#     file = models.FileField('File', upload_to='static/images/school/')
+#     file = models.FileField('File', upload_to='static/images/upload_imgs/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)
 #
 #     def __str__(self):

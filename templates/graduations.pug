@@ -16,7 +16,10 @@ block content
         .col-md-5.description
           h1 {{ title|upper }}
           p #{main_text}
-
+          - var iterator = [1, 2, 3]
+          each i in iterator
+            p <br>
+          a.atm-btn-reserved(href="#") ЗАБРОНИРОВАТЬ
 
     section
       .container.page_photogallery
