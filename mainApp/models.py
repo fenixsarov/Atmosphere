@@ -105,6 +105,48 @@ class UsefulArticle(models.Model):
     def __str__(self):
         return self.title
 
+
+# Models for halls and sessions
+class Product(models.Model):
+    title = models.CharField('Заголовок', max_length=128)
+    desc = models.TextField(verbose_name='Кракое описание', max_length=256)
+    service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24,
+                                    default='product')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        abstract = True
+
+
+class Hall(Product):
+    hall_size = models.IntegerField(verbose_name='Размер зала', default=50)
+    price = models.IntegerField(verbose_name='Стоимость', default=1500)
+
+    class Meta(Product.Meta):
+        verbose_name_plural = 'Залы'
+
+
+class PicHalls(Picture):
+    galleryHalls = models.ForeignKey(Hall, related_name='images', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Все изображения залов'
+
+
+class Session(Product):
+    class Meta(Product.Meta):
+        verbose_name_plural = 'Фотосессии'
+
+
+class PicSession(Picture):
+    gallerySession = models.ForeignKey(Session, related_name='images', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Все изображения фотосессий'
+
+
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/school/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)

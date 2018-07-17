@@ -69,6 +69,17 @@ class UsefulArticleAdmin(admin.ModelAdmin):
     list_display = ['title']
 
 
+class ProductAdmin(GalleryAdmin):
+    multiupload_list = False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+class PicProductAdmin(PictureAdmin):
+    list_display = ['filename', 'title']
+
+
 admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(Image, ImageAdmin)
 admin.site.register(DescriptionsList)
@@ -78,4 +89,8 @@ admin.site.register(PicMasterclass, PicMasterclassAdmin)
 admin.site.register(Graduations, GraduationsAdmin)
 admin.site.register(PicGraduations, PicGraduationsAdmin)
 admin.site.register(UsefulArticle, UsefulArticleAdmin)
+admin.site.register(Hall, ProductAdmin)
+admin.site.register(PicHalls, PicProductAdmin)
+admin.site.register(Session, ProductAdmin)
+admin.site.register(PicSession, PicProductAdmin)
 # Register your models here.

@@ -27,27 +27,17 @@ class Halls(BaseView):
     template_name = 'halls.pug'
     page_name = 'halls'
     halls_list = ['dark', 'light']
-    darkhall_imgs = [
-        'darkhalls/darkhall_img_0.jpg',
-        'darkhalls/darkhall_img_1.jpg',
-        'darkhalls/darkhall_img_2.jpg',
-        'darkhalls/darkhall_img_3.jpg',
-        'darkhalls/darkhall_img_4.jpg',
-        'darkhalls/darkhall_img_5.jpg',
-        'darkhalls/darkhall_img_6.jpg',
-    ]
-
-    lighthall_imgs = [
-        'whitehall/lighthall_img_0.jpg',
-        'whitehall/lighthall_img_1.jpg',
-        'whitehall/lighthall_img_2.jpg',
-        'whitehall/lighthall_img_3.jpg',
-        'whitehall/lighthall_img_4.jpg',
-        'whitehall/lighthall_img_5.jpg',
-        'whitehall/lighthall_img_6.jpg',
-    ]
+    darkhall_imgs = []
+    lighthall_imgs = []
 
     def get(self, request):
+        try:
+            self.darkhall_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name='dark')]
+            self.lighthall_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name='light')]
+
+        except BaseException as e:
+            print(e)
+
         for i in range(0, random.randint(1, 5)):
             random.shuffle(self.darkhall_imgs)
             random.shuffle(self.lighthall_imgs)
@@ -59,10 +49,39 @@ class Halls(BaseView):
 
 
 class HallsChange(View):
+    darkhall_imgs = []
+    lighthall_imgs = []
+    list_imgs = []
+    halls_list = ['dark', 'light']
+    title = ''
+    desc = ''
+    hallsize = ''
+    pug = ''
     def get(self, request):
-        print(Picture.objects.count())
         self.request.session['view'] = self.request.GET['view']
+
+        if self.request.is_ajax:
+            for i in self.halls_list:
+                if self.request.session['view'] == i:
+                    self.list_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name=i)]
+
+                random.shuffle(self.list_imgs)
+
+                hall = Hall.objects.get(service_name='dark')
+                self.title = hall.title.upper()
+                self.desc = hall.desc
+                self.hallsize = hall.hall_size
+
+                pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs} )
+
+
+            return JsonResponse({'response': 'ok',
+                                 'html': pug, 'title': self.title,
+                                 'desc': self.desc,
+                                 'hallsize': self.hallsize})
+
         return HttpResponse('ok', content_type='text/html')
+
 
 
 class Graduations(BaseView):
@@ -132,75 +151,43 @@ class Sessions(BaseView):
     template_name = 'sessions.pug'
     page_name = 'sessions'
 
-    family_imgs = [
-        'sessions/family/family_img_0.jpg',
-        'sessions/family/family_img_1.jpg',
-        'sessions/family/family_img_2.jpg',
-        'sessions/family/family_img_3.jpg',
-        'sessions/family/family_img_4.jpg',
-        'sessions/family/family_img_5.jpg',
-        'sessions/family/family_img_6.jpg',
-        'sessions/family/family_img_7.jpg',
-    ]
-    individual_imgs = [
-        'sessions/individual/individual_img_0.jpg',
-        'sessions/individual/individual_img_1.jpg',
-        'sessions/individual/individual_img_2.jpg',
-        'sessions/individual/individual_img_3.jpg',
-        'sessions/individual/individual_img_4.jpg',
-        'sessions/individual/individual_img_5.jpg',
-        'sessions/individual/individual_img_6.jpg',
-    ]
-    child_imgs = [
-        'sessions/child/child_img_0.jpg',
-        'sessions/child/child_img_1.jpg',
-        'sessions/child/child_img_2.jpg',
-        'sessions/child/child_img_3.jpg',
-        'sessions/child/child_img_4.jpg',
-        'sessions/child/child_img_5.jpg',
-        'sessions/child/child_img_6.jpg',
-    ]
-    portrait_imgs = [
-        'sessions/portrait/portrait_img_0.jpg',
-        'sessions/portrait/portrait_img_1.jpg',
-        'sessions/portrait/portrait_img_2.jpg',
-        'sessions/portrait/portrait_img_3.jpg',
-        'sessions/portrait/portrait_img_4.jpg',
-        'sessions/portrait/portrait_img_5.jpg',
-        'sessions/portrait/portrait_img_6.jpg',
-
-    ]
-    lovestory_imgs = [
-        'sessions/lovestory/lovestory_img_0.jpg',
-        'sessions/lovestory/lovestory_img_1.jpg',
-        'sessions/lovestory/lovestory_img_2.jpg',
-        'sessions/lovestory/lovestory_img_3.jpg',
-        'sessions/lovestory/lovestory_img_4.jpg',
-        'sessions/lovestory/lovestory_img_5.jpg',
-        'sessions/lovestory/lovestory_img_6.jpg',
-    ]
-
     def get(self, request):
-        for i in range(0, random.randint(1, 5)):
-            random.shuffle(self.family_imgs)
-            random.shuffle(self.individual_imgs)
-            random.shuffle(self.child_imgs)
-            random.shuffle(self.portrait_imgs)
-            random.shuffle(self.lovestory_imgs)
+
         return render(request, self.template_name, {'page': self.page_name,
-                                                    'family_imgs': self.family_imgs,
-                                                    'individual_imgs': self.individual_imgs,
-                                                    'child_imgs': self.child_imgs,
-                                                    'portrait_imgs': self.portrait_imgs,
-                                                    'lovestory_imgs': self.lovestory_imgs,
                                                     })
 
 
 class SessionsChange(BaseView):
-    # template_name = 'halls.pug'
-    # page_name = 'halls'
+    list_imgs = []
+    session_list = ['family', 'individual', 'child', 'portrait', 'lovestory']
+    title = ''
+    desc = ''
+    pug = ''
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
+
+        if self.request.is_ajax:
+            for i in self.session_list:
+                if self.request.session['view'] == i:
+                    self.list_imgs = [h.file.url for h in PicSession.objects.filter(gallerySession__service_name=i)]
+
+            random.shuffle(self.list_imgs)
+
+            session = Session.objects.get(service_name='family')
+            self.title = session.title.upper()
+            self.desc = session.desc
+
+            pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs})
+
+
+            return JsonResponse({'response': 'ok',
+                                 'html': pug,
+                                 'title': self.title,
+                                 'desc': self.desc,
+                                 })
+
+
+
         return HttpResponse('ok', content_type='text/html')
 
 
