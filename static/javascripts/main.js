@@ -270,3 +270,25 @@ function bindPlateEvents() {
   //   });
 }
 
+
+jQuery(document).ready(function ($) {
+        var partOfPath = document.location.href.split('://')[1].split('/')[1];
+        console.log(partOfPath);
+        $.ajax({
+            type: "GET",
+            url: "/" + partOfPath + "/",
+            data:{
+                'view': partOfPath,
+            },
+            dataType: "json",
+            cache: false,
+            success: function(response){
+                if (response.response == 'ok'){
+                    console.log( response.image_src);
+                    $('#desc_image').attr('src', '/'+response.image_src);
+                    $('#title').text(response.title);
+                    $('#main_text').text(response.main_text);
+                }
+            }
+       });
+});
