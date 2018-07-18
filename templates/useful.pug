@@ -8,15 +8,15 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
-          img(src="/#{desc_image}")
+          img#desc_image
         .col-md-5.description
-          h1 {{ title | upper }}
+          h1#title
           // КАК <br> ПОДГОТОВИТЬСЯ <br> К СЪЕМКЕ
-          p #{main_text}
+          p#main_text
 
   section
     .container.plate_container
       .row
-        .col-xs
-          each item in plate_desc
-            +plate(item.image, item.header, item.plate_text, 'plate_left-align')
+        .col-xs#useful_plates
+
+  script(src="{% static 'javascripts/usefulchange.js' %}")

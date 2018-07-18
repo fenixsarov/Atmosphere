@@ -11,10 +11,10 @@ block content
       .container.page_mainheader
         .row
           .col-md-7
-            img(src="/#{img_src}")
+            img#desc_image
           .col-md-5.description
-            h1 {{ header|upper }}
-            p= description
+            h1#title
+            p#main_text
 
   +page_header(desc_image, title, main_text)
   

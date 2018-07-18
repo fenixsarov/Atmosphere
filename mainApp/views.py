@@ -100,26 +100,44 @@ class Graduations(BaseView):
     # gallery_imgs = []
     title = ''
     desc_image = ''
-    try:
-        # Getting data for page description (title, description, image)
-        obj = DescriptionsList.objects.get(service_name=page_name)
-        title = obj.title
-        main_text = obj.desc
-        desc_image = obj.file.url
-
-    except BaseException as e:
-        print(e)
+    # try:
+    #     # Getting data for page description (title, description, image)
+    #     obj = DescriptionsList.objects.get(service_name=page_name)
+    #     title = obj.title
+    #     main_text = obj.desc
+    #     desc_image = obj.file.url
+    #
+    # except BaseException as e:
+    #     print(e)
     # for img in Picture.objects.all():
     #     if img.gallery and img.gallery.id == 2:
     #         gallery_imgs.append(img.file.url)
     #         main_text = img.gallery.desc
 
     def get(self, request):
+
+        if self.request.is_ajax():
+            try:
+                # Getting data for page description (title, description, image)
+                obj = DescriptionsList.objects.get(service_name=self.page_name)
+                self.title = obj.title
+                self.main_text = obj.desc
+                self.desc_image = obj.file.url
+                self.title = self.title.upper()
+
+            except BaseException as e:
+                print(e)
+            return JsonResponse({'response': 'ok',
+                                 'image_src': self.desc_image,
+                                 'title': self.title,
+                                 'main_text': self.main_text
+                                 })
+
         return render(request, self.template_name, {'page': self.page_name,
                                                     'gallery_imgs': self.gallery_imgs,
-                                                    'title': self.title,
-                                                    'main_text': self.main_text,
-                                                    'desc_image': self.desc_image
+                                                    # 'title': self.title,
+                                                    # 'main_text': self.main_text,
+                                                    # 'desc_image': self.desc_image
                                                     })
 
 
@@ -203,23 +221,33 @@ class School(BaseView):
     #                ]
 
     main_text = ''
+    title = ''
+    desc_image = []
     school_imgs = []
-    try:
-        # Getting data for page description (title, description, image)
-        obj = DescriptionsList.objects.get(service_name=page_name)
-        title = obj.title
-        main_text = obj.desc
-        desc_image = obj.file.url
-
-    except BaseException as e:
-        print(e)
 
     def get(self, request):
+        if self.request.is_ajax():
+            try:
+                # Getting data for page description (title, description, image)
+                obj = DescriptionsList.objects.get(service_name=self.page_name)
+                self.title = obj.title
+                self.main_text = obj.desc
+                self.desc_image = obj.file.url
+                self.title = self.title.upper()
+
+            except BaseException as e:
+                print(e)
+            return JsonResponse({'response': 'ok',
+                                 'image_src': self.desc_image,
+                                 'title': self.title,
+                                 'main_text': self.main_text
+                                 })
+
         return render(request, self.template_name, {'page': self.page_name,
                                                     'school_imgs': self.school_imgs,
-                                                    'main_text': self.main_text,
-                                                    'title': self.title,
-                                                    'desc_image': self.desc_image
+                                                    # 'main_text': self.main_text,
+                                                    # 'title': self.title,
+                                                    # 'desc_image': self.desc_image
                                                     })
 
 
@@ -231,29 +259,26 @@ class MasterClass(BaseView):
     title = ''
     desc_image = ''
 
-    try:
-        # Getting data for page description (title, description, image)
-        obj = DescriptionsList.objects.get(service_name=page_name)
-        title = obj.title
-        main_text = obj.desc
-        desc_image = obj.file.url
-
-        # Getting images and description for masterclasses
-        for mc in Masterclass.objects.all():
-            plate_desc.append({'image': mc.desc_image.url,
-                               'title': mc.title,
-                               'desc': mc.short_desc
-                               })
-
-    except BaseException as e:
-        print(e)
-
     def get(self, request):
+        if self.request.is_ajax():
+            try:
+                # Getting data for page description (title, description, image)
+                obj = DescriptionsList.objects.get(service_name=self.page_name)
+                self.title = obj.title
+                self.main_text = obj.desc
+                self.desc_image = obj.file.url
+                self.title = self.title.upper()
+
+            except BaseException as e:
+                print(e)
+            return JsonResponse({'response': 'ok',
+                                 'image_src': self.desc_image,
+                                 'title': self.title,
+                                 'main_text': self.main_text
+                                 })
+
         return render(request, self.template_name, {'page': self.page_name,
                                                     'plate_desc': self.plate_desc,
-                                                    'main_text': self.main_text,
-                                                    'title': self.title,
-                                                    'desc_image': self.desc_image
                                                     })
 
 
@@ -301,29 +326,55 @@ class Useful(BaseView):
     desc_image = ''
 
     try:
-        # Getting data for page description (title, description, image)
-        obj = DescriptionsList.objects.get(service_name=page_name)
-        title = obj.title
-        main_text = obj.desc
-        desc_image = obj.file.url
-
         for article in UsefulArticle.objects.all():
             plate_desc.append({'image': article.desc_image.url,
                                'header': article.title,
                                'plate_text': article.desc
                                })
-
-
     except BaseException as e:
         print(e)
 
     def get(self, request):
+        if self.request.is_ajax():
+            try:
+                # Getting data for page description (title, description, image)
+                obj = DescriptionsList.objects.get(service_name=self.page_name)
+                self.title = obj.title
+                self.main_text = obj.desc
+                self.desc_image = obj.file.url
+                self.title = self.title.upper()
+
+            except BaseException as e:
+                print(e)
+            return JsonResponse({'response': 'ok',
+                                 'image_src': self.desc_image,
+                                 'title': self.title,
+                                 'main_text': self.main_text
+                                 })
         return render(request, self.template_name, {'page': self.page_name,
-                                                    'plate_desc': self.plate_desc,
-                                                    'main_imgs': self.main_imgs,
-                                                    'main_text': self.main_text,
-                                                    'title': self.title,
-                                                    'desc_image': self.desc_image
+                                                    'plate_desc': self.plate_desc
                                                     })
+
+
+class UsefulChange(View):
+    plate_desc = []
+
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        if self.request.is_ajax:
+            self.plate_desc.clear()
+            try:
+                for article in UsefulArticle.objects.all():
+                    self.plate_desc.append({'image': article.desc_image.url,
+                                            'header': article.title,
+                                            'plate_text': article.desc
+                                       })
+
+            except BaseException as e:
+                print(e)
+
+            pug = loader.render_to_string('mixins/plate_useful.pug', {'plate_desc': self.plate_desc})
+
+        return JsonResponse({'response': 'ok', 'html': pug})
 
 # Create your views here.

@@ -10,10 +10,13 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
-          img(src="/#{desc_image}")
+          img#desc_image
+          //- img(src="/#{desc_image}")#desc_image
         .col-md-5.description
-          h1 {{ title|upper }}
-          p #{main_text}
+          h1#title
+          p#main_text
+          //- h1 {{ title|upper }}
+          //- p #{main_text}
   section
     .container
       .row.event-container

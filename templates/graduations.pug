@@ -12,10 +12,10 @@ block content
     .container.page_mainheader
       .row
         .col-md-7
-          img(src="/#{desc_image}")
+          img#desc_image
         .col-md-5.description
-          h1 {{ title|upper }}
-          p #{main_text}
+          h1#title
+          p#main_text
           - var iterator = [1, 2, 3]
           each i in iterator
             p <br>
@@ -24,15 +24,5 @@ block content
     section
       .container.page_photogallery
         .row#graduations_images
-          //| {% if request.session.view == "school" %}
-          //each item in gallery_imgs
-          //  +photogallery_item(item)
-          //| {% elif request.session.view == "kindergarten" %}
-          //each item in gallery_imgs
-          //  +photogallery_item(item)
-          //| {% elif request.session.view == "printing" %}
-          //each item in gallery_imgs
-          //  +photogallery_item(item)
-          //| {% endif %}
 
   script(src="{% static 'javascripts/graduationschange.js' %}")
