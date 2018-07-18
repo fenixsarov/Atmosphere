@@ -17,6 +17,7 @@ urlpatterns = (
     url(r'^events/$', Events.as_view()),
     url(r'^about/$', About.as_view()),
     url(r'^useful/$', Useful.as_view()),
+    url(r'^useful/usefulchange/$', UsefulChange.as_view(), name='usefulchange'),
 )
 
 

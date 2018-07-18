@@ -17,6 +17,6 @@ block content
   section
     .container.plate_container
       .row
-        .col-xs
-          each item in plate_desc
-            +plate(item.image, item.header, item.plate_text, 'plate_left-align')
+        .col-xs#useful_plates
+
+  script(src="{% static 'javascripts/usefulchange.js' %}")

@@ -355,4 +355,26 @@ class Useful(BaseView):
                                                     'plate_desc': self.plate_desc
                                                     })
 
+
+class UsefulChange(View):
+    plate_desc = []
+
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        if self.request.is_ajax:
+            self.plate_desc.clear()
+            try:
+                for article in UsefulArticle.objects.all():
+                    self.plate_desc.append({'image': article.desc_image.url,
+                                            'header': article.title,
+                                            'plate_text': article.desc
+                                       })
+
+            except BaseException as e:
+                print(e)
+
+            pug = loader.render_to_string('mixins/plate_useful.pug', {'plate_desc': self.plate_desc})
+
+        return JsonResponse({'response': 'ok', 'html': pug})
+
 # Create your views here.

@@ -1,16 +1,17 @@
 jQuery(document).ready(function ($) {
     $.ajax({
         type: "GET",
-        url: "/masterclass/masterclasschange/",
+        url: "/useful/usefulchange/",
         data: {
-            'view': 'masterclass',
+            'view': 'useful',
         },
         dataType: "json",
         cache: false,
         success: function (response) {
             if (response.response == 'ok') {
-               $('#masterclass_plates').html(response.html);
-               bindPlateEvents();
+                console.log(response.html);
+                $('#useful_plates').html(response.html);
+                bindPlateEvents();
             }
         }
     });
