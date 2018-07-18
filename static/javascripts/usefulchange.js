@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
         cache: false,
         success: function (response) {
             if (response.response == 'ok') {
-                console.log(response.html);
                 $('#useful_plates').html(response.html);
                 bindPlateEvents();
             }
