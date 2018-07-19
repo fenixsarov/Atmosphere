@@ -7,9 +7,23 @@ prepend page
   - var header_absolute = "atm-navigation-absolute";
 
 block content
-  include includes/header_inc
+  section.container
+    .row#atm-header-slogan-section
+      .parallax-content.parallax-img
+      .box.box-container
+        .col-md.end-md.atm-slogan
+          .slogan
+            span САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
   include includes/scenery_inc
-  include includes/livephoto_inc
+  section#lifephoto
+    .container
+      .row.top-md
+        .col-md-7
+          .box.box-container
+            .col-md.livephoto-img
+        .col-md-4.col-md-offset-1.description
+          h1 НАША КОМАНДА
+          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
   
   {% static '/images' as imageUrl %}
   section#events
