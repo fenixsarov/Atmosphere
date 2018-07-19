@@ -1,17 +1,11 @@
 /* EVENTS */
 
 .event-container {
-  padding-top: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .event {
-  //padding: 0;
-  &:first-child {
-    padding-left: 0.5rem;
-  }
-  &:last-child {
-    padding-right: 0.5rem;
-  }
   .content {
     display: block;
     position: relative;
@@ -23,6 +17,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       height: 500px;
+      transition: transform .5s ease;
     }
     .description {
       display: flex;
@@ -35,7 +30,7 @@
       height: 16%;
       font-family: "MontserratLight";
       font-size: 20px;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.7);
       transition: all 0.5s ease;
       .name {
         position: relative;
@@ -69,8 +64,12 @@
       }
     }
     &:hover {
+      .image {
+        transform: scale(1.1);
+      }
       .description {
         height: 50%;
+        background-color: rgba(0, 0, 0, 1);
         .name {
           &:after {
             width: 90%;
@@ -83,13 +82,3 @@
     }
   }
 }
-
-// @media (max-width: 768px) {
-//   .events {
-//     flex-direction: column;
-//     .event {
-//       padding-right: 0;
-//       padding-left: 0;
-//     }
-//   }
-// }

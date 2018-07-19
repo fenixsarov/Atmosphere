@@ -2,19 +2,19 @@ extends base
 | {% load staticfiles %}
 
 prepend page
+  link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
   - var title = "Залы"
   - var under_menu = [{"text": "ТЁМНЫЙ ЗАЛ", "desc": "dark"}, {"text": "СВЕТЛЫЙ ЗАЛ", "desc": "light"}]
 block content
   section
     .container.page_mainheader
       .row
-        .col-md-7
-          | {% include 'includes/universal_slider_inc.html' %}
+        .col-md-7#hall
         .col-md-5.description
+          h1#title
+          p#desc
+          p#hallsize
           | {% if request.session.view == "dark" %}
-          h1 ТЁМНЫЙ ЗАЛ
-          p Для тех, кто любит потемнее и по-брутельнее.
-          p Размер зала: 75 кв.м.
           p Интерьер зала:<br>
             | - 4 фактурных стены для разноплановых идей<br>
             | - лампочки Эдиссона для интереных эффектов<br>
@@ -24,12 +24,9 @@ block content
             | будни	14:00-17:00	<b>850</b> руб/час,<br>
             | будни	17:00-20:00	<b>1000</b> руб/час,<br>
             | выходные		         <b>1300</b> руб./час
-
           | {% elif request.session.view == "light" %}
-          h1 СВЕТЛЫЙ ЗАЛ
-          p Светлый зал с утончённым дизайном для семейных или свадебных съёмок, а также для индивидуальных.
           p <br>
-          p Размер зала: ~50 кв.м.
+
           p <br>
           p Стоимость аренды зала:<br>
             | <b>1500</b> руб./час
@@ -38,7 +35,7 @@ block content
               p <br>
 
           | {% else %}
-          h1 ТЁМНЫЙ ЗАЛ
+
           p Для тех, кто любит потемнее и по-брутельнее.
           p Размер зала: 75 кв.м.
           p Интерьер зала:<br>
@@ -54,3 +51,4 @@ block content
           | {% endif %}
 
           a.atm-btn-reserved(href="#") ЗАБРОНИРОВАТЬ
+  script(src="{% static 'javascripts/hallschange.js' %}")

@@ -3,30 +3,6 @@
 {#<script src="/jssor/jssor.slider-27.1.0.min.js" type="text/javascript"></script>#}
 {% load static from staticfiles %}
 {% load new_tags %}
-{% static 'images' as imageUrl %}
-
-{% if page == 'halls' %}
-    {% assign hall_imgs darkhall_imgs %}
-{% endif %}
-{% if page == 'sessions' %}
-    {% assign hall_imgs family_imgs %}
-{% endif %}
-
-{% if request.session.view == "dark" and page == 'halls' %}
-    {% assign hall_imgs darkhall_imgs %}
-{% elif request.session.view == "light" and page == 'halls'%}
-    {% assign hall_imgs lighthall_imgs %}
-{% elif request.session.view == "family" and page == 'sessions' %}
-    {% assign hall_imgs family_imgs %}
-{% elif request.session.view == "individual" and page == 'sessions' %}
-    {% assign hall_imgs individual_imgs %}
-{% elif request.session.view == "child" and page == 'sessions' %}
-    {% assign hall_imgs child_imgs %}
-{% elif request.session.view == "portrait" and page == 'sessions' %}
-    {% assign hall_imgs portrait_imgs %}
-{% elif request.session.view == "lovestory" and page == 'sessions' %}
-    {% assign hall_imgs lovestory_imgs %}
-{% endif %}
 
 <script type="text/javascript" src="{% static '/javascripts/halls_slider.js' %}"></script>
 <link rel="stylesheet" href="{% static '/css/halls_slider.css' %}">
@@ -38,12 +14,12 @@
     </div>
     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:720px;height:605px;overflow:hidden;">
 
-        {% for img in hall_imgs %}
+        {% for img in imgs_list %}
         <div data-p="165.625">
-            {% with imageUrl|add:'/'|add:img as src  %}
-            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="{{ src }}" />
-            <img data-u="thumb" src="{{ src }}" />
-            {% endwith %}
+{#            {% with imageUrl|add:'/'|add:img as src  %}#}
+            <img style="position:absolute;top:0px;left:0px;width:720px;height:480px;" src="/{{ img }}" />
+            <img data-u="thumb" src="/{{ img }}" />
+{#            {% endwith %}#}
         </div>
         {% endfor %}
     </div>

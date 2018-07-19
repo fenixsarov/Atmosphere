@@ -1,17 +1,24 @@
 jQuery(document).ready(function ($) {
-    $('.view').click(HallsChange);
-    function HallsChange() {
+    SessionChange();
+    $('.view').click(SessionChange);
+    function SessionChange() {
+        var data_desc = $(this).attr('data-desc');
+        if ($(this).attr('data-desc') == undefined){
+            data_desc = 'family';
+        }
         $.ajax({
             type: "GET",
             url: "/halls/sessionschange/",
             data:{
-                'view':$(this).attr('data-desc'),
+                'view': data_desc,
             },
-            dataType: "html",
+            dataType: "json",
             cache: false,
-            success: function(data){
-                if (data == 'ok'){
-                    location.reload();
+            success: function (response) {
+                if (response.response == 'ok') {
+                    $('#session').html(response.html);
+                    $('#title').html(response.title);
+                    $('#desc').html(response.desc);
                 }
             }
        });

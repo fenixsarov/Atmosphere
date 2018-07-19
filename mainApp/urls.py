@@ -13,9 +13,11 @@ urlpatterns = (
     url(r'^halls/sessionschange/$', SessionsChange.as_view(), name='sessionschange'),
     url(r'^school/$', School.as_view()),
     url(r'^masterclass/$', MasterClass.as_view()),
+    url(r'^masterclass/masterclasschange/$', MasterClassChange.as_view(), name='masterclasschange'),
     url(r'^events/$', Events.as_view()),
     url(r'^about/$', About.as_view()),
     url(r'^useful/$', Useful.as_view()),
+    url(r'^useful/usefulchange/$', UsefulChange.as_view(), name='usefulchange'),
 )
 
 

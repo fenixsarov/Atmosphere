@@ -1,5 +1,6 @@
 | {% load staticfiles %}
-mixin photogallery_item(_url)
-  .col-md-3
-    .img-container 
-      .img(style="background-image: url({% static '#{_url}' %})")
+| {% for item in gallery_imgs %}
+.col-md-3
+  .img-container
+    .img(style="background-image: url('/#{item}')")
+| {% endfor %}
