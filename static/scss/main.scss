@@ -2,7 +2,6 @@
 @import "reset";
 @import "fonts";
 @import "plate";
-@import "event";
 @import "ui/ui";
 body {
   font-family: $main-font, sans-serif;
@@ -41,7 +40,7 @@ section {
     }
     p {
       font-size: 18px;
-      line-height: 30px;
+      line-height: 2.3rem;
     }
   }
 }
