@@ -285,6 +285,8 @@ jQuery(document).ready(function ($) {
                 if (response.response == 'ok'){
                     $('#desc_image').attr('src', '/'+response.image_src);
                     $('#title').text(response.title);
+                    console.log(partOfPath);
+                    console.log(response.title);
                     $('#main_text').text(response.main_text);
                 }
             }
