@@ -65,12 +65,12 @@ class HallsChange(View):
                 if self.request.session['view'] == i:
                     self.list_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name=i)]
 
-                random.shuffle(self.list_imgs)
+                    random.shuffle(self.list_imgs)
 
-                hall = Hall.objects.get(service_name='dark')
-                self.title = hall.title.upper()
-                self.desc = hall.desc
-                self.hallsize = hall.hall_size
+                    hall = Hall.objects.get(service_name=i)
+                    self.title = hall.title.upper()
+                    self.desc = hall.desc
+                    self.hallsize = hall.hall_size
 
                 pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs} )
 
@@ -189,11 +189,11 @@ class SessionsChange(BaseView):
                 if self.request.session['view'] == i:
                     self.list_imgs = [h.file.url for h in PicSession.objects.filter(gallerySession__service_name=i)]
 
-            random.shuffle(self.list_imgs)
+                    random.shuffle(self.list_imgs)
 
-            session = Session.objects.get(service_name='family')
-            self.title = session.title.upper()
-            self.desc = session.desc
+                    session = Session.objects.get(service_name=i)
+                    self.title = session.title.upper()
+                    self.desc = session.desc
 
             pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs})
 

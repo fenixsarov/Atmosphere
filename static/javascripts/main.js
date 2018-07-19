@@ -269,9 +269,10 @@ let subMenuContentAction = {
     'url': '/halls/hallschange/',
     'default': 'dark', // DEFAULT VALUE... remove later
     'success': function (res) {
+      console.log(res);
       $('#hall').html(res.html);
       $('#title').html(res.title);
-      $('#desc').html(res.desc);
+      $('#desc').text(res.desc);
       $('#hallsize').html('Размер зала: ' + res.hallsize + ' кв.м.');
     }
   }
