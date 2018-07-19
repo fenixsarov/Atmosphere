@@ -279,11 +279,13 @@ let subMenuContentAction = {
 
 function bindAjaxContentChange() {
   var page = window.location.pathname.replace(/\//g, '');
-  changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
+  if (page in subMenuContentAction) {
+    changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
 
-  $(document).on('click', '.view', function () {
-    changeSubMenuContent.call(this);
-  });
+    $(document).on('click', '.view', function () {
+      changeSubMenuContent.call(this);
+    });
+  }
 }
 
 function changeSubMenuContent(data_desc) {
