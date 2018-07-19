@@ -1,0 +1,23 @@
+.aeWidgetIFrameDIV {
+  transition: opacity 0.1s ease-out;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  display: block;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.701961);
+}
+
+.aeWidgetIFrame {
+  height: 100%;
+  width: 100%;
+  display: block;
+  border: none;
+  position: relative;
+  top: 0px;
+  opacity: 1;
+  transition: opacity 0.3s ease-out, top 0.3s ease-out;
+}

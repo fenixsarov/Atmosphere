@@ -19,7 +19,7 @@ mixin plate(img_src, header, description, _align)
 
 mixin event(url, header, description, bg_img)
   .event.col-md.col-sm-6.col-xs-12
-    .content(href=url)
+    a.content(href=url)
       .image(style="background-image: url('#{bg_img}');")
       .description
         div.name #{header}
