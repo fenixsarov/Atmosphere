@@ -93,6 +93,7 @@ $(function () {
   }
   ////// Plate events
   bindPlateEvents();
+  bindAjaxContentChange();
 });
 
 function hidePreload() {
@@ -202,31 +203,6 @@ function bindPlateEvents() {
         'max-height': '286px'
       });
     });
-  // $('.plate__more-btn')
-  //   .on('click', function (evt) {
-  //     let $parentPlate = $(this).closest('.plate');
-  //     let $plate = $parentPlate.clone();
-
-  //     $plate
-  //       .css({
-  //         'top': $parentPlate.offset().top,
-  //         'left': $parentPlate.offset().left,
-  //         'width': $parentPlate.width()
-  //       })
-  //       .appendTo('body')
-  //       .wrap('<div class="full-plate__content container"></div>')
-  //       // .wrap('<div class="col-md"></div>')
-  //       // .wrap('<div class="row"></div>')
-  //       // .wrap('<div class="container"></div>')
-  //       .animate({
-  //         'left': 0,
-  //         'right': 0,
-  //         'top': $(window).scrollTop(),
-  //         'bottom': 0,
-  //         'borderRadius': 0,
-  //         'width': $(window).width()
-  //       })
-
 
   //     // let $fullPlate = null;
   //     // let plate_img = $plate.find('.plate__img-preview').clone();
@@ -271,22 +247,88 @@ function bindPlateEvents() {
 }
 
 
+//// AJAX
+let subMenuContentAction = {
+  'graduations': {
+    'url': '/graduations/graduationschange/',
+    'default': 'school', // DEFAULT VALUE... remove later
+    'success': function (res) {
+      $('#graduations_images').html(res.html);
+    }
+  },
+  'sessions': {
+    'url': '/halls/sessionschange/',
+    'default': 'family', // DEFAULT VALUE... remove later
+    'success': function (res) {
+      $('#session').html(res.html);
+      $('#title').html(res.title);
+      $('#desc').html(res.desc);
+    }
+  },
+  'halls': {
+    'url': '/halls/hallschange/',
+    'default': 'dark', // DEFAULT VALUE... remove later
+    'success': function (res) {
+      console.log(res);
+      $('#hall').html(res.html);
+      $('#title').html(res.title);
+      $('#desc').text(res.desc);
+      $('#hallsize').html('Размер зала: ' + res.hallsize + ' кв.м.');
+      $('#price').html('Стоимость аренды зала: <br>' + res.price + 'руб./час');
+    }
+  }
+};
+
+function bindAjaxContentChange() {
+  var page = window.location.pathname.replace(/\//g, '');
+  if (page in subMenuContentAction) {
+    changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
+
+    $(document).on('click', '.view', function () {
+      changeSubMenuContent.call(this);
+    });
+  }
+}
+
+function changeSubMenuContent(data_desc) {
+  var page = window.location.pathname.replace(/\//g, '');
+
+  data_desc = data_desc || $(this).attr('data-desc');
+  if (data_desc && page in subMenuContentAction) {
+    let subMenuObj = subMenuContentAction[page];
+    $.ajax({
+      type: "GET",
+      url: subMenuObj.url,
+      data: {
+        'view': data_desc,
+      },
+      dataType: "json",
+      cache: false,
+      success: function (response) {
+        if (response.response == 'ok') {
+          subMenuObj.success(response);
+        }
+      }
+    });
+  }
+}
+
 jQuery(document).ready(function ($) {
-        var partOfPath = document.location.href.split('://')[1].split('/')[1];
-        $.ajax({
-            type: "GET",
-            url: "/" + partOfPath + "/",
-            data:{
-                'view': partOfPath,
-            },
-            dataType: "json",
-            cache: false,
-            success: function(response){
-                if (response.response == 'ok'){
-                    $('#desc_image').attr('src', '/'+response.image_src);
-                    $('#title').text(response.title);
-                    $('#main_text').text(response.main_text);
-                }
-            }
-       });
+  var partOfPath = document.location.href.split('://')[1].split('/')[1];
+  $.ajax({
+    type: "GET",
+    url: "/" + partOfPath + "/",
+    data: {
+      'view': partOfPath,
+    },
+    dataType: "json",
+    cache: false,
+    success: function (response) {
+      if (response.response == 'ok') {
+        $('#desc_image').attr('src', '/' + response.image_src);
+        $('#title').text(response.title);
+        $('#main_text').text(response.main_text);
+      }
+    }
+  });
 });
