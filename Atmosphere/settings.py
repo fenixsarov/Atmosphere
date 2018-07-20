@@ -93,7 +93,7 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3_backup'),
         }
     }
 else:
@@ -101,7 +101,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'OPTIONS': {
-            'read_default_file': '/path/to/my.cnf',
+            'read_default_file': os.path.join(BASE_DIR, 'mysql.cnf'),
             },
         }
     }
@@ -145,7 +145,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'images/upload_imgs')
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'Atmosphere/static'),
 #     'static'
