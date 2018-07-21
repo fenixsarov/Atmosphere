@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import View
 from django.template import loader
+from precise_bbcode.bbcode import get_parser
 from pypugjs.ext.django import loader as pug_loader
 from django.conf import settings
 from .models import *
@@ -126,7 +127,9 @@ class Graduations(BaseView):
                 # Getting data for page description (title, description, image)
                 obj = DescriptionsList.objects.get(service_name=self.page_name)
                 self.title = obj.title
-                self.main_text = obj.desc
+                # self.main_text = obj.desc
+                parser = get_parser()
+                self.main_text = parser.render(obj.desc)
                 self.desc_image = obj.file.url
                 self.title = self.title.upper()
 

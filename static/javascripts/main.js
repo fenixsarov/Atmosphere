@@ -326,8 +326,8 @@ jQuery(document).ready(function ($) {
     success: function (response) {
       if (response.response == 'ok') {
         $('#desc_image').attr('src', '/' + response.image_src);
-        $('#title').text(response.title);
-        $('#main_text').text(response.main_text);
+        $('#title').html(response.title);
+        $('#main_text').html(response.main_text);
       }
     }
   });
