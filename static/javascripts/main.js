@@ -283,6 +283,8 @@ function bindAjaxContentChange() {
   var page = window.location.pathname.replace(/\//g, '');
   if (page in subMenuContentAction) {
     changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
+    $('.view').first().addClass('active');
+
     $(document).on('click', '.view', function (evt) {
       evt.preventDefault();
 
