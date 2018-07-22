@@ -272,7 +272,7 @@ let subMenuContentAction = {
       console.log(res);
       $('#hall').html(res.html);
       $('#title').html(res.title);
-      $('#desc').text(res.desc);
+      $('#desc').html(res.desc);
       $('#hallsize').html('Размер зала: ' + res.hallsize + ' кв.м.');
       $('#price').html('Стоимость аренды зала: <br>' + res.price + 'руб./час');
     }
