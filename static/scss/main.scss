@@ -44,6 +44,7 @@ section {
       }
     }
     .description__text {
+      flex-grow: 1;
       .desc {
         font-size: 17px;
         line-height: 2.3rem;
