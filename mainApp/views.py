@@ -14,8 +14,10 @@ import random
 class BaseView(View):
     template_name = 'index.pug'
     page_name = 'index'
-    bb_parser = get_parser()
-
+    try:
+        bb_parser = get_parser()
+    except BaseException:
+        print("!")
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name})
 
