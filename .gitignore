@@ -6,6 +6,5 @@ db.sqlite3
 main.*.css
 runserver.sh
 *_bk
-
-__*
 less
+db.*

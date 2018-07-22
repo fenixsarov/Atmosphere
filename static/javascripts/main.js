@@ -272,8 +272,9 @@ let subMenuContentAction = {
       console.log(res);
       $('#hall').html(res.html);
       $('#title').html(res.title);
-      $('#desc').text(res.desc);
+      $('#desc').html(res.desc);
       $('#hallsize').html('Размер зала: ' + res.hallsize + ' кв.м.');
+      $('#price').html('Стоимость аренды зала: <br>' + res.price + 'руб./час');
     }
   }
 };
@@ -311,22 +312,22 @@ function changeSubMenuContent(data_desc) {
   }
 }
 
-// jQuery(document).ready(function ($) {
-//   var partOfPath = document.location.href.split('://')[1].split('/')[1];
-//   $.ajax({
-//     type: "GET",
-//     url: "/" + partOfPath + "/",
-//     data: {
-//       'view': partOfPath,
-//     },
-//     dataType: "json",
-//     cache: false,
-//     success: function (response) {
-//       if (response.response == 'ok') {
-//         $('#desc_image').attr('src', '/' + response.image_src);
-//         $('#title').text(response.title);
-//         $('#main_text').text(response.main_text);
-//       }
-//     }
-//   });
-// });
+jQuery(document).ready(function ($) {
+  var partOfPath = document.location.href.split('://')[1].split('/')[1];
+  $.ajax({
+    type: "GET",
+    url: "/" + partOfPath + "/",
+    data: {
+      'view': partOfPath,
+    },
+    dataType: "json",
+    cache: false,
+    success: function (response) {
+      if (response.response == 'ok') {
+        $('#desc_image').attr('src', '/' + response.image_src);
+        $('#title').html(response.title);
+        $('#main_text').html(response.main_text);
+      }
+    }
+  });
+});

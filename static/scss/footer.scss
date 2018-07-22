@@ -48,9 +48,14 @@ footer {
   .atm-site-map {
     margin-left: 0.6em;
     margin-right: 20px;
+    #bold {
+      font-weight: bold;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
     ul {
       display: flex;
-      flex-wrap: wrap;
+      //flex-wrap: wrap;
       font-size: 0.71em;
       padding-top: 0.45em;
       margin-top: 0;

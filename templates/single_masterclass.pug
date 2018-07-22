@@ -1,0 +1,22 @@
+extends base
+| {% load staticfiles %}
+prepend page
+  link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
+  - var title = ""
+  //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
+  //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
+block content
+  section
+    .container.page_mainheader
+      .row
+        .col-md-7
+         | {{ pug }}
+        .col-md-5.description
+          h1 {{ header | upper }}
+          | {% autoescape off %}
+          p {{ desc }}
+          | {% endautoescape %}
+
+          a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
+
+  //- script(src="{% static 'javascripts/sessionschange.js' %}")
