@@ -283,8 +283,12 @@ function bindAjaxContentChange() {
   var page = window.location.pathname.replace(/\//g, '');
   if (page in subMenuContentAction) {
     changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
+    $('.view').first().addClass('active');
+    $(document).on('click', '.view', function (evt) {
+      evt.preventDefault();
 
-    $(document).on('click', '.view', function () {
+      $('.view').removeClass('active');
+
       changeSubMenuContent.call(this);
     });
   }
@@ -295,6 +299,7 @@ function changeSubMenuContent(data_desc) {
 
   data_desc = data_desc || $(this).attr('data-desc');
   if (data_desc && page in subMenuContentAction) {
+    $(this).addClass('active');
     let subMenuObj = subMenuContentAction[page];
     $.ajax({
       type: "GET",

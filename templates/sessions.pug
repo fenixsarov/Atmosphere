@@ -10,14 +10,12 @@ block content
     .container.page_mainheader
       .row
         .col-md-7#session
-
         .col-md-5.description
-          h1#title
-          p#desc
-
-          - var iterator = [1, 2, 3, 4, 5]
-          each i in iterator
-            p <br>
-          a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
+          .description__title
+            h1#title.title
+          .description__text
+            p#desc.desc
+          .description__btn
+            a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
 
   //- script(src="{% static 'javascripts/sessionschange.js' %}")

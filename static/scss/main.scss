@@ -34,14 +34,23 @@ a {
 section {
   .description {
     font-family: "MontserratLight";
-    h1 {
-      font-size: 30px;
-      letter-spacing: 9px;
-      margin-bottom: 45px;
+    display: flex;
+    flex-direction: column;
+    .description__title {
+      .title {
+        font-size: 30px;
+        letter-spacing: 9px;
+        margin-bottom: 45px;
+      }
     }
-    p {
-      font-size: 17px;
-      line-height: 2.3rem;
+    .description__text {
+      .desc {
+        font-size: 17px;
+        line-height: 2.3rem;
+      }
+    }
+    .description_btn {
+      .atm-btn-reserved {}
     }
   }
 }
