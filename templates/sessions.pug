@@ -1,23 +1,22 @@
 extends base
 | {% load staticfiles %}
+include mixins/mixins.pug
+
 prepend page
   link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
   - var title = "ФОТОСЕССИИ"
   - var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
-  section
-    .container.page_mainheader
-      .row
-        .col-md-7#session
-
-        .col-md-5.description
-          h1#title
-          p#desc
-
-          - var iterator = [1, 2, 3, 4, 5]
-          each i in iterator
-            p <br>
-          a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
-
-  //- script(src="{% static 'javascripts/sessionschange.js' %}")
+  +page_mainheader_with_slider('session')
+  //- section
+  //-   .container.page_mainheader
+  //-     .row
+  //-       .col-md-7#session
+  //-       .col-md-5.description
+  //-         .description__title
+  //-           h1#title.title
+  //-         .description__text
+  //-           p#desc.desc
+  //-         .description__btn
+  //-           a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ

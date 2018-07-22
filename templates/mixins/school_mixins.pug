@@ -10,9 +10,3 @@ mixin check_btn(text, id, active)
         label.check_btn-label(for="#{id}") #{text}
         a.view(href="javascript:", data-descc="#{id}") ЗАБРОНИРОВАТЬ
         img(src="{% static '/images/ui/checkbtn-checkmark.png' %}")
-
-mixin photogallery_item(_url)
-    .col-md-3
-        .img-container
-            //.img(style="background-image: url('#{imageUrl}/#{_url}')")
-            .img(style="background-image: url('/#{_url}')")

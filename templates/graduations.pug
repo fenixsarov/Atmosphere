@@ -1,6 +1,6 @@
 extends base
 | {% load staticfiles %}
-include mixins/school_mixins.pug
+include mixins/mixins.pug
 
 prepend page
   - var title = "Выпускные съёмки"
@@ -8,21 +8,7 @@ prepend page
 block content
   | {% static '/images' as imageUrl %}
   - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
+  +page_mainheader_with_image()
   section
-    .container.page_mainheader
-      .row
-        .col-md-7
-          img#desc_image
-        .col-md-5.description
-          h1#title
-          p#main_text
-          - var iterator = [1, 2, 3]
-          each i in iterator
-            p <br>
-          a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
-
-    section
-      .container.page_photogallery
-        .row#graduations_images
-
-  //- script(src="{% static 'javascripts/graduationschange.js' %}")
+    .container.page_photogallery
+      .row#graduations_images

@@ -1,28 +1,26 @@
 extends base
 | {% load staticfiles %}
 //- include mixins/mixins.pug
-include mixins/plate_new.pug
+include mixins/mixins.pug
 prepend page
   - var title = "Мастер-класс"
 block content
   | {% static '/images' as imageUrl %}
-  mixin page_header(img_src, header, description)
-    section
-      .container.page_mainheader
-        .row
-          .col-md-7
-            img#desc_image
-          .col-md-5.description
-            h1#title
-            p#main_text
-
-  +page_header(desc_image, title, main_text)
+  
+  section
+    .container.page_mainheader
+      .row
+        .col-md-7
+          img#desc_image
+        .col-md-5.description
+          .description__title
+            h1#title.title
+          .description__text
+            p#main_text.desc
+          .description_btn
+            a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
   
   section.atm-plate-gallery
     .container.plate_container
       .row#masterclass_plates
-         //- each item in plate_desc
-         //-   .col-md-3
-         //-     +plate_new(item.image, item.title, item.plate_text)
-
   script(src="{% static 'javascripts/masterclass.js' %}")
