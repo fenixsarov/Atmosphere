@@ -187,7 +187,6 @@ class SessionsChange(BaseView):
 
         return HttpResponse('ok', content_type='text/html')
 
-
 class School(BaseView):
     template_name = 'school.pug'
     page_name = 'school'
@@ -315,6 +314,13 @@ class MasterClassChange(View):
 
         return JsonResponse({'response': 'ok', 'html': pug})
 
+# Может ещё нужно что-то поменять... но так работает)
+class ReservedForm(View):
+    def get(self, request):
+        if self.request.is_ajax:
+            pug = loader.render_to_string('includes/reserved_inc.pug', {})
+
+        return JsonResponse({'response': 'ok', 'html': pug})
 
 class Events(BaseView):
     template_name = 'events.pug'

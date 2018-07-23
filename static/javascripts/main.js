@@ -94,6 +94,14 @@ $(function () {
   ////// Plate events
   bindPlateEvents();
   bindAjaxContentChange();
+  bindAjaxReservedForm();
+
+  $('body').on('click', '.atm-overlay', function () {
+    $('.atm-overlay').remove();
+    $('.atm-reserved-form').remove();
+    $('body').css('overflow', 'auto');
+  });
+
 });
 
 function hidePreload() {
@@ -203,49 +211,7 @@ function bindPlateEvents() {
         'max-height': '286px'
       });
     });
-
-  //     // let $fullPlate = null;
-  //     // let plate_img = $plate.find('.plate__img-preview').clone();
-  //     // let plate_header = $plate.find('.header').clone();
-  //     // let plate_description = $plate.find('.description').clone();
-  //     // let close_btn = $('<a class="full-plate__close-btn far fa-times-circle"></a>')
-  //     //   .one('click', function (evt) {
-  //     //     $fullPlate.animate({
-  //     //       'top': -$($fullPlate).height()
-  //     //     }, 300, function () {
-  //     //       $(this).remove();
-  //     //       $('body').css('overflow', 'auto');
-  //     //     });
-  //     //   });
-
-
-  //     // let $tmpDiv = $('<div class="full-plate__content container">')
-
-  //     // // .append(close_btn)
-  //     // // .append(plate_img)
-  //     // // .append(plate_header)
-  //     // // .append(plate_description)
-  //     // // .append(plate_description.clone())
-  //     // // .append(plate_description.clone());
-
-  //     // $fullPlate = $('<div>')
-  //     //   .addClass('full-plate')
-  //     //   .append($tmpDiv);
-
-  //     // $('body').css('overflow', 'hidden');
-
-  //     // $fullPlate
-  //     //   .appendTo('body')
-  //     //   .css({
-  //     //     'top': $(window).scrollTop() - $(window).height(),
-  //     //     'visibility': 'visible'
-  //     //   })
-  //     //   .animate({
-  //     //     'top': $(window).scrollTop()
-  //     //   }, 500);
-  //   });
 }
-
 
 //// AJAX
 let subMenuContentAction = {
@@ -283,16 +249,59 @@ function bindAjaxContentChange() {
   var page = window.location.pathname.replace(/\//g, '');
   if (page in subMenuContentAction) {
     changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
-    $('.view').first().addClass('active');
+    $('.view')
+      .first()
+      .addClass('active')
+      .end()
+      .on('click', function (evt) {
+        evt.preventDefault();
 
-    $(document).on('click', '.view', function (evt) {
-      evt.preventDefault();
+        $('.view').removeClass('active');
 
-      $('.view').removeClass('active');
-
-      changeSubMenuContent.call(this);
-    });
+        changeSubMenuContent.call(this);
+      });
   }
+}
+
+function bindAjaxReservedForm() {
+  $('.reserved-btn').on('click', function (evt) {
+    evt.preventDefault();
+    $.ajax({
+      type: "GET",
+      url: "/reserved/form",
+      dataType: "json",
+      cache: false,
+      success: function (res) {
+        if (res.response === "ok") {
+          createOverlay();
+          let $html = $(res.html);
+          $html
+            .css({
+              'top': $(window).scrollTop() + 20
+            })
+            .find('.fa-times')
+            .on('click', function () {
+              $('.atm-overlay').remove();
+              $('.atm-reserved-form').remove();
+              $('body').css('overflow', 'auto');
+            })
+            .end()
+            .find('.atm-form__phone')
+            .mask("+7(999) 999-9999");
+
+          $('body')
+            .css('overflow', 'hidden')
+            .append($html);
+        }
+      }
+    });
+  })
+}
+
+function createOverlay() {
+  $('<div></div>')
+    .addClass('atm-overlay')
+    .appendTo('body');
 }
 
 function changeSubMenuContent(data_desc) {
