@@ -20,6 +20,7 @@ urlpatterns = (
     url(r'^about/$', About.as_view()),
     url(r'^useful/$', Useful.as_view()),
     url(r'^useful/usefulchange/$', UsefulChange.as_view(), name='usefulchange'),
+    url(r'^team/', Team.as_view()),
 )
 
 

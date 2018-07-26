@@ -8,8 +8,8 @@ from django.conf import settings
 from .models import *
 import random
 
-
 # debug = settings.DEBUG
+
 
 class BaseView(View):
     template_name = 'index.pug'
@@ -18,6 +18,7 @@ class BaseView(View):
         bb_parser = get_parser()
     except BaseException:
         print("!")
+
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name})
 
@@ -25,6 +26,11 @@ class BaseView(View):
 class Main(BaseView):
     template_name = 'index.pug'
     page_name = 'index'
+
+
+class Team(BaseView):
+    template_name = 'team.pug'
+    page_name = 'team'
 
 
 class Halls(BaseView):
@@ -36,8 +42,14 @@ class Halls(BaseView):
 
     def get(self, request):
         try:
-            self.darkhall_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name='dark')]
-            self.lighthall_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name='light')]
+            self.darkhall_imgs = [
+                h.file.url for h in PicHalls.objects.filter(
+                    galleryHalls__service_name='dark')
+            ]
+            self.lighthall_imgs = [
+                h.file.url for h in PicHalls.objects.filter(
+                    galleryHalls__service_name='light')
+            ]
 
         except BaseException as e:
             print(e)
@@ -46,10 +58,13 @@ class Halls(BaseView):
             random.shuffle(self.darkhall_imgs)
             random.shuffle(self.lighthall_imgs)
 
-        return render(request, self.template_name, {'page': self.page_name,
-                                                    'halls_list': self.halls_list,
-                                                    'darkhall_imgs': self.darkhall_imgs,
-                                                    'lighthall_imgs': self.lighthall_imgs})
+        return render(
+            request, self.template_name, {
+                'page': self.page_name,
+                'halls_list': self.halls_list,
+                'darkhall_imgs': self.darkhall_imgs,
+                'lighthall_imgs': self.lighthall_imgs
+            })
 
 
 class HallsChange(View):
@@ -63,13 +78,17 @@ class HallsChange(View):
     price = -1
     pug = ''
     bb_parser = get_parser()
+
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
 
         if self.request.is_ajax:
             for i in self.halls_list:
                 if self.request.session['view'] == i:
-                    self.list_imgs = [h.file.url for h in PicHalls.objects.filter(galleryHalls__service_name=i)]
+                    self.list_imgs = [
+                        h.file.url for h in PicHalls.objects.filter(
+                            galleryHalls__service_name=i)
+                    ]
 
                     random.shuffle(self.list_imgs)
 
@@ -79,15 +98,18 @@ class HallsChange(View):
                     self.price = hall.price
                     self.hallsize = hall.hall_size
 
-                pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs})
+                pug = loader.render_to_string(
+                    'includes/universal_slider_inc.html',
+                    {'imgs_list': self.list_imgs})
 
-            return JsonResponse({'response': 'ok',
-                                 'html': pug,
-                                 'title': self.title,
-                                 'desc': self.desc,
-                                 'hallsize': self.hallsize,
-                                 'price': self.price
-                                 })
+            return JsonResponse({
+                'response': 'ok',
+                'html': pug,
+                'title': self.title,
+                'desc': self.desc,
+                'hallsize': self.hallsize,
+                'price': self.price
+            })
 
         return HttpResponse('ok', content_type='text/html')
 
@@ -114,11 +136,12 @@ class Graduations(BaseView):
 
             except BaseException as e:
                 print(e)
-            return JsonResponse({'response': 'ok',
-                                 'image_src': self.desc_image,
-                                 'title': self.title,
-                                 'main_text': self.main_text
-                                 })
+            return JsonResponse({
+                'response': 'ok',
+                'image_src': self.desc_image,
+                'title': self.title,
+                'main_text': self.main_text
+            })
 
         return render(request, self.template_name, {'page': self.page_name})
 
@@ -130,18 +153,22 @@ class GraduationsChange(View):
         html = ''
         if self.request.is_ajax:
             if self.request.session['view'] == 'school':
-                for img in PicGraduations.objects.filter(galleryGraduations__service_name='school'):
+                for img in PicGraduations.objects.filter(
+                        galleryGraduations__service_name='school'):
                     gallery_imgs.append(img.file.url)
 
             elif self.request.session['view'] == 'kindergarten':
-                for img in PicGraduations.objects.filter(galleryGraduations__service_name='kindergarten'):
+                for img in PicGraduations.objects.filter(
+                        galleryGraduations__service_name='kindergarten'):
                     gallery_imgs.append(img.file.url)
 
             elif self.request.session['view'] == 'printing':
-                for img in PicGraduations.objects.filter(galleryGraduations__service_name='printing'):
+                for img in PicGraduations.objects.filter(
+                        galleryGraduations__service_name='printing'):
                     gallery_imgs.append(img.file.url)
 
-            pug = loader.render_to_string('mixins/photogallery_item.pug', {'gallery_imgs': gallery_imgs})
+            pug = loader.render_to_string('mixins/photogallery_item.pug',
+                                          {'gallery_imgs': gallery_imgs})
             # html = loader.render_to_string('mixins/photogallery_item_inc.html', {'gallery_imgs': gallery_imgs}, request=request)
 
         return JsonResponse({'response': 'ok', 'html': pug})
@@ -152,8 +179,9 @@ class Sessions(BaseView):
     page_name = 'sessions'
 
     def get(self, request):
-        return render(request, self.template_name, {'page': self.page_name,
-                                                    })
+        return render(request, self.template_name, {
+            'page': self.page_name,
+        })
 
 
 class SessionsChange(BaseView):
@@ -169,7 +197,10 @@ class SessionsChange(BaseView):
         if self.request.is_ajax:
             for i in self.session_list:
                 if self.request.session['view'] == i:
-                    self.list_imgs = [h.file.url for h in PicSession.objects.filter(gallerySession__service_name=i)]
+                    self.list_imgs = [
+                        h.file.url for h in PicSession.objects.filter(
+                            gallerySession__service_name=i)
+                    ]
 
                     random.shuffle(self.list_imgs)
 
@@ -177,15 +208,18 @@ class SessionsChange(BaseView):
                     self.title = session.title.upper()
                     self.desc = self.bb_parser.render(session.desc)
 
-            pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs})
+            pug = loader.render_to_string('includes/universal_slider_inc.html',
+                                          {'imgs_list': self.list_imgs})
 
-            return JsonResponse({'response': 'ok',
-                                 'html': pug,
-                                 'title': self.title,
-                                 'desc': self.desc,
-                                 })
+            return JsonResponse({
+                'response': 'ok',
+                'html': pug,
+                'title': self.title,
+                'desc': self.desc,
+            })
 
         return HttpResponse('ok', content_type='text/html')
+
 
 class School(BaseView):
     template_name = 'school.pug'
@@ -209,18 +243,23 @@ class School(BaseView):
 
             except BaseException as e:
                 print(e)
-            return JsonResponse({'response': 'ok',
-                                 'image_src': self.desc_image,
-                                 'title': self.title,
-                                 'main_text': self.main_text
-                                 })
+            return JsonResponse({
+                'response': 'ok',
+                'image_src': self.desc_image,
+                'title': self.title,
+                'main_text': self.main_text
+            })
 
-        return render(request, self.template_name, {'page': self.page_name,
-                                                    'school_imgs': self.school_imgs,
-                                                    # 'main_text': self.main_text,
-                                                    # 'title': self.title,
-                                                    # 'desc_image': self.desc_image
-                                                    })
+        return render(
+            request,
+            self.template_name,
+            {
+                'page': self.page_name,
+                'school_imgs': self.school_imgs,
+                # 'main_text': self.main_text,
+                # 'title': self.title,
+                # 'desc_image': self.desc_image
+            })
 
 
 class MasterClass(BaseView):
@@ -244,15 +283,17 @@ class MasterClass(BaseView):
 
             except BaseException as e:
                 print(e)
-            return JsonResponse({'response': 'ok',
-                                 'image_src': self.desc_image,
-                                 'title': self.title,
-                                 'main_text': self.main_text
-                                 })
+            return JsonResponse({
+                'response': 'ok',
+                'image_src': self.desc_image,
+                'title': self.title,
+                'main_text': self.main_text
+            })
 
-        return render(request, self.template_name, {'page': self.page_name,
-                                                    'plate_desc': self.plate_desc,
-                                                    })
+        return render(request, self.template_name, {
+            'page': self.page_name,
+            'plate_desc': self.plate_desc,
+        })
 
 
 class SingleMasterClass(BaseView):
@@ -281,16 +322,20 @@ class SingleMasterClass(BaseView):
             self.list_imgs.append(mc.desc_image.url)
             random.shuffle(self.list_imgs)
 
-            self.pug = loader.render_to_string('includes/universal_slider_inc.html', {'imgs_list': self.list_imgs})
+            self.pug = loader.render_to_string(
+                'includes/universal_slider_inc.html',
+                {'imgs_list': self.list_imgs})
 
         except BaseException as e:
             print(e)
 
-        return render(request, self.template_name, {'page': self.page_name,
-                                                    'header': self.title,
-                                                    'desc': self.full_desc,
-                                                    'pug': self.pug
-                                                    })
+        return render(
+            request, self.template_name, {
+                'page': self.page_name,
+                'header': self.title,
+                'desc': self.full_desc,
+                'pug': self.pug
+            })
 
 
 class MasterClassChange(View):
@@ -302,17 +347,20 @@ class MasterClassChange(View):
             self.plate_desc.clear()
             try:
                 for mc in Masterclass.objects.all():
-                    self.plate_desc.append({'image': mc.desc_image.url,
-                                            'title': mc.title,
-                                            'desc': mc.short_desc,
-                                            'id': mc.pk
-                                            })
+                    self.plate_desc.append({
+                        'image': mc.desc_image.url,
+                        'title': mc.title,
+                        'desc': mc.short_desc,
+                        'id': mc.pk
+                    })
             except BaseException as e:
                 print(e)
 
-            pug = loader.render_to_string('mixins/plate_masterclass.pug', {'plate_desc': self.plate_desc})
+            pug = loader.render_to_string('mixins/plate_masterclass.pug',
+                                          {'plate_desc': self.plate_desc})
 
         return JsonResponse({'response': 'ok', 'html': pug})
+
 
 # Может ещё нужно что-то поменять... но так работает)
 class ReservedForm(View):
@@ -321,6 +369,7 @@ class ReservedForm(View):
             pug = loader.render_to_string('includes/reserved_inc.pug', {})
 
         return JsonResponse({'response': 'ok', 'html': pug})
+
 
 class Events(BaseView):
     template_name = 'events.pug'
@@ -346,10 +395,11 @@ class Useful(BaseView):
 
     try:
         for article in UsefulArticle.objects.all():
-            plate_desc.append({'image': article.desc_image.url,
-                               'header': article.title,
-                               'plate_text': article.desc
-                               })
+            plate_desc.append({
+                'image': article.desc_image.url,
+                'header': article.title,
+                'plate_text': article.desc
+            })
     except BaseException as e:
         print(e)
 
@@ -365,20 +415,23 @@ class Useful(BaseView):
 
             except BaseException as e:
                 print(e)
-            return JsonResponse({'response': 'ok',
-                                 'image_src': self.desc_image,
-                                 'title': self.title,
-                                 'main_text': self.main_text
-                                 })
-        return render(request, self.template_name, {'page': self.page_name,
-                                                    'plate_desc': self.plate_desc
-                                                    })
+            return JsonResponse({
+                'response': 'ok',
+                'image_src': self.desc_image,
+                'title': self.title,
+                'main_text': self.main_text
+            })
+        return render(request, self.template_name, {
+            'page': self.page_name,
+            'plate_desc': self.plate_desc
+        })
 
 
 class UsefulChange(View):
     plate_desc = []
     pug = ''
     bb_parser = get_parser()
+
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
         if self.request.is_ajax:
@@ -386,16 +439,22 @@ class UsefulChange(View):
             js = ''
             try:
                 for article in UsefulArticle.objects.all():
-                    self.plate_desc.append({'image': article.desc_image.url,
-                                            'header': article.title,
-                                            'plate_text': self.bb_parser.render(article.desc)
-                                            })
+                    self.plate_desc.append({
+                        'image':
+                        article.desc_image.url,
+                        'header':
+                        article.title,
+                        'plate_text':
+                        self.bb_parser.render(article.desc)
+                    })
 
             except BaseException as e:
                 print(e)
 
-            self.pug = loader.render_to_string('mixins/plate_useful.pug', {'plate_desc': self.plate_desc})
+            self.pug = loader.render_to_string('mixins/plate_useful.pug',
+                                               {'plate_desc': self.plate_desc})
 
         return JsonResponse({'response': 'ok', 'html': self.pug})
+
 
 # Create your views here.
