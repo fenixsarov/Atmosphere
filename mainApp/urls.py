@@ -15,10 +15,12 @@ urlpatterns = (
     url(r'^masterclass/$', MasterClass.as_view()),
     url(r'^masterclass/(?P<pk>\d+)/$', SingleMasterClass.as_view(), name='single_mc'),
     url(r'^masterclass/masterclasschange/$', MasterClassChange.as_view(), name='masterclasschange'),
+    url(r'^reserved/form/$', ReservedForm.as_view(), name='reserved'), 
     url(r'^events/$', Events.as_view()),
     url(r'^about/$', About.as_view()),
     url(r'^useful/$', Useful.as_view()),
     url(r'^useful/usefulchange/$', UsefulChange.as_view(), name='usefulchange'),
+    url(r'^team/', Team.as_view()),
 )
 
 

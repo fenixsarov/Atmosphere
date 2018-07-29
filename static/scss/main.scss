@@ -4,6 +4,7 @@
 @import "plate";
 @import "reserv_widget";
 @import "ui/ui";
+@import "ui/forms";
 body {
   font-family: $main-font, sans-serif;
   background-color: rgb(33, 33, 31);
@@ -25,6 +26,17 @@ a {
   &:focus {
     background-color: transparent;
   }
+}
+
+.atm-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .9;
+  background-color: rgb(44, 44, 44);
+  z-index: 10000;
 }
 
 .fa-map-marker-alt {
@@ -123,6 +135,20 @@ section#events {
       transform: scale(1.2);
     }
   }
+}
+
+.atm-page-header {
+  font-size: 3em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.atm-page-header__description {
+  font-size: 1.2em;
+  text-align: justify;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  text-indent: 1em;
 }
 
 @import "parallax";
