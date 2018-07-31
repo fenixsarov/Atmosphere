@@ -13,8 +13,11 @@ block content
           img#desc_image
           //- img(src="/#{desc_image}")#desc_image
         .col-md-5.description
-          h1#title
-          p#main_text
+          .description__title
+            h1#title.title
+          .description__text
+            p#main_text.desc
+          
           //- h1 {{ title|upper }}
           //- p #{main_text}
   section
