@@ -26,7 +26,7 @@ block content
         | {% static '/images' as imageUrl %}
         | {% with imageUrl|add:'/school/' as src  %}
         - var srcImg = src + evt_img[0]
-        +event('#', 'ФОТОГРАФИЯ', 'Текст, отображающийся при наведении', srcImg)
+        +event('/school/photo', 'ФОТОГРАФИЯ', 'Текст, отображающийся при наведении', srcImg)
         - var srcImg1 = src + evt_img[1]
         +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Текст, отображающийся при наведении', srcImg1)
         - var srcImg2 = src + evt_img[2]
