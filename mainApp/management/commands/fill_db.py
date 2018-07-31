@@ -5,9 +5,21 @@ from datetime import date
 class Command(BaseCommand):
     help = 'Fill DB new data'
 
-    def handle(self, *args, **options):
-        print('My command')
+    def add_arguments(self, parser):
+        # Named (optional) arguments
+        parser.add_argument('--argument',
+                            action='store_true',
+                            dest='argument',
+                            default=False,
+                            help='ARGUMENT')
 
+    def handle(self, *args, **options):
+
+        if options['argument']:
+            print('BUGAGA')
+            return
+        
+        print('My command')
         masterclass = [
             {
                 "title": "\u041a\u043e\u043c\u043f\u043e\u0437\u0438\u0446\u0438\u044f \u0441 \u0433\u043e\u0440\u0448\u043e\u0447\u043d\u044b\u043c \u0440\u0430\u0441\u0442\u0435\u043d\u0438\u0435\u043c \u0438 \u0441\u0440\u0435\u0437\u043a\u043e\u0439",
