@@ -8,3 +8,5 @@ runserver.sh
 *_bk
 less
 db.*
+static/images/upload_imgs/*
+mainApp/migrations/*
