@@ -18,14 +18,14 @@ block page
       | {% compress css %}
       link(rel="stylesheet", type="text/x-scss", charset="utf-8", href="{% static 'scss/main.scss' %}")
       | {% endcompress %}
-
+    body
+      include includes/navigation_inc
+      block content
+      include includes/footer_inc
+      
       script(src="{% static 'javascripts/jquery.min.js' %}")
       script(src="{% static 'javascripts/jquery.maskedinput.js' %}")
       script(src="{% static 'javascripts/jssor.slider-27.1.0.min.js' %}")
       script(src="{% static 'javascripts/main.js' %}")
 
-    body
-      include includes/navigation_inc
-      block content
-      include includes/footer_inc
       script(src="{% static 'javascripts/reserv_widget.js' %}")

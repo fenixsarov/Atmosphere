@@ -3,6 +3,7 @@ mysql.cnf
 .vscode/
 db.sqlite3
 *.pyc
+*_initial.py
 main.*.css
 runserver.sh
 *_bk

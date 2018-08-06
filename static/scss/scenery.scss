@@ -30,14 +30,14 @@ $carousel-padding: 60px 25px;
       background-position: center;
       background-repeat: no-repeat;
       &:nth-child(1) {
-        background-image: url("../images/scenery/1.jpg");
+        // background-image: url("../images/scenery/1.jpg");
       }
       &:nth-child(2) {
-        background-image: url("../images/scenery/2.jpg");
+        // background-image: url("../images/scenery/2.jpg");
         left: 100%;
       }
       &:nth-child(3) {
-        background-image: url("../images/scenery/3.jpg");
+        // background-image: url("../images/scenery/3.jpg");
         left: 200%;
       }
     }

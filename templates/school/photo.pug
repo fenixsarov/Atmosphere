@@ -1,0 +1,165 @@
+extends base
+| {% load staticfiles %}
+include mixins/mixins.pug
+
+prepend page
+  - var title = "Обучение фотографии"
+block content
+  section.container.page_mainheader
+    .row
+      .col-md-7
+        img#image(src="{% static '/images/school/school_img_8.jpg' %}")
+      .col-md-5.description
+        .description__title
+          h1.title Фотография с нуля
+        .description__text
+          p.desc Стоимость курса – 12990 ₽
+        .description_btn.box
+          .row
+            a.col-xs-12.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+  section.container.atm-school-description
+    .row
+      p.col-xs-12.atm-school-p Привет, начинающий фотограф! 
+      p.col-xs-12.atm-school-p Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать красивые кадры. Показываем фотографию с разных сторон. Курс разбит на три блока: техника, выразительность  и смысл. Он поможет тебе изучить эти части фотографии или систематизирует твои знания, если они уже есть. Вместе проведем 10 уроков и закрепим материал домашними работами. Да, домашки придется делать. Это же фотошкола – куда без них ☺
+      p.col-xs-12.atm-school-p Техника – поможет избежать бракованного кадра. Осознанно крутить все эти ручки и колотушки. Настраивать камеру так, как нужно для кадра. Не спрашивать соседа, почему кадр смазанный или слишком темный. Как его сделать четче или светлее. Понять суть получения фотографии, ее техническую сторону. Зачем это вам? Все просто - без хорошей технической базы трудно вести речь о серьезном творчестве. 
+  section.container-fluid.atm-school-reason
+    .row
+      .col-xs-12
+        .box.container
+          .row
+            .col-xs-12
+              .atm-section-header.font-medium 6 причин записаться на курс
+              .atm-section-header.font-medium "основы студийной фотографии"
+          .row
+            .col-xs-12.col-sm-6.reason-container
+              .box
+                .row.middle-xs
+                  .col-xs-2
+                    img(src="https://place-hold.it/100x100")
+                  .col-xs-10
+                    h3.reason-head.font-medium Cвет
+                    p.reason.font-light Мы научим тебя видеть свет. 
+                    p.reason.font-light Использовать его в своих съёмках.
+                    p.reason.font-light И покажем как им управлять
+            .col-xs-12.col-sm-6.reason-container
+              .box
+                .row.middle-xs
+                  .col-xs-2
+                    img(src="https://place-hold.it/100x100")
+                  .col-xs-10
+                    h3.reason-head.font-medium 6 занятий
+                    p.reason.font-light Каждое занятие – теория с презентацией и практика. Вместе снимаем те образы и съёмки, которую мы для вас подготовим
+            .col-xs-12.col-sm-6.reason-container
+              .box
+                .row.middle-xs
+                  .col-xs-2
+                    img(src="https://place-hold.it/100x100")
+                  .col-xs-10
+                    h3.reason-head.font-medium Саров
+                    p.reason.font-light Наши курсы проходят в фотостудии «Атмосфера», в Сарове. Вам не придется ездить в Нижний или в Москву, все происходит в нашем городе :-)
+            .col-xs-12.col-sm-6.reason-container
+              .box
+                .row.middle-xs
+                  .col-xs-2
+                    img(src="https://place-hold.it/100x100")
+                  .col-xs-10
+                    h3.reason-head.font-medium 6 домашних заданий
+                    p.reason.font-light Укрепляем навыки, полученные вместе – самостоятельными съемками. Сами ищем модель, визажиста и снимаем в Атмосфере
+            .col-xs-12.col-sm-6.reason-container
+              .box
+                .row.middle-xs
+                  .col-xs-2
+                    img(src="https://place-hold.it/100x100")
+                  .col-xs-10
+                    h3.reason-head.font-medium 5 недель
+                    p.reason.font-light полного погружения в фотографию и наше комьюнити. Это постоянная поддержка от преподавателей курса и своих одноклассников
+            .col-xs-12.col-sm-6.reason-container
+              .box
+                .row.middle-xs
+                  .col-xs-2
+                    img(src="https://place-hold.it/100x100")
+                  .col-xs-10
+                    h3.reason-head.font-medium навыки
+                    p.reason.font-light полученные на курсе, сможешь использовать и вне съёмки вне студии
+  section.container
+    - var teacher_1 = {'img_url': "https://place-hold.it/300x300", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    - var teacher_2 = {'img_url': "https://place-hold.it/300x300", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
+    
+    .row.atm-teachers
+      .col-xs-12
+        .atm-section-header.font-medium Преподаватели курса
+      .col-xs-12
+        +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
+      .col-xs-12
+        +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+  section.container.atm-school-program-container
+    .row
+      h2.col-xs-12.header Программа курса
+      p.col-xs-8.col-xs-offset-2.description.font-light Каждый урок рассчитан на 2-2,5 часа и сильно зависит от количества вопросов у студентов. Остаемся до последнего вопроса
+    .row.atm-school-program-block
+      .col-xs-12.atm-school-program__header 0.Вводный открытый урок. Кратчайшая история фотографии. 
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p Как развивалась фотография? Как раньше люди снимали? Где сейчас фотография? Как мы дожили до такого?
+            p.col-xs-12.atm-school-program__p Преподаватель - Денис Алёшин
+    .row
+      .col-xs-12.atm-school-program__header Блок 1 Техническая сторона съемки
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 1. Строение фотоаппарата.
+            p.col-xs-12.atm-school-program__p Настройки. Диафрагма. Выдержка. ISO.  Понимаем все эти страшные слова. Узнаем, из каких частей состоит фотоаппарат и основные параметры фотоаппарата. Снимаем в мануальном режиме.
+            p.col-xs-12.atm-school-program__p Преподаватель - Денис Алёшин
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 2. Экспонометрия. 
+            p.col-xs-12.atm-school-program__p Главный объект кадра и его экспозиция. Динамический диапазон сцены и фотографии. Способы повышения и понижения контраста сцены. Быстрое определение экспозиции. Режимы A, S. Экспокоррекция. 
+            p.col-xs-12.atm-school-program__p Преподаватель - Денис Алёшин
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 3. Обьективы.
+            p.col-xs-12.atm-school-program__p Размер матрицы. Автофокус. Глубина резко изображаемого пространства.  Бокешечка.
+            p.col-xs-12.atm-school-program__p Преподаватель - Денис Алёшин
+    .row
+      .col-xs-12.atm-school-program__header Блок 2 Свет, цвет, обработка
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 1. Свет в фотографии. 
+            p.col-xs-12.atm-school-program__p Приоткрываем занавесу света в фотографии. Понимаем естественный свет. Свой свет для разных жанров фотографии.
+            p.col-xs-12.atm-school-program__p Преподаватель - Денис Алёшин
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 2. Цвет в фотографии.
+            p.col-xs-12.atm-school-program__p Гармония цвета. Сочетание цветов. Цветовые схемы.
+            p.col-xs-12.atm-school-program__p Преподаватель - Елена Лемясева.
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 3. Основы обработки фотографии
+            p.col-xs-12.atm-school-program__p Базовые навыки работы в Lightroom, Photoshop
+            p.col-xs-12.atm-school-program__p Преподаватель - София Леванова.
+    .row
+      .col-xs-12.atm-school-program__header Блок 3 Композиция и смысл
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 1. Основы Композиция. 
+            p.col-xs-12.atm-school-program__p Композиция в искусстве. Учимся организовывать компоненты художественной формы. Придаем произведению единство и цельность. Практика.
+            p.col-xs-12.atm-school-program__p Преподаватель - Елена Лемясева.
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 2. Композиция в фотографии. Переносим знания искусства в навыки фотографии.
+            p.col-xs-12.atm-school-program__p Учимся кадрировать фотографию. Правильно и не очень.
+            p.col-xs-12.atm-school-program__p Преподаватель - Елена Лемясева
+      .col-xs-12.atm-school-program__block
+        .box
+          .row
+            p.col-xs-12.atm-school-program__p 3. Смысл фотографии.
+            p.col-xs-12.atm-school-program__p Вкус. Взгляд фотографа. Развитие. Кактусы. Референсы. Вдохновение.
+            p.col-xs-12.atm-school-program__p Преподаватель - Денис Алешин

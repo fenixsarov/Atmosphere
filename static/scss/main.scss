@@ -16,6 +16,10 @@ body {
   position: relative;
 }
 
+img {
+  width: 100%;
+}
+
 a {
   text-decoration: none;
   color: $cl-default-text;
@@ -159,3 +163,5 @@ section#events {
 @import "footer";
 @import "media-requests";
 @import "graduations";
+@import "school-course";
+@import "teachers-card";
