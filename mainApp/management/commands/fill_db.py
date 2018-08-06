@@ -18,7 +18,7 @@ class Command(BaseCommand):
         if options['argument']:
             print('BUGAGA')
             return
-        
+
         print('My command')
         masterclass = [
             {

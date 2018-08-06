@@ -12,11 +12,13 @@ block content
         .col-md-7
          | {{ pug }}
         .col-md-5.description
-          h1 {{ header | upper }}
+          .description__title
+            h1.title {{ header | upper }}
           | {% autoescape off %}
-          p {{ desc }}
+          .description__text
+            p.desc {{ desc }}
           | {% endautoescape %}
-
-          a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
+          .description_btn
+            a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
 
   //- script(src="{% static 'javascripts/sessionschange.js' %}")
