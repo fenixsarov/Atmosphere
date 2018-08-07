@@ -27,6 +27,12 @@
 
 .team-contents {
     margin-top: 3em;
+    .person:nth-child(even) {
+        background-color: white;
+        color: black;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
 }
 
 .team-uptitle {
