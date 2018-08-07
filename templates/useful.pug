@@ -20,4 +20,5 @@ block content
       .row
         .col-xs#useful_plates
 
-  script(src="{% static 'javascripts/usefulchange.js' %}")
+  block append scripts
+    script(src="{% static 'javascripts/usefulchange.js' %}")
