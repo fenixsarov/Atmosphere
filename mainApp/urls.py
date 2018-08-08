@@ -30,4 +30,5 @@ urlpatterns = (
     url(r'^useful/$', Useful.as_view()),
     url(r'^useful/usefulchange/$', UsefulChange.as_view(),
         name='usefulchange'),
-    url(r'^team/', Team.as_view()))
+    url(r'^team/', Team.as_view()),
+    url(r'^blog/', Blog.as_view()))

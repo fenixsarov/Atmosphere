@@ -24,6 +24,17 @@ mixin plate_new(img_src, header, description)
       .plate_new__description_header #{header}
       .plate_new__description_text #{description}
       
+mixin blog_item(href, img_src, header, description, date)
+  article
+    a.blog-item(href="#{href}")
+      .blog-item__bg
+        img(src="#{img_src}", alt="Blog #{header} img")
+      .blog-item__description
+        header
+          .blog-item__date.font-light #{date}
+          .blog-item__header.font-medium #{header}
+          .blog-item__text.font-light #{description}
+      
 mixin event(url, header, description, bg_img)
   .event.col-md.col-sm-6.col-xs-12
     a.content(href=url)

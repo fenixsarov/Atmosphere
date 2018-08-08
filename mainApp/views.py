@@ -33,6 +33,11 @@ class Team(BaseView):
     page_name = 'team'
 
 
+class Blog(BaseView):
+    template_name = 'blog.pug'
+    # page_name
+
+
 class PhotoSchool(BaseView):
     template_name = 'school/photo.pug'
     page_name = 'photoschool'

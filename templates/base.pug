@@ -14,7 +14,7 @@ block page
       link(rel="stylesheet", href="{% static 'css/normalize.css' %}")
       link(rel="stylesheet", href="{% static 'css/flexboxgrid.css' %}")
       link(rel="stylesheet", href="{% static 'css/fontawesome.css' %}")
-
+      block styles
       | {% compress css %}
       link(rel="stylesheet", type="text/x-scss", charset="utf-8", href="{% static 'scss/main.scss' %}")
       | {% endcompress %}

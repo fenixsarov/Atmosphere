@@ -49,6 +49,11 @@ $(function () {
     header_height = w_height;
   });
 
+  var team_img_pos = []
+  $('.team-block-image').each(function (val) {
+    team_img_pos.push([$(this), $(this).offset().top]);
+  });
+
   $(window).scroll(function (e) {
     var cur_s = $(this).scrollTop();
     let direction = (prev_s - cur_s) < 0 ? 1 : -1;
@@ -61,6 +66,21 @@ $(function () {
       if (cur_s > header_height) {
         // mainContentParallax( cur_s );
         // $prlx_main.css('position', 'fixed');
+      }
+
+      if (team_img_pos.length) { // Не знаю на сколько это всё оптимально сделано
+        let dones = [];
+        team_img_pos.forEach(function (value, index) {
+          if ((cur_s + w_height / 2) > value[1]) {
+            value[0].animate({
+              'opacity': 1
+            }, 600);
+            dones.push(index);
+          }
+        });
+        dones.forEach(function (value) {
+          team_img_pos.splice(value, 1);
+        });
       }
     });
 
@@ -322,6 +342,11 @@ function changeSubMenuContent(data_desc) {
       success: function (response) {
         if (response.response == 'ok') {
           subMenuObj.success(response);
+
+          // // ANIMATE SCROLL
+          // $('html').animate({
+          //   scrollTop: $('.atm-under-menu').offset().top
+          // }, 500);
         }
       }
     });

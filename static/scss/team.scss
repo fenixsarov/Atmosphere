@@ -30,8 +30,6 @@
     .person:nth-child(even) {
         background-color: white;
         color: black;
-        margin-top: 1em;
-        margin-bottom: 1em;
     }
 }
 
@@ -76,5 +74,7 @@
 }
 
 .team-block-image {
+    display: block;
     max-width: 100%;
+    opacity: 0;
 }
