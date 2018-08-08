@@ -7,6 +7,8 @@ let $carouselContent = null,
   carouselFirstItem = null,
   autoSlide = null;
 
+var first_submenu_load = true;
+
 $(function () {
   hidePreload();
   let prev_s = $(window).scrollTop();
@@ -343,10 +345,14 @@ function changeSubMenuContent(data_desc) {
         if (response.response == 'ok') {
           subMenuObj.success(response);
 
-          // // ANIMATE SCROLL
-          // $('html').animate({
-          //   scrollTop: $('.atm-under-menu').offset().top
-          // }, 500);
+          if (first_submenu_load) {
+            first_submenu_load = false;
+          } else {
+            // ANIMATE SCROLL
+            $('html').animate({
+              scrollTop: $('.atm-under-menu').offset().top
+            }, 500);
+          }
         }
       }
     });
