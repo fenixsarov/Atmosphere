@@ -8,6 +8,7 @@ from django.conf import settings
 from .models import *
 import random
 
+
 # debug = settings.DEBUG
 
 
@@ -451,11 +452,11 @@ class UsefulChange(View):
                 for article in UsefulArticle.objects.all():
                     self.plate_desc.append({
                         'image':
-                        article.desc_image.url,
+                            article.desc_image.url,
                         'header':
-                        article.title,
+                            article.title,
                         'plate_text':
-                        self.bb_parser.render(article.desc)
+                            self.bb_parser.render(article.desc)
                     })
 
             except BaseException as e:
@@ -465,6 +466,5 @@ class UsefulChange(View):
                                                {'plate_desc': self.plate_desc})
 
         return JsonResponse({'response': 'ok', 'html': self.pug})
-
 
 # Create your views here.
