@@ -5,6 +5,13 @@
 @import "reserv_widget";
 @import "ui/ui";
 @import "ui/forms";
+.aeWidgetBtn {
+  background-color: white !important;
+  .aeWidgetBtn-icon_logo {
+    background-image: url('../images/logo_80x80.png') !important;
+  }
+}
+
 body {
   font-family: $main-font, sans-serif;
   background-color: rgb(33, 33, 31);
