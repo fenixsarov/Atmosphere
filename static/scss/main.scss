@@ -7,9 +7,12 @@
 @import "ui/forms";
 .aeWidgetBtn {
   background-color: white !important;
+  .aeWidgetBtn-Wave {
+    border-color: white !important;
+  }
   .aeWidgetBtn-icon_logo {
     background-image: url('../images/logo_80x80.png') !important;
-  }
+  } // .aeWidgetBtn-icon_book {}
 }
 
 body {
@@ -72,10 +75,9 @@ section {
         font-size: 17px;
         line-height: 2.3rem;
       }
-    }
-    .description_btn {
-      .atm-btn-reserved {}
-    }
+    } // .description_btn {
+    //   .atm-btn-reserved {}
+    // }
   }
 }
 
