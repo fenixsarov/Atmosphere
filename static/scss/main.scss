@@ -8,11 +8,15 @@
 .aeWidgetBtn {
   background-color: white !important;
   .aeWidgetBtn-Wave {
-    border-color: white !important;
+    border-color: lightblue !important;
   }
+  background-color: transparent !important;
   .aeWidgetBtn-icon_logo {
     background-image: url('../images/logo_80x80.png') !important;
-  } // .aeWidgetBtn-icon_book {}
+  }
+  .aeWidgetBtn-icon_book {
+    color: lightblue !important;
+  }
 }
 
 body {
