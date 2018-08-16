@@ -82,15 +82,15 @@ block content
                     h3.reason-head.font-medium навыки
                     p.reason.font-light полученные на курсе, сможешь использовать и вне съёмки вне студии
   section.container
-    - var teacher_1 = {'img_url': "https://place-hold.it/300x300", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
-    - var teacher_2 = {'img_url': "https://place-hold.it/300x300", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
+    - var teacher_1 = {'img_url': "https://place-hold.it/300x350", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    - var teacher_2 = {'img_url': "https://place-hold.it/300x350", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
     
     .row.atm-teachers
       .col-xs-12
         .atm-section-header.font-medium Преподаватели курса
-      .col-xs-12
+      .col-xs-12.col-md-8.col-md-offset-2
         +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
-      .col-xs-12
+      .col-xs-12.col-md-8.col-md-offset-2
         +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
   section.container.atm-school-program-container
     .row

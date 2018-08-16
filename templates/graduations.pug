@@ -4,7 +4,7 @@ include mixins/mixins.pug
 
 prepend page
   - var title = "Выпускные съёмки"
-  - var under_menu = [{"text": "школа", "desc": "school"}, {"text": "детский сад", "desc": "kindergarten"}, {"text": "печать альбомов", "desc": "printing"}]
+  //- - var under_menu = [{"text": "школа", "desc": "school"}, {"text": "детский сад", "desc": "kindergarten"}, {"text": "печать альбомов", "desc": "printing"}]
 block content
   | {% static '/images' as imageUrl %}
   - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
