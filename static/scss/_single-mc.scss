@@ -1,0 +1,72 @@
+.atm-mc {
+  h1 {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  h3 {
+    display: block;
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+  ul {
+    padding-left: 2rem;
+    list-style: none;
+    li::before {
+      content: "- ";
+      font-size: 1.3rem;
+    }
+  }
+  .atm-photogalery {
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+  article {
+    border-top: 2px solid #FFF;
+    padding: 2rem 0;
+  }
+  .atm-mc__description-text {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .atm-mc__video-section {
+    position: relative;
+    .atm-mc__video-play-btn {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #CC0000; // opacity: .8;
+      font-size: 80px;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transition: color .5s ease-in;
+      -webkit-transition: color .5s ease-in;
+      -moz-transition: color .5s ease-in;
+      -ms-transition: color .5s ease-in;
+      -o-transition: color .5s ease-in;
+      &:hover {
+        color: red; // opacity: 1;
+      }
+    }
+  }
+}
+
+.atm-mc__header {
+  margin-bottom: 2rem;
+  .atm-btn-reserved {}
+}
+
+.atm-mc__description {}
+
+.atm-feedback {
+  color: black;
+  font-size: 1.4rem;
+  padding: 2rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}

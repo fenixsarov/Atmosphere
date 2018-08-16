@@ -6,7 +6,97 @@ prepend page
   //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
-  section
+  .container.atm-mc
+    header.atm-mc__header
+      .row.center-xs
+        .col-xs-6
+          h1 НАЗВАНИЕ МАСТЕРКЛАССА
+          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+    article.atm-mc__description
+      .row.middle-md
+        .col-xs-12.col-md-6
+          img(src="http://placehold.it/200x150" alt="Фотография мастеркласса")
+        .col-xs-12.col-md-6
+          p.atm-mc__description-text In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
+    article
+      .row.center-md
+        header.col-xs-12.col-md-6
+          h3 Кому будет интересен этот мастеркласс?
+      .row
+        ul.col-xs-12.atm-mc__description-text
+          li Deserunt Lorem proident sit officia nostrud duis.
+          li Incididunt deserunt sint laboris sunt.
+          li Enim nostrud est deserunt nulla nulla ad aliquip.
+          li Consectetur eu anim nulla dolore minim quis minim deserunt quis sint eiusmod officia ut.
+    article
+      .row.center-md
+        header.col-xs-12.col-md-6
+          h3 Преподаватель курса
+      .row.middle-md
+        .col-xs-12.col-md-3
+          img(src="http://placehold.it/150x150" alt="Фотография мастеркласса")
+        .col-xs-12.col-md-9
+          p.atm-mc__description-text In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
+    article
+      .row.center-md
+        header.col-xs-12.col-md-6
+          h1 Записаться на мастер-класс
+          h4 %MASTERCLASS_NAME%
+      .row.center-md
+        .col-xs-12
+          h3 Стоимость ______ руб
+          h3 Ближайшая дата проведения __________
+          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+    article.atm-photogalery
+      .row
+        .col-xs-4
+          img(src="http://placehold.it/100x100")
+        .col-xs-4
+          img(src="http://placehold.it/100x100")
+        .col-xs-4
+          img(src="http://placehold.it/100x100")
+        .col-xs-4
+          img(src="http://placehold.it/100x100")
+        .col-xs-4
+          img(src="http://placehold.it/100x100")
+        .col-xs-4
+          img(src="http://placehold.it/100x100")
+    article
+      .row.center-md
+        .col-xs-12.col-md-6
+          .atm-mc__video-section
+            img(src="http://placehold.it/200x100")
+            i.fab.fa-youtube.atm-mc__video-play-btn
+    article
+      .row.center-xs
+        header.col-xs-12.col-md-6
+          h1 Отзывы наших учеников
+      .row
+        .col-xs-12.col-md-12
+          .atm-feedback
+            .box
+              .row.middle-xs
+                .col-xs-2
+                  img(src="http://placehold.it/50x20")
+                .col-xs-10
+                  p.font-light Ad ex nostrud id consequat adipisicing anim.
+        .col-xs-12.col-md-12
+          .atm-feedback
+            .box
+              .row.middle-xs
+                .col-xs-2
+                  img(src="http://placehold.it/50x20")
+                .col-xs-10
+                  p.font-light Ea velit laborum eiusmod irure mollit fugiat.
+        .col-xs-12.col-md-12
+          .atm-feedback
+            .box
+              .row.middle-xs
+                .col-xs-2
+                  img(src="http://placehold.it/50x20")
+                .col-xs-10
+                  p.font-light Fugiat et magna nisi cillum mollit aute reprehenderit fugiat tempor.
+  //- section
     .container.page_mainheader
       .row
         .col-md-7
@@ -18,7 +108,5 @@ block content
           .description__text
             p.desc {{ desc }}
           | {% endautoescape %}
-          .description_btn
-            a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
 
   //- script(src="{% static 'javascripts/sessionschange.js' %}")

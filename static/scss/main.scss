@@ -79,10 +79,9 @@ section {
         font-size: 17px;
         line-height: 2.3rem;
       }
-    }
-    .description_btn {
-      .atm-btn-reserved {}
-    }
+    } // .description_btn {
+    //   .atm-btn-reserved {}
+    // }
   }
 }
 
@@ -180,3 +179,4 @@ section#events {
 @import "school-course";
 @import "teachers-card";
 @import "blog";
+@import "single-mc";
