@@ -36,6 +36,34 @@ class Team(BaseView):
 
 class Blog(BaseView):
     template_name = 'blog.pug'
+    page_name = 'blog'
+
+
+class BlogChange(View):
+    plate_desc = []
+    pug = ''
+    def get(self, request):
+        self.request.session['view'] = self.request.GET['view']
+        if self.request.is_ajax():
+            self.plate_desc.clear()
+            try:
+                for ba in BlogArticle.objects.all():
+                    self.plate_desc.append({
+                        'title': ba.title,
+                        'desc': ba.desc,
+                        'desc_image': ba.desc_image.url,
+                        'content': ba.content,
+                        'public_date': ba.public_date,
+                        'id': ba.pk
+                    })
+            except BaseException as e:
+                print(e)
+
+            pug = loader.render_to_string('mixins/plate_blog.pug',
+                                          {'plate_desc': self.plate_desc})
+
+        return JsonResponse({'response': 'ok', 'html': pug})
+
     # page_name
 
 

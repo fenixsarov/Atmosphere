@@ -1,0 +1,13 @@
+| {% load staticfiles %}
+| {% for item in plate_desc %}
+.col-xs-12.col-md-6
+  article
+    a.blog-item(href="#{href}")
+      .blog-item__bg
+          img(src='/{{ item.desc_image }}', alt="Blog {{ item.title }} img")
+      .blog-item__description
+        header
+          .blog-item__date.font-light {{ item.public_date }}
+          .blog-item__header.font-medium {{ item.title }}
+          .blog-item__text.font-light {{ item.desc }}
+| {% endfor %}

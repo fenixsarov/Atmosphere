@@ -6,10 +6,12 @@ prepend page
   - var title = "Блог"
 block content
   section.container
-    .row
-      .col-xs-12.col-md-6
-        +blog_item('/blog/#', 'https://place-hold.it/600x400', 'Первая запись блога', 'Фотоотчёт о первом дне соревнований "Лучший Домовой года"', '20.04.2018')
-      .col-xs-12.col-md-6
-        +blog_item('/blog/#', 'https://place-hold.it/600x400', 'Вторая запись блога', 'Хотим рассказать вам о нашем секрете, который никто не знает', '18.06.2018')
-      .col-xs-12.col-md-6
-        +blog_item('/blog/#', 'https://place-hold.it/600x400', 'Третья запись блога', 'А вы видели это? А мы это засняли!', '20.06.2018')
+    .row#blog_plates
+      //- .col-xs-12.col-md-6
+      //-   +blog_item('/blog/#', 'https://place-hold.it/600x400', 'Первая запись блога', 'Фотоотчёт о первом дне соревнований "Лучший Домовой года"', '20.04.2018')
+      //- .col-xs-12.col-md-6
+      //-   +blog_item('/blog/#', 'https://place-hold.it/600x400', 'Вторая запись блога', 'Хотим рассказать вам о нашем секрете, который никто не знает', '18.06.2018')
+      //- .col-xs-12.col-md-6
+      //-   +blog_item('/blog/#', 'https://place-hold.it/600x400', 'Третья запись блога', 'А вы видели это? А мы это засняли!', '20.06.2018')
+block append scripts
+  script(src="{% static 'javascripts/blogchange.js' %}")

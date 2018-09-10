@@ -150,6 +150,20 @@ class PicSession(Picture):
         verbose_name_plural = 'Все изображения съёмок'
 
 
+# Этот класс описывает содержание статьи блога
+class BlogArticle(models.Model):
+    title = models.CharField('Заголовок', max_length=128)
+    desc = models.TextField(verbose_name='Описание', max_length=256)
+    desc_image = models.FileField(upload_to="static/images/upload_imgs", verbose_name='Картинка к статье')
+    content = models.TextField(verbose_name='Основной текст')
+    public_date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '3.0 Блог'
+
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)
