@@ -64,8 +64,38 @@ class BlogChange(View):
 
         return JsonResponse({'response': 'ok', 'html': pug})
 
-    # page_name
 
+class BlogSingleArticle(BaseView):
+    template_name = 'blog_content.pug'
+    page_name = 'blog_article'
+
+    title = ''
+    desc = ''
+    desc_image = ''
+    content = ''
+    public_date = ''
+
+
+    def get(self, request, pk):
+        try:
+            ba = BlogArticle.objects.get(pk=pk)
+            self.title = ba.title
+            self.desc = ba.desc
+            self.desc_image = ba.desc_image
+            self.content = ba.content
+            self.public_date = ba.public_date
+
+        except BaseException as e:
+            print(e)
+
+        return render(
+            request, self.template_name, {
+                'title': self.title,
+                'desc': self.desc,
+                'desc_image': self.desc_image,
+                'content': self.content,
+            }
+        )
 
 class PhotoSchool(BaseView):
     template_name = 'school/photo.pug'

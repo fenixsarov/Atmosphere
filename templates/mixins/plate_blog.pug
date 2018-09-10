@@ -2,7 +2,7 @@
 | {% for item in plate_desc %}
 .col-xs-12.col-md-6
   article
-    a.blog-item(href="#{href}")
+    a.blog-item(href='{% url "blog_article" pk=item.id %}')
       .blog-item__bg
           img(src='/{{ item.desc_image }}', alt="Blog {{ item.title }} img")
       .blog-item__description

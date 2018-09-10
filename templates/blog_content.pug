@@ -3,7 +3,7 @@ extends base
 include mixins/mixins.pug
 
 prepend page
-  - var title = blog_title
+  - var title = title
 block styles
   //- link(rel="stylesheet", href="{% static 'css/blog.css' %}") 
   //- ТУТ НУЖНО ГЕНЕРИРОВАТЬ ОТДЕЛЬНЫЙ  CSS для БЛОГА (я не знаю где что поправить нужно, что бы это произошло)
@@ -15,9 +15,9 @@ block content
         header 
           .blog__bg
             img(src="https://place-hold.it/900x250")
-          h1.blog__header Заголовок записи БЛОГА
-          p.blog__desc Его краткое описание
-          article.blog__content Ну а тут будет какой-то контент блога
+          h1.blog__header #{title}
+          p.blog__desc #{desc}
+          article.blog__content #{content}
         //-   h1 #{header}
         //- p #{description}
         //- article.blog_content
