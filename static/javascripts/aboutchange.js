@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
                 // document.body.appendChild(response.html);
                 $('#teamperson_plates').append(response.html);
                 bindPlateEvents();
-                main();
+                // main();
             }
         }
     });

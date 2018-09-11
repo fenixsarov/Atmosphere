@@ -9,7 +9,7 @@ let $carouselContent = null,
 
 var first_submenu_load = true;
 
-function main() {
+$(function () {
   hidePreload();
   let prev_s = $(window).scrollTop();
   var w_height = $(window).height();
@@ -124,9 +124,7 @@ function main() {
     $('body').css('overflow', 'auto');
   });
 
-}
-
-main();
+});
 
 function hidePreload() {
   $('#preloader').fadeOut('slow', function () {
