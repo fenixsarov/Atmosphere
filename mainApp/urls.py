@@ -19,6 +19,7 @@ urlpatterns = (
     url(r'^reserved/form/$', ReservedForm.as_view(), name='reserved'),
     url(r'^events/$', Events.as_view()),
     url(r'^about/$', About.as_view()),
+    url(r'^about/aboutchange/$', AboutChange.as_view(), name='aboutchange'),
     url(r'^useful/$', Useful.as_view()),
     url(r'^useful/usefulchange/$', UsefulChange.as_view(), name='usefulchange'),
     url(r'^team/$', Team.as_view()),

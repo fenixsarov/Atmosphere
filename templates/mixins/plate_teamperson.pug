@@ -1,0 +1,14 @@
+| {% load staticfiles %}
+| {% for item in plate_desc %}
+article.container-fluid.person
+  .row.middle-sm
+    .col-xs-12.col-sm-6
+      .team-block-title {{ item.title }}
+      .team-block-description {{ item.desc }}
+      .team-block-text
+        p {{ item.content }}
+        //- p Если ты увидел в студии кого то в китайской одежде и с хитрой кисточкой в руке, знай – это Лена.
+        //- p Преподает рисование медитативных китайских пейзажей и всего, что с этим связано.
+    .col-xs-12.col-sm-6
+      img.team-block-image(src='/{{ item.desc_image }}',alt="{{ item.title }}")
+| {% endfor %}

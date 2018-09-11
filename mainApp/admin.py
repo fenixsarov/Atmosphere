@@ -94,4 +94,5 @@ admin.site.register(PicHalls, PicProductAdmin)
 admin.site.register(Session, ProductAdmin)
 admin.site.register(PicSession, PicProductAdmin)
 admin.site.register(BlogArticle)
+admin.site.register(TeamPerson)
 # Register your models here.

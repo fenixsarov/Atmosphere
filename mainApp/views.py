@@ -450,6 +450,29 @@ class About(BaseView):
     page_name = 'about'
 
 
+class AboutChange(View):
+    plate_desc = []
+    pug = ''
+
+    def get(self, request):
+        # self.request.session['view'] = self.request.GET['view']
+        if self.request.is_ajax():
+            self.plate_desc.clear()
+            try:
+                for tm in TeamPerson.objects.all():
+                    self.plate_desc.append({
+                        'title': tm.title,
+                        'desc': tm.desc,
+                        'desc_image': tm.desc_image.url,
+                        'content': tm.content,
+                    })
+            except BaseException as e:
+                print(e)
+
+            pug = loader.render_to_string('mixins/plate_teamperson.pug',
+                                          {'plate_desc': self.plate_desc})
+            return JsonResponse({'response': 'ok', 'html': pug})
+
 class Useful(BaseView):
     template_name = 'useful.pug'
     page_name = 'useful'

@@ -164,6 +164,20 @@ class BlogArticle(models.Model):
     class Meta:
         verbose_name_plural = '3.0 Блог'
 
+
+#  Этот класс описывает запись об одном из членов команды
+class TeamPerson(models.Model):
+    title = models.CharField('Имя', max_length=128)
+    desc = models.TextField(verbose_name='Описание', max_length=64)
+    content = models.TextField(verbose_name='Основной текст')
+    desc_image = models.FileField(upload_to="static/images/upload_imgs", verbose_name='Фотография')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '4.1 Команда'
+
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)
