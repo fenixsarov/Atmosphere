@@ -202,3 +202,9 @@ class Command(BaseCommand):
         for grad in graduations:
             grad = Graduations(**grad)
             grad.save()
+
+        blogArcticle = []
+
+        for ba in blogArcticle:
+            ba = BlogArticle(**ba)
+            ba.save()

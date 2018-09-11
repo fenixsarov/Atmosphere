@@ -6,16 +6,16 @@
 @import "ui/ui";
 @import "ui/forms";
 .aeWidgetBtn {
-  background-color: white !important;
+  background-color: whitesmoke !important;
   .aeWidgetBtn-Wave {
-    border-color: lightblue !important;
+    border-color: whitesmoke !important;
   }
-  background-color: transparent !important;
+  //background-color: transparent !important;
   .aeWidgetBtn-icon_logo {
     background-image: url('../images/logo_80x80.png') !important;
   }
   .aeWidgetBtn-icon_book {
-    color: lightblue !important;
+    color: dimgray !important;
   }
 }
 

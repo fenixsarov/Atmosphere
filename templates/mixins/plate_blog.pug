@@ -1,6 +1,6 @@
 | {% load staticfiles %}
 | {% for item in plate_desc %}
-.col-xs-12.col-md-6
+.col-xs-12.col-sm-6
   article
     a.blog-item(href='{% url "blog_article" pk=item.id %}')
       .blog-item__bg

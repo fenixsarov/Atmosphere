@@ -41,6 +41,7 @@ $flex_margin: 15px;
   .flex-container {
     width: 750px;
   }
+
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   body {
@@ -56,6 +57,19 @@ $flex_margin: 15px;
   }
   .flex-container {
     width: 1170px;
+  }
+}
+
+@media (min-width: 992px) {
+  .plate_container {
+    .col-md-3:nth-child(2) {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+    .col-md-3:nth-child(4n) {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
   }
 }
 

@@ -110,20 +110,14 @@
   }
 }
 
+
+
 .plate_container {
   padding: 60px 0;
   .col-md-3 {
     flex-grow: 1;
     max-width: initial;
     overflow: hidden;
-  }
-  .col-md-3:nth-child(2) {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-  .col-md-3:nth-child(4n) {
-    flex-basis: 50%;
-    max-width: 50%;
   }
 }
 

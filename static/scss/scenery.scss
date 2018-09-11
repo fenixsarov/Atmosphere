@@ -26,17 +26,20 @@ $carousel-padding: 60px 25px;
       position: absolute;
       width: 100%;
       height: 100%;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       &:nth-child(1) {
+        background-image: url("../images/slider_on_main/0.jpg");
         // background-image: url("../images/scenery/1.jpg");
       }
       &:nth-child(2) {
+        background-image: url("../images/slider_on_main/0.jpg");
         // background-image: url("../images/scenery/2.jpg");
         left: 100%;
       }
       &:nth-child(3) {
+        background-image: url("../images/slider_on_main/0.jpg");
         // background-image: url("../images/scenery/3.jpg");
         left: 200%;
       }
