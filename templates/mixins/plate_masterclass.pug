@@ -2,7 +2,7 @@
 | {% for item in plate_desc %}
 a(class='col-md-3 col-xs-12 col-sm-6', href='{% url "single_mc" pk=item.id %}')
   .plate_new
-    .plate_new__img-preview(style="background-image: url('/{{ item.image }}')")
+    .plate_new__img-preview(style="background-image: url('{{ item.image }}')")
     .plate_new__description
       .plate_new__description_header {{ item.title }}
       .plate_new__description_text {{ item.desc }}

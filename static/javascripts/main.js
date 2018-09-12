@@ -371,7 +371,7 @@ jQuery(document).ready(function ($) {
     cache: false,
     success: function (response) {
       if (response.response == 'ok') {
-        $('#desc_image').attr('src', '/' + response.image_src);
+        $('#desc_image').attr('src', response.image_src);
         $('#title').html(response.title);
         $('#main_text').html(response.main_text);
       }

@@ -15,6 +15,8 @@ import random
 class BaseView(View):
     template_name = 'index.pug'
     page_name = 'index'
+    path_prefix = '/static/images/upload_imgs/'
+
     try:
         bb_parser = get_parser()
     except BaseException:
@@ -42,6 +44,8 @@ class Blog(BaseView):
 class BlogChange(View):
     plate_desc = []
     pug = ''
+    path_prefix = '/static/images/upload_imgs/'
+
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
         if self.request.is_ajax():
@@ -51,7 +55,7 @@ class BlogChange(View):
                     self.plate_desc.append({
                         'title': ba.title,
                         'desc': ba.desc,
-                        'desc_image': ba.desc_image.url,
+                        'desc_image': self.path_prefix + ba.desc_image.url,
                         'content': ba.content,
                         'public_date': ba.public_date,
                         'id': ba.pk
@@ -81,7 +85,7 @@ class BlogSingleArticle(BaseView):
             ba = BlogArticle.objects.get(pk=pk)
             self.title = ba.title
             self.desc = ba.desc
-            self.desc_image = ba.desc_image
+            self.desc_image = self.path_prefix + ba.desc_image
             self.content = ba.content
             self.public_date = ba.public_date
 
@@ -112,11 +116,11 @@ class Halls(BaseView):
     def get(self, request):
         try:
             self.darkhall_imgs = [
-                h.file.url for h in PicHalls.objects.filter(
+                self.path_prefix + h.file.url for h in PicHalls.objects.filter(
                     galleryHalls__service_name='dark')
             ]
             self.lighthall_imgs = [
-                h.file.url for h in PicHalls.objects.filter(
+                self.path_prefix + h.file.url for h in PicHalls.objects.filter(
                     galleryHalls__service_name='light')
             ]
 
@@ -141,6 +145,7 @@ class HallsChange(View):
     lighthall_imgs = []
     list_imgs = []
     halls_list = ['dark', 'light']
+    path_prefix = '/static/images/upload_imgs/'
     title = ''
     desc = ''
     hallsize = ''
@@ -155,7 +160,7 @@ class HallsChange(View):
             for i in self.halls_list:
                 if self.request.session['view'] == i:
                     self.list_imgs = [
-                        h.file.url for h in PicHalls.objects.filter(
+                        self.path_prefix + h.file.url for h in PicHalls.objects.filter(
                             galleryHalls__service_name=i)
                     ]
 
@@ -200,7 +205,7 @@ class Graduations(BaseView):
                 # self.main_text = obj.desc
 
                 self.main_text = self.bb_parser.render(obj.desc)
-                self.desc_image = obj.file.url
+                self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
             except BaseException as e:
@@ -216,6 +221,8 @@ class Graduations(BaseView):
 
 
 class GraduationsChange(View):
+    path_prefix = '/static/images/upload_imgs/'
+
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
         gallery_imgs = []
@@ -224,17 +231,17 @@ class GraduationsChange(View):
             if self.request.session['view'] == 'school':
                 for img in PicGraduations.objects.filter(
                         galleryGraduations__service_name='school'):
-                    gallery_imgs.append(img.file.url)
+                    gallery_imgs.append(self.path_prefix + img.file.url)
 
             elif self.request.session['view'] == 'kindergarten':
                 for img in PicGraduations.objects.filter(
                         galleryGraduations__service_name='kindergarten'):
-                    gallery_imgs.append(img.file.url)
+                    gallery_imgs.append(self.path_prefix + img.file.url)
 
             elif self.request.session['view'] == 'printing':
                 for img in PicGraduations.objects.filter(
                         galleryGraduations__service_name='printing'):
-                    gallery_imgs.append(img.file.url)
+                    gallery_imgs.append(self.path_prefix + img.file.url)
 
             pug = loader.render_to_string('mixins/photogallery_item.pug',
                                           {'gallery_imgs': gallery_imgs})
@@ -259,6 +266,7 @@ class SessionsChange(BaseView):
     title = ''
     desc = ''
     pug = ''
+    path_prefix = '/static/images/upload_imgs/'
 
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
@@ -267,7 +275,7 @@ class SessionsChange(BaseView):
             for i in self.session_list:
                 if self.request.session['view'] == i:
                     self.list_imgs = [
-                        h.file.url for h in PicSession.objects.filter(
+                        self.path_prefix + h.file.url for h in PicSession.objects.filter(
                             gallerySession__service_name=i)
                     ]
 
@@ -307,7 +315,7 @@ class School(BaseView):
                 obj = DescriptionsList.objects.get(service_name=self.page_name)
                 self.title = obj.title
                 self.main_text = self.bb_parser.render(obj.desc)
-                self.desc_image = obj.file.url
+                self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
             except BaseException as e:
@@ -347,7 +355,7 @@ class MasterClass(BaseView):
                 self.title = obj.title
 
                 self.main_text = self.bb_parser.render(obj.desc)
-                self.desc_image = obj.file.url
+                self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
             except BaseException as e:
@@ -388,7 +396,7 @@ class SingleMasterClass(BaseView):
 
             # self.list_imgs = [h.file.url for h in PicMasterclass.objects.filter(galleryMasterclass_id=pk)]
 
-            self.list_imgs.append(mc.desc_image.url)
+            self.list_imgs.append(self.path_prefix + mc.desc_image.url)
             random.shuffle(self.list_imgs)
 
             self.pug = loader.render_to_string(
@@ -409,6 +417,7 @@ class SingleMasterClass(BaseView):
 
 class MasterClassChange(View):
     plate_desc = []
+    path_prefix = '/static/images/upload_imgs/'
 
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
@@ -417,7 +426,7 @@ class MasterClassChange(View):
             try:
                 for mc in Masterclass.objects.all():
                     self.plate_desc.append({
-                        'image': mc.desc_image.url,
+                        'image': self.path_prefix + mc.desc_image.url,
                         'title': mc.title,
                         'desc': mc.short_desc,
                         'id': mc.pk
@@ -453,6 +462,7 @@ class About(BaseView):
 class AboutChange(View):
     plate_desc = []
     pug = ''
+    path_prefix = '/static/images/upload_imgs/'
 
     def get(self, request):
         # self.request.session['view'] = self.request.GET['view']
@@ -463,7 +473,7 @@ class AboutChange(View):
                     self.plate_desc.append({
                         'title': tm.title,
                         'desc': tm.desc,
-                        'desc_image': tm.desc_image.url,
+                        'desc_image': self.path_prefix + tm.desc_image.url,
                         'content': tm.content,
                     })
             except BaseException as e:
@@ -488,7 +498,7 @@ class Useful(BaseView):
     try:
         for article in UsefulArticle.objects.all():
             plate_desc.append({
-                'image': article.desc_image.url,
+                'image': BaseView.path_prefix + article.desc_image.url,
                 'header': article.title,
                 'plate_text': article.desc
             })
@@ -502,7 +512,7 @@ class Useful(BaseView):
                 obj = DescriptionsList.objects.get(service_name=self.page_name)
                 self.title = obj.title
                 self.main_text = self.bb_parser.render(obj.desc)
-                self.desc_image = obj.file.url
+                self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
             except BaseException as e:
@@ -523,21 +533,19 @@ class UsefulChange(View):
     plate_desc = []
     pug = ''
     bb_parser = get_parser()
+    path_prefix = '/static/images/upload_imgs/'
 
     def get(self, request):
         self.request.session['view'] = self.request.GET['view']
         if self.request.is_ajax:
             self.plate_desc.clear()
-            js = ''
+
             try:
                 for article in UsefulArticle.objects.all():
                     self.plate_desc.append({
-                        'image':
-                            article.desc_image.url,
-                        'header':
-                            article.title,
-                        'plate_text':
-                            self.bb_parser.render(article.desc)
+                        'image': self.path_prefix + article.desc_image.url,
+                        'header': article.title,
+                        'plate_text': self.bb_parser.render(article.desc)
                     })
 
             except BaseException as e:

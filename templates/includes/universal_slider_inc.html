@@ -17,9 +17,9 @@
         {% for img in imgs_list %}
         <div data-p="165.625">
 {#            {% with imageUrl|add:'/'|add:img as src  %}#}
-            <div style="position:absolute;top:0px;left:0px;width:720px;height:480px;background-image: url('/{{ img }}');background-position: top center; background-repeat: no-repeat;background-size: cover;" src="/{{ img }}" ></div>
+            <div style="position:absolute;top:0px;left:0px;width:720px;height:480px;background-image: url('{{ img }}');background-position: top center; background-repeat: no-repeat;background-size: cover;" src="{{ img }}" ></div>
 
-            <img data-u="thumb" src="/{{ img }}" />
+            <img data-u="thumb" src="{{ img }}" />
 {#            {% endwith %}#}
         </div>
         {% endfor %}

@@ -8,7 +8,7 @@ mixin plate(img_src, header, description, _align)
   .box.plate(class="#{_align}")
     .row
       .col-md-6.col-xs-12.plate__img-container
-        .plate__img-preview(style="background-image: url('/#{img_src}')")
+        .plate__img-preview(style="background-image: url('#{img_src}')")
       .col-md-6.col-xs-12.plate__description-container
         .plate__description
           h2.header #{header}
@@ -19,7 +19,7 @@ mixin plate(img_src, header, description, _align)
               
 mixin plate_new(img_src, header, description)
   .plate_new
-    .plate_new__img-preview(style="background-image: url('/#{img_src}')")
+    .plate_new__img-preview(style="background-image: url('#{img_src}')")
     .plate_new__description
       .plate_new__description_header #{header}
       .plate_new__description_text #{description}
@@ -74,7 +74,7 @@ mixin photogallery_item(_url)
   .col-md-3
     .img-container
       //.img(style="background-image: url('#{imageUrl}/#{_url}')")
-      .img(style="background-image: url('/#{_url}')")
+      .img(style="background-image: url('#{_url}')")
           
 mixin teacher_card(img_url, name, description, social_link, social_name)
   .box.atm-teachers-card

@@ -4,7 +4,7 @@
   article
     a.blog-item(href='{% url "blog_article" pk=item.id %}')
       .blog-item__bg
-          img(src='/{{ item.desc_image }}', alt="Blog {{ item.title }} img")
+          img(src='{{ item.desc_image }}', alt="Blog {{ item.title }} img")
       .blog-item__description
         header
           .blog-item__date.font-light {{ item.public_date }}

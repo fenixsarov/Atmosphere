@@ -147,8 +147,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-if not  DEBUG:
-    MEDIA_ROOT = os.path.join(STATIC_ROOT, 'images/upload_imgs')
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'images/upload_imgs')
+
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'Atmosphere/static'),
 #     'static'
