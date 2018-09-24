@@ -19,8 +19,7 @@ block content
     .container
       .row.top-md
         .col-md-7
-          .box.box-container
-            .col-md.livephoto-img
+          .livephoto-img
         .col-md-4.col-md-offset-1.description
           .description__title
             h1.title НАША ТРАДИЦИЯ
@@ -30,14 +29,14 @@ block content
   | {% static '/images' as imageUrl %}
   section#events
     .container
-        .row.event-container
-          - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
-          | {% with imageUrl|add:'/events/' as src  %}
-          - var srcImg = src + evt_img[0]
-          +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
-          - var srcImg1 = src + evt_img[1]
-          +event("/blog", "блог", "Текст для блога", srcImg1)
-          - var srcImg2 = src + evt_img[2]
-          +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
-          | {% endwith %}
+      .row.event-container
+        - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
+        | {% with imageUrl|add:'/events/' as src  %}
+        - var srcImg = src + evt_img[0]
+        +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
+        - var srcImg1 = src + evt_img[1]
+        +event("/blog", "блог", "Текст для блога", srcImg1)
+        - var srcImg2 = src + evt_img[2]
+        +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
+        | {% endwith %}
   include includes/team_inc

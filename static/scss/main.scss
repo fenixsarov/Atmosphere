@@ -1,10 +1,12 @@
 @import "variable";
+@import "media-requests";
 @import "reset";
 @import "fonts";
 @import "plate";
 @import "reserv_widget";
 @import "ui/ui";
 @import "ui/forms";
+
 .aeWidgetBtn {
   background-color: whitesmoke !important;
   .aeWidgetBtn-Wave {
@@ -44,6 +46,10 @@ a {
   &:focus {
     background-color: transparent;
   }
+}
+
+.container {
+  max-width: 1192px;
 }
 
 .atm-overlay {
@@ -112,12 +118,18 @@ section#events {
 
 .page_mainheader {
   margin-top: 20px;
-  img {
-    width: 100%; // margin-top: -47px; // Высота кнопок socials
-  }
+  // img {
+  //   width: 100%; // margin-top: -47px; // Высота кнопок socials
+  // }
   .description {
-    padding-top: 32px;
-    padding-left: 4.0em;
+    // @media #{$md} {
+    //   padding-top: 32px;
+    //   padding-left: 4.0em;
+    // }
+    // @media #{lg} {
+    //   padding-top: 32px;
+    //   padding-left: 4.0em;
+    // }
   }
 }
 
@@ -168,13 +180,14 @@ section#events {
   text-indent: 1em;
 }
 
+
 @import "parallax";
 @import "preloader";
 @import "header";
-@import "main-content";
+@import "scenery";
+@import "lifephoto";
 @import "team";
 @import "footer";
-@import "media-requests";
 @import "graduations";
 @import "school-course";
 @import "teachers-card";

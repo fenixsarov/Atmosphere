@@ -11,3 +11,4 @@ less
 db.*
 static/images/upload_imgs/*
 mainApp/migrations/*
+.DS_STORE

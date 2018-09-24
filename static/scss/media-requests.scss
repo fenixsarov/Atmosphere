@@ -1,65 +1,58 @@
 // MEDIA REQUESTS FOR ALL DISPLAY TYPES
+
+$xs: (max-width: 768px);
+$sm: (min-width: 768px) and (max-width: 991px);
+$md: (min-width: 992px) and (max-width: 1199px);
+$lg: (min-width: 1200px);
+
 $flex_margin: 15px;
 
-.container {
-  max-width: 1192px;
-}
-// .flex-container-fluid {
-//   position: relative;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-start;
-//   flex-wrap: wrap;
-// }
-// .flex-container {
-//   position: relative;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-start;
-//   max-width: 960px;
-//   margin: 0 auto;
-//   flex-wrap: wrap;
-//   & > * {
-//     flex-basis: 100%;
+// @media ($mobile) {
+//   body {
+//     font-size: 10px;
 //   }
 // }
-// .flex-grow {
-//   flex-grow: 1;
+// // @media ($tablet) {
+// //   body {
+// //     font-size: 12px;
+// //   }
+// // 
+// // }
+// @media ($desktop) {
+//   body {
+//     font-size: 14px;
+//   }
 // }
-@media (max-width: 768px){
-  body {
-    font-size: 10px;
-  }
-  .flex-container {
-    width: 98%;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  body {
-    font-size: 12px;
-  }
-  .flex-container {
-    width: 750px;
-  }
 
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  body {
-    font-size: 14px;
+// @media ($large) {
+//   body {
+//     font-size: 16px;
+//   }
+// }
+@media #{$xs} {
+  .hide-xs {
+    display: none !important;
   }
-  .flex-container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  body {
-    font-size: 16px;
-  }
-  .flex-container {
-    width: 1170px;
+  .visible-xs {
+    display: block !important;
   }
 }
-
+@media #{$sm} {
+  .hide-sm {
+    display: none !important;
+  }
+  .visible-sm {
+    display: block !important;
+  }
+}
+@media #{$md} {
+  .hide-md {
+    display: none !important;
+  }
+  .visible-md {
+    display: block !important;
+  }
+}
 @media (min-width: 992px) {
   .plate_container {
     .col-md-3:nth-child(2) {
