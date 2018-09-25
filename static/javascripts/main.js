@@ -147,7 +147,7 @@ $( document ).ready( function () {
     e.stopPropagation();
   } )
   $( '.atm-menu-submenu-btn_mobile' ).on( 'click', function ( e ) {
-    e.preventDefault();
+    // e.preventDefault();
     if ( $( this ).hasClass( 'active' ) ) {
       $( this )
         .removeClass( 'active' )

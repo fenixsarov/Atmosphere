@@ -1,12 +1,9 @@
 // MEDIA REQUESTS FOR ALL DISPLAY TYPES
-
 $xs: (max-width: 768px);
-$sm: (min-width: 768px) and (max-width: 991px);
-$md: (min-width: 992px) and (max-width: 1199px);
+$sm: (min-width: 768px) and (max-width: 1104px);
+$md: (min-width: 1105px);
 $lg: (min-width: 1200px);
-
 $flex_margin: 15px;
-
 // @media ($mobile) {
 //   body {
 //     font-size: 10px;
@@ -23,47 +20,160 @@ $flex_margin: 15px;
 //     font-size: 14px;
 //   }
 // }
-
 // @media ($large) {
 //   body {
 //     font-size: 16px;
 //   }
 // }
 @media #{$xs} {
-  .hide-xs {
-    display: none !important;
-  }
-  .visible-xs {
-    display: block !important;
-  }
+    body {
+        font-size: 10px !important;
+    }
+    .hide-xs {
+        display: none !important;
+    }
+    .visible-xs {
+        display: block !important;
+    }
 }
+
 @media #{$sm} {
-  .hide-sm {
-    display: none !important;
-  }
-  .visible-sm {
-    display: block !important;
-  }
+    body {
+        font-size: 12px !important;
+    }
+    .hide-sm {
+        display: none !important;
+    }
+    .visible-sm {
+        display: block !important;
+    }
 }
+
 @media #{$md} {
-  .hide-md {
-    display: none !important;
-  }
-  .visible-md {
-    display: block !important;
-  }
+    body {
+        font-size: 14px !important;
+    }
+    .hide-md {
+        display: none !important;
+    }
+    .visible-md {
+        display: block !important;
+    }
 }
-@media (min-width: 992px) {
-  .plate_container {
-    .col-md-3:nth-child(2) {
-      flex-basis: 50%;
-      max-width: 50%;
+
+@media (min-width: 1105px) {
+    .plate_container {
+        .col-md-3:nth-child(2) {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        .col-md-3:nth-child(4n) {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
     }
-    .col-md-3:nth-child(4n) {
-      flex-basis: 50%;
-      max-width: 50%;
+}
+
+// NAVIGATION DISPLAY
+@media (max-width: 1104px) {
+    .page_mainheader {
+        margin-top: 60px !important;
     }
-  }
+    #lifephoto {
+        .container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .description {
+            margin-top: 0 !important;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+    #events {
+        margin-top: 0 !important;
+        .container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    #atm-navigation_mobile {
+        display: block;
+    }
+    #atm-navigation {
+        display: none;
+    }
+    .atm-header-section {
+        padding-left: 0;
+        padding-right: 0;
+        .container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    #atm-header-slogan-section {
+        .parallax-content.parallax-img {
+            left: 0;
+            right: 0;
+        }
+        .slogan {
+            margin-right: 1em;
+            font-size: 1em;
+        }
+    }
+    .plate_new {
+        .plate_new__header {
+            opacity: 0; // bottom: -30px;
+        }
+        .plate_new__description_header {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .plate_new__description_text {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .plate_new__description {
+            background-color: rgba(41, 41, 41, 0.6);
+        }
+        .plate_new__img-preview {
+            transform: scale(1.2);
+        }
+    }
+}
+
+@media (min-width: 1105px) {
+    #atm-navigation_mobile {
+        display: none;
+    }
+    #atm-navigation {
+        display: block;
+    }
+    .plate_new {
+        .plate_new__description {
+            opacity: 0;
+        }
+        &:hover {
+            .plate_new__header {
+                opacity: 0; // bottom: -30px;
+            }
+            .plate_new__description_header {
+                transform: scale(1);
+                opacity: 1;
+            }
+            .plate_new__description_text {
+                transform: scale(1);
+                opacity: 1;
+            }
+            .plate_new__description {
+                opacity: 1;
+                background-color: rgba(41, 41, 41, 0.6);
+            }
+            .plate_new__img-preview {
+                transform: scale(1.2);
+            }
+        }
+    }
 }
 
 /** EMPTY MEDIA REQ

@@ -9,7 +9,7 @@ block styles
   //- ТУТ НУЖНО ГЕНЕРИРОВАТЬ ОТДЕЛЬНЫЙ  CSS для БЛОГА (я не знаю где что поправить нужно, что бы это произошло)
   //- ...я так думаю и подключать по мере необходимости, что бы не раздувать main.css
 block content
-  section.container
+  section.container.page_mainheader
     .row
       .col-xs-12.blog
         header 
@@ -18,6 +18,3 @@ block content
           h1.blog__header #{title}
           p.blog__desc #{desc}
           article.blog__content #{content}
-        //-   h1 #{header}
-        //- p #{description}
-        //- article.blog_content
