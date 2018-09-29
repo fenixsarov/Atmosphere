@@ -140,7 +140,27 @@ $flex_margin: 15px;
             transform: scale(1.2);
         }
     }
+    .team-contents {
+        margin-top: 3em;
+        .person {
+            //margin-top: 1em;
+          padding-top: 1em;
+          padding-bottom: 1em;
+        }
+    }
+
 }
+
+//@media (min-width: 767px) {
+//  .team-contents {
+//        margin-top: 3em;
+//        .person {
+//            //margin-top: 1em;
+//          padding-top: 0;
+//          padding-bottom: 0;
+//        }
+//    }
+//}
 
 @media (min-width: 1105px) {
     #atm-navigation_mobile {
