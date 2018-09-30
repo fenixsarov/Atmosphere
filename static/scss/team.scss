@@ -27,7 +27,7 @@
 
 .team-contents {
     margin-top: 3em;
-    .person:nth-child(even) {
+    .person:nth-child(odd) {
         background-color: white;
         color: black;
     }

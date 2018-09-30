@@ -36,7 +36,7 @@ mixin blog_item(href, img_src, header, description, date)
           .blog-item__text.font-light #{description}
       
 mixin event(url, header, description, bg_img)
-  .event.col-md.col-sm-6.col-xs-12
+  .event.col-md.col-sm.col-xs-12
     a.content(href=url)
       .image(style="background-image: url('#{bg_img}');")
       .description
