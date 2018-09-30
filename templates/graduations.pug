@@ -7,8 +7,14 @@ prepend page
   //- - var under_menu = [{"text": "школа", "desc": "school"}, {"text": "детский сад", "desc": "kindergarten"}, {"text": "печать альбомов", "desc": "printing"}]
 block content
   | {% static '/images' as imageUrl %}
-  - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
+  //- - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
   +page_mainheader_with_image()
-  section
+  //- section
     .container.page_photogallery
-      .row#graduations_images
+      .row#graduations_image
+  article
+    .row.center-xs
+      header.col-xs-12.col-md-6
+        h3 Для кого эти съёмки?
+    .row
+      ul.col-xs-12.atm-mc__description-text
