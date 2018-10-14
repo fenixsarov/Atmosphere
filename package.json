@@ -1,0 +1,25 @@
+{
+  "name": "atmosphere",
+  "version": "0.5.0",
+  "description": "Web site for Atmosphere photo studio",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-minify": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenixsarov/Atmosphere.git"
+  },
+  "author": "Kravets D.A. & Tishkin D.A.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fenixsarov/Atmosphere/issues"
+  },
+  "homepage": "https://github.com/fenixsarov/Atmosphere#readme"
+}

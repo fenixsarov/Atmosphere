@@ -1,78 +1,88 @@
 extends base
 | {% load staticfiles %}
+include mixins/mixins.pug
+
 prepend page
   link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
   - var title = ""
   //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
-  .container.atm-mc.page_mainheader
-    header.atm-mc__header
-      .row.center-xs
-        .col-xs-12.col-md-6
-          h1 НАЗВАНИЕ МАСТЕРКЛАССА
-          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
-    article.atm-mc__description
-      .row.middle-md
-        .col-xs-12.col-md-6
-          img(src="http://placehold.it/200x150" alt="Фотография мастеркласса")
-        .col-xs-12.col-md-6
-          p.atm-mc__description-text In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
-    article
-      .row.center-md
-        header.col-xs-12.col-md-6
-          h3 Кому будет интересен этот мастеркласс?
+  section.page_mainheader
+    .container
       .row
-        ul.col-xs-12.atm-mc__description-text
+        .col-xs-12.col-md-7
+          img#image(src="http://placehold.it/200x150" alt="Фотография мастеркласса")
+        .col-xs-12.col-md-5.description
+          .box
+            .row.center-xs.start-md
+              .col-xs-12.description__title
+                h1.title НАЗВАНИЕ МАСТЕРКЛАССА
+            .row.center-xs.start-md
+              .col-xs-12.description__text
+                p.desc In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
+            .row.center-xs.start-md
+              .col-xs-12.description_btn
+                a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+  section.atm-advantages-description
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Кому будет интересен этот мастеркласс?
+      .row
+        ul.col-xs-12
           li Deserunt Lorem proident sit officia nostrud duis.
           li Incididunt deserunt sint laboris sunt.
           li Enim nostrud est deserunt nulla nulla ad aliquip.
           li Consectetur eu anim nulla dolore minim quis minim deserunt quis sint eiusmod officia ut.
-    article
-      .row.center-md
-        header.col-xs-12.col-md-6
-          h3 Преподаватель курса
-      .row.middle-md
-        .col-xs-12.col-md-3
-          img(src="http://placehold.it/150x150" alt="Фотография мастеркласса")
-        .col-xs-12.col-md-9
-          p.atm-mc__description-text In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
-    article
-      .row.center-md
-        header.col-xs-12.col-md-6
-          h1 Записаться на мастер-класс
+  section.atm-teacher
+    - var teacher_1 = {'img_url': "https://place-hold.it/300x350", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    .container
+      .row.atm-teachers
+        .col-xs-12
+          .atm-section-header.font-medium Преподаватели курса
+        .col-xs-12.col-md-8.col-md-offset-2
+          +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
+  section.atm-signup
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Записаться на мастер-класс
           h4 #{MASTERCLASS_NAME}
-      .row.center-md
+      .row.center-xs
         .col-xs-12
           h3 Стоимость ______ руб
           h3 Ближайшая дата проведения __________
           a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
-    article.atm-photogalery
+  section.atm-photogalery
+    .container
       .row
-        .col-xs-4
+        .col-xs-6.col-md-4
           img(src="http://placehold.it/100x100")
-        .col-xs-4
+        .col-xs-6.col-md-4
           img(src="http://placehold.it/100x100")
-        .col-xs-4
+        .col-xs-6.col-md-4
           img(src="http://placehold.it/100x100")
-        .col-xs-4
+        .col-xs-6.col-md-4
           img(src="http://placehold.it/100x100")
-        .col-xs-4
+        .col-xs-6.col-md-4
           img(src="http://placehold.it/100x100")
-        .col-xs-4
+        .col-xs-6.col-md-4
           img(src="http://placehold.it/100x100")
-    article
-      .row.center-md
-        .col-xs-12.col-md-6
-          .atm-mc__video-section
+  section.atm-video-section
+    .container
+      .row.center-xs
+        .col-xs-12
+          div.atm-video-player-container
             img(src="http://placehold.it/200x100")
             i.fab.fa-youtube.atm-mc__video-play-btn
-    article
-      .row.center-xs
-        header.col-xs-12.col-md-6
-          h1 Отзывы наших учеников
+  section.atm-feedback-container
+    .container
       .row
-        .col-xs-12.col-md-12
+        .col-xs-12
+          .atm-section-header.font-medium Отзывы наших учеников
+      .row
+        .col-xs-12
           .atm-feedback
             .box
               .row.middle-xs
@@ -80,7 +90,7 @@ block content
                   img(src="http://placehold.it/50x20")
                 .col-xs-10.atm-feedback__text
                   p.font-light Ad ex nostrud id consequat adipisicing anim.
-        .col-xs-12.col-md-12
+        .col-xs-12
           .atm-feedback
             .box
               .row.middle-xs
@@ -88,7 +98,7 @@ block content
                   img(src="http://placehold.it/50x20")
                 .col-xs-10.atm-feedback__text
                   p.font-light Ea velit laborum eiusmod irure mollit fugiat.
-        .col-xs-12.col-md-12
+        .col-xs-12
           .atm-feedback
             .box
               .row.middle-xs
@@ -96,17 +106,3 @@ block content
                   img(src="http://placehold.it/50x20")
                 .col-xs-10.atm-feedback__text
                   p.font-light Fugiat et magna nisi cillum mollit aute reprehenderit fugiat tempor.
-  //- section
-    .container.page_mainheader
-      .row
-        .col-md-7
-         | {{ pug }}
-        .col-md-5.description
-          .description__title
-            h1.title {{ header | upper }}
-          | {% autoescape off %}
-          .description__text
-            p.desc {{ desc }}
-          | {% endautoescape %}
-
-  //- script(src="{% static 'javascripts/sessionschange.js' %}")

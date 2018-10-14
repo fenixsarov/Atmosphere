@@ -1,3 +1,8 @@
+section {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
 .atm-mc {
   h1 {
     display: block;
@@ -17,11 +22,6 @@
       font-size: 1.3rem;
     }
   }
-  .atm-photogalery {
-    img {
-      margin-bottom: 1rem;
-    }
-  }
   article {
     border-top: 2px solid #FFF;
     padding: 2rem 0;
@@ -30,7 +30,18 @@
     font-size: 1.3rem;
     line-height: 2rem;
   }
-  .atm-mc__video-section {
+}
+
+.atm-photogalery {
+  img {
+    padding-bottom: 1rem;
+  }
+}
+
+.atm-video-section {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  .atm-video-player-container {
     position: relative;
     .atm-mc__video-play-btn {
       cursor: pointer;
@@ -58,10 +69,7 @@
 
 .atm-mc__header {
   margin-bottom: 2rem;
-  .atm-btn-reserved {}
 }
-
-.atm-mc__description {}
 
 .atm-feedback {
   color: black;

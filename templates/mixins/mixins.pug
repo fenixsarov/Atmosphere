@@ -84,4 +84,6 @@ mixin teacher_card(img_url, name, description, social_link, social_name)
       .col-xs-12.col-md-8.atm-teachers-card__description
         h1.atm-teacher-name #{name}
         p.atm-teacher-text.font-light #{description}
-        a.atm-teacher-social-link.font-light(href="#{social_link}") Ссылка на профиль #{social_name}
+        a.atm-teacher-social-link.font-light(href="#{social_link}") 
+          i.fab.fa-instagram 
+          span.font-light Ссылка на профиль #{social_name}

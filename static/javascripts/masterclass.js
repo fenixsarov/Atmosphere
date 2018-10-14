@@ -1,17 +1,1 @@
-jQuery(document).ready(function ($) {
-    $.ajax({
-        type: "GET",
-        url: "/masterclass/masterclasschange/",
-        data: {
-            'view': 'masterclass',
-        },
-        dataType: "json",
-        cache: false,
-        success: function (response) {
-            if (response.response == 'ok') {
-               $('#masterclass_plates').html(response.html);
-               bindPlateEvents();
-            }
-        }
-    });
-});
+jQuery(document).ready(function(s){s.ajax({type:"GET",url:"/masterclass/masterclasschange/",data:{view:"masterclass"},dataType:"json",cache:!1,success:function(a){"ok"==a.response&&(s("#masterclass_plates").html(a.html),bindPlateEvents())}})});
