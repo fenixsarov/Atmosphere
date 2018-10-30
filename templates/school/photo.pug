@@ -85,6 +85,7 @@ block content
   section
     - var teacher_1 = {'img_url': "https://place-hold.it/300x350", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
     - var teacher_2 = {'img_url': "https://place-hold.it/300x350", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
+    - var teacher_3 = {'img_url': "https://place-hold.it/300x350", "name": "Лена", "description": "Художник-живописец. Закончила Пензенское художественное училище им. К.А.Савицкого и Московский государственный гуманитарный университет им.М.А.Шолохова по специальности художник-педагог. \nРаботает в различных техниках: акварель, графика, маслянная и акриловая живопись, пастель. \nЧастый участник выставок «Художники Сарова», активный участник российских пленэров и мастер классов. \nВ 2007-2014гг. была членом Международного союза творческой молодежи «Молодая палитра». \nВ настоящее время педагог дополнительного образования в Центре внешкольной работы г.Сарова, творю и развиваюсь с Детским театром моды \"Русь\". Педагогический стаж 5 лет", "social_link": "", "social_name": "Instagram"}
     .container
       .row.atm-teachers
         .col-xs-12
@@ -93,6 +94,8 @@ block content
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
         .col-xs-12.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+        .col-xs-12.col-md-8.col-md-offset-2
+          +teacher_card(teacher_3.img_url, teacher_3.name, teacher_3.description, teacher_3.social_link, teacher_3.social_name)
   section.container.atm-school-program-container
     .row
       h2.col-xs-12.header Программа курса
