@@ -58,7 +58,8 @@ $flex_margin: 15px;
   .page_mainheader {
     margin-top: 60px !important;
     .description {
-      padding-top: 1em;
+      // padding-top: 1em;
+      padding-top: 4em;
     }
   }
   #lifephoto {
@@ -129,8 +130,7 @@ $flex_margin: 15px;
     .plate_new__img-preview {
       transform: scale(1.2);
     }
-  }
-  // .event {
+  } // .event {
   //   // .image {
   // //   //   max-height: 250px;
   // // }
@@ -158,6 +158,8 @@ $flex_margin: 15px;
   }
   #atm-navigation {
     display: block;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .plate_new {
     .plate_new__description {
