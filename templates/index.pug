@@ -16,7 +16,28 @@ block content
           .col-xs.end-xs.atm-slogan
             .slogan
               span САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
-  include includes/scenery_inc
+  section#scenery
+    .container
+      .row
+        .col-xs
+          .box.box-conainer#scenery-carousel
+            .row
+              ul.col-xs.content
+                li.item.active
+                li.item
+                li.item
+            .row.center-xs.middle-xs.carousel-indicators
+              .col-md-3
+                .box
+                  .row
+                    a.col-xs.carousel-control.left(role="button", data-slide="prev")
+                      span.fi.flaticon-left-chevron(aria-hidden=true)
+                    ol.col-xs
+                      li.active(data-slide-to="0")
+                      li(data-slide-to="1")
+                      li(data-slide-to="2")
+                    a.col-xs.carousel-control.right(role="button", data-slide="next")
+                      span.fi.flaticon-right-chevron(aria-hidden=true)
   section#lifephoto
     .container
       .row.top-md
@@ -41,4 +62,15 @@ block content
         - var srcImg2 = src + evt_img[2]
         +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
         | {% endwith %}
-  include includes/team_inc
+  section#our-team
+    .container
+      .row
+        .col-md.team
+          .row.middle-md
+            .col-xs-12.col-sm-7.photo
+              img(src="{% static 'images/team.png' %}")
+            .col-xs-12.col-sm-4.col-sm-offset-1.description
+              .description__title
+                h1.title НАША КОМАНДА
+              .description__text
+                p.desc Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!

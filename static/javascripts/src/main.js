@@ -327,6 +327,12 @@ function bindAjaxContentChange () {
 }
 
 function bindAjaxReservedForm () {
+  $( '.reserved-btn-scroolled' ).on( 'click', function ( evt ) {
+    evt.preventDefault();
+    $( 'html, body' ).stop().animate( {
+      scrollTop: $( '#signup' ).offset().top
+    }, 777 );
+  } );
   $( '.reserved-btn' ).on( 'click', function ( evt ) {
     evt.preventDefault();
     $.ajax( {

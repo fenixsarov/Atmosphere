@@ -29,6 +29,10 @@ body {
   color: $cl-default-text;
   position: relative;
   overflow-x: hidden;
+  &>section:not(.page_mainheader) {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
 }
 
 div[id^="jssor"] {
@@ -72,7 +76,6 @@ a {
 
 section {
   .description {
-    padding-left: 3em;
     font-family: "MontserratLight";
     display: flex;
     flex-direction: column;
@@ -96,7 +99,12 @@ section {
   }
 }
 
-section#events {
+.white-section {
+  background-color: #fff;
+  color: black;
+}
+
+#events {
   position: relative;
   z-index: 1000;
   margin-top: -4em;
@@ -122,7 +130,7 @@ section#events {
 }
 
 .page_mainheader {
-  margin-top: 20px; // img {
+  // margin-top: 20px; // img {
   //   width: 100%; // margin-top: -47px; // Высота кнопок socials
   // }
   .atm-btn-reserved {
@@ -133,11 +141,7 @@ section#events {
     display: flex;
     flex-direction: column; // @media #{$md} {
     padding-top: 3em; //   padding-left: 4.0em;
-    // }
-    // @media #{lg} {
-    //   padding-top: 32px;
-    //   padding-left: 4.0em;
-    // }
+    padding-left: 3em;
   }
   .description__title {
     .title {
@@ -163,7 +167,7 @@ section#events {
 }
 
 .page_photogallery {
-  margin-top: 2.1em;
+  padding-top: 2.1em;
   .col-md-3 {
     flex-grow: 1;
     max-width: initial;
