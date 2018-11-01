@@ -1,1 +1,0 @@
-jQuery(document).ready(function(e){e.ajax({type:"GET",url:"/useful/usefulchange/",data:{view:"useful"},dataType:"json",cache:!1,success:function(u){"ok"==u.response&&(e("#useful_plates").html(u.html),bindPlateEvents())}})});

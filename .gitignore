@@ -16,3 +16,4 @@ node_modules
 gulpfile*
 package-lock.json
 initions.sh
+mainApp/migrations/0001_initial.py
