@@ -30,15 +30,11 @@
 .blog-item__description {
   position: absolute;
   bottom: 0px;
-  width: 100%;
-  //left: 50%;
+  width: 100%; //left: 50%;
   //transform: translateX(-50%);
   //right: 100px;
   padding: 30px;
   background-color: rgba(0, 0, 0, 0.35);
-  .blog-item__date {
-    // position: absolute; // right: 100%;
-  } // .blog__de
   .blog-item__header {
     text-transform: uppercase;
     font-size: 1.7em;

@@ -11,7 +11,6 @@ var gulp = require( 'gulp' );
 var minify = require( 'gulp-minify' );
 var concat = require( 'gulp-concat' );
 var imagemin = require( 'gulp-imagemin' );
-var path = require( 'path' );
 
 var js_src = [
   "static/javascripts/src/reserv_widget.js",
@@ -28,6 +27,7 @@ gulp.task( 'build_js', function () {
     } ) )
     .pipe( gulp.dest( 'static/javascripts' ) );
 } );
+
 gulp.task( 'imagemin', function () {
   return gulp.src( 'static/images/graduations/*.jpg' )
     .pipe( imagemin( { verbose: true } ) )

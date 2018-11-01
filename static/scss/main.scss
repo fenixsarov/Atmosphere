@@ -1,11 +1,7 @@
-@import "variable";
-@import "media-requests";
 @import "reset";
-@import "fonts";
+@import "base/main";
 @import "plate";
-@import "reserv_widget";
 @import "ui/ui";
-@import "ui/forms";
 .aeWidgetBtn {
   background-color: whitesmoke !important;
   .aeWidgetBtn-Wave {
@@ -224,13 +220,8 @@ section {
   }
 }
 
-@import "parallax";
-@import "preloader";
-@import "header";
-@import "scenery";
-@import "lifephoto";
-@import "team";
-@import "footer";
+// @import "preloader";
+@import "main-page/main";
 @import "graduations";
 @import "school-course";
 @import "teachers-card";
