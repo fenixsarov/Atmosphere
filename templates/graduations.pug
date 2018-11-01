@@ -21,7 +21,7 @@ block content
                 p.desc Мы знаем, как важно сохранить школьные воспоминания. Мы сами ходили в детский сад и учились. Поэтому мы снимаем такие школьные альбомы, которые хочется пересматривать.
             .row.center-xs.start-md
               .col-xs-12.description_btn
-                a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+                a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
   //- | {% static '/images' as imageUrl %}
   //- - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
   //- +page_mainheader_with_image()
@@ -59,7 +59,7 @@ block content
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
         .col-xs-12.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
-  section.atm-price.white-section
+  section.atm-price#signup.white-section
     .container
       .row
         .col-xs-12
