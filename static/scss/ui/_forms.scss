@@ -1,0 +1,50 @@
+.atm-reserved-form {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  z-index: 10001;
+  width: 100%;
+}
+
+.atm-reserved-form-container {
+  background-color: rgb(97, 97, 97);
+}
+
+.atm-reserved-form__header {
+  .fa-times {
+    cursor: pointer;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+    flex-grow: 0;
+    &:hover {
+      color: rgb(175, 175, 175);
+    }
+  }
+}
+
+.atm-reserved-form__header,
+.atm-reserved-form__body,
+.atm-reserved_form__control {
+  padding: 15px; // padding: 5px;
+}
+
+.atm-from__item {
+  margin-top: 8px;
+}
+
+.atm-form__label {
+  text-align: left;
+  align-self: center;
+}
+
+.atm-form__input {
+  padding: 5px;
+}
+
+.atm-btn-reserved {
+  flex-grow: 0;
+  text-align: center;
+}

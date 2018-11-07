@@ -7,37 +7,70 @@ prepend page
   - var header_absolute = "atm-navigation-absolute";
 
 block content
-  section.container
-    .row#atm-header-slogan-section
-      .parallax-content.parallax-img
-      .box.box-container
-        .col-md.end-md.atm-slogan
-          .slogan
-            span САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
-  include includes/scenery_inc
+
+  section.atm-header-section
+    .container
+      .row#atm-header-slogan-section
+        .parallax-content.parallax-img
+        .box.box-container
+          .col-xs.end-xs.atm-slogan
+            .slogan
+              span САМАЯ<br>АТМОСФЕРНАЯ<br>ФОТОСТУДИЯ<br>ГОРОДА!
+  section#scenery
+    .container
+      .row
+        .col-xs
+          .box.box-conainer#scenery-carousel
+            .row
+              ul.col-xs.content
+                li.item.active
+                li.item
+                li.item
+            .row.center-xs.middle-xs.carousel-indicators
+              .col-md-3
+                .box
+                  .row
+                    a.col-xs.carousel-control.left(role="button", data-slide="prev")
+                      span.fi.flaticon-left-chevron(aria-hidden=true)
+                    ol.col-xs
+                      li.active(data-slide-to="0")
+                      li(data-slide-to="1")
+                      li(data-slide-to="2")
+                    a.col-xs.carousel-control.right(role="button", data-slide="next")
+                      span.fi.flaticon-right-chevron(aria-hidden=true)
   section#lifephoto
     .container
       .row.top-md
-        .col-md-7
-          .box.box-container
-            .col-md.livephoto-img
-        .col-md-4.col-md-offset-1.description
-          h1 НАША КОМАНДА
-          p Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!
+        .col-md-7.col-xs-12
+          .livephoto-img
+        .col-md-4.col-md-offset-1.col-xs-12.description
+          .description__title
+            h1.title НАША ТРАДИЦИЯ
+          .description__text
+            p.desc У нас в студии есть традиция - пить чай. Именно так мы коротаем время между сьемками. Приходте к нам и мы встретим вас чаем и печеньками. Потому что мы любим гостей и всегда ждем вас в нашей теплой уютной студии.
   
-  {% static '/images' as imageUrl %}
+  | {% static '/images' as imageUrl %}
   section#events
     .container
-        .row.event-container
-          - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
-          | {% with imageUrl|add:'/events/' as src  %}
-          - var srcImg = src + evt_img[0]
-          +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
-          - var srcImg1 = src + evt_img[1]
-          +event("#", "события", "Текст, отображающийся при наведении", srcImg1)
-          - var srcImg2 = src + evt_img[2]
-          +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
-          - var srcImg3 = src + evt_img[3]
-          +event("/useful", "полезное", "Текст, отображающийся при наведении", srcImg3)
-          | {% endwith %}
-  include includes/team_inc
+      .row.event-container
+        - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
+        | {% with imageUrl|add:'/events/' as src  %}
+        - var srcImg = src + evt_img[0]
+        +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
+        - var srcImg1 = src + evt_img[1]
+        +event("/blog", "блог", "Текст для блога", srcImg1)
+        - var srcImg2 = src + evt_img[2]
+        +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
+        | {% endwith %}
+  section#our-team
+    .container
+      .row
+        .col-md.team
+          .row.middle-md
+            .col-xs-12.col-sm-7.photo
+              img(src="{% static 'images/team.png' %}")
+            .col-xs-12.col-sm-4.col-sm-offset-1.description
+              .description__title
+                h1.title НАША КОМАНДА
+              .description__text
+                p.desc Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!

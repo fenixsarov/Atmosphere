@@ -1,0 +1,12 @@
+extends base
+| {% load staticfiles %}
+include mixins/mixins.pug
+
+prepend page
+  - var title = "Блог"
+block content
+  section.container.page_mainheader
+    .row#blog_plates
+
+block append scripts
+  script(src="{% static 'javascripts/blogchange.js' %}")

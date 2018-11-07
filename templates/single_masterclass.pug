@@ -1,20 +1,110 @@
 extends base
 | {% load staticfiles %}
+include mixins/mixins.pug
+
 prepend page
   link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
   - var title = ""
   //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
-  section
-    .container.page_mainheader
+  section.page_mainheader
+    .container
       .row
-        .col-md-7
-         | {{ pug }}
-        .col-md-5.description
-          h1 {{ header | upper }}
-          p {{ desc }}
-
-          a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
-
-  //- script(src="{% static 'javascripts/sessionschange.js' %}")
+        .col-xs-12.col-md-7
+          img#image(src="http://placehold.it/700x500" alt="Фотография мастеркласса")
+        .col-xs-12.col-md-5.description
+          .box
+            .row.center-xs.start-md
+              .col-xs-12.description__title
+                h1.title НАЗВАНИЕ МАСТЕРКЛАССА
+            .row.center-xs.start-md
+              .col-xs-12.description__text
+                p.desc In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
+            .row.center-xs.start-md
+              .col-xs-12.description_btn
+                a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
+  section.atm-advantages-description
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Кому будет интересен этот мастеркласс?
+      .row
+        ul.col-xs-12
+          li Deserunt Lorem proident sit officia nostrud duis.
+          li Incididunt deserunt sint laboris sunt.
+          li Enim nostrud est deserunt nulla nulla ad aliquip.
+          li Consectetur eu anim nulla dolore minim quis minim deserunt quis sint eiusmod officia ut.
+  section.atm-teachers.white-section
+    - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    - var teacher_2 = {'img_url': "/static/images/team/8.jpg", "name": "Елена", "description": "Если ты увидел в студии кого то в китайской одежде и с хитрой кисточкой в руке, знай – это Лена. Преподает рисование медитативных китайских пейзажей и всего, что с этим связано.", "social_link": "", "social_name": "Instagram"}
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Преподаватели курса
+        .col-xs-12.col-md-8.col-md-offset-2
+          +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
+          +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+  section.atm-signup#signup
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Записаться на мастер-класс
+          h4 #{MASTERCLASS_NAME}
+      .row.center-xs
+        .col-xs-12
+          h3 Стоимость ______ руб
+          h3 Ближайшая дата проведения __________
+          a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
+  section.atm-photogalery.white-section
+    .container
+      .row
+        .col-xs-6.col-md-4
+          img(src="http://placehold.it/400x400")
+        .col-xs-6.col-md-4
+          img(src="http://placehold.it/400x400")
+        .col-xs-6.col-md-4
+          img(src="http://placehold.it/400x400")
+        .col-xs-6.col-md-4
+          img(src="http://placehold.it/400x400")
+        .col-xs-6.col-md-4
+          img(src="http://placehold.it/400x400")
+        .col-xs-6.col-md-4
+          img(src="http://placehold.it/400x400")
+  section.atm-video-section
+    .container
+      .row.center-xs
+        .col-xs-12
+          div.atm-video-player-container
+            img(src="http://placehold.it/1200x600")
+            i.fab.fa-youtube.atm-mc__video-play-btn
+  section.atm-feedback-container.white-section
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Отзывы наших учеников
+      .row
+        .col-xs-12
+          .atm-feedback
+            .box
+              .row.middle-xs
+                .col-xs-2.atm-feedback__image
+                  img(src="http://placehold.it/200x80")
+                .col-xs-10.atm-feedback__text
+                  p.font-light Ad ex nostrud id consequat adipisicing anim.
+        .col-xs-12
+          .atm-feedback
+            .box
+              .row.middle-xs
+                .col-xs-2.atm-feedback__image
+                  img(src="http://placehold.it/200x80")
+                .col-xs-10.atm-feedback__text
+                  p.font-light Ea velit laborum eiusmod irure mollit fugiat.
+        .col-xs-12
+          .atm-feedback
+            .box
+              .row.middle-xs
+                .col-xs-2.atm-feedback__image
+                  img(src="http://placehold.it/200x80")
+                .col-xs-10.atm-feedback__text
+                  p.font-light Fugiat et magna nisi cillum mollit aute reprehenderit fugiat tempor.

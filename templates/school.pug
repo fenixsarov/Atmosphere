@@ -9,12 +9,14 @@ block content
   section
     .container.page_mainheader
       .row
-        .col-md-7
+        .col-xs-12.col-md-7
           img#desc_image
           //- img(src="/#{desc_image}")#desc_image
-        .col-md-5.description
-          h1#title
-          p#main_text
+        .col-xs-12.col-md-5.description
+          .description__title
+            h1#title.title
+          .description__text
+            p#main_text.desc
           //- h1 {{ title|upper }}
           //- p #{main_text}
   section
@@ -23,9 +25,9 @@ block content
         | {% static '/images' as imageUrl %}
         | {% with imageUrl|add:'/school/' as src  %}
         - var srcImg = src + evt_img[0]
-        +event('#', 'ФОТОГРАФИЯ', 'Текст, отображающийся при наведении', srcImg)
+        +event('/school/photo', 'ФОТОГРАФИЯ', 'Твоя основа знаний и навыков в фотографии', srcImg)
         - var srcImg1 = src + evt_img[1]
-        +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Текст, отображающийся при наведении', srcImg1)
+        +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Твой углублённый интенсив по пониманию света и студии', srcImg1)
         - var srcImg2 = src + evt_img[2]
-        +event('#', 'РЕТУШЬ ПОРТРЕТА', 'Текст, отображающийся при наведении', srcImg2)
+        +event('#', 'РЕТУШЬ ПОРТРЕТА', 'Твой углублённый интенсив в Hi-End ретуши', srcImg2)
         | {% endwith %}

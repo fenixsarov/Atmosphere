@@ -10,17 +10,19 @@ block content
   section
     .container.page_mainheader
       .row
-        .col-md-7
+        .col-xs-12.col-md-7
           img#desc_image
-        .col-md-5.description
+        .col-xs-12.col-md-5.description
           .description__title
             h1#title.title
           .description__text
             p#main_text.desc
-          .description_btn
-            a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+          //- .description_btn
+          //-   a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
   
   section.atm-plate-gallery
     .container.plate_container
       .row#masterclass_plates
+block append scripts
   script(src="{% static 'javascripts/masterclass.js' %}")
+

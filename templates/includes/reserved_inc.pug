@@ -1,7 +1,19 @@
-.overlay
-.reserved-form
-  .reserved-form__header
-  .reserved-form__body
-    form.atm-form(action="", type="POST")
-      
-  .reserved_form__control
+.atm-reserved-form
+  .container
+    .row.center-xs
+      .col-xs-12.col-sm-4.atm-reserved-form-container
+        .box
+          .row.atm-reserved-form__header 
+            label.col-sm Запись на #{courseName}
+            i.col-sm.fa.fa-times
+          form.row.atm-reserved-form__body(action="#", type="POST")
+            .col-sm-12
+              .box
+                .row.atm-from__item
+                  input.col-sm-10.col-xs-12.col-sm-offset-1.atm-form__input(name="name", placeholder="Введите Ваше имя")
+                .row.atm-from__item
+                  input.col-sm-10.col-xs-12.col-sm-offset-1.atm-form__input(name="email", placeholder="Введите Ваш E-Mail")
+                .row.atm-from__item
+                  input.col-sm-10.col-xs-12.col-sm-offset-1.atm-form__input.atm-form__phone(name="phonenumber", placeholder="+7(___) ___-____")
+                .row.atm-from__item
+                    a.col-xs-8.col-xs-offset-2.atm-btn-reserved(href="#") Записаться

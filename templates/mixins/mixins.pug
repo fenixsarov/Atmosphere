@@ -8,7 +8,7 @@ mixin plate(img_src, header, description, _align)
   .box.plate(class="#{_align}")
     .row
       .col-md-6.col-xs-12.plate__img-container
-        .plate__img-preview(style="background-image: url('/#{img_src}')")
+        .plate__img-preview(style="background-image: url('#{img_src}')")
       .col-md-6.col-xs-12.plate__description-container
         .plate__description
           h2.header #{header}
@@ -19,13 +19,24 @@ mixin plate(img_src, header, description, _align)
               
 mixin plate_new(img_src, header, description)
   .plate_new
-    .plate_new__img-preview(style="background-image: url('/#{img_src}')")
+    .plate_new__img-preview(style="background-image: url('#{img_src}')")
     .plate_new__description
       .plate_new__description_header #{header}
       .plate_new__description_text #{description}
       
+mixin blog_item(href, img_src, header, description, date)
+  article
+    a.blog-item(href="#{href}")
+      .blog-item__bg
+        img(src="#{img_src}", alt="Blog #{header} img")
+      .blog-item__description
+        header
+          .blog-item__date.font-light #{date}
+          .blog-item__header.font-medium #{header}
+          .blog-item__text.font-light #{description}
+      
 mixin event(url, header, description, bg_img)
-  .event.col-md.col-sm-6.col-xs-12
+  .event.col-md.col-sm.col-xs-12
     a.content(href=url)
       .image(style="background-image: url('#{bg_img}');")
       .description
@@ -36,13 +47,13 @@ mixin page_mainheader_with_slider(id)
   section
     .container.page_mainheader
       .row
-        .col-md-7(id=id)
-        .col-md-5.description
+        .col-xs-12.col-md-7(id=id)
+        .col-xs-12.col-md-5.description
           .description__title
             h1#title.title
           .description__text
             p#desc.desc
-          .description__btn
+          //- .description__btn
             a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
 
 mixin page_mainheader_with_image()
@@ -56,11 +67,23 @@ mixin page_mainheader_with_image()
             h1#title.title
           .description__text
             p#main_text.desc
-          .description_btn
+          //- .description_btn
             a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
 
 mixin photogallery_item(_url)
   .col-md-3
-      .img-container
-          //.img(style="background-image: url('#{imageUrl}/#{_url}')")
-          .img(style="background-image: url('/#{_url}')")
+    .img-container
+      //.img(style="background-image: url('#{imageUrl}/#{_url}')")
+      .img(style="background-image: url('#{_url}')")
+          
+mixin teacher_card(img_url, name, description, social_link, social_name)
+  .box.atm-teachers-card
+    .row
+      .col-xs-12.col-md-4.atm-teachers-card__photo
+        img(src="#{img_url}", title="Фотография преподавателя")
+      .col-xs-12.col-md-8.atm-teachers-card__description
+        h1.atm-teacher-name #{name}
+        p.atm-teacher-text.font-light #{description}
+        a.atm-teacher-social-link.font-light(href="#{social_link}") 
+          i.fab.fa-instagram 
+          span.font-light Ссылка на профиль #{social_name}

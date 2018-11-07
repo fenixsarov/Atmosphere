@@ -10,13 +10,15 @@ block content
         .col-md-7
           img#desc_image
         .col-md-5.description
-          h1#title
-          // КАК <br> ПОДГОТОВИТЬСЯ <br> К СЪЕМКЕ
-          p#main_text
+          .description__title
+            h1#title.title
+          .description__text
+            p#main_text.desc
 
   section
     .container.plate_container
       .row
         .col-xs#useful_plates
 
-  script(src="{% static 'javascripts/usefulchange.js' %}")
+  block append scripts
+    script(src="{% static 'javascripts/usefulchange.js' %}")

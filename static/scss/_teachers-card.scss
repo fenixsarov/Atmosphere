@@ -1,0 +1,22 @@
+.atm-teachers-card {
+  margin-top: 3em;
+  .atm-teachers-card__description {
+    .atm-teacher-name {
+      font-size: 2em;
+      padding-top: .5em;
+    }
+    .atm-teacher-text {
+      padding-top: 1em;
+      line-height: 2rem;
+      font-size: 1.2em;
+      flex-grow: 1;
+    }
+    .atm-teacher-social-link {
+      display: block;
+      padding-top: 1em;
+      i {
+        margin-right: .5em;
+      }
+    }
+  }
+}

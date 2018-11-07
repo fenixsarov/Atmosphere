@@ -1,0 +1,242 @@
+extends base
+| {% load staticfiles %}
+include mixins/mixins.pug
+
+prepend page
+  - var title = "Обучение фотографии"
+block content
+  section.page_mainheader
+    .container
+      .row
+        .col-xs-12.col-md-7
+          img#image(src="{% static '/images/school/school_img_8.jpg' %}")
+        .col-xs-12.col-md-5.description
+          .box
+            .row.center-xs.start-md
+              .col-xs-12.description__title
+                h1.title Фотография с нуля
+            .row.center-xs.start-md
+              .col-xs-12.description__text
+                p.desc Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать твои кадры. Показываем фотографию с трех разных сторон. Помогаем тебе изучить фотографию с нуля или систематизируем твои знания. Вместе проведем 10 уроков и закрепим материал домашними работами и практикой
+                p.desc Стоимость курса – 12990 ₽
+            .row.center-xs.start-md
+              .col-xs-12.description_btn
+                a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+  section.atm-school-description
+    .container
+      .row
+        p.col-xs-12.atm-school-p Привет, начинающий фотограф! 
+        p.col-xs-12.atm-school-p Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать красивые кадры. Показываем фотографию с разных сторон. Курс разбит на три блока: техника, выразительность  и смысл. Он поможет тебе изучить эти части фотографии или систематизирует твои знания, если они уже есть. Вместе проведем 10 уроков и закрепим материал домашними работами. Да, домашки придется делать. Это же фотошкола – куда без них ☺
+        p.col-xs-12.atm-school-p Техника – поможет избежать бракованного кадра. Осознанно крутить все эти ручки и колотушки. Настраивать камеру так, как нужно для кадра. Не спрашивать соседа, почему кадр смазанный или слишком темный. Как его сделать четче или светлее. Понять суть получения фотографии, ее техническую сторону. Зачем это вам? Все просто - без хорошей технической базы трудно вести речь о серьезном творчестве. 
+  section.atm-school-reason.white-section
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium 6 причин записаться на курс
+          .atm-section-header.font-medium "фотографии с нуля"
+      .row
+        .col-xs-12.col-sm-6.reason-container
+          .box
+            .row.middle-xs
+              .col-xs-2
+                img(src="{% static 'svg/peace.svg' %}", alt="")
+              .col-xs-10
+                h3.reason-head.font-medium фотография
+                p.reason.font-light Мы покажем тебе мир фотографии.
+                p.reason.font-light Тому, чему учились годы практики - научим за девять уроков
+        .col-xs-12.col-sm-6.reason-container
+          .box
+            .row.middle-xs
+              .col-xs-2
+                img(src="{% static 'svg/book.svg' %}", alt="")
+              .col-xs-10
+                h3.reason-head.font-medium 9 занятий
+                p.reason.font-light Каждое занятие – большой пласт опыта в фотографии. С каждым уроком - всё интереснее!
+        .col-xs-12.col-sm-6.reason-container
+          .box
+            .row.middle-xs
+              .col-xs-2
+                img(src="{% static 'svg/tower.svg' %}", alt="")
+              .col-xs-10
+                h3.reason-head.font-medium Саров
+                p.reason.font-light Наши курсы проходят в фотостудии «Атмосфера», в Сарове. Вам не придется ездить в Нижний или в Москву, все происходит в нашем городе :-)
+        .col-xs-12.col-sm-6.reason-container
+          .box
+            .row.middle-xs
+              .col-xs-2
+                img(src="{% static 'svg/camera.svg' %}", alt="")
+              .col-xs-10
+                h3.reason-head.font-medium 9 домашних заданий
+                p.reason.font-light Укрепляем навыки, полученные вместе – самостоятельными съемками.
+        .col-xs-12.col-sm-6.reason-container
+          .box
+            .row.middle-xs
+              .col-xs-2
+                img(src="{% static 'svg/calendar.svg' %}", alt="")
+              .col-xs-10
+                h3.reason-head.font-medium 5 недель
+                p.reason.font-light полного погружения в фотографию и наше комьюнити. Это постоянная поддержка от преподавателей курса и своих одноклассников
+        .col-xs-12.col-sm-6.reason-container
+          .box
+            .row.middle-xs
+              .col-xs-2
+                img(src="{% static 'SVG/tool-1.svg' %}", alt="")
+              .col-xs-10
+                h3.reason-head.font-medium ????
+                p.reason.font-light Программа составлена с учётом технической и творческой стороны фотографии
+  section.atm-teachers
+    - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
+    - var teacher_3 = {'img_url': "/static/images/team/6.jpg", "name": "Лена", "description": "Художник-живописец. Закончила Пензенское художественное училище им. К.А.Савицкого и Московский государственный гуманитарный университет им.М.А.Шолохова по специальности художник-педагог. \nРаботает в различных техниках: акварель, графика, маслянная и акриловая живопись, пастель. \nЧастый участник выставок «Художники Сарова», активный участник российских пленэров и мастер классов. \nВ 2007-2014гг. была членом Международного союза творческой молодежи «Молодая палитра». \nВ настоящее время педагог дополнительного образования в Центре внешкольной работы г.Сарова, творю и развиваюсь с Детским театром моды \"Русь\". Педагогический стаж 5 лет", "social_link": "", "social_name": "Instagram"}
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Преподаватели курса
+        .col-xs-12.col-md-8.col-md-offset-2
+          +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
+        .col-xs-12.col-md-8.col-md-offset-2
+          +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+        .col-xs-12.col-md-8.col-md-offset-2
+          +teacher_card(teacher_3.img_url, teacher_3.name, teacher_3.description, teacher_3.social_link, teacher_3.social_name)
+  section.atm-school-program-container.white-section
+    .container
+      .row
+        .col-xs-12
+          p.atm-section-header.font-medium Программа курса
+          p.description.font-light Каждый урок рассчитан на 2-2,5 часа и сильно зависит от количества вопросов у студентов. Остаемся до последнего вопроса
+      .row
+        .col-xs-12
+          section.atm-school-programm__block
+            .box.box-container
+              .row
+                .col-xs-8
+                  h1.atm-school-programm__block_header Блок 1 Техническая сторона съёмки
+                  //- p.atm-school-programm__block_subheader Техника
+              .row
+                .col-xs-12
+                  p.atm-school-programm__block_description.font-light Поможет избежать бракованного кадра. Осознанно крутить все эти ручки и колотушки. Настраивать камеру так, как нужно для кадра. Не спрашивать соседа, почему кадр смазанный или слишком темный. Как его сделать четче или светлее. Понять суть получения фотографии, ее техническую сторону. Зачем это вам? Все просто - без понимания технической стороны трудно сделать то, что задумал – иногда камера видит совсем по другому, не как фотограф
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/1.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 1. Строение фотоаппарата. 
+                          p.lecture__description.font-light Настройки. Диафрагма. Выдержка. ISO.  Понимаем все эти страшные слова. Узнаем, из каких частей состоит фотоаппарат и основные параметры фотоаппарата. Снимаем в мануальном режиме. 
+                          p.lecture__teacher Преподаватель - Денис Алёшин.
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/2.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 2. Экспонометрия. 
+                          p.lecture__description.font-light Главный объект кадра и его экспозиция. Динамический диапазон сцены и фотографии. Способы повышения и понижения контраста сцены. Быстрое определение экспозиции. Режимы A, S. Экспокоррекция. 
+                          p.lecture__teacher Преподаватель - Денис Алёшин.
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/3.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 3. Обьективы.
+                          p.lecture__description.font-light Размер матрицы. Автофокус. Глубина резко изображаемого пространства.  Бокешечка.
+                          p.lecture__teacher Преподаватель - Денис Алёшин.
+      section.fillingbg
+        //- hr
+        //- hr
+      .row
+        .col-xs-12
+          section.atm-school-programm__block
+            .box.box-container
+              .row
+                .col-xs-8
+                  h1.atm-school-programm__block_header Блок 2 Свет, цвет, обработка
+                  //- p.atm-school-programm__block_subheader Техника
+              .row
+                .col-xs-12
+                  p.atm-school-programm__block_description.font-light Поможет тебе с вопросом «Как сделать вкуснее?»  Переходим от бытовых снимков – к художественным. Понимаем, как ложится свет, как сочетаются цвета и что вообще можно сделать с фотографией. Подбираем цвета в фотографии, экспериментируем с обработкой. Все для того, чтобы выделится из серой массы одинаковых кадров
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/4.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header  1. Свет в фотографии. 
+                          p.lecture__description.font-light Понимаем свет в фотографии. Щупаем интересный свет. Начинаем видеть свет в природе и использовать его в своих кадрах. 
+                          p.lecture__teacher Преподаватель - Денис Алёшин.
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/5.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 2. Цвет в фотографии.
+                          p.lecture__description.font-light Гармония цвета. Сочетание цветов. Цветовые схемы. Возимся с цветными квадратиками и постигаем дзен. Практикуемся сочетать все это в картинках и фотографии.
+                          p.lecture__teacher Преподаватель - Елена Лемясева.
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/6.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 3. Основы обработки фотографии.
+                          p.lecture__description.font-light Базовые навыки работы в Lightroom, Photoshop. Посмотрим, как делать можно и как не нужно. Приучаемся обрабатывать фотографии.
+                          p.lecture__teacher Преподаватель - София Леванова.
+      section.fillingbg
+      .row
+        .col-xs-12
+          section.atm-school-programm__block
+            .box.box-container
+              .row
+                .col-xs-8
+                  h1.atm-school-programm__block_header Блок 3 Композиция и смысл
+              .row
+                .col-xs-12
+                  p.atm-school-programm__block_description.font-light Поможет выразить свои мысли на фотокарточке. Расскажет о взаимном расположении объектов на кадре, покажет – как обозначить главный объект и скрыть второстепенные. Расставит акценты. Ответит на вопрос – зачем вообще все это нужно. Покажем пути дальнейшего развития в фотографии. 
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/7.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 1. Основы Композиции
+                          p.lecture__description.font-light Композиция в искусстве. Учимся организовывать компоненты художественной формы. Придаем произведению единство и цельность. Практика. 
+                          p.lecture__teacher Преподаватель - Елена Лемясева
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/8.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 2. Композиция в фотографии. Переносим знания искусства в навыки фотографии
+                          p.lecture__description.font-light Учимся кадрировать фотографию. Правильно и не очень. Узнаем законы и нарушаем правила.
+                          p.lecture__teacher Преподаватель - Елена Лемясева
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-5.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/9.jpg' %}")
+                  .col-xs-7.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 3. Смысл фотографии
+                          p.lecture__description.font-light Покажем современные стили фотографии. Ищем пути развития. Понимаем, что же это такое – взгляд фотографа. Пытаемся воспитать свой вкус. Смотрим референсы. И жуем кактусы
+                          p.lecture__teacher Преподаватель - Денис Алёшин.
+      section.fillingbg

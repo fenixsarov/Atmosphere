@@ -1,0 +1,36 @@
+@import "flaticon";
+@font-face {
+  font-family: 'MontserratRegular';
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratMedium';
+  src: url('../fonts/montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratLight';
+  src: url('../fonts/montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+  font-family: 'IntroRustG';
+  src: url('../fonts/introrustg/IntroRustG-Base2Line.otf');
+}
+
+.font-medium {
+  font-family: 'MontserratMedium';
+}
+
+.font-regular {
+  font-family: 'MontserratRegular';
+}
+
+.font-light {
+  font-family: 'MontserratLight';
+}
+
+.text-center {
+  text-align: center;
+}
