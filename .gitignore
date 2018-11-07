@@ -6,6 +6,7 @@ db.sqlite3
 main.*.css
 runserver.sh
 *_bk
-
+node_modules
+static/images/upload_imgs
 __*
 less
