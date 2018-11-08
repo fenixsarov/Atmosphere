@@ -12,9 +12,10 @@ import sys
 import site
 
 
-PROJECT_DIR = '/home/atmosphera/Atmosphere'
+PROJECT_DIR = '/var/www/html/django_demo_app/Atmosphere'
 if os.path.exists(PROJECT_DIR):
-    PACKAGE_DIR = os.path.join(PROJECT_DIR, '/home/atmosphera/Atmosphere_env/lib/python3.5/site-packages')
+    PACKAGE_DIR = os.path.join(PROJECT_DIR, '/usr/local/lib/python3.6/dist-packages')
+
     sys.stdout = sys.stderr
 
 # os.environ["DJANGO_SETTINGS_MODULE"] = "Atmosphere.settings"
