@@ -26,7 +26,7 @@ class Command(BaseCommand):
             return
 
         if options['team']:
-            print('Successful')
+
 
             teamPerson = [
                 {
@@ -82,6 +82,8 @@ class Command(BaseCommand):
             for tm in teamPerson:
                 tm = TeamPerson(**tm)
                 tm.save()
+
+            print('Successful')
 
             return
 
@@ -186,9 +188,6 @@ class Command(BaseCommand):
             }
         ]
 
-        for article in usefularticle:
-            article = UsefulArticle(**article)
-            article.save()
 
         sessions = [
             {
@@ -303,3 +302,4 @@ class Command(BaseCommand):
             ba = BlogArticle(**ba)
             ba.save()
 
+        print('Successful')
