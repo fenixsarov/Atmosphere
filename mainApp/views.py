@@ -18,8 +18,8 @@ class BaseView(View):
 
     try:
         bb_parser = get_parser()
-    except BaseException:
-        print("!")
+    except BaseException as e:
+        print(e)
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name})
@@ -528,31 +528,31 @@ class AboutChange(View):
 #         })
 
 
-class UsefulChange(View):
-    plate_desc = []
-    pug = ''
-    bb_parser = get_parser()
-    path_prefix = '/static/images/upload_imgs/'
-
-    def get(self, request):
-        self.request.session['view'] = self.request.GET['view']
-        if self.request.is_ajax:
-            self.plate_desc.clear()
-
-            try:
-                for article in UsefulArticle.objects.all():
-                    self.plate_desc.append({
-                        'image': self.path_prefix + article.desc_image.url,
-                        'header': article.title,
-                        'plate_text': self.bb_parser.render(article.desc)
-                    })
-
-            except BaseException as e:
-                print(e)
-
-            self.pug = loader.render_to_string('mixins/plate_useful.pug',
-                                               {'plate_desc': self.plate_desc})
-
-        return JsonResponse({'response': 'ok', 'html': self.pug})
+# class UsefulChange(View):
+#     plate_desc = []
+#     pug = ''
+#     bb_parser = get_parser()
+#     path_prefix = '/static/images/upload_imgs/'
+#
+#     def get(self, request):
+#         self.request.session['view'] = self.request.GET['view']
+#         if self.request.is_ajax:
+#             self.plate_desc.clear()
+#
+#             try:
+#                 for article in UsefulArticle.objects.all():
+#                     self.plate_desc.append({
+#                         'image': self.path_prefix + article.desc_image.url,
+#                         'header': article.title,
+#                         'plate_text': self.bb_parser.render(article.desc)
+#                     })
+#
+#             except BaseException as e:
+#                 print(e)
+#
+#             self.pug = loader.render_to_string('mixins/plate_useful.pug',
+#                                                {'plate_desc': self.plate_desc})
+#
+#         return JsonResponse({'response': 'ok', 'html': self.pug})
 
 # Create your views here.
