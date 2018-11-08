@@ -14,6 +14,11 @@ $flex_margin: 15px;
   .visible-xs {
     display: block !important;
   }
+  .atm-school-programm__block_lecture {
+    .lecture__header {
+      margin-top: 1em;
+    }
+  }
 }
 
 @media #{$sm} {
@@ -25,6 +30,11 @@ $flex_margin: 15px;
   }
   .visible-sm {
     display: block !important;
+  }
+  .atm-school-programm__block_lecture {
+    .lecture__header {
+      margin-top: 1em;
+    }
   }
 }
 
@@ -51,9 +61,7 @@ $flex_margin: 15px;
       max-width: 50%;
     }
   }
-}
-
-// NAVIGATION DISPLAY
+} // NAVIGATION DISPLAY
 @media (max-width: 1104px) {
   .page_mainheader {
     margin-top: 60px !important;
@@ -140,9 +148,7 @@ $flex_margin: 15px;
       padding-top: 1em;
     }
   }
-}
-
-//@media (min-width: 767px) {
+} //@media (min-width: 767px) {
 //  .team-contents {
 //        margin-top: 3em;
 //        .person {
