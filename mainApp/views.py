@@ -8,7 +8,6 @@ from django.conf import settings
 from .models import *
 import random
 
-
 # debug = settings.DEBUG
 
 
@@ -483,50 +482,50 @@ class AboutChange(View):
                                           {'plate_desc': self.plate_desc})
             return JsonResponse({'response': 'ok', 'html': pug})
 
-class Useful(BaseView):
-    template_name = 'useful.pug'
-    page_name = 'useful'
-    # plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
-
-    main_imgs = ['useful/useful_main_img_0.jpg']
-    plate_desc = []
-
-    main_text = ''
-    title = ''
-    desc_image = ''
-
-    try:
-        for article in UsefulArticle.objects.all():
-            plate_desc.append({
-                'image': BaseView.path_prefix + article.desc_image.url,
-                'header': article.title,
-                'plate_text': article.desc
-            })
-    except BaseException as e:
-        print(e)
-
-    def get(self, request):
-        if self.request.is_ajax():
-            try:
-                # Getting data for page description (title, description, image)
-                obj = DescriptionsList.objects.get(service_name=self.page_name)
-                self.title = obj.title
-                self.main_text = self.bb_parser.render(obj.desc)
-                self.desc_image = self.path_prefix + obj.file.url
-                self.title = self.title.upper()
-
-            except BaseException as e:
-                print(e)
-            return JsonResponse({
-                'response': 'ok',
-                'image_src': self.desc_image,
-                'title': self.title,
-                'main_text': self.main_text
-            })
-        return render(request, self.template_name, {
-            'page': self.page_name,
-            'plate_desc': self.plate_desc
-        })
+# class Useful(BaseView):
+#     template_name = 'useful.pug'
+#     page_name = 'useful'
+#     # plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
+#
+#     main_imgs = ['useful/useful_main_img_0.jpg']
+#     plate_desc = []
+#
+#     main_text = ''
+#     title = ''
+#     desc_image = ''
+#
+#     try:
+#         for article in UsefulArticle.objects.all():
+#             plate_desc.append({
+#                 'image': BaseView.path_prefix + article.desc_image.url,
+#                 'header': article.title,
+#                 'plate_text': article.desc
+#             })
+#     except BaseException as e:
+#         print(e)
+#
+#     def get(self, request):
+#         if self.request.is_ajax():
+#             try:
+#                 # Getting data for page description (title, description, image)
+#                 obj = DescriptionsList.objects.get(service_name=self.page_name)
+#                 self.title = obj.title
+#                 self.main_text = self.bb_parser.render(obj.desc)
+#                 self.desc_image = self.path_prefix + obj.file.url
+#                 self.title = self.title.upper()
+#
+#             except BaseException as e:
+#                 print(e)
+#             return JsonResponse({
+#                 'response': 'ok',
+#                 'image_src': self.desc_image,
+#                 'title': self.title,
+#                 'main_text': self.main_text
+#             })
+#         return render(request, self.template_name, {
+#             'page': self.page_name,
+#             'plate_desc': self.plate_desc
+#         })
 
 
 class UsefulChange(View):
