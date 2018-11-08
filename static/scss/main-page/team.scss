@@ -1,80 +1,67 @@
 /* TEAM */
 
 #our-team {
-    position: relative;
-    z-index: 4;
-    padding-bottom: 2em;
-    padding-top: 90px;
-    .photo {
-        img {
-            width: 100%;
-        }
-    } // .description {
-    //     // padding-left: 35px; // padding-right: 3em;
-    //     font-family: 'MontserratLight';
-    //     color: #FFFFFF;
-    //     h1 {
-    //         font-size: 30px;
-    //         letter-spacing: 9px;
-    //         margin-bottom: 45px;
-    //     }
-    //     p {
-    //         font-size: 18px;
-    //         line-height: 30px;
-    //     }
-    // }
+  position: relative;
+  z-index: 4;
+  padding-bottom: 2em;
+  padding-top: 90px;
+  .photo {
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .team-contents {
-    margin-top: 3em;
-    .person:nth-child(odd) {
-        background-color: white;
-        color: black;
-    }
+  margin-top: 3em;
+  .person:nth-child(odd) {
+    background-color: white;
+    color: black;
+  }
 }
 
 .team-uptitle {
-    margin-top: 2em;
-    font-size: 1.4em;
-    text-transform: uppercase;
-    letter-spacing: 5px;
+  margin-top: 2em;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 .team-title {
-    font-weight: bold;
-    font-size: 4em;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 4em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .team-text {
-    font-size: 1.4em;
-    margin-bottom: 3rem;
+  font-size: 1.4em;
+  margin-bottom: 3rem;
 }
 
 .team-block-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
 .team-block-description {
-    font-family: 'MontserratLight';
-    margin-bottom: 2em;
+  font-family: 'MontserratLight';
+  margin-bottom: 2em;
 }
 
 .team-block-text {
-    text-align: justify;
-    font-size: 1.2em;
-    line-height: 2em;
-    font-family: 'MontserratRegular';
-    p {
-        text-indent: 1em;
-        margin-top: 1em;
-    }
+  text-align: justify;
+  font-size: 1.2em;
+  line-height: 2em;
+  font-family: 'MontserratRegular';
+  p {
+    text-indent: 1em;
+    margin-top: 1em;
+  }
 }
 
 .team-block-image {
-    display: block;
-    max-width: 100%;
-    opacity: 1;
+  display: block;
+  max-width: 100%;
+  opacity: 1;
 }

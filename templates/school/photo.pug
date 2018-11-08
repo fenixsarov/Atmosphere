@@ -92,11 +92,11 @@ block content
       .row
         .col-xs-12
           .atm-section-header.font-medium Преподаватели курса
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_3.img_url, teacher_3.name, teacher_3.description, teacher_3.social_link, teacher_3.social_name)
   section.atm-school-program-container.white-section
     .container
@@ -115,39 +115,43 @@ block content
               .row
                 .col-xs-12
                   p.atm-school-programm__block_description.font-light Поможет избежать бракованного кадра. Осознанно крутить все эти ручки и колотушки. Настраивать камеру так, как нужно для кадра. Не спрашивать соседа, почему кадр смазанный или слишком темный. Как его сделать четче или светлее. Понять суть получения фотографии, ее техническую сторону. Зачем это вам? Все просто - без понимания технической стороны трудно сделать то, что задумал – иногда камера видит совсем по другому, не как фотограф
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/1.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 1. Строение фотоаппарата. 
-                          p.lecture__description.font-light Настройки. Диафрагма. Выдержка. ISO.  Понимаем все эти страшные слова. Узнаем, из каких частей состоит фотоаппарат и основные параметры фотоаппарата. Снимаем в мануальном режиме. 
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/2.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 2. Экспонометрия. 
-                          p.lecture__description.font-light Главный объект кадра и его экспозиция. Динамический диапазон сцены и фотографии. Способы повышения и понижения контраста сцены. Быстрое определение экспозиции. Режимы A, S. Экспокоррекция. 
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/3.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 3. Обьективы.
-                          p.lecture__description.font-light Размер матрицы. Автофокус. Глубина резко изображаемого пространства.  Бокешечка.
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
+              .row
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/1.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 1. Строение фотоаппарата. 
+                              p.lecture__description.font-light Настройки. Диафрагма. Выдержка. ISO.  Понимаем все эти страшные слова. Узнаем, из каких частей состоит фотоаппарат и основные параметры фотоаппарата. Снимаем в мануальном режиме. 
+                              p.lecture__teacher Преподаватель - Денис Алёшин.
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/2.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 2. Экспонометрия. 
+                              p.lecture__description.font-light Главный объект кадра и его экспозиция. Динамический диапазон сцены и фотографии. Способы повышения и понижения контраста сцены. Быстрое определение экспозиции. Режимы A, S. Экспокоррекция. 
+                              p.lecture__teacher Преподаватель - Денис Алёшин.
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/3.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 3. Обьективы.
+                              p.lecture__description.font-light Размер матрицы. Автофокус. Глубина резко изображаемого пространства.  Бокешечка.
+                              p.lecture__teacher Преподаватель - Денис Алёшин.
       section.fillingbg
         //- hr
         //- hr
@@ -162,39 +166,43 @@ block content
               .row
                 .col-xs-12
                   p.atm-school-programm__block_description.font-light Поможет тебе с вопросом «Как сделать вкуснее?»  Переходим от бытовых снимков – к художественным. Понимаем, как ложится свет, как сочетаются цвета и что вообще можно сделать с фотографией. Подбираем цвета в фотографии, экспериментируем с обработкой. Все для того, чтобы выделится из серой массы одинаковых кадров
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/4.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header  1. Свет в фотографии. 
-                          p.lecture__description.font-light Понимаем свет в фотографии. Щупаем интересный свет. Начинаем видеть свет в природе и использовать его в своих кадрах. 
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/5.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 2. Цвет в фотографии.
-                          p.lecture__description.font-light Гармония цвета. Сочетание цветов. Цветовые схемы. Возимся с цветными квадратиками и постигаем дзен. Практикуемся сочетать все это в картинках и фотографии.
-                          p.lecture__teacher Преподаватель - Елена Лемясева.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/6.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 3. Основы обработки фотографии.
-                          p.lecture__description.font-light Базовые навыки работы в Lightroom, Photoshop. Посмотрим, как делать можно и как не нужно. Приучаемся обрабатывать фотографии.
-                          p.lecture__teacher Преподаватель - София Леванова.
+              .row
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/4.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header  1. Свет в фотографии. 
+                              p.lecture__description.font-light Понимаем свет в фотографии. Щупаем интересный свет. Начинаем видеть свет в природе и использовать его в своих кадрах. 
+                              p.lecture__teacher Преподаватель - Денис Алёшин.
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/5.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 2. Цвет в фотографии.
+                              p.lecture__description.font-light Гармония цвета. Сочетание цветов. Цветовые схемы. Возимся с цветными квадратиками и постигаем дзен. Практикуемся сочетать все это в картинках и фотографии.
+                              p.lecture__teacher Преподаватель - Елена Лемясева.
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/6.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 3. Основы обработки фотографии.
+                              p.lecture__description.font-light Базовые навыки работы в Lightroom, Photoshop. Посмотрим, как делать можно и как не нужно. Приучаемся обрабатывать фотографии.
+                              p.lecture__teacher Преподаватель - София Леванова.
       section.fillingbg
       .row
         .col-xs-12
@@ -206,37 +214,41 @@ block content
               .row
                 .col-xs-12
                   p.atm-school-programm__block_description.font-light Поможет выразить свои мысли на фотокарточке. Расскажет о взаимном расположении объектов на кадре, покажет – как обозначить главный объект и скрыть второстепенные. Расставит акценты. Ответит на вопрос – зачем вообще все это нужно. Покажем пути дальнейшего развития в фотографии. 
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/7.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 1. Основы Композиции
-                          p.lecture__description.font-light Композиция в искусстве. Учимся организовывать компоненты художественной формы. Придаем произведению единство и цельность. Практика. 
-                          p.lecture__teacher Преподаватель - Елена Лемясева
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/8.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 2. Композиция в фотографии. Переносим знания искусства в навыки фотографии
-                          p.lecture__description.font-light Учимся кадрировать фотографию. Правильно и не очень. Узнаем законы и нарушаем правила.
-                          p.lecture__teacher Преподаватель - Елена Лемясева
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/9.jpg' %}")
-                  .col-xs-7.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12
-                          p.lecture__header 3. Смысл фотографии
-                          p.lecture__description.font-light Покажем современные стили фотографии. Ищем пути развития. Понимаем, что же это такое – взгляд фотографа. Пытаемся воспитать свой вкус. Смотрим референсы. И жуем кактусы
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
+              .row
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/7.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 1. Основы Композиции
+                              p.lecture__description.font-light Композиция в искусстве. Учимся организовывать компоненты художественной формы. Придаем произведению единство и цельность. Практика. 
+                              p.lecture__teacher Преподаватель - Елена Лемясева
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/8.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 2. Композиция в фотографии. Переносим знания искусства в навыки фотографии
+                              p.lecture__description.font-light Учимся кадрировать фотографию. Правильно и не очень. Узнаем законы и нарушаем правила.
+                              p.lecture__teacher Преподаватель - Елена Лемясева
+                section.atm-school-programm__block_lecture.col-xs-12.col-sm-6.col-md-12
+                  .box.box-container
+                    .row
+                      .col-xs-12.col-md-4.col-md-offset-1
+                        img(src="{% static '/images/school/lecture/9.jpg' %}")
+                      .col-xs-12.col-md-6
+                        .box.box-container
+                          .row
+                            .col-xs-12
+                              p.lecture__header 3. Смысл фотографии
+                              p.lecture__description.font-light Покажем современные стили фотографии. Ищем пути развития. Понимаем, что же это такое – взгляд фотографа. Пытаемся воспитать свой вкус. Смотрим референсы. И жуем кактусы
+                              p.lecture__teacher Преподаватель - Денис Алёшин.
       section.fillingbg
