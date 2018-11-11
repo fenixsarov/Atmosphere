@@ -56,11 +56,11 @@ block content
         - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
         | {% with imageUrl|add:'/events/' as src  %}
         - var srcImg = src + evt_img[0]
-        +event("/school", "фотошкола", "Текст, отображающийся при наведении", srcImg)
+        +event("/school", "фотошкола", "Наша атмосферная фотошкола", srcImg)
         - var srcImg1 = src + evt_img[1]
-        +event("/blog", "блог", "Текст для блога", srcImg1)
+        +event("/blog", "блог", "Вся срань в реальном времени в нашем блоге! Читайте!", srcImg1)
         - var srcImg2 = src + evt_img[2]
-        +event("/masterclass", "мастер-классы", "Текст, отображающийся при наведении", srcImg2)
+        +event("/masterclass", "мастер-классы", "НЕ ЗАБЫТЬ ДОБАВИТЬ ТЕКСТ!", srcImg2)
         | {% endwith %}
   section#our-team
     .container

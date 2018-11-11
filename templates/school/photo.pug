@@ -21,13 +21,15 @@ block content
                 p.desc Стоимость курса – 12990 ₽
             .row.center-xs.start-md
               .col-xs-12.description_btn
-                a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+                a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
   section.atm-school-description
     .container
       .row
-        p.col-xs-12.atm-school-p Привет, начинающий фотограф! 
-        p.col-xs-12.atm-school-p Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать красивые кадры. Показываем фотографию с разных сторон. Курс разбит на три блока: техника, выразительность  и смысл. Он поможет тебе изучить эти части фотографии или систематизирует твои знания, если они уже есть. Вместе проведем 10 уроков и закрепим материал домашними работами. Да, домашки придется делать. Это же фотошкола – куда без них ☺
-        p.col-xs-12.atm-school-p Техника – поможет избежать бракованного кадра. Осознанно крутить все эти ручки и колотушки. Настраивать камеру так, как нужно для кадра. Не спрашивать соседа, почему кадр смазанный или слишком темный. Как его сделать четче или светлее. Понять суть получения фотографии, ее техническую сторону. Зачем это вам? Все просто - без хорошей технической базы трудно вести речь о серьезном творчестве. 
+        .col-xs-12
+          .atm-section-header.font-medium Привет, начинающий фотограф! 
+      .row
+        .col-xs-12
+          p.atm-school-p Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать красивые кадры. Показываем фотографию с разных сторон. Курс разбит на три блока: техника, выразительность  и смысл. Он поможет тебе изучить эти части фотографии или систематизирует твои знания, если они уже есть. Вместе проведем 10 уроков и закрепим материал домашними работами. Да, домашки придется делать. Это же фотошкола – куда без них ☺
   section.atm-school-reason.white-section
     .container
       .row
@@ -87,16 +89,16 @@ block content
   section.atm-teachers
     - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
     - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
-    - var teacher_3 = {'img_url': "/static/images/team/6.jpg", "name": "Лена", "description": "Художник-живописец. Закончила Пензенское художественное училище им. К.А.Савицкого и Московский государственный гуманитарный университет им.М.А.Шолохова по специальности художник-педагог. \nРаботает в различных техниках: акварель, графика, маслянная и акриловая живопись, пастель. \nЧастый участник выставок «Художники Сарова», активный участник российских пленэров и мастер классов. \nВ 2007-2014гг. была членом Международного союза творческой молодежи «Молодая палитра». \nВ настоящее время педагог дополнительного образования в Центре внешкольной работы г.Сарова, творю и развиваюсь с Детским театром моды \"Русь\". Педагогический стаж 5 лет", "social_link": "", "social_name": "Instagram"}
+    - var teacher_3 = {'img_url': "/static/images/team/6.jpg", "name": "Лена", "description": "Художник по образованию. \nРаботает в различных техниках: акварель, графика, маслянная и акриловая живопись, пастель. \nУчастник выставок «Художники Сарова», пленэров и мастер классов. \nВ 2007-2014гг. была членом Международного союза творческой молодежи «Молодая палитра». \nПедагог дополнительного образования, детского театра моды \"Русь\". Педагогический стаж 5 лет", "social_link": "", "social_name": "Instagram"}
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Преподаватели курса
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_3.img_url, teacher_3.name, teacher_3.description, teacher_3.social_link, teacher_3.social_name)
   section.atm-school-program-container.white-section
     .container
@@ -108,6 +110,19 @@ block content
         .col-xs-12
           section.atm-school-programm__block
             .box.box-container
+              section.atm-school-programm__block_lecture
+                .row
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/school_img_8.jpg' %}")
+                  .col-xs-12.col-md-6
+                    .box.box-container
+                      .row
+                        .col-xs-12
+                          p.lecture__header 0 Вводный открытый урок
+                          p.lecture__description.font-light Эта открытая лекция по кратчайшей истории фотографии. Вместе посмотрим как развивалась фотография. Откуда ноги растут и как с этим дальше жить.
+                          p.lecture__teacher Преподаватель - Денис Алёшин.
+          section.atm-school-programm__block
+            .box.box-container
               .row
                 .col-xs-8
                   h1.atm-school-programm__block_header Блок 1 Техническая сторона съёмки
@@ -117,9 +132,9 @@ block content
                   p.atm-school-programm__block_description.font-light Поможет избежать бракованного кадра. Осознанно крутить все эти ручки и колотушки. Настраивать камеру так, как нужно для кадра. Не спрашивать соседа, почему кадр смазанный или слишком темный. Как его сделать четче или светлее. Понять суть получения фотографии, ее техническую сторону. Зачем это вам? Все просто - без понимания технической стороны трудно сделать то, что задумал – иногда камера видит совсем по другому, не как фотограф
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/1.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/1.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -128,9 +143,9 @@ block content
                           p.lecture__teacher Преподаватель - Денис Алёшин.
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/2.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/2.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -139,9 +154,9 @@ block content
                           p.lecture__teacher Преподаватель - Денис Алёшин.
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/3.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/3.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -164,9 +179,9 @@ block content
                   p.atm-school-programm__block_description.font-light Поможет тебе с вопросом «Как сделать вкуснее?»  Переходим от бытовых снимков – к художественным. Понимаем, как ложится свет, как сочетаются цвета и что вообще можно сделать с фотографией. Подбираем цвета в фотографии, экспериментируем с обработкой. Все для того, чтобы выделится из серой массы одинаковых кадров
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/4.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/4.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -175,9 +190,9 @@ block content
                           p.lecture__teacher Преподаватель - Денис Алёшин.
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/5.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/5.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -186,9 +201,9 @@ block content
                           p.lecture__teacher Преподаватель - Елена Лемясева.
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/6.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/6.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -208,9 +223,9 @@ block content
                   p.atm-school-programm__block_description.font-light Поможет выразить свои мысли на фотокарточке. Расскажет о взаимном расположении объектов на кадре, покажет – как обозначить главный объект и скрыть второстепенные. Расставит акценты. Ответит на вопрос – зачем вообще все это нужно. Покажем пути дальнейшего развития в фотографии. 
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/7.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/7.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -219,9 +234,9 @@ block content
                           p.lecture__teacher Преподаватель - Елена Лемясева
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/8.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/8.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
@@ -230,13 +245,94 @@ block content
                           p.lecture__teacher Преподаватель - Елена Лемясева
               section.atm-school-programm__block_lecture
                 .row
-                  .col-xs-5.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/9.jpg' %}")
-                  .col-xs-7.col-md-6
+                  .col-xs-12.col-md-4.col-md-offset-1
+                    img(src="{% static '/images/school/lecture/new/9.png' %}")
+                  .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12
                           p.lecture__header 3. Смысл фотографии
                           p.lecture__description.font-light Покажем современные стили фотографии. Ищем пути развития. Понимаем, что же это такое – взгляд фотографа. Пытаемся воспитать свой вкус. Смотрим референсы. И жуем кактусы
                           p.lecture__teacher Преподаватель - Денис Алёшин.
-      section.fillingbg
+      //- section.fillingbg
+  section.atm-school-constructor#signup
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Конструктор
+      .row
+        section.atm-school-constructor-description
+          .col-xs-12
+            p Выбирай, какой этот курс будет для тебя. Если ты новичок в фотографии, советую взять сразу всё. Ты более системно поймёшь фотографию и сможешь двигаться дальше. Но если ты уверен в своих силах и хочешь изучить конкретную тему можешь выбрать что-нибудь одно. Или два. Любых. Это твой выбор. Это - разные стороны фотографии. Они все важны, но выбор за тобой.
+            p Что бы забронировать место, оставьте свои координаты. Мы свяжемся с вами и запишем на курс.
+        section.atm-school-constructor-price.col-xs-12.center-xs
+            p Стоимость одного любого блока обучения - 5900₽
+            p Стоимость двух любых блоков обучения - 9500₽
+            p Стоимость всех трёх - 12900₽
+        .col-xs-12.center-xs.description_btn
+          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ 
+        section.atm-school-constructor-date.col-xs-12.center-xs
+          p Ближайший набор на новый курс - Декабрь 2018г.
+  section.page_photogallery.white-section
+    - var gallery_imgs = ["9vrb9iGOII8.jpg","CIPMljq-678.jpg","Fa5WTp1mxdE.jpg","NQlzFFrRxYo.jpg"];
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Фотографии наших учеников
+      .row
+        | {% for item in gallery_imgs %}
+        .col-xs-6.col-md-3
+          .img-container
+            .img(style="background-image: url('/static/images/graduations/#{item}')")
+        | {% endfor %}
+      //- .row.center-xs
+      //-   .col-xs-8.col-md-6
+      //-     section.atm-video-section
+      //-       div.atm-video-player-container
+      //-         img(src="{% static '/images/school/school_img_8.jpg' %}")
+      //-         i.fab.fa-youtube.atm-mc__video-play-btn
+  section.atm-school-feedback
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Отзывы учеников
+      .row.cetner-md
+        
+        .feedback
+          .col-xs-12.col-md-8.col-md-offset-2
+            .box.box-container
+              .row
+                .col-xs-12
+                  .img-container(style="background-image: url('/static/images/school/school_img_0.jpg')")
+                    //- .img(style="background-image: url('/static/images/graduations/#{item}')")
+                  .atm-school-feedback__text
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+        .feedback
+          .col-xs-12.col-md-8.col-md-offset-2
+            .box.box-container
+              .row
+                .col-xs-12
+                  .img-container(style="background-image: url('/static/images/school/school_img_9.jpg')")
+                    //- .img(style="background-image: url('/static/images/graduations/#{item}')")
+                  .atm-school-feedback__text
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+        .feedback
+          .col-xs-12.col-md-8.col-md-offset-2
+            .box.box-container
+              .row
+                .col-xs-12
+                  .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
+                    //- .img(style="background-image: url('/static/images/graduations/#{item}')")
+                  .atm-school-feedback__text
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+  section.atm-school-question.white-section
+    .container
+      .row
+        .col-xs-12.center-xs
+          .atm-section-header.font-medium Остались вопросы? 
+      .row.center-xs
+        .col-xs-12.col-md-6.description
+          .box
+            .row.center-xs.start-md
+              .col-xs-12.description__text
+                p.desc Звони по номеру 8(930)290-12-12 наш администратор Катя обязательно ответит на них.
