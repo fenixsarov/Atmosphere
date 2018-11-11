@@ -8,7 +8,6 @@ from django.conf import settings
 from .models import *
 import random
 
-
 # debug = settings.DEBUG
 
 
@@ -19,8 +18,8 @@ class BaseView(View):
 
     try:
         bb_parser = get_parser()
-    except BaseException:
-        print("!")
+    except BaseException as e:
+        print(e)
 
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name})
@@ -60,6 +59,9 @@ class BlogChange(View):
                         'public_date': ba.public_date,
                         'id': ba.pk
                     })
+
+                    self.plate_desc.reverse()
+                    
             except BaseException as e:
                 print(e)
 
@@ -483,77 +485,77 @@ class AboutChange(View):
                                           {'plate_desc': self.plate_desc})
             return JsonResponse({'response': 'ok', 'html': pug})
 
-class Useful(BaseView):
-    template_name = 'useful.pug'
-    page_name = 'useful'
-    # plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
+# class Useful(BaseView):
+#     template_name = 'useful.pug'
+#     page_name = 'useful'
+#     # plate_text = 'Да, а на фото часть нашей дружной команды. Именно мы радуем Вас дружеской обстановкой и хорошим настроением! Это мы Вас встречаем радушно чаем и печеньками. Мы любим Вас и всегда ждём в нашей тёплой, уютной студии!'
+#
+#     main_imgs = ['useful/useful_main_img_0.jpg']
+#     plate_desc = []
+#
+#     main_text = ''
+#     title = ''
+#     desc_image = ''
+#
+#     try:
+#         for article in UsefulArticle.objects.all():
+#             plate_desc.append({
+#                 'image': BaseView.path_prefix + article.desc_image.url,
+#                 'header': article.title,
+#                 'plate_text': article.desc
+#             })
+#     except BaseException as e:
+#         print(e)
+#
+#     def get(self, request):
+#         if self.request.is_ajax():
+#             try:
+#                 # Getting data for page description (title, description, image)
+#                 obj = DescriptionsList.objects.get(service_name=self.page_name)
+#                 self.title = obj.title
+#                 self.main_text = self.bb_parser.render(obj.desc)
+#                 self.desc_image = self.path_prefix + obj.file.url
+#                 self.title = self.title.upper()
+#
+#             except BaseException as e:
+#                 print(e)
+#             return JsonResponse({
+#                 'response': 'ok',
+#                 'image_src': self.desc_image,
+#                 'title': self.title,
+#                 'main_text': self.main_text
+#             })
+#         return render(request, self.template_name, {
+#             'page': self.page_name,
+#             'plate_desc': self.plate_desc
+#         })
 
-    main_imgs = ['useful/useful_main_img_0.jpg']
-    plate_desc = []
 
-    main_text = ''
-    title = ''
-    desc_image = ''
-
-    try:
-        for article in UsefulArticle.objects.all():
-            plate_desc.append({
-                'image': BaseView.path_prefix + article.desc_image.url,
-                'header': article.title,
-                'plate_text': article.desc
-            })
-    except BaseException as e:
-        print(e)
-
-    def get(self, request):
-        if self.request.is_ajax():
-            try:
-                # Getting data for page description (title, description, image)
-                obj = DescriptionsList.objects.get(service_name=self.page_name)
-                self.title = obj.title
-                self.main_text = self.bb_parser.render(obj.desc)
-                self.desc_image = self.path_prefix + obj.file.url
-                self.title = self.title.upper()
-
-            except BaseException as e:
-                print(e)
-            return JsonResponse({
-                'response': 'ok',
-                'image_src': self.desc_image,
-                'title': self.title,
-                'main_text': self.main_text
-            })
-        return render(request, self.template_name, {
-            'page': self.page_name,
-            'plate_desc': self.plate_desc
-        })
-
-
-class UsefulChange(View):
-    plate_desc = []
-    pug = ''
-    bb_parser = get_parser()
-    path_prefix = '/static/images/upload_imgs/'
-
-    def get(self, request):
-        self.request.session['view'] = self.request.GET['view']
-        if self.request.is_ajax:
-            self.plate_desc.clear()
-
-            try:
-                for article in UsefulArticle.objects.all():
-                    self.plate_desc.append({
-                        'image': self.path_prefix + article.desc_image.url,
-                        'header': article.title,
-                        'plate_text': self.bb_parser.render(article.desc)
-                    })
-
-            except BaseException as e:
-                print(e)
-
-            self.pug = loader.render_to_string('mixins/plate_useful.pug',
-                                               {'plate_desc': self.plate_desc})
-
-        return JsonResponse({'response': 'ok', 'html': self.pug})
+# class UsefulChange(View):
+#     plate_desc = []
+#     pug = ''
+#     bb_parser = get_parser()
+#     path_prefix = '/static/images/upload_imgs/'
+#
+#     def get(self, request):
+#         self.request.session['view'] = self.request.GET['view']
+#         if self.request.is_ajax:
+#             self.plate_desc.clear()
+#
+#             try:
+#                 for article in UsefulArticle.objects.all():
+#                     self.plate_desc.append({
+#                         'image': self.path_prefix + article.desc_image.url,
+#                         'header': article.title,
+#                         'plate_text': self.bb_parser.render(article.desc)
+#                     })
+#
+#             except BaseException as e:
+#                 print(e)
+#
+#             self.pug = loader.render_to_string('mixins/plate_useful.pug',
+#                                                {'plate_desc': self.plate_desc})
+#
+#         return JsonResponse({'response': 'ok', 'html': self.pug})
 
 # Create your views here.

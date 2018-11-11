@@ -162,9 +162,6 @@ a {
   }
 
   .description {
-    display: flex;
-    flex-direction: column; // @media #{$md} {
-    padding-top: 1em; //   padding-left: 4.0em;
     padding-left: 3em;
   }
 

@@ -96,17 +96,17 @@ class DescriptionsList(models.Model):
 
 
 # Models for describe article on useful page
-class UsefulArticle(models.Model):
-    title = models.CharField('Title', max_length=30)
-    desc = models.TextField(verbose_name='Описание статьи', max_length=256)
-    desc_image = models.FileField(upload_to="", verbose_name='Картинка к статье')
-    service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='article')
-
-    class Meta:
-        verbose_name_plural = '2.3 Статьи на странице "Полезное"'
-
-    def __str__(self):
-        return self.title
+# class UsefulArticle(models.Model):
+#     title = models.CharField('Title', max_length=30)
+#     desc = models.TextField(verbose_name='Описание статьи', max_length=256)
+#     desc_image = models.FileField(upload_to="", verbose_name='Картинка к статье')
+#     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='article')
+#
+#     class Meta:
+#         verbose_name_plural = '2.3 Статьи на странице "Полезное"'
+#
+#     def __str__(self):
+#         return self.title
 
 
 # Models for halls and sessions
