@@ -540,7 +540,7 @@ var aeHandle = function (win, doc, loc, cur_script) {
   var aeWidget = {
     params: {},
     open: function (widget_key, handler) {
-      console.log('Open widget');
+      // console.log('Open widget');
 
       aeWidget.params['hall_id'] = 0;
       aeWidget.params['photosession_id'] = 0;
@@ -551,7 +551,7 @@ var aeHandle = function (win, doc, loc, cur_script) {
         aeWidget.params['photosession_id'] = handler.attr('photosession_id') || 0;
         aeWidget.params['order_type'] = handler.attr('order_type') || '';
       }
-      console.log(aeWidget.params);
+      // console.log(aeWidget.params);
       aeWidgetIframe = doc.createElement("div");
       aeWidgetIframe.className = 'aeWidgetIFrameDIV';
 
