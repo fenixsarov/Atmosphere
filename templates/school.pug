@@ -25,9 +25,12 @@ block content
         | {% static '/images' as imageUrl %}
         | {% with imageUrl|add:'/school/' as src  %}
         - var srcImg = src + evt_img[0]
-        +event('/school/photo', 'ФОТОГРАФИЯ', 'Твоя основа знаний и навыков в фотографии', srcImg)
+        .col-md.col-sm.col-xs-12
+          +event('/school/photo', 'ФОТОГРАФИЯ', 'Твоя основа знаний и навыков в фотографии', srcImg)
         - var srcImg1 = src + evt_img[1]
-        +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Твой углублённый интенсив по пониманию света и студии', srcImg1)
+        .col-md.col-sm.col-xs-12
+          +event('#', 'ОСНОВЫ СТУДИЙНОЙ СЪЁМКИ', 'Твой углублённый интенсив по пониманию света и студии', srcImg1)
         - var srcImg2 = src + evt_img[2]
-        +event('', 'РЕТУШЬ ПОРТРЕТА', 'Курс находится в разработке. Следите за новостями!', srcImg2)
+        .col-md.col-sm.col-xs-12
+          +event_disabled('', 'РЕТУШЬ ПОРТРЕТА', 'Курс находится в разработке. Следите за новостями!', srcImg2, true)
         | {% endwith %}

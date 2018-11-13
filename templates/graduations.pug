@@ -4,7 +4,6 @@ include mixins/mixins.pug
 
 prepend page
   - var title = "Выпускные съёмки"
-  //- - var under_menu = [{"text": "школа", "desc": "school"}, {"text": "детский сад", "desc": "kindergarten"}, {"text": "печать альбомов", "desc": "printing"}]
 block content
   section.page_mainheader
     .container
@@ -18,27 +17,24 @@ block content
                 h1.title Выпускные съемки
             .row.center-xs.start-md
               .col-xs-12.description__text
-                p.desc Мы знаем, как важно сохранить школьные воспоминания. Мы сами ходили в детский сад и учились. Поэтому мы снимаем такие школьные альбомы, которые хочется пересматривать.
+                p.desc Мы знаем, как важно сохранить школьные воспоминания.
+                  | Мы сами ходили в детский сад и учились. 
+                  | Поэтому мы снимаем такие школьные альбомы, 
+                  | которые хочется пересматривать.
             .row.center-xs.start-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
-  //- | {% static '/images' as imageUrl %}
-  //- - var graduation_list = [{"label": "ШКОЛА", "id": "school", "active": "true"}, {"label": "ДЕТСКИЙ\nСАД", "id": "kindergarten", "active": "false"}, {"label": "ПЕЧАТЬ\nАЛЬБОМОВ", "id": "album_print", "active": "false"}]
-  //- +page_mainheader_with_image()
-  //- section
-    .container.page_photogallery
-      .row#graduations_image
-  section.atm-advantages-description
+  section.atm-school-description
     .container
       .row
-        .col-xs-12.col-md-6
+        .col-xs-12
           .atm-section-header.font-medium Для кого эти съёмки?
       .row
-        ul.col-xs-12.font-light
-          li Для выпускных классов. Вы будете сами пересматривать эти альбомы годами
-          li Для выпускных детских садов. Ваше чадо будет уже в школе, а у вас остались профессиональные  фотографии его драных коленок в 
-          li Для желающих запечатлеть первое сентября. Мы всегда обновляем локации студии к этому празднику и устраиваем уголок первоклассника
-          li Для всех желающих. Почему бы не устроить групповую съемку прямо посередине учебного года? 
+        .col-xs-12.font-light
+          p.atm-school-p Для выпускных классов. Вы будете сами пересматривать эти альбомы годами. 
+            | Для выпускных детских садов. Ваше чадо будет уже в школе, а у вас остались профессиональные фотографии его драных коленок. 
+            | Для желающих запечатлеть первое сентября. Мы всегда обновляем локации студии к этому празднику и устраиваем уголок первоклассника. 
+            | Для всех желающих. Почему бы не устроить групповую съемку прямо посередине учебного года? 
   section.page_photogallery.white-section
     - var gallery_imgs = ["9vrb9iGOII8.jpg","CIPMljq-678.jpg","Fa5WTp1mxdE.jpg","YZtXXpEzdm4.jpg","aER8JACIkao.jpg","rMmIgSM5W8g.jpg","wI3nPagwI3U.jpg","CIFRZeC9JVk.jpg","CsTbBPo7SbI.jpg","GlDoogxTb4g.jpg","ODHLi0dO4vU.jpg","ZkXyy-z6N5A.jpg","coTTVNVazAU.jpg","sZYyubVwWxs.jpg","zIWGbws2jow.jpg"];
     .container
@@ -54,19 +50,28 @@ block content
     .container
       .row
         .col-xs-12
-          .atm-section-header.font-medium Преподаватели курса
-        .col-xs-12.col-md-8.col-md-offset-2
+          .atm-section-header.font-medium Фотографы
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
-        .col-xs-12.col-md-8.col-md-offset-2
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
-  section.atm-price#signup.white-section
+  section.atm-graduations-price#signup.white-section
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Стоимость съёмки
-      .row.center-xs.center-md.center-sm.center-lg
+      .row
         .col-xs-12
-          p Для записи на групповую съемку просто заполните форму ниже и мы свяжемся с вами
+          .description
+            p.price Стоимость съемки - 950р/человек
+            p Минимальное количество участников - 15 человек.
+            ul Можно использовать на выбор локации или однотонные фоны, а можно совместить; 
+              li - каждый ребенок получит 10 обработанных фотографий в цифровом виде;
+              li - индивидуальная съемка каждого ребенка в течение 10 минут; 
+              li - все фотографии сдаются в цифровом виде; 
+              li - мы также печатаем альбомы по предварительному заказу. 
+            p Для записи на групповую съемку просто заполните форму ниже и мы свяжемся с вами
+            //- p Записаться В форме – Имя, телефон, email
       .row.start-md
         .col-xs-12.description_btn
           a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
@@ -83,18 +88,37 @@ block content
             .row.center-xs.start-md
               .col-xs-12.description__text
                 p.desc Фотографии лучше смотрятся на бумаге. Особенно такие важные моменты, как выпускной альбом или первое сентября первоклассника. Мы поможем вам собрать и отпечатать красивые альбомы с вашей сьемки
-  section.atm-photoalbum-print-price.white-section
-    .container
-      .row
-        .col-xs-12.col-md
-          h1 СТОИМОСТЬ ПЕЧАТИ АЛЬБОМОВ
-  section.page_photogallery
-    - var gallery_imgs = ["9vrb9iGOII8.jpg","CIPMljq-678.jpg","Fa5WTp1mxdE.jpg","NQlzFFrRxYo.jpg"];
+  section.page_photogallery.white-section
+    - var gallery_imgs = ["0bKBP63R-SM.jpg" ,"945ne7s7DBw.jpg" ,"Wna4Ytvx7eM.jpg" ,"XZa0uQzZOvc.jpg" ,"XvbSmQ1BD90.jpg" ,"wv_axO74Xog.jpg"];
     .container
       .row
         | {% for item in gallery_imgs %}
-        .col-xs-6.col-md-3
-          .img-container
-            .img(style="background-image: url('/static/images/graduations/#{item}')")
+        .img-container.col-xs-6.col-md-3
+          .img(style="background-image: url('/static/images/photoalbum/#{item}')")
+            //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
-    
+  section.atm-photoalbum-print-price
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Стоимость печати альбомов
+      .row
+        .col-xs-12
+          .description
+            p.price Выпускной альбом 21*30 см (5 разворотов) – 999Р 
+            p.price Лафлет 21*30 см (5 разворотов) -799Р 
+            p.price Трюмо (3 разворота) – 599Р
+      .row.start-md
+        .col-xs-12.description_btn
+          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+  section.atm-school-question.white-section
+    .container
+      .row
+        .col-xs-12.center-xs
+          .atm-section-header.font-medium Остались вопросы? 
+      .row.center-xs
+        .col-xs-12.col-md-6.description
+          .box
+            .row.center-xs.start-md
+              .col-xs-12.description__text
+                p.desc Звони по номеру 8(930)290-12-12 наш администратор Катя обязательно ответит на них.

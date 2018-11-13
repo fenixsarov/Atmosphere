@@ -6,3 +6,34 @@
   background-position: center;
   padding: 60px 0;
 }
+
+.atm-graduations-price {
+  .description {
+    font-size: 1.3em;
+
+    .price {
+      margin-bottom: 1em;
+      font-size: 1.1em;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+
+      li {
+        text-decoration: none;
+        // margin-top: 1em;
+        line-height: 1.5em;
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+.atm-photoalbum-print-price {
+  .price {
+    line-height: 2em;
+    font-size: 1.3em;
+  }
+}

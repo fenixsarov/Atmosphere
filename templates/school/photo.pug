@@ -17,7 +17,10 @@ block content
                 h1.title Фотография с нуля
             .row.center-xs.start-md
               .col-xs-12.description__text
-                p.desc Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать твои кадры. Показываем фотографию с трех разных сторон. Помогаем тебе изучить фотографию с нуля или систематизируем твои знания. Вместе проведем 10 уроков и закрепим материал домашними работами и практикой
+                p.desc Это базовый курс по фотографии. 
+                  | Учим осознанно нажимать на кнопки, думать как фотограф, делать твои кадры. 
+                  | Помогаем тебе изучить фотографию с нуля или систематизируем твои знания. 
+                  | Вместе проведем 10 уроков. Закрепим материал домашними работами и практикой.
                 p.desc Стоимость курса – 12990 ₽
             .row.center-xs.start-md
               .col-xs-12.description_btn
@@ -26,18 +29,20 @@ block content
     .container
       .row
         .col-xs-12
-          .atm-section-header.font-medium Привет, начинающий фотограф! 
+          .atm-section-header.font-medium Для кого этот курс?
       .row
-        .col-xs-12
-          p.atm-school-p Это базовый курс по фотографии. Учим осознанно нажимать на кнопки, думать как фотограф, делать красивые кадры. Показываем фотографию с разных сторон. Курс разбит на три блока: техника, выразительность  и смысл. Он поможет тебе изучить эти части фотографии или систематизирует твои знания, если они уже есть. Вместе проведем 10 уроков и закрепим материал домашними работами. Да, домашки придется делать. Это же фотошкола – куда без них ☺
+        .col-xs-12.font-light
+          p.atm-school-p Для тех, кто купил камеру и давно ее забросил, но хочет закрыть гештальт и разобраться. 
+            | Для начинающих фотографов, которые хотят систематизировать свои знания по фотографии и вдохновится на новые кадры. 
+            | Для фотографов, которые хотят движухи. Встать с кресла  и наконец-то пойти снимать.
   section.atm-school-reason.white-section
     .container
       .row
-        .col-xs-12
-          .atm-section-header.font-medium 6 причин записаться на курс
-          .atm-section-header.font-medium "фотографии с нуля"
+        .col-xs-12.font-medium
+          .atm-section-header 6 причин записаться на курс
+          .atm-section-header "фотографии с нуля"
       .row
-        .col-xs-12.col-sm-6.reason-container
+        .col-xs-12.col-sm-6.reason-container//
           .box
             .row.middle-xs
               .col-xs-2
@@ -82,7 +87,7 @@ block content
           .box
             .row.middle-xs
               .col-xs-2
-                img(src="{% static 'SVG/tool-1.svg' %}", alt="")
+                img(src="{% static 'svg/tool-1.svg' %}", alt="")
               .col-xs-10
                 h3.reason-head.font-medium ????
                 p.reason.font-light Программа составлена с учётом технической и творческой стороны фотографии
@@ -164,8 +169,6 @@ block content
                           p.lecture__description.font-light Размер матрицы. Автофокус. Глубина резко изображаемого пространства.  Бокешечка.
                           p.lecture__teacher Преподаватель - Денис Алёшин.
       section.fillingbg
-        //- hr
-        //- hr
       .row
         .col-xs-12
           section.atm-school-programm__block
@@ -173,7 +176,6 @@ block content
               .row
                 .col-xs-8
                   h1.atm-school-programm__block_header Блок 2 Свет, цвет, обработка
-                  //- p.atm-school-programm__block_subheader Техника
               .row
                 .col-xs-12
                   p.atm-school-programm__block_description.font-light Поможет тебе с вопросом «Как сделать вкуснее?»  Переходим от бытовых снимков – к художественным. Понимаем, как ложится свет, как сочетаются цвета и что вообще можно сделать с фотографией. Подбираем цвета в фотографии, экспериментируем с обработкой. Все для того, чтобы выделится из серой массы одинаковых кадров
@@ -254,7 +256,6 @@ block content
                           p.lecture__header 3. Смысл фотографии
                           p.lecture__description.font-light Покажем современные стили фотографии. Ищем пути развития. Понимаем, что же это такое – взгляд фотографа. Пытаемся воспитать свой вкус. Смотрим референсы. И жуем кактусы
                           p.lecture__teacher Преподаватель - Денис Алёшин.
-      //- section.fillingbg
   section.atm-school-constructor#signup
     .container
       .row
@@ -304,7 +305,6 @@ block content
               .row
                 .col-xs-12
                   .img-container(style="background-image: url('/static/images/school/school_img_0.jpg')")
-                    //- .img(style="background-image: url('/static/images/graduations/#{item}')")
                   .atm-school-feedback__text
                     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
         .feedback
@@ -313,7 +313,6 @@ block content
               .row
                 .col-xs-12
                   .img-container(style="background-image: url('/static/images/school/school_img_9.jpg')")
-                    //- .img(style="background-image: url('/static/images/graduations/#{item}')")
                   .atm-school-feedback__text
                     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
         .feedback
@@ -322,7 +321,6 @@ block content
               .row
                 .col-xs-12
                   .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
-                    //- .img(style="background-image: url('/static/images/graduations/#{item}')")
                   .atm-school-feedback__text
                     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
   section.atm-school-question.white-section
