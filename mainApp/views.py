@@ -60,7 +60,7 @@ class BlogChange(View):
                         'id': ba.pk
                     })
 
-                    self.plate_desc.reverse()
+                self.plate_desc.reverse()
 
             except BaseException as e:
                 print(e)
