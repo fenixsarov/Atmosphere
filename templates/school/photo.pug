@@ -42,7 +42,7 @@ block content
           .atm-section-header 6 причин записаться на курс
           .atm-section-header "фотографии с нуля"
       .row
-        .col-xs-12.col-sm-6.reason-container//
+        .col-xs-12.col-sm-6.reason-container
           .box
             .row.middle-xs
               .col-xs-2
@@ -99,6 +99,7 @@ block content
       .row
         .col-xs-12
           .atm-section-header.font-medium Преподаватели курса
+      .row
         .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
         .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
@@ -286,12 +287,6 @@ block content
           .img-container
             .img(style="background-image: url('/static/images/graduations/#{item}')")
         | {% endfor %}
-      //- .row.center-xs
-      //-   .col-xs-8.col-md-6
-      //-     section.atm-video-section
-      //-       div.atm-video-player-container
-      //-         img(src="{% static '/images/school/school_img_8.jpg' %}")
-      //-         i.fab.fa-youtube.atm-mc__video-play-btn
   section.atm-school-feedback
     .container
       .row
@@ -323,14 +318,5 @@ block content
                   .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
                   .atm-school-feedback__text
                     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
-  section.atm-school-question.white-section
-    .container
-      .row
-        .col-xs-12.center-xs
-          .atm-section-header.font-medium Остались вопросы? 
-      .row.center-xs
-        .col-xs-12.col-md-6.description
-          .box
-            .row.center-xs.start-md
-              .col-xs-12.description__text
-                p.desc Звони по номеру 8(930)290-12-12 наш администратор Катя обязательно ответит на них.
+  section.white-section
+    include includes/feedback_inc.pug

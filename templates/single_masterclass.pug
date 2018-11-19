@@ -3,7 +3,7 @@ extends base
 include mixins/mixins.pug
 
 prepend page
-  link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
+  //- link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
   - var title = ""
   //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
@@ -12,7 +12,7 @@ block content
     .container
       .row
         .col-xs-12.col-md-7
-          img#image(src="http://placehold.it/700x500" alt="Фотография мастеркласса")
+          img#image(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}" alt="Фотография мастеркласса")
         .col-xs-12.col-md-5.description
           .box
             .row.center-xs.start-md
@@ -24,87 +24,114 @@ block content
             .row.center-xs.start-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
-  section.atm-advantages-description
+  section.atm-school-description
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Кому будет интересен этот мастеркласс?
       .row
-        ul.col-xs-12
-          li Deserunt Lorem proident sit officia nostrud duis.
-          li Incididunt deserunt sint laboris sunt.
-          li Enim nostrud est deserunt nulla nulla ad aliquip.
-          li Consectetur eu anim nulla dolore minim quis minim deserunt quis sint eiusmod officia ut.
+        .col-xs-12.font-light
+          p.atm-school-p Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam, accusamus provident, voluptatem inventore impedit mollitia ad sit earum cupiditate a officiis perferendis nobis dolore quas enim necessitatibus corrupti eius.
   section.atm-teachers.white-section
     - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
-    - var teacher_2 = {'img_url': "/static/images/team/8.jpg", "name": "Елена", "description": "Если ты увидел в студии кого то в китайской одежде и с хитрой кисточкой в руке, знай – это Лена. Преподает рисование медитативных китайских пейзажей и всего, что с этим связано.", "social_link": "", "social_name": "Instagram"}
+    - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Преподаватели курса
+      .row
         .col-xs-12.col-md-8.col-md-offset-2
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
+        .col-xs-12.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
-  section.atm-signup#signup
+  section.atm-signup.atm-school-constructor#signup
     .container
       .row
-        .col-xs-12
+        .col-xs-12.center-xs
           .atm-section-header.font-medium Записаться на мастер-класс
           h4 #{MASTERCLASS_NAME}
-      .row.center-xs
-        .col-xs-12
-          h3 Стоимость ______ руб
-          h3 Ближайшая дата проведения __________
-          a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
-  section.atm-photogalery.white-section
+      section.atm-masterclass-price-description
+        .row
+          .col-xs-12
+            p На наши мастерклассы мы предоставляем Вам все необходимые материалы и инструменты.
+            | А после занятия Вы уходите со своей картиной, которую можете повесить у себя дома 
+            | либо подарить близкому человеку.
+        .row
+          .col-xs-12.col-sm-8
+            .box.box-container
+              /// FIXME I NEED BE NAMED
+              .row.reason
+                .col-xs-12.middle-xs
+                  img(src="{% static 'svg/peace.svg' %}", alt="")
+                  p.reason.font-light Наши курсы проходят в фотостудии «Атмосфера»
+              .row.reason
+                .col-xs-12.middle-xs
+                  img(src="{% static 'svg/book.svg' %}", alt="")
+                  p.reason.font-light Мы покажем тебе мир фотографии.
+              .row.reason
+                .col-xs-12.middle-xs
+                  img(src="{% static 'svg/camera.svg' %}", alt="")
+                  p.reason.font-light Укрепляем навыки, полученные вместе – самостоятельными
+          .col-xs-12.col-sm-4
+            .box.box-container
+              .row
+                .col-xs-12.center-xs
+                  p.price Стоимость 3000₽
+              .row
+                .col-xs-12.center-xs.description_btn
+                  a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
+  section.page_photogallery.white-section
+    - var gallery_imgs = ["34lYmz5ASEk.jpg","MbzHAkcOTX4.jpg","U1dBoRoFums.jpg","kbpDgPi_W6A.jpg","vrAMBUR_1v0.jpg","FUZzw8lt8So.jpg","SmFTgH6yXho.jpg","YAFDz1ZWNSQ.jpg"];
     .container
       .row
-        .col-xs-6.col-md-4
-          img(src="http://placehold.it/400x400")
-        .col-xs-6.col-md-4
-          img(src="http://placehold.it/400x400")
-        .col-xs-6.col-md-4
-          img(src="http://placehold.it/400x400")
-        .col-xs-6.col-md-4
-          img(src="http://placehold.it/400x400")
-        .col-xs-6.col-md-4
-          img(src="http://placehold.it/400x400")
-        .col-xs-6.col-md-4
-          img(src="http://placehold.it/400x400")
+        .col-xs-12
+          .atm-section-header.font-medium Фотографии с мастеркласса
+      .row
+        | {% for item in gallery_imgs %}
+        .col-xs-6.col-md-3
+          .img-container
+            .img(style="background-image: url('/static/images/masterclass/#{item}')")
+        | {% endfor %}
   section.atm-video-section
     .container
-      .row.center-xs
+      .row
         .col-xs-12
-          div.atm-video-player-container
-            img(src="http://placehold.it/1200x600")
+          .atm-section-header.font-medium Видео с мастеркласса
+      .row.center-xs
+        .col-xs-12.col-sm-6
+          .atm-video-player-container
+            img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}")
             i.fab.fa-youtube.atm-mc__video-play-btn
-  section.atm-feedback-container.white-section
+  section.atm-school-feedback.white-section
     .container
       .row
         .col-xs-12
-          .atm-section-header.font-medium Отзывы наших учеников
-      .row
-        .col-xs-12
-          .atm-feedback
-            .box
-              .row.middle-xs
-                .col-xs-2.atm-feedback__image
-                  img(src="http://placehold.it/200x80")
-                .col-xs-10.atm-feedback__text
-                  p.font-light Ad ex nostrud id consequat adipisicing anim.
-        .col-xs-12
-          .atm-feedback
-            .box
-              .row.middle-xs
-                .col-xs-2.atm-feedback__image
-                  img(src="http://placehold.it/200x80")
-                .col-xs-10.atm-feedback__text
-                  p.font-light Ea velit laborum eiusmod irure mollit fugiat.
-        .col-xs-12
-          .atm-feedback
-            .box
-              .row.middle-xs
-                .col-xs-2.atm-feedback__image
-                  img(src="http://placehold.it/200x80")
-                .col-xs-10.atm-feedback__text
-                  p.font-light Fugiat et magna nisi cillum mollit aute reprehenderit fugiat tempor.
+          .atm-section-header.font-medium Отзывы учеников
+      .row.cetner-md
+        
+        .feedback
+          .col-xs-12.col-md-8.col-md-offset-2
+            .box.box-container
+              .row
+                .col-xs-12
+                  .img-container(style="background-image: url('/static/images/school/school_img_0.jpg')")
+                  .atm-school-feedback__text
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+        .feedback
+          .col-xs-12.col-md-8.col-md-offset-2
+            .box.box-container
+              .row
+                .col-xs-12
+                  .img-container(style="background-image: url('/static/images/school/school_img_9.jpg')")
+                  .atm-school-feedback__text
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+        .feedback
+          .col-xs-12.col-md-8.col-md-offset-2
+            .box.box-container
+              .row
+                .col-xs-12
+                  .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
+                  .atm-school-feedback__text
+                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+  section
+    include includes/feedback_inc.pug

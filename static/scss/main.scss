@@ -45,6 +45,7 @@ img {
   width: 100%;
 }
 
+
 a {
   text-decoration: none;
   color: $cl-default-text;
@@ -105,6 +106,10 @@ a {
 .white-section {
   background-color: #fff;
   color: black;
+
+  a {
+    color: black;
+  }
 }
 
 #events {
@@ -251,6 +256,41 @@ a {
   }
 }
 
+///// FIXME Rename classes and create file
+.atm-masterclass-price-description {
+  line-height: 1.5em;
+  font-size: 1.3em;
+  margin-top: 1.5em;
+  text-align: justify;
+  margin-bottom: 1.5em;
+
+  .price {}
+
+  .date {}
+
+  // p::first-letter {
+  //   margin-left: 2em;
+  // }
+}
+
+.atm-question {
+  .description {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+
+    .description__text {
+      text-align: center;
+    }
+  }
+
+  .last-chance {
+    p {
+      line-height: 1.5em;
+    }
+  }
+}
 
 // @import "preloader";
 @import "main-page/main";
