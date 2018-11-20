@@ -4,20 +4,29 @@
 @import "ui/ui";
 
 .aeWidgetBtn {
-  background-color: whitesmoke !important;
+  background-color: transparent !important;
 
   .aeWidgetBtn-Wave {
-    border-color: whitesmoke !important;
+    border-color: goldenrod !important;
+    // border-color: whitesmoke !important;
   }
 
   //background-color: transparent !important;
   .aeWidgetBtn-icon_logo {
     background-image: url('../images/logo_single.png') !important;
+    background-color: transparent !important;
   }
 
   .aeWidgetBtn-icon_book {
     color: dimgray !important;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
+
 }
 
 body {
