@@ -79,36 +79,17 @@ a {
   color: rgb(186, 61, 64);
 }
 
-// section {
-//   .description {
-//     font-family: "MontserratLight";
-//     display: flex;
-//     flex-direction: column;
-//     .description__title {
-//       .title {
-//         font-size: 2em;
-//         letter-spacing: 9px;
-//         margin-bottom: 45px;
-//       }
-//     }
-//     .description__text {
-//       flex-grow: 1;
-//       .desc {
-//         font-size: 17px;
-//         line-height: 2.3rem;
-//       }
-//     }
-//     .description_btn {
-//       text-align: center; //   .atm-btn-reserved {}
-//     }
-//   }
-// }
 .white-section {
   background-color: #fff;
   color: black;
 
   a {
     color: black;
+  }
+
+  .atm-btn-reserved {
+    color: #fff;
+    border: 1px solid #000;
   }
 }
 
@@ -126,9 +107,7 @@ a {
     position: relative;
 
     .description {
-      // -webkit-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001f1f1f', endColorstr='#001f1f1f', GradientType=1);
-      // {
-      padding-left: 0 !important;
+      padding-left: 0;
     }
   }
 
