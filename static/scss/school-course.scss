@@ -17,22 +17,17 @@
 }
 
 .atm-school-reason {
-  background-color: white;
-  color: black;
   margin-top: 2em;
   padding-top: 2em;
   padding-bottom: 2em;
-
   .reason-container {
     margin-top: 2em;
   }
-
   .reason-head {
     font-size: 1.2em;
     line-height: 2em;
     text-transform: uppercase;
   }
-
   .reason {
     // margin-top: 1.1em;
     font-size: 1.1em;
@@ -45,7 +40,6 @@
     font-size: 1.2em;
     line-height: 2em;
   }
-
   .fillingbg {
     position: relative;
     margin-top: 4em;
@@ -55,7 +49,6 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; // opacity:;
-
     hr:first-child {
       position: absolute; //font-size: 3px;
       width: 45%;
@@ -67,7 +60,6 @@
       -ms-transform: transateY(50%);
       -o-transform: transateY(50%);
     }
-
     hr:last-child {
       position: absolute; //font-size: 3px;
       width: 45%;
@@ -80,26 +72,21 @@
       -o-transform: transateY(50%);
     }
   }
-
   .atm-school-programm__block {
     .atm-school-programm__block_header {
       margin-top: 1em;
       margin-bottom: 1em;
       font-size: 2em;
     }
-
     .atm-school-programm__block_subheader {
       margin-top: 1em;
       margin-bottom: 1em;
       font-size: 1.5em;
     }
-
     .atm-school-programm__block_description {
       font-size: 1.2em;
       line-height: 2em;
-    }
-
-    // margin-top: 2em;
+    } // margin-top: 2em;
     // .header {
     //   text-align: center;
     //   font-size: 2em;
@@ -115,16 +102,13 @@
     //   margin-top: 1em;
     // }
   }
-
   .atm-school-programm__block_lecture {
     margin-top: 2em;
     text-align: justify;
-
     .lecture__header {
       position: relative;
       font-size: 1.5em;
       margin-bottom: 1em;
-
       &::after {
         content: "";
         position: absolute;
@@ -139,7 +123,6 @@
         // -o-transform: translateX(-50%);
       }
     }
-
     .lecture__description {
       font-size: 1.3em;
       line-height: 2em;
@@ -147,7 +130,6 @@
       margin-bottom: 2em;
       text-align: justify;
     }
-
     .lecture__teacher {
       margin-top: 1em;
     }
@@ -160,24 +142,19 @@
     font-size: 1.3em;
     margin-top: 1.5em;
     text-align: justify;
-
     p::first-letter {
       margin-left: 2em;
     }
   }
-
   .atm-school-constructor-price {
     line-height: 2em;
     font-size: 1.5em;
     margin-top: 2em;
     margin-bottom: 2em;
   }
-
   .atm-school-constructor-date {
-    line-height: 1.5em;
-    // font-size: 1.3em;
-    margin-top: 1.5em;
-    // text-align: justify;
+    line-height: 1.5em; // font-size: 1.3em;
+    margin-top: 1.5em; // text-align: justify;
   }
 }
 
@@ -185,7 +162,6 @@
   .feedback {
     margin-top: 3em;
   }
-
   .img-container {
     float: left;
     width: 10em;
@@ -200,12 +176,10 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
-
   .atm-school-feedback__text {
     font-size: 1.2em;
     line-height: 2em;
     text-align: justify;
-
     &::first-letter {
       margin-left: 2em;
     }

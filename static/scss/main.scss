@@ -2,19 +2,15 @@
 @import "base/main";
 @import "plate";
 @import "ui/ui";
-
 .aeWidgetBtn {
   background-color: transparent !important;
-
   .aeWidgetBtn-Wave {
     border-color: goldenrod !important;
   }
-
   .aeWidgetBtn-icon_logo {
     background-image: url('../images/logo_single.png') !important;
     background-color: transparent !important;
   }
-
   .aeWidgetBtn-icon_book {
     color: dimgray !important;
     background-color: whitesmoke;
@@ -24,7 +20,6 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
   }
-
 }
 
 body {
@@ -37,11 +32,21 @@ body {
   color: $cl-default-text;
   position: relative;
   overflow-x: hidden;
-
   &>section:not(.page_mainheader) {
     padding-top: 3em;
     padding-bottom: 3em;
   }
+  // &>section:nth-child(2n+1) {
+  //   background-color: #fff;
+  //   color: black;
+  //   a {
+  //     color: black;
+  //   }
+  //   .atm-btn-reserved {
+  //     color: #fff;
+  //     border: 1px solid #000;
+  //   }
+  // }
 }
 
 div[id^="jssor"] {
@@ -52,16 +57,13 @@ img {
   width: 100%;
 }
 
-
 a {
   text-decoration: none;
   color: $cl-default-text;
   transition: color .5s ease;
-
   &:hover {
     color: #C7C7C7;
   }
-
   &:focus {
     background-color: transparent;
   }
@@ -89,22 +91,18 @@ a {
 .white-section {
   background-color: #fff;
   color: black;
-
   a {
     color: black;
   }
-
   .atm-btn-reserved {
     color: #fff;
     border: 1px solid #000;
   }
 }
-
 #events {
   position: relative;
   z-index: 1000;
   margin-top: -4em;
-
   .event-container {
     padding-top: 3em;
     background: -moz-linear-gradient(left, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
@@ -112,12 +110,10 @@ a {
     background: linear-gradient(to right, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%); // filter:;
     // progid:DXImageTransform.Microsoft.gradient( startColorstr='#001f1f1f', endColorstr='#001f1f1f', GradientType=1);
     position: relative;
-
     .description {
       padding-left: 0;
     }
   }
-
   .bg-color {
     // padding: 54px 0;
     height: 54px; // background-color: rgba(33, 32, 31, 0.65);
@@ -133,11 +129,9 @@ a {
     margin-top: 3em;
     text-align: center;
   }
-
   .description {
     padding-left: 3em;
   }
-
   .description__title {
     .title {
       text-align: center;
@@ -149,7 +143,6 @@ a {
       font-size: 4.5em;
       font-weight: 800;
       line-height: 1.5em;
-
       &::after {
         content: "";
         position: absolute;
@@ -165,12 +158,10 @@ a {
       }
     }
   }
-
   .description__text {
     line-height: 2em;
     font-size: 1.1em;
     text-align: justify;
-
     &::first-letter {
       margin-left: 1em;
     }
@@ -179,28 +170,23 @@ a {
 
 .page_photogallery {
   padding-top: 2.1em;
-
   .col-md-3 {
     flex-grow: 1;
     max-width: initial;
     overflow: hidden;
     margin-top: 1rem;
   }
-
   .col-md-3:nth-child(2) {
     flex-basis: 50%;
     max-width: 50%;
   }
-
   .col-md-3:nth-child(4n) {
     flex-basis: 50%;
     max-width: 50%;
   }
-
   .img-container {
     overflow: hidden;
   }
-
   .img {
     background-size: cover;
     background-position-y: 30%;
@@ -208,7 +194,6 @@ a {
     background-repeat: no-repeat;
     height: 280px; // cursor: pointer;
     transition: all 4s ease;
-
     &:hover {
       transform: scale(1.1);
     }
@@ -232,7 +217,6 @@ a {
 .atm-advantages-description {
   ul {
     list-style: none;
-
     li {
       font-size: 1.5em;
       margin-top: 1em;
@@ -249,11 +233,8 @@ a {
   margin-top: 1.5em;
   text-align: justify;
   margin-bottom: 1.5em;
-
   .price {}
-
   .date {}
-
   // p::first-letter {
   //   margin-left: 2em;
   // }
@@ -265,12 +246,10 @@ a {
     margin-bottom: 2em;
     font-size: 1.5em;
     line-height: 1.5em;
-
     .description__text {
       text-align: center;
     }
   }
-
   .last-chance {
     p {
       line-height: 1.5em;
