@@ -2,11 +2,12 @@
   // display: none;
   position: fixed;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, .9);
+  // background-color: rgba(0, 0, 0, .9);
   padding: 0;
   margin: 0;
   width: 100vw;
   top: 0;
+
   .atm-menu-mobile__btn {
     // float: left;
     margin: 1em;
@@ -14,10 +15,12 @@
     cursor: pointer;
     color: $cl-default-text;
     transition: all .5s ease;
+
     &:hover {
       color: #C7C7C7;
     }
   }
+
   & .atm-nav-container_mobile>.atm-logo-mobile {
     width: 20%;
     min-height: 3.5em;
@@ -33,17 +36,22 @@
     transition: opacity .3s ease-in;
     opacity: 1;
   }
+
   .atm-nav-container_mobile {
+    background-color: rgba(0, 0, 0, .9);
     transform: translateX(0);
     opacity: 1;
     transition: all .2s ease-in;
+
     &.active {
       transform: translateX(70%);
+
       &>.atm-logo-mobile {
         opacity: 0;
       }
     }
   }
+
   .atm-nav_mobile {
     position: absolute;
     width: 70%;
@@ -52,9 +60,11 @@
     height: 100vh;
     transform: translateX(-100%);
     background-color: rgba(0, 0, 0, .9); // transition: all .2s ease;
+
     &.active {
       transform: translateX(0%);
     }
+
     .atm-logo-mobile {
       display: block;
       position: relative;
@@ -62,31 +72,37 @@
       width: 30%;
       margin: auto;
     }
+
     .atm-main-menu_mobile {
       text-decoration: none;
       list-style: none;
       font-size: 2em;
       margin-left: 2em;
+
       a {
         display: block;
         text-transform: uppercase;
         padding: .5em;
       }
+
       .atm-menu-submenu_mobile {
         display: none;
         text-decoration: none;
         list-style: none;
         margin-left: 2em;
       }
+
       .atm-menu-submenu-btn_mobile {
         cursor: pointer;
       }
     }
+
     .atm-menu-submenu-btn_mobile i.fa-chevron-right {
       margin-left: 1em;
       transition: all .5s ease;
       transform: rotate(0deg);
     }
+
     .atm-menu-submenu-btn_mobile i.fa-chevron-right.active {
       transform: rotate(90deg);
     }

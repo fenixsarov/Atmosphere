@@ -5,6 +5,7 @@
   z-index: 4;
   padding-bottom: 2em;
   padding-top: 90px;
+
   .photo {
     img {
       width: 100%;
@@ -14,6 +15,12 @@
 
 .team-contents {
   margin-top: 3em;
+
+  .person {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
   .person:nth-child(odd) {
     background-color: white;
     color: black;
@@ -54,6 +61,7 @@
   font-size: 1.2em;
   line-height: 2em;
   font-family: 'MontserratRegular';
+
   p {
     text-indent: 1em;
     margin-top: 1em;
