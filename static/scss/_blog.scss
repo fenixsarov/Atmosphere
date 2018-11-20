@@ -3,6 +3,7 @@
   position: relative;
   display: block;
   overflow: hidden;
+
   &:hover {
     & .blog-item__bg img {
       transform: scale(1.5);
@@ -16,6 +17,7 @@
 
 .blog-item__bg {
   overflow: hidden;
+
   img {
     display: block;
     transition: all 25s ease;
@@ -35,10 +37,38 @@
   //right: 100px;
   padding: 30px;
   background-color: rgba(0, 0, 0, 0.35);
+
   .blog-item__header {
     text-transform: uppercase;
     font-size: 1.7em;
     padding-top: .5em;
     padding-bottom: .5em;
+  }
+}
+
+.atm-blog-header {
+  // max-height: 50vh;
+
+  .blog-item__bg {
+    min-height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  position: relative;
+}
+
+.atm-blog-content {
+  padding-top: 2em;
+  font-size: 1.5em;
+  line-height: 1.5em;
+
+  p {
+    margin-top: 1em;
+    text-align: justify;
+
+    &::first-letter {
+      margin-left: 1em;
+    }
   }
 }
