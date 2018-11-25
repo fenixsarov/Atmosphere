@@ -55,17 +55,17 @@ block content
   section#events
     .container
       .row.event-container
-        - var evt_img = ['school.png', 'measures.png', 'masters.png', 'measures.png'];
+        - var evt_img = ['school.png', 'blog.png', 'masterclass.png'];
         | {% with imageUrl|add:'/events/' as src  %}
         - var srcImg = src + evt_img[0]
         .col-md.col-sm.col-xs-12
-          +event("/school", "фотошкола", "Наша атмосферная фотошкола", srcImg)
+          +event("/school", "фотошкола", "Обучаем теории и практике фотографии", srcImg)
         - var srcImg1 = src + evt_img[1]
         .col-md.col-sm.col-xs-12
-          +event("/blog", "блог", "Вся срань в реальном времени в нашем блоге! Читайте!", srcImg1)
+          +event("/blog", "блог", "Пишем про новую движуху нашей студии", srcImg1)
         - var srcImg2 = src + evt_img[2]
         .col-md.col-sm.col-xs-12
-          +event("/masterclass", "мастер-классы", "НЕ ЗАБЫТЬ ДОБАВИТЬ ТЕКСТ!", srcImg2)
+          +event("/masterclass", "мастер-классы", "Проводим атмосферные мастер-классы", srcImg2)
         | {% endwith %}
   section#our-team
     .container

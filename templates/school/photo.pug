@@ -9,7 +9,7 @@ block content
     .container
       .row
         .col-xs-12.col-md-7
-          img#image(src="{% static '/images/school/school_img_8.jpg' %}")
+          img#image(src="{% static '/images/school/photo/main_header.jpg' %}")
         .col-xs-12.col-md-5.description
           .box
             .row.center-xs.start-md
@@ -21,8 +21,10 @@ block content
                   | Учим осознанно нажимать на кнопки, думать как фотограф, делать твои кадры. 
                   | Помогаем тебе изучить фотографию с нуля или систематизируем твои знания. 
                   | Вместе проведем 10 уроков. Закрепим материал домашними работами и практикой.
-                p.desc Стоимость курса – 12990 ₽
-            .row.center-xs.start-md
+            .row.center-xs
+              .col-xs-12
+                p.price Стоимость курса – 12990 ₽
+            .row.center-xs.center-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
   section.atm-school-description
@@ -89,7 +91,7 @@ block content
               .col-xs-2
                 img(src="{% static 'svg/tool-1.svg' %}", alt="")
               .col-xs-10
-                h3.reason-head.font-medium ????
+                h3.reason-head.font-medium 2 половинки
                 p.reason.font-light Программа составлена с учётом технической и творческой стороны фотографии
   section.atm-teachers
     - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
@@ -139,7 +141,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/1.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/1.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -150,7 +152,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/2.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/2.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -161,7 +163,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/3.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/3.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -183,7 +185,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/4.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/4.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -194,7 +196,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/5.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/5.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -205,7 +207,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/6.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/6.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -227,7 +229,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/7.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/7.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -238,7 +240,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/8.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/8.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -249,7 +251,7 @@ block content
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/lecture/new/9.png' %}")
+                    img(src="{% static '/images/school/photo/lecture/9.png' %}")
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
@@ -276,7 +278,7 @@ block content
         section.atm-school-constructor-date.col-xs-12.center-xs
           p Ближайший набор на новый курс - Декабрь 2018г.
   section.page_photogallery.white-section
-    - var gallery_imgs = ["9vrb9iGOII8.jpg","CIPMljq-678.jpg","Fa5WTp1mxdE.jpg","NQlzFFrRxYo.jpg"];
+    - var gallery_imgs = ["5PdtOSzp_Mw.jpg","BErgyRIhgps.jpg","GD1MheKTJ6E.jpg","J-suFBn5ffQ.jpg","MemAkVyCmb0.jpg","U1G3cDrjlL0.jpg","UPCDeRgkR2k.jpg","Ud2jJmM2YZg.jpg","ZtSbY2pydh4.jpg","_zrL0emCafI.jpg","dtWs1M3d0No.jpg","gBa6YIbnnB4.jpg","ko0l06NgUxQ.jpg","nQREyMz7ugg.jpg","s2uXV3IHsgk.jpg","x__Dvuh111Q.jpg","y_7rLjt7Fdg.jpg",];
     .container
       .row
         .col-xs-12
@@ -285,38 +287,51 @@ block content
         | {% for item in gallery_imgs %}
         .col-xs-6.col-md-3
           .img-container
-            .img(style="background-image: url('/static/images/graduations/#{item}')")
+            .img(style="background-image: url('/static/images/school/photo/gallery/#{item}')")
         | {% endfor %}
-  section.atm-school-feedback
+  section.atm-feedback
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Отзывы учеников
       .row.cetner-md
-        
         .feedback
           .col-xs-12.col-md-8.col-md-offset-2
             .box.box-container
               .row
                 .col-xs-12
-                  .img-container(style="background-image: url('/static/images/school/school_img_0.jpg')")
-                  .atm-school-feedback__text
-                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+                  .img-container(style="background-image: url('/static/images/school/photo/feedback/1.jpg')")
+                  .atm-feedback__text
+                    a.atm-feedback__name(href="https://vk.com/rsirotov", target="_blank") Роман Сиротов
+                    p Отзыв о курсах фотографа в студии атмосфера: однажды, хотелось себя чем то занять, долго не мог найти занятие по душе, пока друг из Нижнего Новгорода не посоветовал записаться на курсы фотографии, так как сам на них ходил. Я заинтересовался, однако загвоздка была в том, что в НиНо таких курсов очень много, а в Сарове практически нет, поэтому пришлось долго искать, даже была задумка мотаться в НН каждую неделю, пока случайно не наткнулся на рекламу курсов в фотостудии атмосфера и сразу же записался. На первое занятие шёл с опаской, а вдруг преподаватели строгие, а вдруг я единственный кто ничего не могу поделать с фотоаппаратом?? Однако же, просто зайдя в студию моё отношение резко поменялось...уютная обстановка, приветливые сотрудники, в общем всё выглядело круто не буду расписывать подробности каждого занятия, скажу в целом: благодаря этим ребятам я научился использовать фотоаппарат по назначению, в том смысле, что на данный момент пусть я и не занимаюсь профессиональными фотосессиями, в силу своей занятости, зато могу без проблем настроить фотик под любую погоду, время года, место нахождения и это ручными настройками. Огромное спасибо преподавателям: Денис, Зося, Лена, Катя - Вы суперна таком лёгком общении и информация воспринимается гораздо лучше, на каждое занятие ехал как на релакс, 2,5-3 часа пролетали как минута В целом остался очень доволен и только позитивные впечатления, советую всем начинающим, а сам с радостью записался бы на какие-нибудь дополнительные курсы или мастер-классы для уже научившихся естественно только в Атмосферу!!!
         .feedback
           .col-xs-12.col-md-8.col-md-offset-2
             .box.box-container
               .row
                 .col-xs-12
-                  .img-container(style="background-image: url('/static/images/school/school_img_9.jpg')")
-                  .atm-school-feedback__text
-                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+                  .img-container(style="background-image: url('/static/images/school/photo/feedback/2.jpg')")
+                  .atm-feedback__text 
+                    a.atm-feedback__name(href="https://vk.com/id251042024", target="_blank") Яна Рощина
+                    p Давайте знакомиться, меня зовут Яна. Я выпускница курсов “Фотография с нуля“. Мой отзыв о курсе направлен в большей степени на сомневающихся. Многие думают надо им это или нет. Вроде бы хорошо научиться фотографировать не только в авторежиме. изучить композицию кадра, цветовые сочетания и еще много чего интересного., но как то все не получалось решиться и записаться на курс. 
+                      | Я боялась, что мне сложно будет разобраться во всех этих кнопочках, рычажках и “менюшечках” фотоаппарата, что у меня очень мало свободного времени, много поездок, с которыми курсы никак не совместимы. Но “Кто не рискует, то не пьет шампанское». Я записалась на курс!!! 
+                      | Конечно было нелегко на первых теоретических занятиях (Денис наверное до сих пор вспоминает мое удивление, круглые, половину не понимающие материал глаза)), потом как то все уложилось по полочкам. На практике было очень интересно. Очень много из пройденного пригодилось мне просто в обычной жизни (спасибо нашему преподавателю Елене Лемясевой). А как может Зося мотивировать всех учеников с азартом делать домашние задания, словами не передать. В студии всегда доброжелательная атмосфера, в этом большая заслуга администратора Екатерины Сей.
+                      | Мне очень повезло с сокурсниками. Ребята очень позитивные. Горжусь, что училась на одном курсе с победителем фоточелленджа от фотостудии Атмосфера Екатериной Алькиной. 
+                      | Подводя итог, хочу напомнить, что учится чему то новому всегда интересно, полезно и увлекательно!!
         .feedback
           .col-xs-12.col-md-8.col-md-offset-2
             .box.box-container
               .row
                 .col-xs-12
-                  .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
-                  .atm-school-feedback__text
-                    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+                  .img-container(style="background-image: url('/static/images/school/photo/feedback/3.jpg')")
+                  .atm-feedback__text 
+                    a.atm-feedback__name(href="https://vk.com/katialkina", target="_blank") Катя Алькина
+                    p Вам не так давно попал в руки фотоаппарат. И Вы хотите заняться коммерческой фотографией; быть может это станет вашим хобби; или в душе Вы художник и хотите заняться творческой съёмкой. Мой совет- изучите свой инструмент (да-да, именно фотоаппарат). ДО-СКО-НАЛЬ-НО!!!! 
+                      | Конечно, многие будут кричать, что сейчас "ВСЁ ЕСТЬ В ИНТЕРНЕТЕ!" И, конечно, у Вас всё получится...Но... 
+                      | Но Вы потратите на это важное дело не часы, и не дни.. Месяцы, а может быть и годы. И это будет сложный путь. 
+                      | Так зачем же терять кучу времени, когда можно пойти простым путем: записаться на курс "Фотография с нуля", где всё собрано и разложено по полочкам. Вас не кидает из стороны в сторону. У Вас есть готовый путь, что глобально упрощает вашу жизнь и экономит ваше время. 
+                      | Прошлой зимой я выбрала именно этот путь. Мы были первыми, и на нас экспериментировали. Куча теории и практики. Просто огромная куча вопросов и ответов. Где-то очень сложно для женского восприятия , где-то дико интересно. Но мы прошли его с Яной и Романом. 
+                      | И теперь, освоив азы, мы научились понимать, КАК видит фотоаппарат, ПОЧЕМУ он так видит, и главное, научились НАСТРАИВАТЬ его, чтобы он видел так, как Вам сейчас нужно. 
+                      | Никто не гарантирует, что Вы будете снимать , как БОГ, но курс "Фотография с нуля" - это тот самый "ВОЛШЕБНЫЙ ПЕНДЕЛЬ" в сказочный мир фотографии. Это точно новый круг общения, в котором Вы найдёте себе единомышленников. 
+                      | Так что дерзайте. И УДАЧИ Вам в ваших начинаниях.     
   section.white-section
     include includes/feedback_inc.pug

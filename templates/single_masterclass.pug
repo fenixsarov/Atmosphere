@@ -20,10 +20,8 @@ block content
             .row.center-xs.start-md
               .col-xs-12.description__title
                 h1.title {{ title }}
-                //- h1.title НАЗВАНИЕ МАСТЕРКЛАССА
             .row.center-xs.start-md
               .col-xs-12.description__text
-                //- p.desc
                 | {{ desc |safe }}
             .row.center-xs.start-md
               .col-xs-12.description_btn
@@ -37,11 +35,6 @@ block content
         .col-xs-12.font-light
           p.atm-school-p Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam, accusamus provident, voluptatem inventore impedit mollitia ad sit earum cupiditate a officiis perferendis nobis dolore quas enim necessitatibus corrupti eius.
   section.atm-teachers.white-section
-
-    // - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
-    // - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
-    //- var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
-    //- var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
     .container
       .row
         .col-xs-12
@@ -50,7 +43,6 @@ block content
         each teacher in teachers
           .col-xs-12.col-md-8.col-md-offset-2
             +teacher_card(teacher.desc_image, teacher.title, teacher.desc, teacher.social_link, teacher.social_name)
-
   section.atm-signup.atm-school-constructor#signup
     .container
       .row
@@ -65,30 +57,34 @@ block content
             | либо подарить близкому человеку.
         .row
           .col-xs-12.col-sm-8
-            .box.box-container
-              //- FIXME I NEED BE NAMED
+            .box.box-container.atm-masterclass-reason
               .row.reason
-                .col-xs-12.middle-xs
-                  img(src="{% static 'svg/peace.svg' %}", alt="")
-                  p.reason.font-light Наши курсы проходят в фотостудии «Атмосфера»
+                .col-xs-1.col-md-1.middle-xs
+                  img(src="{% static '/images/masterclass/icons/time.png' %}", alt="")
+                .col-xs-8
+                  p.font-light Удобное время проведения - начинаем в 18:30.
+                  p.font-light Специально для работающих
               .row.reason
-                .col-xs-12.middle-xs
-                  img(src="{% static 'svg/book.svg' %}", alt="")
-                  p.reason.font-light Мы покажем тебе мир фотографии.
+                .col-xs-1.col-md-1.middle-xs
+                  img(src="{% static '/images/masterclass/icons/galka.png' %}", alt="")
+                .col-xs-8
+                  p.font-light Продолжительность мастер-класса - 4 часа.
+                  p.font-light Подобрано так, что бы каждого довести до результата.
               .row.reason
-                .col-xs-12.middle-xs
-                  img(src="{% static 'svg/camera.svg' %}", alt="")
-                  p.reason.font-light Укрепляем навыки, полученные вместе – самостоятельными
+                .col-xs-1.col-md-1.middle-xs
+                  img(src="{% static '/images/masterclass/icons/molbert.png' %}", alt="")
+                .col-xs-8
+                  p.font-light Результат МК - картина своими руками.
+                  p.font-light Её можно повесить дома, или подарить любимому человеку.
           .col-xs-12.col-sm-4
             .box.box-container
               .row
                 .col-xs-12.center-xs
-                  p.price Стоимость {{ price }}
+                  p.price Стоимость {{ price }} ₽
               .row
                 .col-xs-12.center-xs.description_btn
                   a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
   section.page_photogallery.white-section
-    //- var gallery_imgs = ["34lYmz5ASEk.jpg","MbzHAkcOTX4.jpg","U1dBoRoFums.jpg","kbpDgPi_W6A.jpg","vrAMBUR_1v0.jpg","FUZzw8lt8So.jpg","SmFTgH6yXho.jpg","YAFDz1ZWNSQ.jpg"];
     .container
       .row
         .col-xs-12
@@ -108,8 +104,6 @@ block content
         .col-xs-12.col-sm-6
           .atm-video-player-container
             | {% video  video_link '640x480' %}
-            //- img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}")
-            //- i.fab.fa-youtube.atm-mc__video-play-btn
   section.atm-school-feedback.white-section
     .container
       .row

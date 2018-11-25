@@ -109,6 +109,10 @@ class PhotoSchool(BaseView):
     page_name = 'photoschool'
 
 
+class StudyPhotography(BaseView):
+    template_name = 'school/studio_photo.pug'
+    page_name = 'studiophoto'
+
 class Halls(BaseView):
     template_name = 'halls.pug'
     page_name = 'halls'

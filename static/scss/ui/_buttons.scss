@@ -10,6 +10,7 @@
 .atm-btn-default {
     @extend .atm-btn;
     border: 1px solid #FFFFFF;
+
     &:hover {
         background-color: #534d4d;
     }
@@ -18,6 +19,12 @@
 .atm-btn-reserved {
     @extend .atm-btn-default;
     background-color: #b2070f;
+    // background-color: #ffde59;
+    // background-color: goldenrod;
+    // border: 1px solid #999999;
+    font-family: 'MontserratMedium';
+    // color: #FFFFFF;
+    // font-weight: bold;
     margin-top: 15px;
 }
 

@@ -82,6 +82,12 @@ $flex_margin: 15px;
       padding-bottom: 20px;
     }
   }
+
+  .page_mainheader {
+    .description {
+      padding-left: 3em;
+    }
+  }
 }
 
 @media (min-width: 1105px) {
