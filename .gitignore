@@ -18,3 +18,4 @@ initions.sh
 mainApp/migrations/0001_initial.py
 mainApp/migrations/0001_initial.py
 static/ckeditor
+mainApp/migrations
