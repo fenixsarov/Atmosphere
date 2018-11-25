@@ -394,6 +394,7 @@ class SingleMasterClass(BaseView):
     pug = ''
     list_imgs = []
     video = ''
+    who_i = ''
 
 
     def get(self, request, pk):
@@ -407,6 +408,7 @@ class SingleMasterClass(BaseView):
             self.price = mc.price
             self.desc_image = self.path_prefix + mc.desc_image.url
             self.video = mc.video
+            self.who_i = mc.who_interested
 
             # Looking for related teachers
             teachers = [t for t in mc.teachers.all()]
@@ -440,7 +442,8 @@ class SingleMasterClass(BaseView):
                           'teachers': self.teachers,
                           'price': self.price,
                           'list_imgs': self.list_imgs,
-                          'video_link': self.video
+                          'video_link': self.video,
+                          'who_interested': self.who_i
                       })
 
 

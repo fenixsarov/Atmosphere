@@ -166,8 +166,9 @@ class Masterclass(models.Model):
     price = models.IntegerField(verbose_name='Стоимость', default=1500)
     # num_of_place = models.IntegerField(verbose_name='Количество мест', default=10)
     short_desc = RichTextField(verbose_name='Кракое описание мастер-класса', max_length=640)
-    full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=2048)
+    full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=3072)
     desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
+    who_interested = RichTextField(verbose_name='Кому интересен мастер-класс', max_length=2048)
     video = EmbedVideoField(verbose_name='Ссылка на видео', blank=False)
     # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
 
