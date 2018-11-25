@@ -14,3 +14,6 @@ rcssmin==1.0.6
 rjsmin==1.0.12
 six==1.10.0
 django-precise-bbcode>1.2.9
+django-ckeditor>=5.6.1
+django-embed-video>=1.2.0
+Markdown>=3.0.*

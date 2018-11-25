@@ -1,10 +1,12 @@
 extends base
 | {% load staticfiles %}
+| {% load embed_video_tags %}
+
 include mixins/mixins.pug
 
 prepend page
   //- link(rel="stylesheet", href="{% static 'css/halls_slider.css' %}")
-  - var title = ""
+  //- var title = ""
   //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
@@ -12,15 +14,17 @@ block content
     .container
       .row
         .col-xs-12.col-md-7
-          img#image(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}" alt="Фотография мастеркласса")
+          img#image(src="#{desc_image}" alt="Фотография мастеркласса")
         .col-xs-12.col-md-5.description
           .box
             .row.center-xs.start-md
               .col-xs-12.description__title
-                h1.title НАЗВАНИЕ МАСТЕРКЛАССА
+                h1.title {{ title }}
+                //- h1.title НАЗВАНИЕ МАСТЕРКЛАССА
             .row.center-xs.start-md
               .col-xs-12.description__text
-                p.desc In minim excepteur veniam non tempor non sint qui eu aliquip. Aute laborum amet fugiat aute est ipsum dolore ex eiusmod incididunt incididunt. Irure in labore culpa enim do dolore labore sit minim aliqua esse id.
+                //- p.desc
+                | {{ desc |safe }}
             .row.center-xs.start-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
@@ -33,23 +37,26 @@ block content
         .col-xs-12.font-light
           p.atm-school-p Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam, accusamus provident, voluptatem inventore impedit mollitia ad sit earum cupiditate a officiis perferendis nobis dolore quas enim necessitatibus corrupti eius.
   section.atm-teachers.white-section
-    - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
-    - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
+
+    // - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    // - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
+    //- var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
+    //- var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Преподаватели курса
       .row
-        .col-xs-12.col-md-8.col-md-offset-2
-          +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
-        .col-xs-12.col-md-8.col-md-offset-2
-          +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+        each teacher in teachers
+          .col-xs-12.col-md-8.col-md-offset-2
+            +teacher_card(teacher.desc_image, teacher.title, teacher.desc, teacher.social_link, teacher.social_name)
+
   section.atm-signup.atm-school-constructor#signup
     .container
       .row
         .col-xs-12.center-xs
           .atm-section-header.font-medium Записаться на мастер-класс
-          h4 #{MASTERCLASS_NAME}
+          h4 {{ title }}
       section.atm-masterclass-price-description
         .row
           .col-xs-12
@@ -59,7 +66,7 @@ block content
         .row
           .col-xs-12.col-sm-8
             .box.box-container
-              /// FIXME I NEED BE NAMED
+              //- FIXME I NEED BE NAMED
               .row.reason
                 .col-xs-12.middle-xs
                   img(src="{% static 'svg/peace.svg' %}", alt="")
@@ -76,21 +83,21 @@ block content
             .box.box-container
               .row
                 .col-xs-12.center-xs
-                  p.price Стоимость 3000₽
+                  p.price Стоимость {{ price }}
               .row
                 .col-xs-12.center-xs.description_btn
                   a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
   section.page_photogallery.white-section
-    - var gallery_imgs = ["34lYmz5ASEk.jpg","MbzHAkcOTX4.jpg","U1dBoRoFums.jpg","kbpDgPi_W6A.jpg","vrAMBUR_1v0.jpg","FUZzw8lt8So.jpg","SmFTgH6yXho.jpg","YAFDz1ZWNSQ.jpg"];
+    //- var gallery_imgs = ["34lYmz5ASEk.jpg","MbzHAkcOTX4.jpg","U1dBoRoFums.jpg","kbpDgPi_W6A.jpg","vrAMBUR_1v0.jpg","FUZzw8lt8So.jpg","SmFTgH6yXho.jpg","YAFDz1ZWNSQ.jpg"];
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Фотографии с мастеркласса
       .row
-        | {% for item in gallery_imgs %}
+        | {% for item in list_imgs %}
         .col-xs-6.col-md-3
           .img-container
-            .img(style="background-image: url('/static/images/masterclass/#{item}')")
+            .img(style="background-image: url('#{item}')")
         | {% endfor %}
   section.atm-video-section
     .container
@@ -100,8 +107,9 @@ block content
       .row.center-xs
         .col-xs-12.col-sm-6
           .atm-video-player-container
-            img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}")
-            i.fab.fa-youtube.atm-mc__video-play-btn
+            | {% video  video_link '640x480' %}
+            //- img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}")
+            //- i.fab.fa-youtube.atm-mc__video-play-btn
   section.atm-school-feedback.white-section
     .container
       .row

@@ -8,6 +8,7 @@ from django.conf import settings
 from .models import *
 import random
 
+
 # debug = settings.DEBUG
 
 
@@ -81,7 +82,6 @@ class BlogSingleArticle(BaseView):
     content = ''
     public_date = ''
 
-
     def get(self, request, pk):
         try:
             ba = BlogArticle.objects.get(pk=pk)
@@ -102,6 +102,7 @@ class BlogSingleArticle(BaseView):
                 'content': self.content,
             }
         )
+
 
 class PhotoSchool(BaseView):
     template_name = 'school/photo.pug'
@@ -380,13 +381,16 @@ class SingleMasterClass(BaseView):
     page_name = 'single_masterclass'
     plate_desc = []
     main_text = ''
+    teachers = []
     title = ''
     desc_image = ''
     full_desc = ''
+    price = 0
     mc = ''
     pug = ''
     list_imgs = []
-    bb_parser = get_parser()
+    video = ''
+
 
     def get(self, request, pk):
         arg = self.args
@@ -394,27 +398,46 @@ class SingleMasterClass(BaseView):
             self.list_imgs.clear()
             mc = Masterclass.objects.get(pk=pk)
             self.title = mc.title
-            self.full_desc = self.bb_parser.render(mc.full_desc)
+            # self.full_desc = self.bb_parser.render(mc.full_desc)
+            self.full_desc = mc.full_desc
+            self.price = mc.price
+            self.desc_image = self.path_prefix + mc.desc_image.url
+            self.video = mc.video
 
-            # self.list_imgs = [h.file.url for h in PicMasterclass.objects.filter(galleryMasterclass_id=pk)]
+            # Looking for related teachers
+            teachers = [t for t in mc.teachers.all()]
+            self.teachers.clear()
+            for t in teachers:
+                self.teachers.append({
+                    'title': t.title,
+                    'desc': t.desc,
+                    'content': t.content,
+                    'desc_image': self.path_prefix + t.desc_image.url,
+                    'social_link': t.social_link,
+                    'social_name': t.social_name
+                })
 
-            self.list_imgs.append(self.path_prefix + mc.desc_image.url)
+            # self.teachers = [t for t in mc.teachers.all()]
+            self.list_imgs.clear()
+            self.list_imgs = [self.path_prefix + h.file.url for h in
+                              PicMasterclass.objects.filter(galleryMasterclass_id=pk)]
+
             random.shuffle(self.list_imgs)
-
-            self.pug = loader.render_to_string(
-                'includes/universal_slider_inc.html',
-                {'imgs_list': self.list_imgs})
 
         except BaseException as e:
             print(e)
 
-        return render(
-            request, self.template_name, {
-                'page': self.page_name,
-                'header': self.title,
-                'desc': self.full_desc,
-                'pug': self.pug
-            })
+        return render(request,
+                      self.template_name, {
+                          'page': self.page_name,
+                          'title': self.title,
+                          'desc': self.full_desc,
+                          'desc_image': self.desc_image,
+                          'teachers': self.teachers,
+                          'price': self.price,
+                          'list_imgs': self.list_imgs,
+                          'video_link': self.video
+                      })
 
 
 class MasterClassChange(View):

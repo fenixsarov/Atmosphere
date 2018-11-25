@@ -5,6 +5,8 @@ from django.shortcuts import get_object_or_404
 
 from multiupload.admin import MultiUploadAdmin
 
+
+
 class ImageInlineAdmin(admin.TabularInline):
     # model = Image
     model = Picture
@@ -50,6 +52,9 @@ class PictureAdmin(GalleryMultiuploadMixing, MultiUploadAdmin):
 
 
 class MasterclassAdmin(GalleryAdmin):
+    # fieldsets = [
+    #   ('Body', {'classes': ('full-width',), 'fields': ('title','full_desc',)})
+    # ]
     multiupload_list = False
 
 

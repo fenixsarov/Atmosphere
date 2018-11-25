@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'sass',
     'django_libsass',
     'Atmosphere',
-    'mainApp'
+    'mainApp',
+    'ckeditor',
+    'embed_video'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -165,3 +167,5 @@ STATICFILES_FINDERS = (
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+
+CKEDITOR_UPLOAD_PATH = "uploads/"

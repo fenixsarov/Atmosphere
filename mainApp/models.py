@@ -1,6 +1,8 @@
 from django.db import models
 from django import forms
-
+from ckeditor.fields import RichTextField
+from embed_video.fields import EmbedVideoField
+from precise_bbcode.fields import BBCodeTextField
 # Create your models here.
 
 # Two abstract classes for saving and grouping images
@@ -33,31 +35,6 @@ class Picture(models.Model):
     @property
     def filename(self):
         return self.file.name.rsplit('/', 1)[-1]
-
-
-# Эти два класса описывают изображения на странице мастерклассов и само содежимое каждого мастеркласса
-class Masterclass(models.Model):
-    title = models.CharField('Title', max_length=128)
-    teacher = models.CharField(verbose_name='Преподаватель', max_length=32)
-    price = models.IntegerField(verbose_name='Стоимость', default=1500)
-    num_of_place = models.IntegerField(verbose_name='Количество мест', default=10)
-    short_desc = models.TextField(verbose_name='Кракое описание мастер-класса', max_length=256)
-    full_desc = models.TextField(verbose_name='Полное описание мастер-класса', max_length=512)
-    desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
-    # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name_plural = '2.2 Мастерклассы'
-
-
-class PicMasterclass(Picture):
-    galleryMasterclass = models.ForeignKey(Masterclass, related_name='images', blank=True, null=True)
-
-    class Meta:
-        verbose_name_plural = 'Все изображения со страницы мастерклассов'
 
 
 # Эти два класса описывают изображения на странице выпускных съёмок и само содежимое каждого из них
@@ -168,15 +145,44 @@ class BlogArticle(models.Model):
 #  Этот класс описывает запись об одном из членов команды
 class TeamPerson(models.Model):
     title = models.CharField('Имя', max_length=128)
-    desc = models.TextField(verbose_name='Описание', max_length=64)
+    desc = models.TextField(verbose_name='Описание', max_length=256)
     content = models.TextField(verbose_name='Основной текст')
     desc_image = models.FileField(upload_to="", verbose_name='Фотография')
+    social_link = models.URLField(verbose_name="Ссылка на социалку")
+    social_name = models.URLField(verbose_name="Ссылка на инстаграм")
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name_plural = '4.1 Команда'
+
+
+# Эти два класса описывают изображения на странице мастерклассов и само содежимое каждого мастеркласса
+class Masterclass(models.Model):
+    title = models.CharField('Название мастер-класса', max_length=128)
+    # teacher = models.ForeignKey(TeamPerson,  blank=False, null=False)
+    teachers = models.ManyToManyField(TeamPerson,  blank=False)
+    price = models.IntegerField(verbose_name='Стоимость', default=1500)
+    # num_of_place = models.IntegerField(verbose_name='Количество мест', default=10)
+    short_desc = RichTextField(verbose_name='Кракое описание мастер-класса', max_length=640)
+    full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=2048)
+    desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
+    video = EmbedVideoField(verbose_name='Ссылка на видео', blank=False)
+    # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '2.2 Мастерклассы'
+
+
+class PicMasterclass(Picture):
+    galleryMasterclass = models.ForeignKey(Masterclass, related_name='images', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Все изображения со страницы мастерклассов'
 
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')
