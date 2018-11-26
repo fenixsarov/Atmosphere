@@ -127,12 +127,23 @@ class PicSession(Picture):
         verbose_name_plural = 'Все изображения съёмок'
 
 
-# Этот класс описывает содержание статьи блога
+# Эти классы описывают содержание статьи блога
+class BlogContentBlock(models.Model):
+    title = models.CharField('Описание, к какомой статье относится', max_length=512)
+    content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=8096)
+    desc_image = models.FileField(upload_to="", verbose_name='Картинка к блоку')
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '3.1 Блок статьи блога'
+
 class BlogArticle(models.Model):
     title = models.CharField('Заголовок', max_length=128)
     desc = models.TextField(verbose_name='Описание', max_length=256)
     desc_image = models.FileField(upload_to="", verbose_name='Картинка к статье')
-    content = models.TextField(verbose_name='Основной текст')
+    content = models.ManyToManyField(BlogContentBlock, verbose_name='Основной текст')
+    # content = models.TextField(verbose_name='Основной текст')
     public_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -140,6 +151,12 @@ class BlogArticle(models.Model):
 
     class Meta:
         verbose_name_plural = '3.0 Блог'
+
+class PicBlogArticle(Picture):
+    galleryBlogArticle = models.ForeignKey(BlogArticle, related_name='images', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Все изображения со страниц блогов'
 
 
 #  Этот класс описывает запись об одном из членов команды
@@ -166,8 +183,9 @@ class Masterclass(models.Model):
     price = models.IntegerField(verbose_name='Стоимость', default=1500)
     # num_of_place = models.IntegerField(verbose_name='Количество мест', default=10)
     short_desc = RichTextField(verbose_name='Кракое описание мастер-класса', max_length=640)
-    full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=2048)
+    full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=3072)
     desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
+    who_interested = RichTextField(verbose_name='Кому интересен мастер-класс', max_length=2048)
     video = EmbedVideoField(verbose_name='Ссылка на видео', blank=False)
     # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
 

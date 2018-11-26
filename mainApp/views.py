@@ -79,17 +79,35 @@ class BlogSingleArticle(BaseView):
     title = ''
     desc = ''
     desc_image = ''
-    content = ''
+    content = []
     public_date = ''
+    list_imgs = []
 
     def get(self, request, pk):
         try:
             ba = BlogArticle.objects.get(pk=pk)
             self.title = ba.title
             self.desc = ba.desc
-            self.desc_image = self.path_prefix + ba.desc_image
-            self.content = ba.content
+            self.desc_image = self.path_prefix + ba.desc_image.url
+            # self.content = ba.content
             self.public_date = ba.public_date
+
+            # Looking for related teachers
+            content = [c for c in ba.content.all()]
+            self.content.clear()
+            for c in content:
+                self.content.append({
+                    'title': c.title,
+                    'content': c.content,
+                    'desc_image': '/images/upload_imgs/' + c.desc_image.url,
+                })
+
+            # self.teachers = [t for t in mc.teachers.all()]
+            self.list_imgs.clear()
+            self.list_imgs = [self.path_prefix + h.file.url for h in
+                              PicBlogArticle.objects.filter(galleryBlogArticle_id=pk)]
+
+
 
         except BaseException as e:
             print(e)
@@ -100,6 +118,7 @@ class BlogSingleArticle(BaseView):
                 'desc': self.desc,
                 'desc_image': self.desc_image,
                 'content': self.content,
+                'list_imgs': self.list_imgs
             }
         )
 
@@ -394,6 +413,7 @@ class SingleMasterClass(BaseView):
     pug = ''
     list_imgs = []
     video = ''
+    who_i = ''
 
 
     def get(self, request, pk):
@@ -407,6 +427,7 @@ class SingleMasterClass(BaseView):
             self.price = mc.price
             self.desc_image = self.path_prefix + mc.desc_image.url
             self.video = mc.video
+            self.who_i = mc.who_interested
 
             # Looking for related teachers
             teachers = [t for t in mc.teachers.all()]
@@ -440,7 +461,8 @@ class SingleMasterClass(BaseView):
                           'teachers': self.teachers,
                           'price': self.price,
                           'list_imgs': self.list_imgs,
-                          'video_link': self.video
+                          'video_link': self.video,
+                          'who_interested': self.who_i
                       })
 
 

@@ -52,13 +52,18 @@ class PictureAdmin(GalleryMultiuploadMixing, MultiUploadAdmin):
 
 
 class MasterclassAdmin(GalleryAdmin):
-    # fieldsets = [
-    #   ('Body', {'classes': ('full-width',), 'fields': ('title','full_desc',)})
-    # ]
     multiupload_list = False
 
 
 class PicMasterclassAdmin(PictureAdmin):
+    list_display = ['filename', 'title']
+
+
+class BlogArticleAdmin(GalleryAdmin):
+    multiupload_list = False
+
+
+class PicBlogArticleAdmin(PictureAdmin):
     list_display = ['filename', 'title']
 
 
@@ -98,6 +103,8 @@ admin.site.register(Hall, ProductAdmin)
 admin.site.register(PicHalls, PicProductAdmin)
 admin.site.register(Session, ProductAdmin)
 admin.site.register(PicSession, PicProductAdmin)
-admin.site.register(BlogArticle)
+admin.site.register(BlogArticle, BlogArticleAdmin)
+admin.site.register(PicBlogArticle, PicBlogArticleAdmin)
+admin.site.register(BlogContentBlock)
 admin.site.register(TeamPerson)
 # Register your models here.
