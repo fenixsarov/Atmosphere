@@ -40,9 +40,10 @@ block content
     .container
       .row
         | {% for item in gallery_imgs %}
-        .img-container.col-xs-6.col-md-3
-          .img(style="background-image: url('/static/images/graduations/#{item}')")
-            //- // Тут я не осилил сделать через {% static %}
+        .col-xs-6.col-md-3
+          .img-container
+            .img(style="background-image: url('/static/images/graduations/#{item}')")
+              //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
   section.atm-teachers
     - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
@@ -93,9 +94,10 @@ block content
     .container
       .row
         | {% for item in gallery_imgs %}
-        .img-container.col-xs-6.col-md-3
-          .img(style="background-image: url('/static/images/photoalbum/#{item}')")
-            //- // Тут я не осилил сделать через {% static %}
+        .col-xs-6.col-md-3
+          .img-container
+            .img(style="background-image: url('/static/images/photoalbum/#{item}')")
+              //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
   section.atm-photoalbum-print-price
     .container
