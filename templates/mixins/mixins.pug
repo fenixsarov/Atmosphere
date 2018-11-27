@@ -51,7 +51,7 @@ mixin event_disabled(url, header, description, bg_img)
         div.desc #{description}
 mixin page_mainheader_with_slider(id)
   section
-    .container.page_mainheader
+    .container
       .row
         .col-xs-12.col-md-7(id=id)
         .col-xs-12.col-md-5.description
@@ -93,3 +93,10 @@ mixin teacher_card(img_url, name, description, social_link, social_name)
         a.atm-teacher-social-link.font-light(href="#{social_link}") 
           i.fab.fa-instagram 
           span.font-light Ссылка на профиль #{social_name}
+
+mixin feedback(user_img, user_name, user_feedback, vk_link)
+  .feedback__single
+    .img-container(style="background-image: url('#{user_img}')")
+    .atm-feedback__text 
+      a.atm-feedback__name(href="#{vk_link}", target="_blank") #{user_name}
+      p #{user_feedback}
