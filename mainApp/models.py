@@ -186,7 +186,7 @@ class Masterclass(models.Model):
     full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=3072)
     desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
     who_interested = RichTextField(verbose_name='Кому интересен мастер-класс', max_length=2048)
-    video = EmbedVideoField(verbose_name='Ссылка на видео', blank=False)
+    video = EmbedVideoField(verbose_name='Ссылка на видео', blank=True, default='')
     # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
 
     def __str__(self):
