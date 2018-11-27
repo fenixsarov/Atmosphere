@@ -150,30 +150,8 @@ block content
           .col-xs-12
             .atm-section-header.font-medium Отзывы учеников
         .row.cetner-md
-
-          .feedback
-            .col-xs-12.col-md-8.col-md-offset-2
-              .box.box-container
-                .row
-                  .col-xs-12
-                    .img-container(style="background-image: url('/static/images/school/school_img_0.jpg')")
-                    .atm-school-feedback__text
-                      p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
-          .feedback
-            .col-xs-12.col-md-8.col-md-offset-2
-              .box.box-container
-                .row
-                  .col-xs-12
-                    .img-container(style="background-image: url('/static/images/school/school_img_9.jpg')")
-                    .atm-school-feedback__text
-                      p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
-          .feedback
-            .col-xs-12.col-md-8.col-md-offset-2
-              .box.box-container
-                .row
-                  .col-xs-12
-                    .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
-                    .atm-school-feedback__text
-                      p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
+          | {% for item in list_feedbacks %}
+            +feedback(item.user_img, item.user_name, item.user_feedback, item.user_vklink)
+          | {% endfor %}
     section.white-section
       include includes/feedback_inc.pug

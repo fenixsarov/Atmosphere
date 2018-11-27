@@ -9,249 +9,270 @@ var $carouselContent = null,
 
 var first_submenu_load = true;
 
-$(document).ready(function () {
+$( document ).ready( function () {
   hidePreload();
-  var prev_s = $(window).scrollTop();
-  var w_height = $(window).height();
+  var prev_s = $( window ).scrollTop();
+  var w_height = $( window ).height();
 
-  var $header = $('#atm-header');
-  var $prlx_img1 = $('#atm-header-slogan-section .parallax-img');
+  var $header = $( '#atm-header' );
+  var $prlx_img1 = $( '#atm-header-slogan-section .parallax-img' );
 
   // CAROUSEL
-  $carouselContent = $("#scenery-carousel .content");
-  $carouselContent.css({
+  $carouselContent = $( "#scenery-carousel .content" );
+  $carouselContent.css( {
     'height': $carouselContent.width() / 3
-  });
+  } );
   carouselIsAnimate = false;
   carouselIndex = 0;
   carouselContentChild = $carouselContent.children();
   carouselLength = carouselContentChild.length;
-  carouselLastItem = carouselContentChild[carouselLength - 1];
-  carouselFirstItem = $carouselContent.children()[0];
+  carouselLastItem = carouselContentChild[ carouselLength - 1 ];
+  carouselFirstItem = $carouselContent.children()[ 0 ];
 
-  $('.carousel-control.left').on('click', function (e) {
+  $( '.carousel-control.left' ).on( 'click', function ( e ) {
     slideLeft();
-  });
-  $('.carousel-control.right').on('click', function (e) {
+  } );
+  $( '.carousel-control.right' ).on( 'click', function ( e ) {
     slideRight();
-  });
-  $('#scenery-carousel')
-    .on('mouseover', function () {
-      clearInterval(autoSlide);
-    }).on('mouseout', function () {
+  } );
+  $( '#scenery-carousel' )
+    .on( 'mouseover', function () {
+      clearInterval( autoSlide );
+    } ).on( 'mouseout', function () {
       autoRotateSlide();
-    });
+    } );
 
   autoRotateSlide();
-
   var header_height = w_height;
 
-  $(window).on('resize', function () {
-    w_height = $(window).height();
+  $( window ).on( 'resize', function () {
+    w_height = $( window ).height();
     header_height = w_height;
-  });
+
+    // Жуткий костыль какой-то конечно
+    checkMobileTopPadding();
+  } );
 
   var team_img_pos = [];
-  $('.team-block-image').each(function (val) {
-    team_img_pos.push([$(this), $(this).offset().top]);
-  });
+  $( '.team-block-image' ).each( function ( val ) {
+    team_img_pos.push( [ $( this ), $( this ).offset().top ] );
+  } );
 
-  $(window).scroll(function (e) {
-    var cur_s = $(this).scrollTop();
-    var direction = (prev_s - cur_s) < 0 ? 1 : -1;
-    requestAnimationFrame(function () {
-      if (cur_s <= header_height) {
-        headerParallax(cur_s);
-        $('.aeWidgetBtn').css('display', 'none');
+  $( window ).scroll( function ( e ) {
+    var cur_s = $( this ).scrollTop();
+    var direction = ( prev_s - cur_s ) < 0 ? 1 : -1;
+    requestAnimationFrame( function () {
+      if ( cur_s <= header_height ) {
+        headerParallax( cur_s );
+        $( '.aeWidgetBtn' ).css( 'display', 'none' );
         // $prlx_main.css('position', 'absolute');
       }
-      if (cur_s > header_height) {
-        $('.aeWidgetBtn').css('display', 'block');
+      if ( cur_s > header_height ) {
+        $( '.aeWidgetBtn' ).css( 'display', 'block' );
         // mainContentParallax( cur_s );
         // $prlx_main.css('position', 'fixed');
       }
 
-      if (team_img_pos.length) { // Не знаю на сколько это всё оптимально сделано
+      if ( team_img_pos.length ) { // Не знаю на сколько это всё оптимально сделано
         var dones = [];
-        team_img_pos.forEach(function (value, index) {
-          if ((cur_s + w_height / 2) > value[1]) {
-            value[0].animate({
+        team_img_pos.forEach( function ( value, index ) {
+          if ( ( cur_s + w_height / 2 ) > value[ 1 ] ) {
+            value[ 0 ].animate( {
               'opacity': 1
-            }, 600);
-            dones.push(index);
+            }, 600 );
+            dones.push( index );
           }
-        });
-        dones.forEach(function (value) {
-          team_img_pos.splice(value, 1);
-        });
+        } );
+        dones.forEach( function ( value ) {
+          team_img_pos.splice( value, 1 );
+        } );
       }
-    });
+    } );
 
     prev_s = cur_s;
 
     // BG Header
-  });
+  } );
 
-  function headerParallax(c_scroll) {
-    $prlx_img1.css('top', (c_scroll * 0.5) + 'px');
+  function headerParallax ( c_scroll ) {
+    $prlx_img1.css( 'top', ( c_scroll * 0.5 ) + 'px' );
   }
 
-  function mainContentParallax(c_scroll) {
-    $prlx_main.css('top', (c_scroll - header_height) + 'px');
+  function mainContentParallax ( c_scroll ) {
+    $prlx_main.css( 'top', ( c_scroll - header_height ) + 'px' );
   }
 
-  function sliderSlide() {
+  function sliderSlide () {
 
   }
 
-  var $bgHeader = $('.atm-navigation__bg-img');
-  if ($bgHeader) {
-    $navContainer = $('.atm-nav-container');
-    $bgHeader.css({
-      height: $navContainer[0].offsetHeight + 20,
-      width: $navContainer[0].offsetWidth + 20,
-      left: -(Number($navContainer.css('padding-left').replace('px', '')) + 10),
+  var $bgHeader = $( '.atm-navigation__bg-img' );
+  if ( $bgHeader ) {
+    $navContainer = $( '.atm-nav-container' );
+    $bgHeader.css( {
+      height: $navContainer[ 0 ].offsetHeight + 20,
+      width: $navContainer[ 0 ].offsetWidth + 20,
+      left: -( Number( $navContainer.css( 'padding-left' ).replace( 'px', '' ) ) + 10 ),
       display: 'block'
-    });
+    } );
   }
+
   ////// Plate events
   bindPlateEvents();
   bindAjaxContentChange();
   bindAjaxReservedForm();
-  $('body').on('click', function (e) {
-    if ($(e.target).hasClass('.atm-overlay')) {
-      $('.atm-overlay').remove();
-      $('.atm-reserved-form').remove();
-      $('body').css('overflow', 'auto');
+  $( 'body' ).on( 'click', function ( e ) {
+    if ( $( e.target ).hasClass( '.atm-overlay' ) ) {
+      $( '.atm-overlay' ).remove();
+      $( '.atm-reserved-form' ).remove();
+      $( 'body' ).css( 'overflow', 'auto' );
       return;
     }
 
-    if ($('.atm-nav_mobile').hasClass('active')) {
-      $('.atm-nav_mobile').removeClass('active');
+    if ( $( '.atm-nav_mobile' ).hasClass( 'active' ) ) {
+      $( '.atm-nav_mobile' ).removeClass( 'active' );
     }
-  });
+  } );
 
-  $('.atm-menu-mobile__btn').on('click', function (e) {
+  $( '.atm-menu-mobile__btn' ).on( 'click', function ( e ) {
     e.preventDefault();
     e.stopPropagation();
 
-    $(this).closest('.atm-nav-container_mobile').toggleClass('active');
-    $('.atm-menu-submenu-btn_mobile')
-      .removeClass('active')
-      .next('.atm-menu-submenu_mobile')
+    $( this ).closest( '.atm-nav-container_mobile' ).toggleClass( 'active' );
+    $( '.atm-under-menu-panel' ).toggleClass( 'active' );
+    $( '.atm-menu-submenu-btn_mobile' )
+      .removeClass( 'active' )
+      .next( '.atm-menu-submenu_mobile' )
       .slideUp()
       .end()
-      .children('i')
-      .removeClass('active');
-  });
-  $('.atm-nav_mobile').on('click', function (e) {
+      .children( 'i' )
+      .removeClass( 'active' );
+  } );
+  $( '.atm-nav_mobile' ).on( 'click', function ( e ) {
     e.stopPropagation();
-  });
-  $('.atm-menu-submenu-btn_mobile').on('click', function (e) {
-    if ($(this).hasClass('active')) {
-      $(this)
-        .removeClass('active')
-        .next('.atm-menu-submenu_mobile')
+  } );
+  $( '.atm-menu-submenu-btn_mobile' ).on( 'click', function ( e ) {
+    if ( $( this ).hasClass( 'active' ) ) {
+      $( this )
+        .removeClass( 'active' )
+        .next( '.atm-menu-submenu_mobile' )
         .slideUp()
         .end()
-        .children('i')
-        .removeClass('active');
+        .children( 'i' )
+        .removeClass( 'active' );
     } else {
-      $(this)
-        .addClass('active')
-        .next('.atm-menu-submenu_mobile')
+      $( this )
+        .addClass( 'active' )
+        .next( '.atm-menu-submenu_mobile' )
         .slideDown()
         .end()
-        .children('i')
-        .addClass('active');
+        .children( 'i' )
+        .addClass( 'active' );
     }
-  });
-});
+  } );
 
-function hidePreload() {
-  $('#preloader').fadeOut('slow', function () {
-    $('body').css({
+  checkMobileTopPadding();
+} );
+
+function checkMobileTopPadding () {
+  // bindAjaxContentChange();
+  var $atmMobileNav = $( '#atm-navigation_mobile' );
+  if ( $atmMobileNav.css( 'display' ) === 'block' ) {
+    $atmMobileNav.next( 'section' ).css( 'margin-top', $atmMobileNav.height() );
+    // $( '.view' )
+    //   .first()
+    //   .addClass( 'active' )
+    // // $( '.atm-under-menu .view' ).first().addClass( 'active' );
+  }
+  else {
+    $atmMobileNav.next( 'section' ).css( 'margin-top', 0 );
+  }
+}
+
+function hidePreload () {
+  $( '#preloader' ).fadeOut( 'slow', function () {
+    $( 'body' ).css( {
       'overflow': 'visible'
-    });
+    } );
     startPage();
-  });
+  } );
 }
 
-function startPage() {
-  $('.background-paralax .slogan').animate({
+function startPage () {
+  $( '.background-paralax .slogan' ).animate( {
     opacity: '1'
-  }, 700);
+  }, 700 );
 }
 
-function autoRotateSlide() {
-  autoSlide = setInterval(function () {
+function autoRotateSlide () {
+  autoSlide = setInterval( function () {
     slideRight();
-  }, 2500);
+  }, 2500 );
 }
 
-function slideRight() {
-  if (carouselIsAnimate) {
+function slideRight () {
+  if ( carouselIsAnimate ) {
     return;
   }
   carouselIsAnimate = true;
   carouselIndex++;
 
-  if (carouselIndex >= carouselLength) {
-    carouselContentChild.each(function (i) {
-      $(this).animate({
-        'left': i * $(this).width()
+  if ( carouselIndex >= carouselLength ) {
+    carouselContentChild.each( function ( i ) {
+      $( this ).animate( {
+        'left': i * $( this ).width()
       }, 1000, function () {
         carouselIsAnimate = false;
-      });
-    });
+      } );
+    } );
     carouselIndex = 0;
   } else {
-    carouselContentChild.each(function (i) {
-      $(this).animate({
-        'left': $(this).position().left - $(this).width()
+    carouselContentChild.each( function ( i ) {
+      $( this ).animate( {
+        'left': $( this ).position().left - $( this ).width()
       }, 1000, function () {
         carouselIsAnimate = false;
-      });
-    });
+      } );
+    } );
   }
 }
 
-function slideLeft(carousel) {
-  if (carouselIsAnimate) {
+function slideLeft ( carousel ) {
+  if ( carouselIsAnimate ) {
     return;
   }
   carouselIsAnimate = true;
   carouselIndex--;
 
-  if (carouselIndex < 0) {
-    carouselContentChild.each(function (i) {
-      $(this).animate({
-        'left': $(this).position().left - (carouselLength - 1) * $(this).width()
+  if ( carouselIndex < 0 ) {
+    carouselContentChild.each( function ( i ) {
+      $( this ).animate( {
+        'left': $( this ).position().left - ( carouselLength - 1 ) * $( this ).width()
       }, 1000, function () {
         carouselIsAnimate = false;
-      });
-    });
+      } );
+    } );
     carouselIndex = carouselLength - 1;
   } else {
-    carouselContentChild.each(function (i) {
-      $(this).animate({
-        'left': $(this).position().left + $(this).width()
+    carouselContentChild.each( function ( i ) {
+      $( this ).animate( {
+        'left': $( this ).position().left + $( this ).width()
       }, 1000, function () {
         carouselIsAnimate = false;
-      });
-    });
+      } );
+    } );
   }
 }
 
-function slideTo(carousel, number) {
-  var item = carousel.find('.item');
+function slideTo ( carousel, number ) {
+  var item = carousel.find( '.item' );
   var item_count = item.length;
 
-  item.each(function (i, e) {
-    var active = $(e).hasClass('active');
+  item.each( function ( i, e ) {
+    var active = $( e ).hasClass( 'active' );
 
     var w = carousel.width();
-    var pos = $(e).position();
+    var pos = $( e ).position();
 
     // if (active && (item_count - 1) == i) {
     //   $(e).animate({
@@ -262,19 +283,19 @@ function slideTo(carousel, number) {
     //     'left': `-${}`
     //   }, 500);
     // }
-  });
+  } );
   // console.log(item.position());
 }
 
-function bindPlateEvents() {
-  $('.plate_new')
-    .each(function () {
-      $(this).css({
+function bindPlateEvents () {
+  $( '.plate_new' )
+    .each( function () {
+      $( this ).css( {
         'min-height': '286px',
         'height': '286px',
         'max-height': '286px'
-      });
-    });
+      } );
+    } );
 }
 
 //// AJAX
@@ -282,106 +303,170 @@ var subMenuContentAction = {
   'graduations': {
     'url': '/graduations/graduationschange/',
     'default': 'school', // DEFAULT VALUE... remove later
-    'success': function (res) {
-      $('#graduations_images').html(res.html);
+    'success': function ( res ) {
+      $( '#graduations_images' ).html( res.html );
     }
   },
   'sessions': {
     'url': '/halls/sessionschange/',
     'default': 'family', // DEFAULT VALUE... remove later
-    'success': function (res) {
-      $('#session').html(res.html);
-      $('#title').html(res.title);
-      $('#desc').html(res.desc);
+    'success': function ( res ) {
+      $( '#session' ).html( res.html );
+      $( '#title' ).html( res.title );
+      $( '#desc' ).html( res.desc );
     }
   },
   'halls': {
     'url': '/halls/hallschange/',
     'default': 'dark', // DEFAULT VALUE... remove later
-    'success': function (res) {
+    'success': function ( res ) {
       // console.log(res);
-      $('#hall').html(res.html);
-      $('#title').html(res.title);
-      $('#desc').html(res.desc);
-      $('#hallsize').html('Размер зала: ' + res.hallsize + ' кв.м.');
-      $('#price').html('Стоимость аренды зала: <br>' + res.price + 'руб./час');
+      $( '#hall' ).html( res.html );
+      $( '#title' ).html( res.title );
+      $( '#desc' ).html( res.desc );
+      $( '#hallsize' ).html( 'Размер зала: ' + res.hallsize + ' кв.м.' );
+      $( '#price' ).html( 'Стоимость аренды зала: <br>' + res.price + 'руб./час' );
     }
   }
 };
 
-function bindAjaxContentChange() {
-  var page = window.location.pathname.replace(/\//g, '');
-  if (page in subMenuContentAction) {
-    changeSubMenuContent(subMenuContentAction[page].default); // SET DEFAULT VALUE ON PAGE LOAD
-    $('.view')
+function bindAjaxContentChange () {
+  var page = window.location.pathname.replace( /\//g, '' );
+  if ( page in subMenuContentAction ) {
+    changeSubMenuContent( subMenuContentAction[ page ].default ); // SET DEFAULT VALUE ON PAGE LOAD
+    $( '.view' )
       .first()
-      .addClass('active')
+      .addClass( 'active' )
       .end()
-      .on('click', function (evt) {
+      .on( 'click', function ( evt ) {
         evt.preventDefault();
 
-        $('.view').removeClass('active');
+        $( '.view' ).removeClass( 'active' );
 
-        changeSubMenuContent.call(this);
-      });
+        changeSubMenuContent.call( this );
+      } );
   }
 }
 
-function bindAjaxReservedForm() {
-  $('.reserved-btn-scroolled').on('click', function (evt) {
+function bindAjaxReservedForm () {
+  $( '.reserved-btn-scroolled' ).on( 'click', function ( evt ) {
     evt.preventDefault();
-    $('html, body').stop().animate({
-      scrollTop: $('#signup').offset().top
-    }, 777);
-  });
-  $('.reserved-btn').on('click', function (evt) {
+    $( 'html, body' ).stop().animate( {
+      scrollTop: $( '#signup' ).offset().top
+    }, 777 );
+  } );
+  $( '.reserved-btn' ).on( 'click', function ( evt ) {
     evt.preventDefault();
-    $.ajax({
+    $.ajax( {
       type: "GET",
       url: "/reserved/form",
       dataType: "json",
       cache: false,
-      success: function (res) {
-        if (res.response === "ok") {
+      success: function ( res ) {
+        if ( res.response === "ok" ) {
           createOverlay();
-          var $html = $(res.html);
-          $html
-            .css({
-              'top': $(window).scrollTop() + 20
-            })
-            .find('.fa-times')
-            .on('click', function () {
-              $('.atm-overlay').remove();
-              $('.atm-reserved-form').remove();
-              $('body').css('overflow', 'auto');
-            })
-            .end()
-            .find('.atm-form__phone')
-            .mask("+7(999) 999-9999");
+          var $html = $( res.html );
 
-          $('body')
-            .css('overflow', 'hidden')
-            .append($html)
+          $html.appendTo( 'body' );
+          var height = $html.outerHeight();
+          var topScroll = $( window ).scrollTop();
+
+          $html
+            .css( {
+              'top': topScroll - height,
+              'display': 'block'
+            } )
+            .find( '.fa-times' )
+            .one( 'click', function () {
+              hideReservedForm();
+            } )
+            .end()
+            .find( '.atm-form__phone' )
+            .mask( "+7(999) 999-9999" )
+            .end()
+            .animate( {
+              'top': topScroll
+            }, 300 );
+
+          $( 'body' )
+            .css( 'overflow', 'hidden' );
+
+          $( '.atm-reserved-form__form' )
+            .submit( function ( evt ) {
+              evt.preventDefault();
+              evt.stopPropagation();
+              var $form = $( this );
+              var $reservForm = $( '.atm-reserved-form' );
+
+              var ajaxObj = $( this ).serialize();
+
+              $( this ).empty()
+                .append( '<div class="atm-reserved-spinner"><i class="fas fa-spinner fa-spin"></i></div>' );
+              /// ДЛЯ ТЕСТОВ ЧТО РАБОТАЕТ АНИМАЦИЯ
+              setTimeout( function () {
+                $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
+                $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
+                $form.remove();
+                setTimeout( function () {
+                  hideReservedForm();
+                }, 500 );
+              }, 1000 );
+              /// УДАЛИТЬ ВЕРХНИЙ КУСОК ДО КОММЕНТАРИЯ
+
+              $.ajax( {
+                type: "POST",
+                url: "", ///// INSERT URL HERE
+                dataType: "json",
+                cache: false,
+                data: $form.serialize(),
+                success: function ( res ) {
+                  $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
+                  $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
+                  $form.remove();
+                  setTimeout( function () {
+                    hideReservedForm();
+                  }, 500 );
+                }
+              } );
+              return false;
+            } );
         }
       }
-    });
-  });
+    } );
+  } );
 }
 
-function createOverlay() {
-  $('<div></div>')
-    .addClass('atm-overlay')
-    .appendTo('body');
+function hideReservedForm () {
+  var topScroll = $( window ).scrollTop();
+  var height = $( '.atm-reserved-form' ).outerHeight();
+
+  $( '.atm-overlay' )
+    .fadeOut( 300, function () {
+      $( this ).remove();
+    } );
+  $( '.atm-reserved-form' )
+    .animate( {
+      'top': topScroll - height
+    }, function () {
+      $( this ).remove();
+    } );
+  $( 'body' ).css( 'overflow', 'auto' );
+}
+function createOverlay () {
+  $( '<div></div>' )
+    .addClass( 'atm-overlay' )
+    .appendTo( 'body' )
+    .fadeIn( 300 );
 }
 
-function changeSubMenuContent(data_desc) {
-  var page = window.location.pathname.replace(/\//g, '');
+function changeSubMenuContent ( data_desc ) {
+  var page = window.location.pathname.replace( /\//g, '' );
 
-  data_desc = data_desc || $(this).attr('data-desc');
-  if (data_desc && page in subMenuContentAction) {
-    $(this).addClass('active');
-    var subMenuObj = subMenuContentAction[page];
-    $.ajax({
+  data_desc = data_desc || $( this ).attr( 'data-desc' );
+  if ( data_desc && page in subMenuContentAction ) {
+    $( this ).addClass( 'active' );
+    var subMenuObj = subMenuContentAction[ page ];
+    $.ajax( {
       type: "GET",
       url: subMenuObj.url,
       data: {
@@ -389,27 +474,27 @@ function changeSubMenuContent(data_desc) {
       },
       dataType: "json",
       cache: false,
-      success: function (response) {
-        if (response.response == 'ok') {
-          subMenuObj.success(response);
+      success: function ( response ) {
+        if ( response.response == 'ok' ) {
+          subMenuObj.success( response );
 
-          if (first_submenu_load) {
+          if ( first_submenu_load ) {
             first_submenu_load = false;
           } else {
             // ANIMATE SCROLL
-            $('html').animate({
-              scrollTop: $('.atm-under-menu').offset().top
-            }, 500);
+            $( 'html' ).animate( {
+              scrollTop: $( '.atm-under-menu' ).offset().top
+            }, 500 );
           }
         }
       }
-    });
+    } );
   }
 }
 
-jQuery(document).ready(function ($) {
-  var partOfPath = document.location.href.split('://')[1].split('/')[1];
-  $.ajax({
+jQuery( document ).ready( function ( $ ) {
+  var partOfPath = document.location.href.split( '://' )[ 1 ].split( '/' )[ 1 ];
+  $.ajax( {
     type: "GET",
     url: "/" + partOfPath + "/",
     data: {
@@ -417,12 +502,12 @@ jQuery(document).ready(function ($) {
     },
     dataType: "json",
     cache: false,
-    success: function (response) {
-      if (response.response == 'ok') {
-        $('#desc_image').attr('src', response.image_src);
-        $('#title').html(response.title);
-        $('#main_text').html(response.main_text);
+    success: function ( response ) {
+      if ( response.response == 'ok' ) {
+        $( '#desc_image' ).attr( 'src', response.image_src );
+        $( '#title' ).html( response.title );
+        $( '#main_text' ).html( response.main_text );
       }
     }
-  });
-});
+  } );
+} );

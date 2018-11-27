@@ -45,6 +45,13 @@
       }
     }
   }
+  .atm-under-menu-panel {
+    transition: all .2s ease-in;
+    &.active {
+      opacity: 0;
+      transform: translateX(70%);
+    }
+  }
   .atm-nav_mobile {
     position: absolute;
     width: 70%;

@@ -1,19 +1,21 @@
 .atm-reserved-form
-  .container
-    .row.center-xs
-      .col-xs-12.col-sm-4.atm-reserved-form-container
-        .box
-          .row.atm-reserved-form__header 
-            label.col-sm Запись на #{courseName}
-            i.col-sm.fa.fa-times
-          form.row.atm-reserved-form__body(action="#", type="POST")
-            .col-sm-12
-              .box
-                .row.atm-from__item
-                  input.col-sm-10.col-xs-12.col-sm-offset-1.atm-form__input(name="name", placeholder="Введите Ваше имя")
-                .row.atm-from__item
-                  input.col-sm-10.col-xs-12.col-sm-offset-1.atm-form__input(name="email", placeholder="Введите Ваш E-Mail")
-                .row.atm-from__item
-                  input.col-sm-10.col-xs-12.col-sm-offset-1.atm-form__input.atm-form__phone(name="phonenumber", placeholder="+7(___) ___-____")
-                .row.atm-from__item
-                    a.col-xs-8.col-xs-offset-2.atm-btn-reserved(href="#") Записаться
+  header
+    label.atm-reserved-name Запись на что-то #{reservedName}
+    i.fa.fa-times.atm-reserved-form__close-btn
+  form.atm-reserved-form__form(action="")
+    .section
+      .atm-form__input-container
+        label Ваше имя
+        input(name="name")
+      .atm-form__input-container
+        label Номер телефона 
+          span.font-light.atm-form__label-description (для связи с вами)
+        input.atm-form__phone(name="phone", placeholder="+7(___) ___-____")
+      .atm-form__input-container
+        label e-mail 
+          span.font-light.atm-form__label-description (для отправки счёта на оплату)
+        input(name="email")
+      .atm-form__price
+        label Стоимость #{price} ₽
+    footer
+      button.font-medium(type='submit') Забронировать

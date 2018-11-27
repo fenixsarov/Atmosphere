@@ -4,30 +4,29 @@ $sm: (min-width: 768px) and (max-width: 1104px);
 $md: (min-width: 1105px);
 $lg: (min-width: 1200px);
 $flex_margin: 15px;
-
 @media #{$xs} {
   body {
     font-size: 10px !important;
   }
-
   .hide-xs {
     display: none !important;
   }
-
   .visible-xs {
     display: block !important;
   }
-
   .atm-school-programm__block_lecture {
     .lecture__header {
       margin-top: 1em;
     }
   }
-
   .atm-submenu-item {
     font-size: 10px;
     min-width: 33.33333333%;
     margin-bottom: 1em;
+  } // FORM
+  .atm-reserved-form {
+    width: 100vw;
+    height: 100vh;
   }
 }
 
@@ -35,21 +34,17 @@ $flex_margin: 15px;
   body {
     font-size: 12px !important;
   }
-
   .hide-sm {
     display: none !important;
   }
-
   .visible-sm {
     display: block !important;
   }
-
   .atm-school-programm__block_lecture {
     .lecture__header {
       margin-top: 1em;
     }
   }
-
   .atm-submenu-item {
     font-size: 10px;
     min-width: 170px;
@@ -61,32 +56,32 @@ $flex_margin: 15px;
   body {
     font-size: 14px !important;
   }
-
   .hide-md {
     display: none !important;
   }
-
   .visible-md {
     display: block !important;
   }
-
   .atm-submenu-item {
-    font-size: 14px;
-    // padding: 1em;
+    font-size: 14px; // padding: 1em;
     min-width: 170px;
   }
-
   .atm-under-menu {
     .active {
       padding-top: 20px;
       padding-bottom: 20px;
     }
   }
-
   .page_mainheader {
     .description {
       padding-left: 3em;
     }
+  }
+  .atm-reserved-form {
+    width: 400px;
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%); // width: 100vw; // height: 100vh;
   }
 }
 
@@ -96,7 +91,6 @@ $flex_margin: 15px;
       flex-basis: 50%;
       max-width: 50%;
     }
-
     .col-md-3:nth-child(4n) {
       flex-basis: 50%;
       max-width: 50%;
@@ -108,100 +102,80 @@ $flex_margin: 15px;
 @media (max-width: 1104px) {
   .page_mainheader {
     margin-top: 60px !important;
-
     .description {
       // padding-top: 1em;
       padding-top: 4em;
     }
   }
-
   #lifephoto {
     .container {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
-
     .description {
       padding-left: 1rem;
       padding-right: 1rem;
     }
   }
-
   #events {
     margin-top: 0 !important;
-
     .container {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
   }
-
   #atm-navigation_mobile {
     display: block;
   }
-
   #atm-navigation {
     display: none;
   }
-
   #scenery {
     .container {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
-
     #scenery-carousel {
       padding: 3em 0;
     }
   }
-
   .atm-header-section {
     padding-left: 0;
     padding-right: 0;
-
     .container {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
   }
-
   #atm-header-slogan-section {
     .parallax-content.parallax-img {
       left: 0;
       right: 0;
     }
-
     .slogan {
       margin-right: 1em;
       font-size: 1em;
     }
   }
-
   .plate_new {
     .plate_new__header {
       opacity: 0; // bottom: -30px;
     }
-
     .plate_new__description_header {
       transform: scale(1);
       opacity: 1;
     }
-
     .plate_new__description_text {
       transform: scale(1);
       opacity: 1;
     }
-
     .plate_new__description {
       background-color: rgba(41, 41, 41, 0.6);
     }
-
     .plate_new__img-preview {
       transform: scale(1.2);
     }
-  }
-
-  // .event {
+  } // .event {
   //   // .image {
   // //   //   max-height: 250px;
   // // }
@@ -227,38 +201,31 @@ $flex_margin: 15px;
   #atm-navigation_mobile {
     display: none;
   }
-
   #atm-navigation {
     display: block;
     padding-top: 0;
     padding-bottom: 0;
   }
-
   .plate_new {
     .plate_new__description {
       opacity: 0;
     }
-
     &:hover {
       .plate_new__header {
         opacity: 0; // bottom: -30px;
       }
-
       .plate_new__description_header {
         transform: scale(1);
         opacity: 1;
       }
-
       .plate_new__description_text {
         transform: scale(1);
         opacity: 1;
       }
-
       .plate_new__description {
         opacity: 1;
         background-color: rgba(41, 41, 41, 0.6);
       }
-
       .plate_new__img-preview {
         transform: scale(1.2);
       }
