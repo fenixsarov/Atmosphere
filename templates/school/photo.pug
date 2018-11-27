@@ -37,7 +37,7 @@ block content
           p.atm-school-p Для тех, кто купил камеру и давно ее забросил, но хочет закрыть гештальт и разобраться. 
             | Для начинающих фотографов, которые хотят систематизировать свои знания по фотографии и вдохновится на новые кадры. 
             | Для фотографов, которые хотят движухи. Встать с кресла  и наконец-то пойти снимать.
-  section.atm-school-reason.white-section
+  section.atm-school-reason.alternation-section
     .container
       .row
         .col-xs-12.font-medium
@@ -93,7 +93,7 @@ block content
               .col-xs-10
                 h3.reason-head.font-medium 2 половинки
                 p.reason.font-light Программа составлена с учётом технической и творческой стороны фотографии
-  section.atm-teachers
+  section.atm-teachers.alternation-section
     - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
     - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
     - var teacher_3 = {'img_url': "/static/images/team/6.jpg", "name": "Лена", "description": "Художник по образованию. \nРаботает в различных техниках: акварель, графика, маслянная и акриловая живопись, пастель. \nУчастник выставок «Художники Сарова», пленэров и мастер классов. \nВ 2007-2014гг. была членом Международного союза творческой молодежи «Молодая палитра». \nПедагог дополнительного образования, детского театра моды \"Русь\". Педагогический стаж 5 лет", "social_link": "", "social_name": "Instagram"}
@@ -108,7 +108,7 @@ block content
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
         .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_3.img_url, teacher_3.name, teacher_3.description, teacher_3.social_link, teacher_3.social_name)
-  section.atm-school-program-container.white-section
+  section.atm-school-program-container.alternation-section
     .container
       .row
         .col-xs-12
@@ -258,7 +258,7 @@ block content
                           p.lecture__header 3. Смысл фотографии
                           p.lecture__description.font-light Покажем современные стили фотографии. Ищем пути развития. Понимаем, что же это такое – взгляд фотографа. Пытаемся воспитать свой вкус. Смотрим референсы. И жуем кактусы
                           p.lecture__teacher Преподаватель - Денис Алёшин.
-  section.atm-school-constructor#signup
+  section.atm-school-constructor.alternation-section#signup
     .container
       .row
         .col-xs-12
@@ -276,7 +276,7 @@ block content
           a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ 
         section.atm-school-constructor-date.col-xs-12.center-xs
           p Ближайший набор на новый курс - Декабрь 2018г.
-  section.page_photogallery.white-section
+  section.page_photogallery.alternation-section
     - var gallery_imgs = ["5PdtOSzp_Mw.jpg","BErgyRIhgps.jpg","GD1MheKTJ6E.jpg","J-suFBn5ffQ.jpg","MemAkVyCmb0.jpg","U1G3cDrjlL0.jpg","UPCDeRgkR2k.jpg","Ud2jJmM2YZg.jpg","ZtSbY2pydh4.jpg","_zrL0emCafI.jpg","dtWs1M3d0No.jpg","gBa6YIbnnB4.jpg","ko0l06NgUxQ.jpg","nQREyMz7ugg.jpg","s2uXV3IHsgk.jpg","x__Dvuh111Q.jpg","y_7rLjt7Fdg.jpg",];
     .container
       .row
@@ -288,7 +288,7 @@ block content
           .img-container
             .img(style="background-image: url('/static/images/school/photo/gallery/#{item}')")
         | {% endfor %}
-  section.atm-feedback
+  section.atm-feedback.alternation-section
     .container
       .row
         .col-xs-12
@@ -354,5 +354,5 @@ block content
                         | И теперь, освоив азы, мы научились понимать, КАК видит фотоаппарат, ПОЧЕМУ он так видит, и главное, научились НАСТРАИВАТЬ его, чтобы он видел так, как Вам сейчас нужно. 
                         | Никто не гарантирует, что Вы будете снимать , как БОГ, но курс "Фотография с нуля" - это тот самый "ВОЛШЕБНЫЙ ПЕНДЕЛЬ" в сказочный мир фотографии. Это точно новый круг общения, в котором Вы найдёте себе единомышленников. 
                         | Так что дерзайте. И УДАЧИ Вам в ваших начинаниях.     
-  section.white-section
+  section.alternation-section
     include includes/feedback_inc.pug

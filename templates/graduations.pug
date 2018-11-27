@@ -35,7 +35,7 @@ block content
             | Для выпускных детских садов. Ваше чадо будет уже в школе, а у вас остались профессиональные фотографии его драных коленок. 
             | Для желающих запечатлеть первое сентября. Мы всегда обновляем локации студии к этому празднику и устраиваем уголок первоклассника. 
             | Для всех желающих. Почему бы не устроить групповую съемку прямо посередине учебного года? 
-  section.page_photogallery.white-section
+  section.page_photogallery.alternation-section
     - var gallery_imgs = ["9vrb9iGOII8.jpg","CIPMljq-678.jpg","Fa5WTp1mxdE.jpg","YZtXXpEzdm4.jpg","aER8JACIkao.jpg","rMmIgSM5W8g.jpg","wI3nPagwI3U.jpg","CIFRZeC9JVk.jpg","CsTbBPo7SbI.jpg","GlDoogxTb4g.jpg","ODHLi0dO4vU.jpg","ZkXyy-z6N5A.jpg","coTTVNVazAU.jpg","sZYyubVwWxs.jpg","zIWGbws2jow.jpg"];
     .container
       .row
@@ -45,7 +45,7 @@ block content
             .img(style="background-image: url('/static/images/graduations/#{item}')")
               //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
-  section.atm-teachers
+  section.atm-teachers.alternation-section
     - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом. Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
     - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "София", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса \"Основы студийного света\"", "social_link": "", "social_name": "Instagram"}
     .container
@@ -56,7 +56,7 @@ block content
           +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
         .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
           +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
-  section.atm-graduations-price#signup.white-section
+  section.atm-graduations-price.alternation-section#signup
     .container
       .row
         .col-xs-12
@@ -76,7 +76,7 @@ block content
       .row.start-md
         .col-xs-12.description_btn
           a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
-  section.atm-photoalbum-print
+  section.atm-photoalbum-print.alternation-section
     .container
       .row
         .col-xs-12.col-md-7
@@ -89,7 +89,7 @@ block content
             .row.center-xs.start-md
               .col-xs-12.description__text
                 p.desc Фотографии лучше смотрятся на бумаге. Особенно такие важные моменты, как выпускной альбом или первое сентября первоклассника. Мы поможем вам собрать и отпечатать красивые альбомы с вашей сьемки
-  section.page_photogallery.white-section
+  section.page_photogallery.alternation-section
     - var gallery_imgs = ["0bKBP63R-SM.jpg" ,"945ne7s7DBw.jpg" ,"Wna4Ytvx7eM.jpg" ,"XZa0uQzZOvc.jpg" ,"XvbSmQ1BD90.jpg" ,"wv_axO74Xog.jpg"];
     .container
       .row
@@ -99,7 +99,7 @@ block content
             .img(style="background-image: url('/static/images/photoalbum/#{item}')")
               //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
-  section.atm-photoalbum-print-price
+  section.atm-photoalbum-print-price.alternation-section
     .container
       .row
         .col-xs-12
@@ -113,5 +113,5 @@ block content
       .row.start-md
         .col-xs-12.description_btn
           a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
-  section.white-section
+  section.alternation-section
     include includes/feedback_inc.pug

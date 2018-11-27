@@ -35,7 +35,7 @@ block content
         .col-xs-12.font-light
           p.atm-school-p {{ who_interested |safe }}
           //- Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam, accusamus provident, voluptatem inventore impedit mollitia ad sit earum cupiditate a officiis perferendis nobis dolore quas enim necessitatibus corrupti eius.
-  section.atm-teachers.white-section
+  section.atm-teachers.alternation-section
     .container
       .row
         .col-xs-12
@@ -44,7 +44,7 @@ block content
         each teacher in teachers
           .col-xs-12.col-md-8.col-md-offset-2
             +teacher_card(teacher.desc_image, teacher.title, teacher.desc, teacher.social_link, teacher.social_name)
-  section.atm-signup.atm-school-constructor#signup
+  section.atm-signup.alternation-section.atm-school-constructor#signup
     .container
       .row
         .col-xs-12.center-xs
@@ -85,7 +85,7 @@ block content
               .row
                 .col-xs-12.center-xs.description_btn
                   a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
-  section.page_photogallery.white-section
+  section.page_photogallery.alternation-section
     .container
       .row
         .col-xs-12
@@ -97,7 +97,7 @@ block content
             .img(style="background-image: url('#{item}')")
         | {% endfor %}
   | {% if video_link %}
-  section.atm-video-section
+  section.atm-video-section.alternation-section
     .container
       .row
         .col-xs-12
@@ -107,51 +107,15 @@ block content
           .atm-video-player-container
             | {% video  video_link '640x480' %}
   | {% endif %}
-
-  if video_link
-    section.atm-school-feedback.white-section
-      .container
-        .row
-          .col-xs-12
-            .atm-section-header.font-medium Отзывы учеников
-        .row.cetner-md
-
-          .feedback
-            .col-xs-12.col-md-8.col-md-offset-2
-              .box.box-container
-                .row
-                  .col-xs-12
-                    .img-container(style="background-image: url('/static/images/school/school_img_0.jpg')")
-                    .atm-school-feedback__text
-                      p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
-          .feedback
-            .col-xs-12.col-md-8.col-md-offset-2
-              .box.box-container
-                .row
-                  .col-xs-12
-                    .img-container(style="background-image: url('/static/images/school/school_img_9.jpg')")
-                    .atm-school-feedback__text
-                      p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
-          .feedback
-            .col-xs-12.col-md-8.col-md-offset-2
-              .box.box-container
-                .row
-                  .col-xs-12
-                    .img-container(style="background-image: url('/static/images/school/school_img_11.jpg')")
-                    .atm-school-feedback__text
-                      p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, tempora est inventore magnam nisi praesentium, illum earum ipsam dicta fugiat sapiente eum consequatur cumque molestiae consectetur architecto corporis ullam. Nostrum.
-    section
-      include includes/feedback_inc.pug
-  else
-    section.atm-school-feedback
-
-      .container
-        .row
-          .col-xs-12
-            .atm-section-header.font-medium Отзывы учеников
-        .row.cetner-md
-          | {% for item in list_feedbacks %}
-            +feedback(item.user_img, item.user_name, item.user_feedback, item.user_vklink)
-          | {% endfor %}
-    section.white-section
-      include includes/feedback_inc.pug
+  section.atm-school-feedback.alternation-section
+    .container
+      .row
+        .col-xs-12
+          .atm-section-header.font-medium Отзывы учеников
+      .row.cetner-md
+        - var list_feedbacks = [];
+        | {% for item in list_feedbacks %}
+        +feedback(item.user_img, item.user_name, item.user_feedback, item.user_vklink)
+        | {% endfor %}
+  section.alternation-section
+    include includes/feedback_inc.pug

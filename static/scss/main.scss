@@ -88,7 +88,7 @@ a {
   color: rgb(186, 61, 64);
 }
 
-.white-section {
+.alternation-section:nth-child(2n+1) {
   background-color: #fff;
   color: black;
   a {
