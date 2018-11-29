@@ -5,6 +5,7 @@ include mixins/mixins.pug
 prepend page
   - var title = "Выпускные съёмки"
 block content
+  input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
     .container
       .row
@@ -75,7 +76,7 @@ block content
             //- p Записаться В форме – Имя, телефон, email
       .row.start-md
         .col-xs-12.description_btn
-          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+          a.atm-btn-reserved.reserved-btn(type="_blank", data-reserve="reserve") ЗАПИСАТЬСЯ
   section.atm-photoalbum-print.alternation-section
     .container
       .row
@@ -112,6 +113,6 @@ block content
             p.price Трюмо (3 разворота) – 599Р
       .row.start-md
         .col-xs-12.description_btn
-          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ
+          a.atm-btn-reserved.reserved-btn(type="_blank", data-reserve='photoalbum') ЗАПИСАТЬСЯ
   section.alternation-section
     include includes/feedback_inc.pug

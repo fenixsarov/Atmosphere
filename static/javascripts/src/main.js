@@ -348,6 +348,22 @@ function bindAjaxContentChange () {
   }
 }
 
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 function bindAjaxReservedForm () {
   $( '.reserved-btn-scroolled' ).on( 'click', function ( evt ) {
     evt.preventDefault();
@@ -357,9 +373,15 @@ function bindAjaxReservedForm () {
   } );
   $( '.reserved-btn' ).on( 'click', function ( evt ) {
     evt.preventDefault();
+    var page = $('#page_name').val();
+    var id_form = $(this).data("reserve");
+    console.log(page, id_form);
+
     $.ajax( {
       type: "GET",
       url: "/reserved/form",
+      data: {'page' : page,
+              'id_form': id_form},
       dataType: "json",
       cache: false,
       success: function ( res ) {
@@ -399,33 +421,43 @@ function bindAjaxReservedForm () {
               var $reservForm = $( '.atm-reserved-form' );
 
               var ajaxObj = $( this ).serialize();
-
+              ajaxObj += "&page=" + page;
+              ajaxObj += "&id_form=" + id_form;
+              // ajaxObj['page'] = page;
+              // ajaxObj.push({'name': 'id_form',
+              //               'value': id_form},
+              //
+              //                {'name': 'page',
+              //               'value': page});
+              console.log(ajaxObj);
               $( this ).empty()
                 .append( '<div class="atm-reserved-spinner"><i class="fas fa-spinner fa-spin"></i></div>' );
               /// ДЛЯ ТЕСТОВ ЧТО РАБОТАЕТ АНИМАЦИЯ
-              setTimeout( function () {
-                $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
-                $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
-                $form.remove();
-                setTimeout( function () {
-                  hideReservedForm();
-                }, 500 );
-              }, 1000 );
+              // setTimeout( function () {
+              //   $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
+              //   $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
+              //   $form.remove();
+              //   setTimeout( function () {
+              //     hideReservedForm();
+              //   }, 500 );
+              // }, 1000 );
               /// УДАЛИТЬ ВЕРХНИЙ КУСОК ДО КОММЕНТАРИЯ
 
               $.ajax( {
                 type: "POST",
-                url: "", ///// INSERT URL HERE
+                url: "/reserve/", ///// INSERT URL HERE
                 dataType: "json",
                 cache: false,
-                data: $form.serialize(),
+                data: ajaxObj,
                 success: function ( res ) {
-                  $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
-                  $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
-                  $form.remove();
-                  setTimeout( function () {
-                    hideReservedForm();
-                  }, 500 );
+                    if ( res.response == 200 ) {
+                        $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
+                        $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
+                        $form.remove();
+                        setTimeout( function () {
+                          hideReservedForm();
+                        }, 1000 );
+                    }
                 }
               } );
               return false;

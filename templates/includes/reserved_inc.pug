@@ -1,8 +1,9 @@
 .atm-reserved-form
   header
-    label.atm-reserved-name Запись на что-то #{reservedName}
+    label.atm-reserved-name #{header}
     i.fa.fa-times.atm-reserved-form__close-btn
-  form.atm-reserved-form__form(action="")
+  form.atm-reserved-form__form
+    //- | {% csrf_token %}
     .section
       .atm-form__input-container
         label Ваше имя

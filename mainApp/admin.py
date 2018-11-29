@@ -107,4 +107,6 @@ admin.site.register(BlogArticle, BlogArticleAdmin)
 admin.site.register(PicBlogArticle, PicBlogArticleAdmin)
 admin.site.register(BlogContentBlock)
 admin.site.register(TeamPerson)
+admin.site.register(Reserves)
+
 # Register your models here.
