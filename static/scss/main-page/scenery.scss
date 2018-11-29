@@ -3,12 +3,14 @@ section#scenery {
   position: relative;
   z-index: 2;
   margin-top: -60px;
+
   .content {
     overflow: hidden;
   }
 }
 
 $carousel-padding: 60px 25px;
+
 #scenery-carousel {
   position: relative;
   overflow: hidden;
@@ -17,11 +19,13 @@ $carousel-padding: 60px 25px;
   background: -moz-linear-gradient(left, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
   background: -webkit-linear-gradient(left, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
   background: linear-gradient(to right, rgba(31, 31, 31, 0) 0%, rgba(31, 31, 31, 0.85) 5%, rgba(31, 31, 31, 0.85) 15%, rgba(31, 31, 31, 0.85) 85%, rgba(31, 31, 31, 0.85) 95%, rgba(31, 31, 31, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001f1f1f', endColorstr='#001f1f1f', GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#001f1f1f', endColorstr='#001f1f1f', GradientType=1);
+
   .content {
     position: relative;
     overflow: hidden;
     list-style: none;
+
     .item {
       position: absolute;
       width: 100%;
@@ -29,62 +33,77 @@ $carousel-padding: 60px 25px;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+
       &:nth-child(1) {
-        background-image: url("../images/slider_on_main/0.jpg");
+        background-image: url("../images/slider_on_main/0.png");
         // background-image: url("../images/scenery/1.jpg");
       }
+
       &:nth-child(2) {
-        background-image: url("../images/slider_on_main/0.jpg");
+        background-image: url("../images/slider_on_main/1.png");
         // background-image: url("../images/scenery/2.jpg");
         left: 100%;
       }
+
       &:nth-child(3) {
-        background-image: url("../images/slider_on_main/0.jpg");
+        background-image: url("../images/slider_on_main/2.png");
         // background-image: url("../images/scenery/3.jpg");
         left: 200%;
       }
     }
   }
+
   .carousel-indicators {
-    $indicators-size: 12px;
-    padding: 15px 0 30px 0;
-    ol {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      li {
-        display: inline-block;
-        cursor: pointer;
-        background-color: #FFFFFF;
-        width: $indicators-size;
-        height: $indicators-size;
-        margin-left: $indicators-size;
-        transition: background-color 1s ease;
-        &:first-child {
-          margin-left: 0;
-        }
-        &.active {
-          background-color: #EA423E;
-        }
-        &:hover {
-          background-color: #c7c7c7;
-          &.active {
-            background-color: rgb(177, 48, 46);
-          }
-        }
-      }
-    }
+    // height: 50px;
+    // position: absolute;
+    // width: 100%;
+    // top: 50%;
+    //$indicators-size: 12px;
+    //padding: 15px 0 30px 0;
+    //ol:;
+    //list-style: none;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    //   li :;
+    //     display: inline-block;
+    //     cursor: pointer;
+    //     background-color: #FFFFFF;
+    //     width: $indicators-size;
+    //     height: $indicators-size;
+    //     margin-left: $indicators-size;
+    //     transition: background-color 1s ease;
+    //     &:first-child {
+    //       margin-left: 0;
+    //     }
+    //     &.active {
+    //       background-color: #EA423E;
+    //     }
+    //     &:hover {
+    //       background-color: #c7c7c7;
+    //       &.active {
+    //         background-color: rgb(177, 48, 46);
+    //       }
+    //     }
+    //   }
+    // }
   }
+
   .carousel-control {
+    position: absolute;
     font-size: 33px;
     cursor: pointer;
+
     &.left {
-      left: $carousel-padding;
+      // left: $carousel-padding;
+      float: left;
     }
+
     &.right {
-      right: $carousel-padding;
+      float: right;
+      // right: $carousel-padding;
     }
+
     .fa-chevron-left,
     .fa-chevron-right {
       font-size: 40px;
