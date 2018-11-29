@@ -132,6 +132,7 @@ class StudyPhotography(BaseView):
     template_name = 'school/studio_photo.pug'
     page_name = 'studiophoto'
 
+
 class Halls(BaseView):
     template_name = 'halls.pug'
     page_name = 'halls'
@@ -415,7 +416,6 @@ class SingleMasterClass(BaseView):
     video = ''
     who_i = ''
 
-
     def get(self, request, pk):
         arg = self.args
         try:
@@ -493,11 +493,60 @@ class MasterClassChange(View):
 
 # Может ещё нужно что-то поменять... но так работает)
 class ReservedForm(View):
+    page = ''
+    id_form = ''
+
+    reserve_var = {
+        'graduations:reserve': {
+            'header': 'Запись на выпускные съёмки',
+            'price': '3000',
+
+        },
+        'graduations:photoalbum': {
+            'header': 'Печать фотоальбома',
+            'price': 'от 599'
+        }
+    }
+
     def get(self, request):
-        if self.request.is_ajax:
-            pug = loader.render_to_string('includes/reserved_inc.pug', {})
+        self.page = self.request.GET['page']
+        self.id_form = self.request.GET['id_form']
+        key = self.page + ':' + self.id_form
+        print("price:", self.reserve_var[key]['price'])
+
+
+        if self.request.is_ajax and key in self.reserve_var:
+            pug = loader.render_to_string('includes/reserved_inc.pug', {
+                'header': self.reserve_var[key]['header'],
+                'price': self.reserve_var[key]['price'],
+
+            })
 
         return JsonResponse({'response': 'ok', 'html': pug})
+
+    def post(self, request):
+        print("I'm HERE: ", HttpResponse.status_code)
+        name = self.request.POST['name']
+        phone = self.request.POST['phone']
+        email = self.request.POST['email']
+        page = self.request.POST['page']
+        id_form = self.request.POST['id_form']
+
+        reserve = Reserves()
+        reserve.name = name
+        reserve.phone = phone
+        reserve.email = email
+        reserve.page = page
+        reserve.id_form = id_form
+
+
+        reserve.save()
+
+
+        print(name, phone, email, page, id_form)
+
+        return JsonResponse({'response': HttpResponse.status_code})
+        # render(request, 'graduations.pug')
 
 
 class Events(BaseView):
@@ -533,6 +582,22 @@ class AboutChange(View):
             pug = loader.render_to_string('mixins/plate_teamperson.pug',
                                           {'plate_desc': self.plate_desc})
             return JsonResponse({'response': 'ok', 'html': pug})
+
+
+# class Reserve(View):
+#
+#     def post(self, request):
+#         print("I'm HERE: ", HttpResponse.status_code)
+#         name = self.request.POST['name']
+#         phone = self.request.POST['phone']
+#         email = self.request.POST['email']
+#         page = self.request.POST['page']
+#         id_form = self.request.POST['id_form']
+#
+#         print(name, phone, email, page, id_form)
+#
+#         return JsonResponse({'response': HttpResponse.status_code})
+#         # render(request, 'graduations.pug')
 
 # class Useful(BaseView):
 #     template_name = 'useful.pug'

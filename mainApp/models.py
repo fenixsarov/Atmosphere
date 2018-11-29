@@ -202,6 +202,21 @@ class PicMasterclass(Picture):
     class Meta:
         verbose_name_plural = 'Все изображения со страницы мастерклассов'
 
+
+class Reserves(models.Model):
+    name = models.CharField(verbose_name='Имя заказчика', max_length=256)
+    email = models.EmailField(verbose_name='email закачика', max_length=256)
+    phone = models.CharField(verbose_name='Телефон', max_length=11)
+    page = models.CharField(verbose_name='Страница, откуда пришла заявка', max_length=64)
+    id_form = models.CharField(verbose_name='id_form', max_length=64 )
+    public_date = models.DateField(auto_now_add=True, verbose_name='Дата создания заявки')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = '5.0 Заявки'
+
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)

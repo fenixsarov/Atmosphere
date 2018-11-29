@@ -32,7 +32,6 @@ urlpatterns = (
     url(r'^team/$', Team.as_view()),
     url(r'^blog/$', Blog.as_view()),
     url(r'^blog/blogchange/$', BlogChange.as_view(), name='blogchange'),
-    url(r'^blog/(?P<pk>\d+)/$',
-        BlogSingleArticle.as_view(),
-        name='blog_article'),
+    url(r'^blog/(?P<pk>\d+)/$', BlogSingleArticle.as_view(), name='blog_article'),
+    url(r'^reserve/$', ReservedForm.as_view()),
 )
