@@ -212,7 +212,7 @@ class Reserves(models.Model):
     public_date = models.DateField(auto_now_add=True, verbose_name='Дата создания заявки')
 
     def __str__(self):
-        return self.name
+        return '{} от {}'.format(self.name, self.public_date.isoformat())
 
     class Meta:
         verbose_name_plural = '5.0 Заявки'

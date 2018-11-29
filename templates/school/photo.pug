@@ -5,6 +5,7 @@ include mixins/mixins.pug
 prepend page
   - var title = "Обучение фотографии"
 block content
+  input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
     .container
       .row
@@ -273,7 +274,7 @@ block content
             p Стоимость двух любых блоков обучения - 9500₽
             p Стоимость всех трёх - 12900₽
         .col-xs-12.center-xs.description_btn
-          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ 
+          a.atm-btn-reserved.reserved-btn(type="_blank", data-reserve='photo') ЗАПИСАТЬСЯ
         section.atm-school-constructor-date.col-xs-12.center-xs
           p Ближайший набор на новый курс - Декабрь 2018г.
   section.page_photogallery.alternation-section

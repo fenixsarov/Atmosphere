@@ -5,6 +5,7 @@ include mixins/mixins.pug
 prepend page
   - var title = "Основы студийной фотосъёмки"
 block content
+  input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
     .container
       .row
@@ -195,7 +196,7 @@ block content
         section.atm-school-constructor-price.col-xs-12.center-xs
             p Стоимость курса - 9900₽
         .col-xs-12.center-xs.description_btn
-          a.atm-btn-reserved.reserved-btn(type="_blank") ЗАПИСАТЬСЯ 
+          a.atm-btn-reserved.reserved-btn(type="_blank", data-reserve='studio_photo') ЗАПИСАТЬСЯ
         section.atm-school-constructor-date.col-xs-12.center-xs
           p Ближайший набор на новый курс – Октябрь 2018.
   section.page_photogallery.alternation-section

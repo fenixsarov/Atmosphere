@@ -511,6 +511,14 @@ class ReservedForm(View):
         },
         'single_masterclass:id': {
 
+        },
+        'photoschool:photo': {
+            'header': 'Фотография с нуля',
+            'price': '12990'
+        },
+        'studiophoto:studio_photo': {
+            'header': 'Основы студийной съёмки',
+            'price': '9900'
         }
 
     }
