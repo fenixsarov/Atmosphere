@@ -14,6 +14,7 @@ $(document).ready(function () {
   hidePreload();
   var prev_s = $(window).scrollTop();
   var w_height = $(window).height();
+  var w_width = $(window).width();
 
   var $header = $('#atm-header');
   var $prlx_img1 = $('#atm-header-slogan-section .parallax-img');
@@ -62,9 +63,13 @@ $(document).ready(function () {
   $(window).scroll(function (e) {
     var cur_s = $(this).scrollTop();
     var direction = (prev_s - cur_s) < 0 ? 1 : -1;
+
     requestAnimationFrame(function () {
       if (cur_s <= header_height) {
-        headerParallax(cur_s);
+        console.log(w_width)
+        if (w_width > 1104) {
+          headerParallax(cur_s);
+        }
         $('.aeWidgetBtn').css({
           'display': 'none',
           'opacity': '0'
@@ -103,14 +108,6 @@ $(document).ready(function () {
 
   function headerParallax(c_scroll) {
     $prlx_img1.css('top', (c_scroll * 0.5) + 'px');
-  }
-
-  function mainContentParallax(c_scroll) {
-    $prlx_main.css('top', (c_scroll - header_height) + 'px');
-  }
-
-  function sliderSlide() {
-
   }
 
   var $bgHeader = $('.atm-navigation__bg-img');
@@ -433,16 +430,6 @@ function bindAjaxReservedForm() {
               ajaxObj += "&id_form=" + id_form;
               $(this).empty()
                 .append('<div class="atm-reserved-spinner"><i class="fas fa-spinner fa-spin"></i></div>');
-              /// ДЛЯ ТЕСТОВ ЧТО РАБОТАЕТ АНИМАЦИЯ
-              // setTimeout( function () {
-              //   $reservForm.find( '.atm-reserved-name' ).text( 'Сасибо!\nВы записаны' )
-              //   $reservForm.append( '<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>' )
-              //   $form.remove();
-              //   setTimeout( function () {
-              //     hideReservedForm();
-              //   }, 500 );
-              // }, 1000 );
-              /// УДАЛИТЬ ВЕРХНИЙ КУСОК ДО КОММЕНТАРИЯ
 
               $.ajax({
                 type: "POST",
