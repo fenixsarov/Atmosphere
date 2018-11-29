@@ -7,15 +7,15 @@
     .section
       .atm-form__input-container
         label Ваше имя
-        input(name="name")
+        input(name="name", required)
       .atm-form__input-container
         label Номер телефона 
           span.font-light.atm-form__label-description (для связи с вами)
-        input.atm-form__phone(name="phone", placeholder="+7(___) ___-____")
+        input.atm-form__phone(name="phone", placeholder="+7(___) ___-____", required)
       .atm-form__input-container
         label e-mail 
           span.font-light.atm-form__label-description (для отправки счёта на оплату)
-        input(name="email")
+        input(name="email", required)
       .atm-form__price
         label Стоимость #{price} ₽
     footer
