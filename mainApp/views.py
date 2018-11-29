@@ -403,6 +403,7 @@ class MasterClass(BaseView):
 class SingleMasterClass(BaseView):
     template_name = 'single_masterclass.pug'
     page_name = 'single_masterclass'
+    id = -1
     plate_desc = []
     main_text = ''
     teachers = []
@@ -421,6 +422,7 @@ class SingleMasterClass(BaseView):
         try:
             self.list_imgs.clear()
             mc = Masterclass.objects.get(pk=pk)
+            self.id = pk
             self.title = mc.title
             # self.full_desc = self.bb_parser.render(mc.full_desc)
             self.full_desc = mc.full_desc
@@ -455,6 +457,7 @@ class SingleMasterClass(BaseView):
         return render(request,
                       self.template_name, {
                           'page': self.page_name,
+                          'id'  : self.id,
                           'title': self.title,
                           'desc': self.full_desc,
                           'desc_image': self.desc_image,
@@ -505,22 +508,36 @@ class ReservedForm(View):
         'graduations:photoalbum': {
             'header': 'Печать фотоальбома',
             'price': 'от 599'
+        },
+        'single_masterclass:id': {
+
         }
+
     }
 
     def get(self, request):
         self.page = self.request.GET['page']
         self.id_form = self.request.GET['id_form']
-        key = self.page + ':' + self.id_form
-        print("price:", self.reserve_var[key]['price'])
 
 
-        if self.request.is_ajax and key in self.reserve_var:
-            pug = loader.render_to_string('includes/reserved_inc.pug', {
-                'header': self.reserve_var[key]['header'],
-                'price': self.reserve_var[key]['price'],
+        if self.request.is_ajax :
+            key = self.page + ':' + self.id_form
+            if self.page != 'single_masterclass' and key in self.reserve_var:
+                pug = loader.render_to_string('includes/reserved_inc.pug', {
+                    'header': self.reserve_var[key]['header'],
+                    'price': self.reserve_var[key]['price'],
 
-            })
+                })
+            else:
+                mc = Masterclass.objects.get(pk=self.id_form)
+
+                pug = loader.render_to_string('includes/reserved_inc.pug', {
+                    'header': mc.title,
+                    'price': mc.price,
+                })
+
+
+
 
         return JsonResponse({'response': 'ok', 'html': pug})
 
@@ -537,7 +554,12 @@ class ReservedForm(View):
         reserve.phone = phone
         reserve.email = email
         reserve.page = page
-        reserve.id_form = id_form
+
+        if page == 'single_masterclass':
+            mc = Masterclass.objects.get(pk=id_form)
+            reserve.id_form = mc.title
+        else:
+            reserve.id_form = page
 
 
         reserve.save()

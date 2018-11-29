@@ -10,6 +10,7 @@ prepend page
   //- var under_menu = [{"text": "СЕМЕЙНАЯ", "desc": "family"}, {"text": "ИНДИВИДУАЛЬНАЯ", "desc": "individual"}, {"text": "ДЕТСКАЯ", "desc": "child"}, {"text": "ПОРТРЕТ", "desc": "portrait"}, {"text": "LOVESTORY", "desc": "lovestory"}]
   //, {"text": "СВАДЕБНАЯ", "desc": "wedding"}];
 block content
+  input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
     .container
       .row
@@ -84,7 +85,7 @@ block content
                   p.price Стоимость {{ price }} ₽
               .row
                 .col-xs-12.center-xs.description_btn
-                  a.atm-btn-reserved.reserved-btn#reserved(type="_blank") ЗАПИСАТЬСЯ
+                  a.atm-btn-reserved.reserved-btn(type="_blank", data-reserve='#{id}') ЗАПИСАТЬСЯ
   section.page_photogallery.alternation-section
     .container
       .row
