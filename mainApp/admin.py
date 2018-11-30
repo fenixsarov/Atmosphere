@@ -108,5 +108,6 @@ admin.site.register(PicBlogArticle, PicBlogArticleAdmin)
 admin.site.register(BlogContentBlock)
 admin.site.register(TeamPerson)
 admin.site.register(Reserves)
+admin.site.register(MasterclassFeedback)
 
 # Register your models here.

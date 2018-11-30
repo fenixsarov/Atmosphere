@@ -89,7 +89,7 @@ class DescriptionsList(models.Model):
 # Models for halls and sessions
 class Product(models.Model):
     title = models.CharField('Заголовок', max_length=128)
-    desc = models.TextField(verbose_name='Кракое описание', max_length=256)
+    desc = models.TextField(verbose_name='Кракое описание', max_length=2048)
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24,
                                     default='product')
 
@@ -129,8 +129,8 @@ class PicSession(Picture):
 
 # Эти классы описывают содержание статьи блога
 class BlogContentBlock(models.Model):
-    title = models.CharField('Описание, к какомой статье относится', max_length=512)
-    content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=8096)
+    title = models.CharField('Описание, к какой статье относится', max_length=512)
+    content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=12144)
     desc_image = models.FileField(upload_to="", verbose_name='Картинка к блоку')
     def __str__(self):
         return self.title
@@ -140,7 +140,7 @@ class BlogContentBlock(models.Model):
 
 class BlogArticle(models.Model):
     title = models.CharField('Заголовок', max_length=128)
-    desc = models.TextField(verbose_name='Описание', max_length=256)
+    desc = models.TextField(verbose_name='Описание', max_length=4096)
     desc_image = models.FileField(upload_to="", verbose_name='Картинка к статье')
     content = models.ManyToManyField(BlogContentBlock, verbose_name='Основной текст')
     # content = models.TextField(verbose_name='Основной текст')
@@ -162,7 +162,7 @@ class PicBlogArticle(Picture):
 #  Этот класс описывает запись об одном из членов команды
 class TeamPerson(models.Model):
     title = models.CharField('Имя', max_length=128)
-    desc = models.TextField(verbose_name='Описание', max_length=256)
+    desc = models.TextField(verbose_name='Описание', max_length=640)
     content = models.TextField(verbose_name='Основной текст')
     desc_image = models.FileField(upload_to="", verbose_name='Фотография')
     social_link = models.URLField(verbose_name="Ссылка на социалку")
@@ -173,6 +173,20 @@ class TeamPerson(models.Model):
 
     class Meta:
         verbose_name_plural = '4.1 Команда'
+
+# Отзывы к мастерклассам
+class MasterclassFeedback(models.Model):
+    title = models.CharField(verbose_name='Наименование отзыва', max_length=256)
+    name = models.CharField(verbose_name='Имя пользователя', max_length=128)
+    image = models.FileField(upload_to="", verbose_name='Фотка/аватарка')
+    feedback = models.TextField(verbose_name='Текст отзыва')
+    vklink = models.CharField(verbose_name='Ссылка на VK пользователя', max_length=256)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '6.0 Отзывы к мастерклассам'
 
 
 # Эти два класса описывают изображения на странице мастерклассов и само содежимое каждого мастеркласса
@@ -188,6 +202,7 @@ class Masterclass(models.Model):
     who_interested = RichTextField(verbose_name='Кому интересен мастер-класс', max_length=2048)
     video = EmbedVideoField(verbose_name='Ссылка на видео', blank=True, default='')
     # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
+    feedback = models.ManyToManyField(MasterclassFeedback, blank=True)
 
     def __str__(self):
         return self.title
@@ -216,6 +231,7 @@ class Reserves(models.Model):
 
     class Meta:
         verbose_name_plural = '5.0 Заявки'
+
 
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')

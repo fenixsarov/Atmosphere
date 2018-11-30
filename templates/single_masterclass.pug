@@ -108,15 +108,18 @@ block content
           .atm-video-player-container
             | {% video  video_link '640x480' %}
   | {% endif %}
+  - var list_feedbacks = list_feedbacks
+  | {% if list_feedbacks %}
   section.atm-school-feedback.alternation-section
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Отзывы учеников
       .row.cetner-md
-        - var list_feedbacks = [];
+
         | {% for item in list_feedbacks %}
         +feedback(item.user_img, item.user_name, item.user_feedback, item.user_vklink)
         | {% endfor %}
+  | {% endif %}
   section.alternation-section
     include includes/feedback_inc.pug
