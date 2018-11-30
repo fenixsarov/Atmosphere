@@ -444,7 +444,7 @@ function bindAjaxReservedForm() {
                     $form.remove();
                     setTimeout(function () {
                       hideReservedForm();
-                    }, 1000);
+                    }, 4500);
                   }
                 }
               });
