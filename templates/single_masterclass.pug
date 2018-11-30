@@ -40,7 +40,7 @@ block content
     .container
       .row
         .col-xs-12
-          .atm-section-header.font-medium Преподаватели курса
+          .atm-section-header.font-medium Преподаватели
       .row
         each teacher in teachers
           .col-xs-12.col-md-8.col-md-offset-2
@@ -62,22 +62,22 @@ block content
             .box.box-container.atm-masterclass-reason
               .row.reason
                 .col-xs-1.col-md-1.middle-xs
-                  img(src="{% static '/images/masterclass/icons/time.png' %}", alt="")
+                  img(src="{% static '/images/masterclass/icons/time_black.png' %}", alt="")
                 .col-xs-8
-                  p.font-light Удобное время проведения - начинаем в 18:30.
+                  p.font-light Удобное время проведения - занятия проходят в выходные или вечером в будни
                   p.font-light Специально для работающих
               .row.reason
                 .col-xs-1.col-md-1.middle-xs
-                  img(src="{% static '/images/masterclass/icons/galka.png' %}", alt="")
+                  img(src="{% static '/images/masterclass/icons/galka_black.png' %}", alt="")
                 .col-xs-8
                   p.font-light Продолжительность мастер-класса - 4 часа.
                   p.font-light Подобрано так, что бы каждого довести до результата.
               .row.reason
                 .col-xs-1.col-md-1.middle-xs
-                  img(src="{% static '/images/masterclass/icons/molbert.png' %}", alt="")
+                  img(src="{% static '/images/masterclass/icons/molbert_black.png' %}", alt="")
                 .col-xs-8
-                  p.font-light Результат МК - картина своими руками.
-                  p.font-light Её можно повесить дома, или подарить любимому человеку.
+                  p.font-light Результат МК - готовый арт-обьект своими руками.
+                  p.font-light Его можно повесить или поставить дома, а можно подарить любимому человеку.
           .col-xs-12.col-sm-4
             .box.box-container
               .row
@@ -86,6 +86,7 @@ block content
               .row
                 .col-xs-12.center-xs.description_btn
                   a.atm-btn-reserved.reserved-btn(type="_blank", data-reserve='#{id}') ЗАПИСАТЬСЯ
+  | {% if list_imgs %}
   section.page_photogallery.alternation-section
     .container
       .row
@@ -97,6 +98,7 @@ block content
           .img-container
             .img(style="background-image: url('#{item}')")
         | {% endfor %}
+  | {% endif %}
   | {% if video_link %}
   section.atm-video-section.alternation-section
     .container
