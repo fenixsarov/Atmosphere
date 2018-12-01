@@ -18,9 +18,9 @@ block content
               .blog-item__bg(style="background-image: url('#{desc_image}')")
             .blog-item__description
               header
-                .blog-item__date.font-light 10.10.2018
-                .blog-item__header.font-medium Заголовок Блога
-                .blog-item__text.font-light Краткое описание блога
+                .blog-item__date.font-light {{ public_date }}
+                .blog-item__header.font-medium {{ title }}
+                .blog-item__text.font-light {{ desc }}
           .atm-blog-content
             | {% for item in content %}
             | {{ item.content |safe }}

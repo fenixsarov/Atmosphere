@@ -82,6 +82,7 @@ class BlogSingleArticle(BaseView):
     content = []
     public_date = ''
     list_imgs = []
+    public_date = ''
 
     def get(self, request, pk):
         try:
@@ -118,7 +119,9 @@ class BlogSingleArticle(BaseView):
                 'desc': self.desc,
                 'desc_image': self.desc_image,
                 'content': self.content,
-                'list_imgs': self.list_imgs
+                'list_imgs': self.list_imgs,
+                'public_date': self.public_date
+
             }
         )
 
