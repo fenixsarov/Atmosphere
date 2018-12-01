@@ -15,7 +15,8 @@
       .atm-form__input-container
         label e-mail 
           span.font-light.atm-form__label-description (для отправки счёта на оплату)
-        input(name="email", required)
+        div
+         input(name="email", type="email", required)
       .atm-form__price
         label Стоимость #{price} ₽
     footer

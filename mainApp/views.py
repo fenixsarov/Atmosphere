@@ -416,6 +416,7 @@ class SingleMasterClass(BaseView):
     list_imgs = []
     video = ''
     who_i = ''
+    list_feedbacks = []
 
     def get(self, request, pk):
         arg = self.args
@@ -430,6 +431,17 @@ class SingleMasterClass(BaseView):
             self.desc_image = self.path_prefix + mc.desc_image.url
             self.video = mc.video
             self.who_i = mc.who_interested
+
+            # Feedback
+            feedbacks = [f for f in mc.feedback.all()]
+            self.list_feedbacks.clear()
+            for f in feedbacks:
+                self.list_feedbacks.append({
+                    'user_name': f.name,
+                    'user_feedback': f.feedback,
+                    'user_img': self.path_prefix + f.image.url,
+                    'user_vklink': f.vklink
+                })
 
             # Looking for related teachers
             teachers = [t for t in mc.teachers.all()]
@@ -465,7 +477,8 @@ class SingleMasterClass(BaseView):
                           'price': self.price,
                           'list_imgs': self.list_imgs,
                           'video_link': self.video,
-                          'who_interested': self.who_i
+                          'who_interested': self.who_i,
+                          'list_feedbacks': self.list_feedbacks
                       })
 
 
