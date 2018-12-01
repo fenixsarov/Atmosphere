@@ -16,14 +16,14 @@ mixin plate(img_src, header, description, _align)
           .plate__more-btn-container
             a.plate__more-btn
               i.fa.fa-plus-circle
-              
+
 mixin plate_new(img_src, header, description)
   .plate_new
     .plate_new__img-preview(style="background-image: url('#{img_src}')")
     .plate_new__description
       .plate_new__description_header #{header}
       .plate_new__description_text #{description}
-      
+
 mixin blog_item(href, img_src, header, description, date)
   article
     a.blog-item(href="#{href}")
@@ -34,7 +34,7 @@ mixin blog_item(href, img_src, header, description, date)
           .blog-item__date.font-light #{date}
           .blog-item__header.font-medium #{header}
           .blog-item__text.font-light #{description}
-      
+
 mixin event(url, header, description, bg_img)
   .event
     a.content(href=url)
@@ -81,7 +81,7 @@ mixin photogallery_item(_url)
     .img-container
       //.img(style="background-image: url('#{imageUrl}/#{_url}')")
       .img(style="background-image: url('#{_url}')")
-          
+
 mixin teacher_card(img_url, name, description, social_link, social_name)
   .box.atm-teachers-card
     .row
@@ -90,13 +90,14 @@ mixin teacher_card(img_url, name, description, social_link, social_name)
       .col-xs-12.col-md-8.atm-teachers-card__description
         h1.atm-teacher-name #{name}
         p.atm-teacher-text.font-light #{description}
-        a.atm-teacher-social-link.font-light(href="#{social_link}") 
-          i.fab.fa-instagram 
-          span.font-light Ссылка на профиль #{social_name}
+        a.atm-teacher-social-link.font-light(href="#{social_link}")
+          i.fab.fa-vk
+          span.font-light Ссылка на профиль
+        //-  span.font-light Ссылка на instagram #{social_name}
 
 mixin feedback(user_img, user_name, user_feedback, vk_link)
   .feedback__single
     .img-container(style="background-image: url('#{user_img}')")
-    .atm-feedback__text 
+    .atm-feedback__text
       a.atm-feedback__name(href="#{vk_link}", target="_blank") #{user_name}
       p #{user_feedback}
