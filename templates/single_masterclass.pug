@@ -34,8 +34,9 @@ block content
           .atm-section-header.font-medium Кому будет интересен этот мастеркласс?
       .row
         .col-xs-12.font-light
-          p.atm-school-p {{ who_interested |safe }}
-          //- Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam, accusamus provident, voluptatem inventore impedit mollitia ad sit earum cupiditate a officiis perferendis nobis dolore quas enim necessitatibus corrupti eius.
+          .atm-school-p
+            | {{ who_interested | safe }}
+
   section.atm-teachers.alternation-section
     .container
       .row
