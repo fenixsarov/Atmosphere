@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import View
 from django.template import loader
 from precise_bbcode.bbcode import get_parser
+from django.core.mail import send_mail, mail_admins
 from pypugjs.ext.django import loader as pug_loader
 from django.conf import settings
 from .models import *
@@ -587,9 +588,18 @@ class ReservedForm(View):
 
 
         reserve.save()
-
-
-        print(name, phone, email, page, id_form)
+        from django.core.mail import EmailMessage
+        from django.core.mail import EmailMessage
+        msg = EmailMessage(
+            subject=u'Тема письма',
+            body=u'тело <b>сообщения</b> тут',
+            from_email='atmosphera-sarov@yandex.ru',
+            to=('atmosphera-sarov@yandex.ru',),
+            headers={'From': 'atmosphera-sarov@yandex.ru'}
+        )
+        msg.content_subtype = 'html'
+        msg.send()
+        #print(name, phone, email, page, id_form)
 
         return JsonResponse({'response': HttpResponse.status_code})
         # render(request, 'graduations.pug')
