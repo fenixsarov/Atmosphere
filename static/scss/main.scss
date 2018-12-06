@@ -166,7 +166,7 @@ a {
   .description__text {
     line-height: 2em;
     font-size: 1.1em;
-    text-align: justify;
+    text-align: left;
     &::first-letter {
       margin-left: 1em;
     }
@@ -217,7 +217,7 @@ a {
 
 .atm-page-header__description {
   font-size: 1.2em;
-  text-align: justify;
+  text-align: left;
   line-height: 1.5em;
   margin-top: 1.5em;
   text-indent: 1em;
@@ -240,7 +240,7 @@ a {
   line-height: 1.5em;
   font-size: 1.3em;
   margin-top: 1.5em;
-  text-align: justify;
+  text-align: left;
   margin-bottom: 1.5em;
   .price {}
   .date {}
@@ -289,7 +289,7 @@ a {
   .atm-feedback__text {
     font-size: 1.2em;
     line-height: 1.5em;
-    text-align: justify;
+    text-align: left;
     word-break: break-word;
     p::first-letter {
       margin-left: 2em;
