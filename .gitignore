@@ -1,6 +1,8 @@
 mysql.cnf
 .idea/
 .vscode/
+env/
+env
 db.sqlite3
 *.pyc
 *_initial.py
@@ -20,3 +22,7 @@ mainApp/migrations/0001_initial.py
 static/ckeditor
 mainApp/migrations
 static/javascripts/main.min.js
+static/admin
+dump*.json
+static/bootstrap*
+static/images/school/studio_photo/gallery/1.zip
