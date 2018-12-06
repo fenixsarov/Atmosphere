@@ -12,12 +12,12 @@ section {
     .description__title {
       .title {
         text-align: center;
+        word-break: break-word;
         position: relative;
         display: inline-block;
         text-transform: uppercase; // font-size: 2em;
         letter-spacing: 9px;
         margin-bottom: 45px;
-        font-size: 2.5em;
         line-height: 1.5em;
         &::after {
           content: "";
@@ -27,20 +27,19 @@ section {
           left: 50%;
           transform: translateX(-50%);
           width: 100%;
-        }
-        // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   bottom: -8px;
-  //   border-top: 3px solid rgb(178, 31, 36);
-  //   left: 50%;
-  //   width: 100%;
-  //   transform: translateX(-50%);
-  //   -webkit-transform: translateX(-50%);
-  //   -moz-transform: translateX(-50%);
-  //   -ms-transform: translateX(-50%);
-  //   -o-transform: translateX(-50%);
-  // }
+        } // &::after {
+        //   content: "";
+        //   position: absolute;
+        //   bottom: -8px;
+        //   border-top: 3px solid rgb(178, 31, 36);
+        //   left: 50%;
+        //   width: 100%;
+        //   transform: translateX(-50%);
+        //   -webkit-transform: translateX(-50%);
+        //   -moz-transform: translateX(-50%);
+        //   -ms-transform: translateX(-50%);
+        //   -o-transform: translateX(-50%);
+        // }
       }
     }
     .description__text {

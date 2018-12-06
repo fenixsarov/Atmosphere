@@ -39,10 +39,8 @@ $flex_margin: 15px;
   section {
     .description {
       .description__title {
-        text-align: center;
-        word-break: break-word;
         .title {
-          font-size: 1.6em !important;
+          font-size: 1.6em;
         }
       }
     }
@@ -68,6 +66,15 @@ $flex_margin: 15px;
     font-size: 10px;
     min-width: 170px;
     margin-bottom: 1em;
+  }
+  section {
+    .description {
+      .description__title {
+        .title {
+          font-size: 2em;
+        }
+      }
+    }
   }
 }
 
@@ -102,6 +109,15 @@ $flex_margin: 15px;
     left: 50%;
     transform: translateX(-50%); // width: 100vw; // height: 100vh;
   }
+  section {
+    .description {
+      .description__title {
+        .title {
+          font-size: 2em;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 1105px) {
@@ -113,6 +129,15 @@ $flex_margin: 15px;
     .col-md-3:nth-child(4n) {
       flex-basis: 50%;
       max-width: 50%;
+    }
+  }
+  section {
+    .description {
+      .description__title {
+        .title {
+          font-size: 2em;
+        }
+      }
     }
   }
 }
