@@ -3,12 +3,12 @@ from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import View
 from django.template import loader
 from precise_bbcode.bbcode import get_parser
-from django.core.mail import send_mail, mail_admins
+from django.core.mail import send_mail
 from pypugjs.ext.django import loader as pug_loader
 from django.conf import settings
 from .models import *
 import random
-
+from django.core.mail import EmailMessage
 
 # debug = settings.DEBUG
 
@@ -586,20 +586,46 @@ class ReservedForm(View):
         else:
             reserve.id_form = page
 
-
         reserve.save()
-        from django.core.mail import EmailMessage
-        from django.core.mail import EmailMessage
-        msg = EmailMessage(
-            subject=u'Тема письма',
-            body=u'тело <b>сообщения</b> тут',
+
+
+        msg_for_admin = EmailMessage(
+            subject=u'Новая заявка №' + str(reserve.pk),
+            body=u'Получена новая заявка <b>№' + str(reserve.pk) + '</b> '\
+            'от <b>' + name + '</b><br>' + \
+            'телефон: <b>' + str(phone) + '</b><br>' + \
+            'email: <b>' + email + '</b>',
             from_email='atmosphera-sarov@yandex.ru',
-            to=('atmosphera-sarov@yandex.ru',),
+            to=(('atmosphera-sarov@yandex.ru'),('Atmospherasarov@yandex.ru')),
             headers={'From': 'atmosphera-sarov@yandex.ru'}
         )
-        msg.content_subtype = 'html'
-        msg.send()
-        #print(name, phone, email, page, id_form)
+
+        msg_for_customer = EmailMessage(
+            subject=u'Заявка №' + str(reserve.pk) + ' фотостудии Атмосфера',
+            body=u'Спасибо, что оставили заяку в нашей фотостудии. Наш администратор \
+            свяжется с Вами в ближайшее время.<br>' + \
+            'Ваша заявка: <b>№' + str(reserve.pk) + '</b>. <br>'\
+            'Вы указали в заявке:<br>' +\
+            '    Ваше имя: <b>' + name + '</b><br>' + \
+            '    Телефон: <b>' + str(phone) + '</b><br>' + \
+            '    email: <b>' + email + '</b>' + \
+            '<br><br><br>' + \
+            '__________________________________<br>' + \
+            'C наилучшими пожеланиями,<br>' +\
+            'администрация фотостудии Атмосфера',
+            from_email='atmosphera-sarov@yandex.ru',
+            to=(email,),
+            headers={'From': 'atmosphera-sarov@yandex.ru'}
+        )
+
+        msg_for_admin.content_subtype = 'html'
+        msg_for_admin.send()
+
+        msg_for_customer.content_subtype = 'html'
+        msg_for_customer.send()
+        # print(name, phone, email, page, id_form)
+
+
 
         return JsonResponse({'response': HttpResponse.status_code})
         # render(request, 'graduations.pug')
