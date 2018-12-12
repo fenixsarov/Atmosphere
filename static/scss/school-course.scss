@@ -139,11 +139,10 @@
     }
 
     .lecture__description {
-      font-size: 1.3em;
+      font-size: 1.2em;
       line-height: 2em;
       margin-top: 2em;
       margin-bottom: 2em;
-      text-align: justify;
     }
 
     .lecture__teacher {
@@ -152,10 +151,14 @@
   }
 }
 
+.lecture-description__container {
+  padding-left: 2em;
+}
+
 .atm-school-constructor {
   .atm-school-constructor-description {
     line-height: 1.5em;
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-top: 1.5em;
     text-align: justify;
 
