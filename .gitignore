@@ -27,4 +27,3 @@ dump*.json
 static/bootstrap*
 static/images/school/studio_photo/gallery/1.zip
 static/javascripts/main.min.js
-static/javascripts/*.min.js
