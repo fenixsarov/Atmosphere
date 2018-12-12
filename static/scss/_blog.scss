@@ -3,6 +3,7 @@
   position: relative;
   display: block;
   overflow: hidden;
+
   &:hover {
     & .blog-item__bg img {
       transform: scale(1.5);
@@ -16,6 +17,7 @@
 
 .blog-item__bg {
   overflow: hidden;
+
   img {
     display: block;
     transition: all 25s ease;
@@ -30,14 +32,16 @@
 .blog-item__description {
   position: absolute;
   bottom: 0px;
-  width: 100%; //left: 50%;
+  width: 100%;
+  box-sizing: border-box; //left: 50%;
   //transform: translateX(-50%);
   //right: 100px;
   padding: 30px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.7);
+
   .blog-item__header {
     text-transform: uppercase;
-    font-size: 1.7em;
+    font-size: 2em;
     padding-top: .5em;
     padding-bottom: .5em;
   }
@@ -47,22 +51,54 @@
   // max-height: 50vh;
   position: relative;
   overflow: hidden;
+
   .blog-item__bg {
     min-height: 50vh;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
   }
 }
 
 .atm-blog-content {
-  padding-top: 2em;
-  font-size: 1.5em;
+  // font-size: 1.5em;
+  padding-top: 1.5em;
   line-height: 1.5em;
+
   p {
     margin-top: 1em;
-    text-align: justify;
+    font-size: 1.2em;
+    line-height: 2em;
+
     &::first-letter {
       margin-left: 1em;
     }
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    margin-top: 1.5em;
+    max-width: 850px;
+    width: 100%;
+  }
+
+  h1,
+  h2 {
+    text-transform: uppercase;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    line-height: 1.2em;
+    font-family: 'MontserratMedium';
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
   }
 }
