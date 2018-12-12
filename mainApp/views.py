@@ -98,18 +98,23 @@ class BlogSingleArticle(BaseView):
             content = [c for c in ba.content.all()]
             self.content.clear()
             for c in content:
+                src_img = ''
+                try:
+                    src_img = '/images/upload_imgs/' + c.desc_image.url
+                except BaseException as e:
+                    print(e)
+                    print('Normal continue work...')
+
                 self.content.append({
                     'title': c.title,
                     'content': c.content,
-                    'desc_image': '/images/upload_imgs/' + c.desc_image.url,
+                    'desc_image': src_img,
                 })
 
             # self.teachers = [t for t in mc.teachers.all()]
             self.list_imgs.clear()
             self.list_imgs = [self.path_prefix + h.file.url for h in
                               PicBlogArticle.objects.filter(galleryBlogArticle_id=pk)]
-
-
 
         except BaseException as e:
             print(e)

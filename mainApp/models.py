@@ -131,7 +131,7 @@ class PicSession(Picture):
 class BlogContentBlock(models.Model):
     title = models.CharField('Описание, к какой статье относится', max_length=512)
     content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=12144)
-    desc_image = models.FileField(upload_to="", verbose_name='Картинка к блоку')
+    desc_image = models.FileField(upload_to="", verbose_name='Картинка к блоку', blank=True, null=True)
     def __str__(self):
         return self.title
 
