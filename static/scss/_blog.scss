@@ -3,9 +3,10 @@
   position: relative;
   display: block;
   overflow: hidden;
+  height: 400px;
 
   &:hover {
-    & .blog-item__bg img {
+    & .blog-item__bg {
       transform: scale(1.5);
       -webkit-transform: scale(1.5);
       -moz-transform: scale(1.5);
@@ -17,16 +18,20 @@
 
 .blog-item__bg {
   overflow: hidden;
-
-  img {
-    display: block;
-    transition: all 25s ease;
-    -webkit-transition: all 25s ease;
-    -moz-transition: all 25s ease;
-    -ms-transition: all 25s ease;
-    -o-transition: all 25s ease;
-    width: 100%;
-  }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  // img {
+  display: block;
+  transition: all 25s ease;
+  -webkit-transition: all 25s ease;
+  -moz-transition: all 25s ease;
+  -ms-transition: all 25s ease;
+  -o-transition: all 25s ease;
+  // width: 100%;
+  // }
 }
 
 .blog-item__description {
