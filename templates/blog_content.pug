@@ -15,14 +15,14 @@ block content
         .col-xs-12
           .atm-blog-header
             .blog-header
-              .blog-item__bg(style="background-image: url('#{desc_image}')")
-            .blog-item__description
-              header
-                .blog-item__date.font-light {{ public_date }}
-                .blog-item__header.font-medium {{ title }}
-                //- .blog-item__text.font-light {{ desc }}
-                //- .blog-item__text.font-light Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, magni. Numquam quidem in ratione debitis. Soluta atque, minus sit eos illum numquam ratione sapiente! Nam iure quis magnam corrupti voluptatum.
+              .blog-item__bg_container
+                .blog-item__bg.parallax-img(style="background-image: url('#{desc_image}')")
+              .blog-item__description
+                header
+                  .blog-item__date.font-light {{ public_date }}
+                  .blog-item__header.font-medium {{ title }}
           .atm-blog-content
+<<<<<<< HEAD
             | {{ content |safe }}
             //- | {% for item in content %}
             //- | {{ item.content |safe }}
@@ -59,3 +59,8 @@ block content
             //-           //- // Тут я не осилил сделать через {% static %}
             //-           // А тут и не надо)
             //-       | {% endfor %}
+=======
+            | {% for item in content %}
+            | {{ item.content |safe }}
+            | {% endfor %}
+>>>>>>> 3159a53836aedb601007351cb4f867c1eff5c965
