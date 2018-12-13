@@ -22,7 +22,6 @@ block content
                   .blog-item__date.font-light {{ public_date }}
                   .blog-item__header.font-medium {{ title }}
           .atm-blog-content
-<<<<<<< HEAD
             | {{ content |safe }}
             //- | {% for item in content %}
             //- | {{ item.content |safe }}
@@ -59,8 +58,4 @@ block content
             //-           //- // Тут я не осилил сделать через {% static %}
             //-           // А тут и не надо)
             //-       | {% endfor %}
-=======
-            | {% for item in content %}
-            | {{ item.content |safe }}
-            | {% endfor %}
->>>>>>> 3159a53836aedb601007351cb4f867c1eff5c965
+
