@@ -5,7 +5,7 @@ include mixins/mixins.pug
 prepend page
   - var title = title
 block styles
-  //- link(rel="stylesheet", href="{% static 'css/blog.css' %}") 
+  //- link(rel="stylesheet", href="{% static 'css/blog.css' %}")
   //- ТУТ НУЖНО ГЕНЕРИРОВАТЬ ОТДЕЛЬНЫЙ  CSS для БЛОГА (я не знаю где что поправить нужно, что бы это произошло)
   //- ...я так думаю и подключать по мере необходимости, что бы не раздувать main.css
 block content
@@ -23,8 +23,9 @@ block content
                 //- .blog-item__text.font-light {{ desc }}
                 //- .blog-item__text.font-light Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, magni. Numquam quidem in ratione debitis. Soluta atque, minus sit eos illum numquam ratione sapiente! Nam iure quis magnam corrupti voluptatum.
           .atm-blog-content
-            | {% for item in content %}
-            | {{ item.content |safe }}
+            | {{ content |safe }}
+            //- | {% for item in content %}
+            //- | {{ item.content |safe }}
             //- //p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, earum perferendis quisquam tempora, corporis laboriosam praesentium expedita aspernatur debitis, mollitia animi. Incidunt, dolor! Architecto, totam et dolorum sed itaque commodi.
             //- //p Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sit voluptates vel nulla sint aspernatur possimus numquam earum cum eligendi, dolores obcaecati quam ex, itaque error placeat id aperiam facere.
             //- //p Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis porro iure animi eius rem repellendus minus natus, voluptatem commodi corrupti laborum, voluptatum officia mollitia dolorum possimus est doloribus voluptas?
@@ -33,7 +34,7 @@ block content
             //-     .col-xs-12.col-md-6
             //-       img(src="{% static item.desc_image %}", alt="Blog #{header} img")
             //-       //img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}", alt="Blog #{header} img")
-            | {% endfor %}
+            //- | {% endfor %}
             //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, earum perferendis quisquam tempora, corporis laboriosam praesentium expedita aspernatur debitis, mollitia animi. Incidunt, dolor! Architecto, totam et dolorum sed itaque commodi.
             //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sit voluptates vel nulla sint aspernatur possimus numquam earum cum eligendi, dolores obcaecati quam ex, itaque error placeat id aperiam facere.
             //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis porro iure animi eius rem repellendus minus natus, voluptatem commodi corrupti laborum, voluptatum officia mollitia dolorum possimus est doloribus voluptas?
@@ -58,4 +59,3 @@ block content
             //-           //- // Тут я не осилил сделать через {% static %}
             //-           // А тут и не надо)
             //-       | {% endfor %}
-            

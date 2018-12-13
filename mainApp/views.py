@@ -80,7 +80,7 @@ class BlogSingleArticle(BaseView):
     title = ''
     desc = ''
     desc_image = ''
-    content = []
+    content = ''
     public_date = ''
     list_imgs = []
     public_date = ''
@@ -93,23 +93,24 @@ class BlogSingleArticle(BaseView):
             self.desc_image = self.path_prefix + ba.desc_image.url
             # self.content = ba.content
             self.public_date = ba.public_date
+            self.content = ba.content
 
             # Looking for related teachers
-            content = [c for c in ba.content.all()]
-            self.content.clear()
-            for c in content:
-                src_img = ''
-                try:
-                    src_img = '/images/upload_imgs/' + c.desc_image.url
-                except BaseException as e:
-                    print(e)
-                    print('Normal continue work...')
+            # content = [c for c in ba.content.all()]
+            # self.content.clear()
+            # for c in content:
+            #     src_img = ''
+            #     try:
+            #         src_img = '/images/upload_imgs/' + c.desc_image.url
+            #     except BaseException as e:
+            #         print(e)
+            #         print('Normal continue work...')
 
-                self.content.append({
-                    'title': c.title,
-                    'content': c.content,
-                    'desc_image': src_img,
-                })
+                # self.content.append({
+                #     'title': c.title,
+                #     'content': c.content,
+                #     'desc_image': src_img,
+                # })
 
             # self.teachers = [t for t in mc.teachers.all()]
             self.list_imgs.clear()

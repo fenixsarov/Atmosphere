@@ -128,23 +128,24 @@ class PicSession(Picture):
 
 
 # Эти классы описывают содержание статьи блога
-class BlogContentBlock(models.Model):
-    title = models.CharField('Описание, к какой статье относится', max_length=512)
-    content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=12144)
-    desc_image = models.FileField(upload_to="", verbose_name='Картинка к блоку', blank=True, null=True)
-    def __str__(self):
-        return self.title
+# class BlogContentBlock(models.Model):
+#     title = models.CharField('Описание, к какой статье относится', max_length=512)
+#     content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=12144)
+#     desc_image = models.FileField(upload_to="", verbose_name='Картинка к блоку', blank=True, null=True)
+#     def __str__(self):
+#         return self.title
 
-    class Meta:
-        verbose_name_plural = '3.1 Блок статьи блога'
+#     class Meta:
+#         verbose_name_plural = '3.1 Блок статьи блога'
 
 class BlogArticle(models.Model):
     title = models.CharField('Заголовок', max_length=128)
-    desc = models.TextField(verbose_name='Описание', max_length=4096)
+    desc = models.TextField(verbose_name='Краткое описание', max_length=4096)
     desc_image = models.FileField(upload_to="", verbose_name='Картинка к статье')
-    content = models.ManyToManyField(BlogContentBlock, verbose_name='Основной текст')
-    # content = models.TextField(verbose_name='Основной текст')
-    public_date = models.DateField(auto_now_add=True)
+    # content = models.ManyToManyField(BlogContentBlock, verbose_name='Основной текст')
+    content = RichTextField(verbose_name='Блок контента для статьи блога', max_length=12144)
+
+    public_date = models.DateField(verbose_name='Дата публикации', auto_now_add=True)
 
     def __str__(self):
         return self.title

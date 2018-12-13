@@ -60,6 +60,8 @@ class PicMasterclassAdmin(PictureAdmin):
 
 
 class BlogArticleAdmin(GalleryAdmin):
+    list_display = ('title', 'public_date')
+
     multiupload_list = False
 
 
@@ -90,6 +92,9 @@ class PicProductAdmin(PictureAdmin):
     list_display = ['filename', 'title']
 
 
+class ReserveAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name', 'public_date', )
+
 # admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(Image, ImageAdmin)
 # admin.site.register(Picture, PictureAdmin)
@@ -105,9 +110,9 @@ admin.site.register(Session, ProductAdmin)
 admin.site.register(PicSession, PicProductAdmin)
 admin.site.register(BlogArticle, BlogArticleAdmin)
 admin.site.register(PicBlogArticle, PicBlogArticleAdmin)
-admin.site.register(BlogContentBlock)
+# admin.site.register(BlogContentBlock)
 admin.site.register(TeamPerson)
-admin.site.register(Reserves)
+admin.site.register(Reserves, ReserveAdmin)
 admin.site.register(MasterclassFeedback)
 
 # Register your models here.
