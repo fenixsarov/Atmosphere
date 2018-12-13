@@ -1,42 +1,53 @@
 #atm-header-slogan-section {
   position: relative;
   min-height: 750px;
+  overflow: hidden;
+
+  // .parallax-img {
+  //   position: absolute;
+  //   top: 0;
+  //   left: -10px;
+  //   right: -10px;
+  //   bottom: 0; // margin-left: -10px;
+  //   // margin-right: -10px;
+  //   // padding: 0;
+  //   // max-width: inherit;
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //   background-position: top;
+  // }
   .parallax-img {
-    position: absolute;
-    top: 0;
-    left: -10px;
-    right: -10px;
-    bottom: 0; // margin-left: -10px;
-    // margin-right: -10px;
-    // padding: 0;
-    // max-width: inherit;
-    background-image: url('../images/header/background.png');
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    // background-image: url('../images/header/background_compressed.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
+    position: absolute;
   }
+
   .atm-header-img-container {
     // margin-left: -10px;
     // margin-right: -10px;
     overflow: hidden;
     max-height: 750px;
-    .parallax-img {
-      width: 100%;
-      height: 100%;
-      background-image: url('../images/header/background.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: top;
-    } // .atm-header-img-container
+
+
+
+    // .atm-header-img-container
   }
+
   .atm-slogan {
     position: absolute;
     top: 40%;
     right: 0;
     z-index: 3;
+
     .slogan {
       border-right: 7px solid $cl-atm-red;
       text-align: right;
+
       span {
         display: inline-block;
         padding-right: 48px;
