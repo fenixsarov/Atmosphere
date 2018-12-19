@@ -5,9 +5,6 @@ include mixins/mixins.pug
 prepend page
   - var title = title
 block styles
-  //- link(rel="stylesheet", href="{% static 'css/blog.css' %}")
-  //- ТУТ НУЖНО ГЕНЕРИРОВАТЬ ОТДЕЛЬНЫЙ  CSS для БЛОГА (я не знаю где что поправить нужно, что бы это произошло)
-  //- ...я так думаю и подключать по мере необходимости, что бы не раздувать main.css
 block content
   section
     .container
@@ -23,39 +20,4 @@ block content
                   .blog-item__header.font-medium {{ title }}
           .atm-blog-content
             | {{ content |safe }}
-            //- | {% for item in content %}
-            //- | {{ item.content |safe }}
-            //- //p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, earum perferendis quisquam tempora, corporis laboriosam praesentium expedita aspernatur debitis, mollitia animi. Incidunt, dolor! Architecto, totam et dolorum sed itaque commodi.
-            //- //p Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sit voluptates vel nulla sint aspernatur possimus numquam earum cum eligendi, dolores obcaecati quam ex, itaque error placeat id aperiam facere.
-            //- //p Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis porro iure animi eius rem repellendus minus natus, voluptatem commodi corrupti laborum, voluptatum officia mollitia dolorum possimus est doloribus voluptas?
-            //- .box.box-container
-            //-   .row.center-xs
-            //-     .col-xs-12.col-md-6
-            //-       img(src="{% static item.desc_image %}", alt="Blog #{header} img")
-            //-       //img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}", alt="Blog #{header} img")
-            //- | {% endfor %}
-            //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, earum perferendis quisquam tempora, corporis laboriosam praesentium expedita aspernatur debitis, mollitia animi. Incidunt, dolor! Architecto, totam et dolorum sed itaque commodi.
-            //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sit voluptates vel nulla sint aspernatur possimus numquam earum cum eligendi, dolores obcaecati quam ex, itaque error placeat id aperiam facere.
-            //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis porro iure animi eius rem repellendus minus natus, voluptatem commodi corrupti laborum, voluptatum officia mollitia dolorum possimus est doloribus voluptas?
-            //- .box.box-container
-            //-   .row.center-xs
-            //-     .col-xs-12.col-md-6
-            //-       img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}", alt="Blog #{header} img")
-            //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, earum perferendis quisquam tempora, corporis laboriosam praesentium expedita aspernatur debitis, mollitia animi. Incidunt, dolor! Architecto, totam et dolorum sed itaque commodi.
-            //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum sit voluptates vel nulla sint aspernatur possimus numquam earum cum eligendi, dolores obcaecati quam ex, itaque error placeat id aperiam facere.
-            //- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore veritatis porro iure animi eius rem repellendus minus natus, voluptatem commodi corrupti laborum, voluptatum officia mollitia dolorum possimus est doloribus voluptas?
-            //- .box.box-container
-            //-   .row.center-xs
-            //-     .col-xs-12.col-md-6
-            //-       img(src="{% static '/images/masterclass/masterclass_main_img_0.jpg' %}", alt="Blog #{header} img")
-            //- .box.box-container
-            //-   section.page_photogallery
-            //-     .row
-            //-       //- var gallery_imgs = ["9vrb9iGOII8.jpg","CIPMljq-678.jpg","Fa5WTp1mxdE.jpg","YZtXXpEzdm4.jpg","aER8JACIkao.jpg","rMmIgSM5W8g.jpg","wI3nPagwI3U.jpg","CIFRZeC9JVk.jpg","CsTbBPo7SbI.jpg","GlDoogxTb4g.jpg","ODHLi0dO4vU.jpg","ZkXyy-z6N5A.jpg","coTTVNVazAU.jpg","sZYyubVwWxs.jpg","zIWGbws2jow.jpg"];
-            //-       | {% for item in list_imgs %}
-            //-       .img-container.col-xs-6.col-md-3
-            //-         .img(style="background-image: url('#{item}')")
-            //-           //- // Тут я не осилил сделать через {% static %}
-            //-           // А тут и не надо)
-            //-       | {% endfor %}
 
