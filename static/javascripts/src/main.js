@@ -76,9 +76,9 @@ $(document).ready(function () {
           'opacity': '0'
         });
         $topBtn.css({
-          'display': 'none'
+          'display': 'none',
+          'opacity': '0'
         });
-        // $prlx_main.css('position', 'absolute');
       }
       if (cur_s > header_height) {
         $('.aeWidgetBtn').css({
@@ -86,10 +86,9 @@ $(document).ready(function () {
           'opacity': '1'
         });
         $topBtn.css({
-          'display': 'block'
+          'display': 'block',
+          'opacity': '.5'
         });
-        // mainContentParallax( cur_s );
-        // $prlx_main.css('position', 'fixed');
       }
 
       if (team_img_pos.length) { // Не знаю на сколько это всё оптимально сделано
