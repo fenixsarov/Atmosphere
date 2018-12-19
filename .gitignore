@@ -26,4 +26,3 @@ static/admin
 dump*.json
 static/bootstrap*
 static/javascripts/main.min.js
-static/images/Archive
