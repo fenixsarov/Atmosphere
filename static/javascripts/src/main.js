@@ -7,11 +7,9 @@ var $carouselContent = null,
   carouselFirstItem = null,
   autoSlide = null;
 
-
 var first_submenu_load = true;
 
 $(document).ready(function () {
-  hidePreload();
   var prev_s = $(window).scrollTop();
   var w_height = $(window).height();
   var w_width = $(window).width();
@@ -45,6 +43,7 @@ $(document).ready(function () {
       autoRotateSlide();
     });
 
+  bindTopPageBtn();
   autoRotateSlide();
   var header_height = w_height;
 
@@ -64,6 +63,7 @@ $(document).ready(function () {
   $(window).scroll(function (e) {
     var cur_s = $(this).scrollTop();
     var direction = (prev_s - cur_s) < 0 ? 1 : -1;
+    var $topBtn = $('.atm-toppage-btn');
 
     requestAnimationFrame(function () {
       if (cur_s <= header_height) {
@@ -75,12 +75,18 @@ $(document).ready(function () {
           'display': 'none',
           'opacity': '0'
         });
+        $topBtn.css({
+          'display': 'none'
+        });
         // $prlx_main.css('position', 'absolute');
       }
       if (cur_s > header_height) {
         $('.aeWidgetBtn').css({
           'display': 'block',
           'opacity': '1'
+        });
+        $topBtn.css({
+          'display': 'block'
         });
         // mainContentParallax( cur_s );
         // $prlx_main.css('position', 'fixed');
@@ -179,6 +185,15 @@ $(document).ready(function () {
   checkMobileTopPadding();
 });
 
+function bindTopPageBtn() {
+  var $topBtn = $('.atm-toppage-btn');
+  $topBtn.on('click', function (evt) {
+    $('html, body').stop().animate({
+      scrollTop: 0
+    }, 777);
+  });
+}
+
 function checkMobileTopPadding() {
   // bindAjaxContentChange();
   var $atmMobileNav = $('#atm-navigation_mobile');
@@ -191,15 +206,6 @@ function checkMobileTopPadding() {
   } else {
     $atmMobileNav.next('section').css('margin-top', 0);
   }
-}
-
-function hidePreload() {
-  $('#preloader').fadeOut('slow', function () {
-    $('body').css({
-      'overflow': 'visible'
-    });
-    startPage();
-  });
 }
 
 function startPage() {
@@ -379,7 +385,7 @@ function bindAjaxReservedForm() {
     evt.preventDefault();
     var page = $('#page_name').val();
     var id_form = $(this).data("reserve");
-    console.log(page, id_form);
+    // console.log(page, id_form);
 
     $.ajax({
       type: "GET",
@@ -440,8 +446,8 @@ function bindAjaxReservedForm() {
                 data: ajaxObj,
                 success: function (res) {
                   if (res.response == 200) {
-                    $reservForm.find('.atm-reserved-name').text('Сасибо!\nВы записаны')
-                    $reservForm.append('<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>')
+                    $reservForm.find('.atm-reserved-name').text('Сасибо!\nВы записаны');
+                    $reservForm.append('<div class="atm-reserved-notification"><label>Наш Администратор вам перезвонит в ближайшее время и направит счёт на оплату на ваш e-mail</label></div>');
                     $form.remove();
                     setTimeout(function () {
                       hideReservedForm();
