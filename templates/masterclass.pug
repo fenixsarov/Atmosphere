@@ -6,7 +6,7 @@ prepend page
   - var title = "Мастер-класс"
 block content
   | {% static '/images' as imageUrl %}
-  
+
   section
     .container.page_mainheader
       .row
@@ -20,6 +20,7 @@ block content
   section.atm-plate-gallery
     .container.plate_container
       .row#masterclass_plates
+
 block append scripts
   script(src="{% static 'javascripts/masterclass.js' %}")
 

@@ -11,7 +11,7 @@ block content
       p.col-xs-12.col-sm-8.col-sm-offset-2.atm-page-header__description Наша фотостудия началась с простого желания создать и обустроить уголок для фотографов и креативных людей. В 2015 году мы сами столкнулись с тем, что в городе не было rental studio – фотостудии не одного фотографа, а такого места, куда может прийти любой и устроить там свой проект или снять съемку. Таких мест просто не существовало.
       p.col-xs-12.col-sm-8.col-sm-offset-2.atm-page-header__description Вот серьезно. Первый проект мы снимали в квартире друга. Во время ремонта. Мы вдвоем приходили утром, полностью мыли от пыли зал, ставили декорации на место и снимали. Вечером – все убирали. Потому что за ночь в зал налетало столько пыли, что приходилось мыть еще раз.
       p.col-xs-12.col-sm-8.col-sm-offset-2.atm-page-header__description А мы хотели создавать проекты. Снимать такие съемки, которые нравились бы нам самим в том пространстве, которое можно трансформировать под себя. В любое время. Так появилась Атмосфера.
-  
+
   section.team-contents#teamperson_plates
     .container
       .row.center-xs
@@ -19,5 +19,7 @@ block content
         .col-xs-12.team-title Наша команда
         .col-xs-12.col-sm-12.team-text Мы вместе работаем над тем, чтобы вам было уютно в нашей Атмосфере
 
+  section.alternation-section
+    include includes/feedback_inc.pug
 block append scripts
   script(src="{% static 'javascripts/aboutchange.js' %}")
