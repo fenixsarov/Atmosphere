@@ -89,7 +89,8 @@ class DescriptionsList(models.Model):
 # Models for halls and sessions
 class Product(models.Model):
     title = models.CharField('Заголовок', max_length=128)
-    desc = models.TextField(verbose_name='Кракое описание', max_length=2048)
+    # desc = models.TextField(verbose_name='Кракое описание', max_length=2048)
+    desc = RichTextField(verbose_name='Кракое описание', max_length=4048)
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24,
                                     default='product')
 
@@ -163,8 +164,10 @@ class PicBlogArticle(Picture):
 #  Этот класс описывает запись об одном из членов команды
 class TeamPerson(models.Model):
     title = models.CharField('Имя', max_length=128)
-    desc = models.TextField(verbose_name='Описание', max_length=640)
-    content = models.TextField(verbose_name='Основной текст')
+    # desc = models.TextField(verbose_name='Описание', max_length=640)
+    desc = RichTextField(verbose_name='Описание', max_length=1280)
+    # content = models.TextField(verbose_name='Основной текст')
+    content = RichTextField(verbose_name='Основной текст', max_length=1596)
     desc_image = models.FileField(upload_to="", verbose_name='Фотография')
     social_link = models.URLField(verbose_name="Ссылка на социалку")
     social_name = models.URLField(verbose_name="Ссылка на инстаграм")
