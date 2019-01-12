@@ -17,6 +17,7 @@ const js_src = [
   "static/javascripts/src/reserv_widget.js",
   "static/javascripts/src/main.js"
 ];
+
 gulp.task('build_js', function () {
   return gulp.src(js_src)
     .pipe(concat('main.js'))
