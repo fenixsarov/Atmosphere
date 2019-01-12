@@ -62,7 +62,8 @@ class PicGraduations(Picture):
 class DescriptionsList(models.Model):
     title = models.CharField('Title', max_length=30)
     file = models.FileField(upload_to="")
-    desc = models.TextField(verbose_name='Описание на странице', max_length=256)
+    # desc = models.TextField(verbose_name='Описание на странице', max_length=256)
+    desc = RichTextField(verbose_name='Описание на странице', max_length=2048)
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='description')
 
     class Meta:

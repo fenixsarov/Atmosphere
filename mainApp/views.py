@@ -356,7 +356,8 @@ class School(BaseView):
                 # Getting data for page description (title, description, image)
                 obj = DescriptionsList.objects.get(service_name=self.page_name)
                 self.title = obj.title
-                self.main_text = self.bb_parser.render(obj.desc)
+                # self.main_text = self.bb_parser.render(obj.desc)
+                self.main_text = obj.desc
                 self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
@@ -396,7 +397,8 @@ class MasterClass(BaseView):
                 obj = DescriptionsList.objects.get(service_name=self.page_name)
                 self.title = obj.title
 
-                self.main_text = self.bb_parser.render(obj.desc)
+                # self.main_text = self.bb_parser.render(obj.desc)
+                self.main_text = obj.desc
                 self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
