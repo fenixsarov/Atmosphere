@@ -34,7 +34,7 @@ if DEBUG:
     ADMINS = (('Admin', 'atmosphera-sarov@yandex.ru'))
     EMAIL_HOST = 'smtp.yandex.ru'
     EMAIL_HOST_USER = 'atmosphera-sarov@yandex.ru'
-    EMAIL_HOST_PASSWORD = 'athm1!GT7'
+    EMAIL_HOST_PASSWORD = 'athm1!GT78'
     EMAIL_PORT = 587
 
 
