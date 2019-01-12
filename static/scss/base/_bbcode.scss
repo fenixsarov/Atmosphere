@@ -1,0 +1,35 @@
+.atm-bbcode-container {
+    h1, h2, p {
+        display: block;
+        &.text-normal {
+            text-align: initial;
+        }
+        &.text-center {
+            text-align: center;
+        }
+        &.text-left {
+            text-align: left;
+        }
+        &.text-right {
+            text-align: right;
+        }
+    }
+    h1 {
+        // font-size: 2em;
+        font-size: 2.0em;
+        font-weight: 800;
+        line-height: 1.4em;
+        text-transform: uppercase;
+    }
+    h2 {
+        font-size: 1.7em;
+        line-height: 2em;
+    }
+
+    p {
+        line-height: 1.5em;
+    }
+    a {
+        color: $cl-atm-red !important;
+    }
+}

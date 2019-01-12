@@ -1,17 +1,18 @@
-section.atm-question
+section.atm-question.atm-bbcode-container
     .container
       .row
-        .col-xs-12.center-xs
-          .atm-section-header.font-medium Остались вопросы? 
-      .row.center-xs
-        .col-xs-12.col-md-7.description
-          .box
-            .row.center-xs.start-md
-              .col-xs-12.description__text
-                p.desc Звони по номеру 8(930)290-12-12 наш администратор Катя обязательно ответит на них.
-      .row.center-xs
-        .col-xs-12.col-md-7.last-chance
-          p А так же следите за нашими новостями в нашем интаграме 
-            a(href="https://www.instagram.com/atmospherasarov/") @atmospherasarov
-          p Подписывайтесь на нас, участвуйте в наших конкурсах.
-          p Помогайте вместе развивать самое атмосферное арт пространство нашего города
+        .col-xs-12.center-xs.col-md-8.col-md-offset-2
+          | {{ feedback |safe }}
+      //-     .atm-section-header.font-medium Остались вопросы?
+      //- .row.center-xs
+      //-   .col-xs-12.col-md-7.description
+      //-     .box
+      //-       .row.center-xs.start-md
+      //-         .col-xs-12.description__text
+      //-           p.desc Звони по номеру 8(930)290-12-12 наш администратор Катя обязательно ответит на них.
+      //- .row.center-xs
+      //-   .col-xs-12.col-md-7.last-chance
+      //-     p А так же следите за нашими новостями в нашем интаграме
+      //-       a(href="https://www.instagram.com/atmospherasarov/") @atmospherasarov
+      //-     p Подписывайтесь на нас, участвуйте в наших конкурсах.
+      //-     p Помогайте вместе развивать самое атмосферное арт пространство нашего города

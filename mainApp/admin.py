@@ -95,6 +95,12 @@ class PicProductAdmin(PictureAdmin):
 class ReserveAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'public_date', )
 
+
+class FeedbackAdmin(admin.ModelAdmin):
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 # admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(Image, ImageAdmin)
 # admin.site.register(Picture, PictureAdmin)
@@ -114,5 +120,6 @@ admin.site.register(PicBlogArticle, PicBlogArticleAdmin)
 admin.site.register(TeamPerson)
 admin.site.register(Reserves, ReserveAdmin)
 admin.site.register(MasterclassFeedback)
+admin.site.register(Feedback, FeedbackAdmin)
 
 # Register your models here.

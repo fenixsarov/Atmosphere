@@ -57,9 +57,10 @@ mixin page_mainheader_with_slider(id)
         .col-xs-12.col-md-5.description
           .description__title
             h1#title.title
-          .description__text
-            p#desc.desc
-            
+          .description__text.atm-bbcode-container
+            #desc
+              | {{ desc |safe }}
+
 mixin page_mainheader_with_image()
   section
     .container.page_mainheader
@@ -69,8 +70,10 @@ mixin page_mainheader_with_image()
         .col-md-5.description
           .description__title
             h1#title.title
-          .description__text
-            p#main_text.desc
+          .description__text.atm-bbcode-container
+            #main_text
+              | {{ desc | safe }}
+            //- p#main_text.desc
           //- .description_btn
             a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ
 

@@ -17,21 +17,102 @@
 
 CKEDITOR.stylesSet.add( 'default', [
 	/* Block styles */
-
 	// These styles are already available in the "Format" drop-down list ("format" plugin),
 	// so they are not needed here by default. You may enable them to avoid
 	// placing the "Format" combo in the toolbar, maintaining the same features.
-	/*
-	{ name: 'Paragraph',		element: 'p' },
-	{ name: 'Heading 1',		element: 'h1' },
-	{ name: 'Heading 2',		element: 'h2' },
-	{ name: 'Heading 3',		element: 'h3' },
-	{ name: 'Heading 4',		element: 'h4' },
-	{ name: 'Heading 5',		element: 'h5' },
-	{ name: 'Heading 6',		element: 'h6' },
-	{ name: 'Preformatted Text',element: 'pre' },
-	{ name: 'Address',			element: 'address' },
-	*/
+
+	// { name: 'Paragraph',		element: 'p' },
+	{
+		name: 'Header Normal',
+		element: 'h1',
+		attributes: {
+			class: "text-normal"
+		}
+	},
+	{
+		name: 'Header Center',
+		element: 'h1',
+		attributes: {
+			class: "text-center"
+		}
+	},
+	{
+		name: 'Header Left',
+		element: 'h1',
+		attributes: {
+			class: "text-left"
+		}
+	},
+	{
+		name: 'Header Right',
+		element: 'h1',
+		attributes: {
+			class: "text-right"
+		}
+	},
+	{
+		name: 'SubHeader Normal',
+		element: 'h2',
+		attributes: {
+			class: "text-normal"
+		}
+	},
+	{
+		name: 'SubHeader Center',
+		element: 'h2',
+		attributes: {
+			class: "text-center"
+		}
+	},
+	{
+		name: 'SubHeader Left',
+		element: 'h2',
+		attributes: {
+			class: "text-left"
+		}
+	},
+	{
+		name: 'SubHeader Right',
+		element: 'h2',
+		attributes: {
+			class: "text-right"
+		}
+	},
+	{
+		name: 'Paragr Normal',
+		element: 'p',
+		attributes: {
+			class: "text-normal"
+		}
+	},
+	{
+		name: 'Paragr Center',
+		element: 'p',
+		attributes: {
+			class: "text-center"
+		}
+	},
+	{
+		name: 'Paragr Left',
+		element: 'p',
+		attributes: {
+			class: "text-left"
+		}
+	},
+	{
+		name: 'Paragr Right',
+		element: 'p',
+		attributes: {
+			class: "text-right"
+		}
+	},
+	// { name: 'Heading 2',		element: 'h2' },
+	// { name: 'Heading 3',		element: 'h3' },
+	// { name: 'Heading 4',		element: 'h4' },
+	// { name: 'Heading 5',		element: 'h5' },
+	// { name: 'Heading 6',		element: 'h6' },
+	// { name: 'Preformatted Text',element: 'pre' },
+	// { name: 'Address',			element: 'address' },
 
 	{ name: 'Italic Title',		element: 'h2', styles: { 'font-style': 'italic' } },
 	{ name: 'Subtitle',			element: 'h3', styles: { 'color': '#aaa', 'font-style': 'italic' } },
@@ -59,25 +140,25 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Superscript',		element: 'sup' },
 	*/
 
-	{ name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
+	// { name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
 
-	{ name: 'Big',				element: 'big' },
-	{ name: 'Small',			element: 'small' },
-	{ name: 'Typewriter',		element: 'tt' },
+	// { name: 'Big',				element: 'big' },
+	// { name: 'Small',			element: 'small' },
+	// { name: 'Typewriter',		element: 'tt' },
 
-	{ name: 'Computer Code',	element: 'code' },
-	{ name: 'Keyboard Phrase',	element: 'kbd' },
-	{ name: 'Sample Text',		element: 'samp' },
-	{ name: 'Variable',			element: 'var' },
+	// { name: 'Computer Code',	element: 'code' },
+	// { name: 'Keyboard Phrase',	element: 'kbd' },
+	// { name: 'Sample Text',		element: 'samp' },
+	// { name: 'Variable',			element: 'var' },
 
-	{ name: 'Deleted Text',		element: 'del' },
-	{ name: 'Inserted Text',	element: 'ins' },
+	// { name: 'Deleted Text',		element: 'del' },
+	// { name: 'Inserted Text',	element: 'ins' },
 
-	{ name: 'Cited Work',		element: 'cite' },
-	{ name: 'Inline Quotation',	element: 'q' },
+	// { name: 'Cited Work',		element: 'cite' },
+	// { name: 'Inline Quotation',	element: 'q' },
 
-	{ name: 'Language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
-	{ name: 'Language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
+	// { name: 'Language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
+	// { name: 'Language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
 
 	/* Object styles */
 

@@ -237,6 +237,19 @@ class Reserves(models.Model):
         verbose_name_plural = '5.0 Заявки'
 
 
+class Feedback(models.Model):
+    # title = models.CharField(verbose_name='Имя заказчика', max_length=64, default='Остались вопросы?')
+    desc = RichTextField(verbose_name='Центральный блок текста', max_length=4096)
+
+    def __str__(self):
+        return 'Остались вопросы?'
+
+    class Meta:
+        verbose_name_plural = '7.0 Feedback (остались вопросы?)'
+
+
+
+
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)

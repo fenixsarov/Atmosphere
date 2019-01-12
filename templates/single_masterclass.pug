@@ -22,7 +22,7 @@ block content
               .col-xs-12.description__title
                 h1.title {{ title }}
             .row.center-xs.start-md
-              .col-xs-12.description__text
+              .col-xs-12.description__text.atm-bbcode-container
                 | {{ desc |safe }}
             .row.center-xs.start-md
               .col-xs-12.description_btn
@@ -34,7 +34,7 @@ block content
           .atm-section-header.font-medium Кому будет интересен этот мастеркласс?
       .row
         .col-xs-12.font-light
-          .atm-school-p
+          .atm-school-p.atm-bbcode-container
             | {{ who_interested | safe }}
 
   section.atm-teachers.alternation-section
@@ -124,5 +124,5 @@ block content
         +feedback(item.user_img, item.user_name, item.user_feedback, item.user_vklink)
         | {% endfor %}
   | {% endif %}
-  section.alternation-section
-    include includes/feedback_inc.pug
+  //- section.alternation-section
+  //-   include includes/feedback_inc.pug

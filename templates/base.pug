@@ -49,6 +49,10 @@ block page
       include includes/navigation_inc
       include includes/navigation_mob_inc
       block content
+      | {% if feedback %}
+      section.alternation-section
+        include includes/feedback_inc.pug
+      | {% endif %}
       .atm-toppage-btn
         i.fas.fa-angle-up
       include includes/footer_inc

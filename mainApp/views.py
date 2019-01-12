@@ -23,6 +23,11 @@ class BaseView(View):
     except BaseException as e:
         print(e)
 
+    def get_feedback(self):
+        # More questions?
+        return [f.desc for f in Feedback.objects.all()][0]
+
+
     def get(self, request):
         return render(request, self.template_name, {'page': self.page_name})
 
@@ -205,7 +210,7 @@ class HallsChange(View):
 
                     hall = Hall.objects.get(service_name=i)
                     self.title = hall.title.upper()
-                    self.desc = self.bb_parser.render(hall.desc)
+                    self.desc = hall.desc
                     self.price = hall.price
                     self.hallsize = hall.hall_size
 
@@ -241,7 +246,7 @@ class Graduations(BaseView):
                 self.title = obj.title
                 # self.main_text = obj.desc
 
-                self.main_text = self.bb_parser.render(obj.desc)
+                self.main_text = obj.desc
                 self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
 
@@ -427,6 +432,7 @@ class SingleMasterClass(BaseView):
     video = ''
     who_i = ''
     list_feedbacks = []
+    feedback = ''
 
     def get(self, request, pk):
         arg = self.args
@@ -466,6 +472,12 @@ class SingleMasterClass(BaseView):
                     'social_name': t.social_name
                 })
 
+            # # More questions?
+            # for f in Feedback.objects.all():
+            #     self.feedback = f.desc
+            self.feedback = self.get_feedback()
+
+
             # self.teachers = [t for t in mc.teachers.all()]
             self.list_imgs.clear()
             self.list_imgs = [self.path_prefix + h.file.url for h in
@@ -488,7 +500,8 @@ class SingleMasterClass(BaseView):
                           'list_imgs': self.list_imgs,
                           'video_link': self.video,
                           'who_interested': self.who_i,
-                          'list_feedbacks': self.list_feedbacks
+                          'list_feedbacks': self.list_feedbacks,
+                          'feedback': self.feedback
                       })
 
 
@@ -671,6 +684,22 @@ class AboutChange(View):
                                           {'plate_desc': self.plate_desc})
             return JsonResponse({'response': 'ok', 'html': pug})
 
+
+# class Feedback(BaseView):
+#     title = ''
+#     desc = ''
+#     last_chance = ''
+#
+#     def get(self, request):
+#         if self.request.is_ajax():
+#             try:
+#                 # f = [i for i in Feedback.objects.all()]
+#                 # self.title = f.title
+#                 # self.desc = f.desc
+#                 f = Feedback.
+#
+#             except BaseException as e:
+#                 print(e)
 
 # class Reserve(View):
 #
