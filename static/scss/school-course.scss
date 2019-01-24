@@ -4,7 +4,7 @@
 
 .atm-school-p {
   text-indent: 1em;
-  text-align: justify;
+  text-align: left;
   margin-top: 1.1em;
   font-size: 1.2em;
 }
@@ -116,7 +116,7 @@
 
   .atm-school-programm__block_lecture {
     margin-top: 2em;
-    text-align: justify;
+    text-align: left;
 
     .lecture__header {
       position: relative;
@@ -160,7 +160,7 @@
     line-height: 1.5em;
     font-size: 1.2em;
     margin-top: 1.5em;
-    text-align: justify;
+    text-align: left;
 
     p::first-letter {
       margin-left: 2em;
