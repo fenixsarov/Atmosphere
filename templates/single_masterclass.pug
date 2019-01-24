@@ -27,15 +27,15 @@ block content
             .row.center-xs.start-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
+
+  | {% if who_interested %}
   section.atm-school-description
     .container
-      .row
-        .col-xs-12
-          .atm-section-header.font-medium Кому будет интересен этот мастеркласс?
       .row
         .col-xs-12.font-light
           .atm-school-p.atm-bbcode-container
             | {{ who_interested | safe }}
+  | {% endif %}
 
   section.atm-teachers.alternation-section
     .container

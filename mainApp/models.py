@@ -65,6 +65,7 @@ class DescriptionsList(models.Model):
     # desc = models.TextField(verbose_name='Описание на странице', max_length=256)
     desc = RichTextField(verbose_name='Описание на странице', max_length=2048)
     service_name = models.CharField(verbose_name='Служебное имя', unique=True, max_length=24, default='description')
+    prelude = RichTextField(verbose_name='Прелюдия', max_length=13000, blank=True)
 
     class Meta:
         verbose_name_plural = '0. Список описаний страниц'
@@ -204,7 +205,7 @@ class Masterclass(models.Model):
     short_desc = RichTextField(verbose_name='Кракое описание мастер-класса', max_length=640)
     full_desc = RichTextField(verbose_name='Полное описание мастер-класса', max_length=3072)
     desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
-    who_interested = RichTextField(verbose_name='Кому интересен мастер-класс', max_length=2048)
+    who_interested = RichTextField(verbose_name='Кому интересен мастер-класс', max_length=8096, blank=True)
     video = EmbedVideoField(verbose_name='Ссылка на видео', blank=True, default='')
     # service_name = models.CharField(verbose_name='Служебное имя', max_length=24, default='masterclass_name')
     feedback = models.ManyToManyField(MasterclassFeedback, blank=True)

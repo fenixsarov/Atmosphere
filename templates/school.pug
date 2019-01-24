@@ -19,6 +19,15 @@ block content
             p#main_text.desc
           //- h1 {{ title|upper }}
           //- p #{main_text}
+
+  | {% if prelude %}
+  section.atm-school-description
+    .container
+      .row
+        .col-xs-12.font-light
+          .atm-school-p.atm-bbcode-container
+            | {{ prelude |safe }}
+  | {% endif %}
   section
     .container
       .row.event-container
