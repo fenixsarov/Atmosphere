@@ -59,7 +59,7 @@ mixin page_mainheader_with_slider(id)
             h1#title.title
           .description__text.atm-bbcode-container
             #desc
-              | {{ desc |safe }}
+              {{ desc |safe }}
 
 mixin page_mainheader_with_image()
   section
@@ -72,7 +72,7 @@ mixin page_mainheader_with_image()
             h1#title.title
           .description__text.atm-bbcode-container
             #main_text
-              | {{ desc | safe }}
+              {{ desc | safe }}
             //- p#main_text.desc
           //- .description_btn
             a.atm-btn-reserved.aeWidgetBtn(type="_blank") ЗАБРОНИРОВАТЬ

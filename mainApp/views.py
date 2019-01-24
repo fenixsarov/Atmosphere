@@ -325,7 +325,7 @@ class SessionsChange(BaseView):
 
                     session = Session.objects.get(service_name=i)
                     self.title = session.title.upper()
-                    self.desc = self.bb_parser.render(session.desc)
+                    self.desc = session.desc
 
             pug = loader.render_to_string('includes/universal_slider_inc.html',
                                           {'imgs_list': self.list_imgs})
