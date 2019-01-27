@@ -17,6 +17,16 @@ block content
             h1#title.title
           .description__text
             p#main_text.desc
+
+  | {% if prelude %}
+  section.atm-school-description
+    .container
+      .row
+        .col-xs-12.font-light
+          .atm-school-p.atm-bbcode-container
+            | {{ prelude |safe }}
+  | {% endif %}
+
   section.atm-plate-gallery
     .container.plate_container
       .row#masterclass_plates

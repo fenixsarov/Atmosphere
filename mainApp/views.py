@@ -325,7 +325,7 @@ class SessionsChange(BaseView):
 
                     session = Session.objects.get(service_name=i)
                     self.title = session.title.upper()
-                    self.desc = self.bb_parser.render(session.desc)
+                    self.desc = session.desc
 
             pug = loader.render_to_string('includes/universal_slider_inc.html',
                                           {'imgs_list': self.list_imgs})
@@ -349,8 +349,11 @@ class School(BaseView):
     title = ''
     desc_image = []
     school_imgs = []
+    prelude = ''
 
     def get(self, request):
+        obj = DescriptionsList.objects.get(service_name=self.page_name)
+        self.prelude = obj.prelude
         if self.request.is_ajax():
             try:
                 # Getting data for page description (title, description, image)
@@ -360,6 +363,8 @@ class School(BaseView):
                 self.main_text = obj.desc
                 self.desc_image = self.path_prefix + obj.file.url
                 self.title = self.title.upper()
+                self.prelude = obj.prelude
+
 
             except BaseException as e:
                 print(e)
@@ -367,7 +372,8 @@ class School(BaseView):
                 'response': 'ok',
                 'image_src': self.desc_image,
                 'title': self.title,
-                'main_text': self.main_text
+                'main_text': self.main_text,
+                'prelude': self.prelude
             })
 
         return render(
@@ -376,6 +382,7 @@ class School(BaseView):
             {
                 'page': self.page_name,
                 'school_imgs': self.school_imgs,
+                'prelude': self.prelude
                 # 'main_text': self.main_text,
                 # 'title': self.title,
                 # 'desc_image': self.desc_image
@@ -389,8 +396,12 @@ class MasterClass(BaseView):
     main_text = ''
     title = ''
     desc_image = ''
+    prelude = ''
 
     def get(self, request):
+        obj = DescriptionsList.objects.get(service_name=self.page_name)
+        self.prelude = obj.prelude
+
         if self.request.is_ajax():
             try:
                 # Getting data for page description (title, description, image)
@@ -414,6 +425,7 @@ class MasterClass(BaseView):
         return render(request, self.template_name, {
             'page': self.page_name,
             'plate_desc': self.plate_desc,
+            'prelude': self.prelude
         })
 
 
