@@ -43,7 +43,7 @@ block content
         | {% for item in gallery_imgs %}
         .col-xs-6.col-md-3
           .img-container
-            .img(style="background-image: url('/static/images/graduations/#{item}')")
+            .img(style="background-image: url('/static/images/gallery/graduations/#{item}')")
               //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
   section.atm-teachers.alternation-section
@@ -81,7 +81,7 @@ block content
     .container
       .row
         .col-xs-12.col-md-7
-          img#image(src="{% static '/images/graduations/photoalbum.jpg' %}")
+          img#image(src="{% static '/images/gallery/photoalbum/photoalbum.jpg' %}")
         .col-xs-12.col-md-5.description
           .box
             .row.center-xs.start-md
@@ -97,7 +97,7 @@ block content
         | {% for item in gallery_imgs %}
         .col-xs-6.col-md-3
           .img-container
-            .img(style="background-image: url('/static/images/photoalbum/#{item}')")
+            .img(style="background-image: url('/static/images/gallery/photoalbum/#{item}')")
               //- // Тут я не осилил сделать через {% static %}
         | {% endfor %}
   section.atm-photoalbum-print-price.alternation-section
