@@ -97,9 +97,22 @@ class ReserveAdmin(admin.ModelAdmin):
 
 
 class FeedbackAdmin(admin.ModelAdmin):
-
     def has_delete_permission(self, request, obj=None):
         return False
+
+
+# class CourseBlockProgram(admin.ModelAdmin):
+#     list_display = ('name')
+
+
+# class CoursePrograms(admin.ModelAdmin):
+#     list_display = ('name')
+
+class PhotoFromScratchAdmin(GalleryAdmin):
+    multiupload_list = False
+
+class PicPhotoFromScratchAdmin(PictureAdmin):
+    list_display = ['filename', 'title']
 
 # admin.site.register(Gallery, GalleryAdmin)
 # admin.site.register(Image, ImageAdmin)
@@ -121,5 +134,8 @@ admin.site.register(TeamPerson)
 admin.site.register(Reserves, ReserveAdmin)
 admin.site.register(MasterclassFeedback)
 admin.site.register(Feedback, FeedbackAdmin)
-
+admin.site.register(CourseBlockProgram)
+admin.site.register(CoursePrograms)
+admin.site.register(PhotoFromScratch, PhotoFromScratchAdmin)
+admin.site.register(PicPhotoFromScratch, PicPhotoFromScratchAdmin)
 # Register your models here.

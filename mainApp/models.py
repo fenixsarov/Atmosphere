@@ -249,9 +249,58 @@ class Feedback(models.Model):
     class Meta:
         verbose_name_plural = '7.0 Feedback (остались вопросы?)'
 
+# Класс модели данных фотографии с нуля в разделе фотошколы
+class CourseBlockProgram(models.Model):
+    intro = RichTextField(verbose_name='Вступление перед блоком', max_length=4096)
+    title = models.CharField('Название блока', max_length=128)
+    desc = RichTextField(verbose_name='Описание блока', max_length=4096)
+    teacher = models.ManyToManyField(TeamPerson,  blank=False)
+    desc_image = models.FileField(upload_to="", verbose_name='Картинка блока')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '2.1.1 Описание блоков курсов фотошколы'
+
+class CoursePrograms(models.Model):
+    title = models.CharField('Название программы курса', max_length=128)
+    course = models.ManyToManyField(CourseBlockProgram, blank=False)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '2.1.0 Содержание курсов фотошколы'
+
+class PhotoFromScratch(models.Model):
+    title = models.CharField('Название курса', max_length=128)
+    short_desc = RichTextField(verbose_name='Кракое описание курса', max_length=640)
+    full_desc = RichTextField(verbose_name='Полное описание курса', max_length=3072)
+    desc_image = models.FileField(upload_to="", verbose_name='Титульное изображение')
+    price = models.IntegerField(verbose_name="Стоимость курса", default=12900)
+    who_interested = RichTextField(verbose_name='Кому интересен курс', max_length=8096, blank=True)
+    teachers = models.ManyToManyField(TeamPerson,  blank=False)
+
+    # Программа курса
+    course_program = models.OneToOneField(CoursePrograms, blank=False)
+
+    constructor = RichTextField(verbose_name="Конструктор")
+    start_date = models.DateField(verbose_name="Дата ближайшего набора на курс", auto_now_add=False)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = '2.1 Фотошкола'
 
 
+class PicPhotoFromScratch(Picture):
+    galleryMasterclass = models.ForeignKey(
+        PhotoFromScratch, related_name='images', blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = 'Все изображения курсов фотошколы'
 # class Image(models.Model):
 #     file = models.FileField('File', upload_to='static/images/upload_imgs/')
 #     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)

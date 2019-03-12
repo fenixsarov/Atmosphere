@@ -141,7 +141,76 @@ class BlogSingleArticle(BaseView):
 class PhotoSchool(BaseView):
     template_name = 'school/photo.pug'
     page_name = 'photoschool'
+    id = -1
+    title = ''
+    short_desc = ''
+    full_desc = ''
+    desc_image = ''
+    price = -1
+    who_interested = ''
+    teachers = []
+    course_program = []
+    constructor = ''
+    start_date = ''
+    list_imgs = []
+    course_blocks = []
 
+    def get(self, request):
+        try:
+            self.list_imgs.clear()
+            ps = PhotoFromScratch.objects.get(pk=1)
+            self.id = 1
+            self.title = ps.title
+            self.full_desc = ps.full_desc
+            self.desc_image = self.path_prefix + ps.desc_image.url
+            self.price = ps.price
+            self.who_interested = ps.who_interested
+            # Looking for related teachers
+            teachers = [t for t in ps.teachers.all()]
+            self.teachers.clear()
+            for t in teachers:
+                self.teachers.append({
+                    'title': t.title,
+                    'desc': t.desc,
+                    'content': t.content,
+                    'desc_image': self.path_prefix + t.desc_image.url,
+                    'social_link': t.social_link,
+                    'social_name': t.social_name,
+                })
+
+            # Course program
+            course_program_course = [c for c in ps.course_program.course.all()]
+            for c in course_program_course:
+                self.course_blocks.append({
+                    'intro': c.intro,
+                    'title': c.title,
+                    'desc': c.desc,
+                    'teacher': c.teacher.all()[0].title,
+                    'desc_image': c.desc_image
+                })
+
+            self.list_imgs.clear()
+            self.list_imgs = [self.path_prefix + h.file.url for h in
+                              PicPhotoFromScratch.objects.filter(galleryMasterclass_id=1)]
+
+            random.shuffle(self.list_imgs)
+
+        except BaseException as e:
+            print(e)
+
+        return render(request, self.template_name, {
+                'page': self.page_name,
+                'title': self.title,
+                'full_desc': self.full_desc,
+                'desc_image': self.desc_image,
+                'price': self.price,
+                'who_interested': self.who_interested,
+                'teachers': self.teachers,
+                'course_blocks': self.course_blocks,
+                'list_imgs': self.list_imgs,
+                'feedback': self.get_feedback(),
+            }
+        )
 
 class StudyPhotography(BaseView):
     template_name = 'school/studio_photo.pug'
