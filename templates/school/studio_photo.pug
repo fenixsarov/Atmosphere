@@ -3,22 +3,23 @@ extends base
 include mixins/mixins.pug
 
 prepend page
-  - var title = "Основы студийной фотосъёмки"
+  //- var title = "Основы студийной фотосъёмки"
 block content
   input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
     .container
       .row
         .col-xs-12.col-md-7
-          img#image(src="{% static '/images/school/studio_photo/main_header.jpg' %}")
+          img#image(src="#{desc_image}" alt="Description image")
         .col-xs-12.col-md-5.description
           .box
             .row.center-xs.start-md
               .col-xs-12.description__title
-                h1.title Основы студийной фотографии
+                h1.title #{title}
             .row.center-xs.start-md
               .col-xs-12.description__text
-                p.desc Скорее всего у тебя уже есть базовые знания про фотографию.
+                | {{ full_desc |safe }}
+                //- p.desc Скорее всего у тебя уже есть базовые знания про фотографию.
                   |  Ты уже наверняка слышал такие страшные слова, как ISO,
                   | выдержка и диафрагма. И ты любишь фотографировать.
                   | Дай угадаю – ты уже покорил всех родственников своими фоточками котиков.
@@ -27,7 +28,7 @@ block content
                   | В нем мы рассказываем и показываем свет. Кажется слишком просто? Сейчас объясню.
             .row.center-xs
               .col-xs-12
-                p.price Стоимость курса – 9900 ₽
+                p.price Стоимость курса – #{price} ₽
             .row.center-xs.center-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
@@ -38,8 +39,9 @@ block content
           .atm-section-header.font-medium Для кого этот курс?
       .row
         .col-xs-12.font-light
-          p.atm-school-p У тебя уже есть базовые знания и ты знаешь что такое ISO, выдержка и диафрагма? Любишь фотографировать? Уже покоряешь всех фото шедеврами котиков? Давно хотел научится снимать в студии, но все чего-то ждешь и все время откладываешь?
-          p.atm-school-p Хватит откладывать! Записывайся на наш курс «Основы студийной съёмки 4.0»! На нем мы расскажем тебе про свет: импульсный и постоянный, студийный и натуральный, мягкий и жёсткий, контрастный и не контрастный. Ты научишься создавать световой рисунок. Поймешь как снимать женский/мужской портреты. Изучишь основы бьюти-съёмки (особенно это понравится девчонкам). Научишься работать с фонами, стойками, подвесными системами и с гелевыми фильтрами. Выучишь все названия насадок и поймёшь чем они друг от друга отличаются. И станешь частью «Атмосферы».
+          | {{ who_interested |safe}}
+          //- p.atm-school-p У тебя уже есть базовые знания и ты знаешь что такое ISO, выдержка и диафрагма? Любишь фотографировать? Уже покоряешь всех фото шедеврами котиков? Давно хотел научится снимать в студии, но все чего-то ждешь и все время откладываешь?
+          //- p.atm-school-p Хватит откладывать! Записывайся на наш курс «Основы студийной съёмки 4.0»! На нем мы расскажем тебе про свет: импульсный и постоянный, студийный и натуральный, мягкий и жёсткий, контрастный и не контрастный. Ты научишься создавать световой рисунок. Поймешь как снимать женский/мужской портреты. Изучишь основы бьюти-съёмки (особенно это понравится девчонкам). Научишься работать с фонами, стойками, подвесными системами и с гелевыми фильтрами. Выучишь все названия насадок и поймёшь чем они друг от друга отличаются. И станешь частью «Атмосферы».
   section.atm-school-reason.alternation-section
     .container
       .row
@@ -97,93 +99,40 @@ block content
                 h3.reason-head.font-medium Навыки
                 p.reason.font-light полученные на курсе, сможешь использовать и в съемке вне студии.
   section.atm-teachers.alternation-section
-    - var teacher_1 = {'img_url': "/static/images/team/1.jpg", "name": "Денис", "description": "Практикующий фотограф и преподаватель. Стаж в фотографии – 8 лет, из них три года осознанных съемок. Выпустил в Атмосфере уже 5 потоков студентов по двум курсам. Снимает атмосферные портреты в студии и среде. Последнее время увлекся мобильной фотографией и уличным стрит портретом.  Разбуди в три утра и спроси что-нибудь про свет или технику – ответит", "social_link": "", "social_name": "Instagram"}
-    - var teacher_2 = {'img_url': "/static/images/team/2.jpg", "name": "Зося", "description": "Практикующий бьюти и портретный фотограф. Стаж в фотографии – 2 года. Создает вкусные съемки, отличается шикарной проработкой образа и авторской обработкой фотографии. Отвечает за все образы, созданные в рамках курса «Основы студийного света»", "social_link": "", "social_name": "Instagram"}
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Преподаватели курса
       .row
-        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
-          +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
-        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
-          +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+        each teacher in teachers
+          .col-xs-12.col-md-8.col-md-offset-2
+            +teacher_card(teacher.desc_image, teacher.title, teacher.content, teacher.social_link, teacher.social_name)
+
   section.atm-school-program-container.alternation-section
     .container
       .row
         .col-xs-12
           p.atm-section-header.font-medium Программа курса
-          p.description.font-light Каждый урок рассчитан на 2-2,5 часа и сильно зависит от количества вопросов у студентов. Остаемся до последнего вопроса.
+          p.description.font-light #{course_intro |safe}
+
       .row
         .col-xs-12
           section.atm-school-programm__block
             .box.box-container
+              | {% for block in course_blocks %}
               section.atm-school-programm__block_lecture
                 .row
                   .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/studio_photo/lecture/1.jpg' %}")
+                    img(src='{{ block.desc_image }}')
                   .col-xs-12.col-md-6
                     .box.box-container
                       .row
                         .col-xs-12.lecture-description__container
-                          p.lecture__header 1. Съемка с одним студийным источником.
-                          p.lecture__description.font-light Свойства и характеристики света. Виды вспышек, светоформирующие насадки, настройки камеры для студийной съемки. Щупаем свет, понимаем, как вести себя на новой локации, учимся работать со студийным оборудованием, снимаем вкусную съёмку с одним источником рисующего света.
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/studio_photo/lecture/2.jpg' %}")
-                  .col-xs-12.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12.lecture-description__container
-                          p.lecture__header 2. Классическая расстановка студийного света.
-                          p.lecture__description.font-light Нюхаем световые схемы, понимаем, как регулировать жёсткость\мягкость света, контрастность\неконтрастность. Рисующий, заполняющий, контровой. Уже на втором занятии ты осознанно переставляешь источники, меняешь фон, и делаешь предположения о том, какой должна быть световая схема :)
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/studio_photo/lecture/3.jpg' %}")
-                  .col-xs-12.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12.lecture-description__container
-                          p.lecture__header 3. Скользящий свет.
-                          p.lecture__description.font-light Ставим очень простой и эффектный свет, который максимально освещает локацию и модель. Универсальная схема в любой непонятной ситуации.
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/studio_photo/lecture/4.jpg' %}")
-                  .col-xs-12.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12.lecture-description__container
-                          p.lecture__header 4. Введение в бьюти-сьемку.
-                          p.lecture__description.font-light Три световые схемы для съемки бьюти. Композиция в бьюти, модели, визажисты. Ты будешь визжать от красоты :D Нет, ну серьёзно, у нас на занятиях одни красотки с крутыми образами:) А ещё возможно ты вдохновишься на этом занятии, и в дальнейшем станешь крутым бьюти-фотографом ;)
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/studio_photo/lecture/5.jpg' %}")
-                  .col-xs-12.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12.lecture-description__container
-                          p.lecture__header 5. Мужской портрет
-                          p.lecture__description.font-light Учимся снимать мужиков без ванили, приторной тонировки и вот этого всего. Низкий ключ. Жестко, контрастно, все как мы любим. p.s. если уже хочешь взять на ДЗ своего молодого человека или друга, то начинай уговаривать его уже сейчас!
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
-              section.atm-school-programm__block_lecture
-                .row
-                  .col-xs-12.col-md-4.col-md-offset-1
-                    img(src="{% static '/images/school/studio_photo/lecture/6.jpg' %}")
-                  .col-xs-12.col-md-6
-                    .box.box-container
-                      .row
-                        .col-xs-12.lecture-description__container
-                          p.lecture__header 6. Love-story.
-                          p.lecture__description.font-light Этот урок мы всегда проводим вне студии. Каждый раз находим интересное место в Сарове, приглашаем милую пару и снимаем.
-                          p.lecture__teacher Преподаватель - Денис Алёшин.
+                          p.lecture__header #{block.title}
+                          p.lecture__description.font-light #{block.desc | safe}
+                          p.lecture__teacher #{block.teacher | safe}
+              | {% endfor %}
+
   section.atm-school-constructor.alternation-section#signup
     .container
       .row
@@ -200,16 +149,16 @@ block content
         section.atm-school-constructor-date.col-xs-12.center-xs
           p Ближайший набор на новый курс – Февраль 2018.
   section.page_photogallery.alternation-section
-    - var gallery_imgs = ["1 (1).jpg","1 (2).jpg","1.jpg","1vuGLPNYuhY.jpg","20.jpg","2j1vjvKV8xA.jpg","5.jpg","6.jpg","Anna-7.jpg","CjYzrX8bDes.jpg","DSC_2143_4-5_1.jpg","DZ1_2.jpg","EfbjOFEdnCU (1).jpg","IHa-XGjhitc.jpg","IMG_9891.jpg","S-bmtRTQeAg.jpg","Tf0DAJ7iscQ.jpg","Z5cWmM5ukBA.jpg","_TWxpoWLdbA.jpg","cenXsPtMRvM.jpg","gI0qs9g6hLc.jpg","gmKE77EJ5Yw.jpg","kCoVE3ko2FA.jpg","kzB4Z6ZGaXE.jpg","lf9fll6k7dU.jpg","qRh84jpHNYQ.jpg","whH6Bf0nsqo.jpg","x4Bvq4B0Ff8.jpg","yJja0tmYfF8.jpg","zMqTNn94ngQ.jpg"];
+    //- var gallery_imgs = ["1 (1).jpg","1 (2).jpg","1.jpg","1vuGLPNYuhY.jpg","20.jpg","2j1vjvKV8xA.jpg","5.jpg","6.jpg","Anna-7.jpg","CjYzrX8bDes.jpg","DSC_2143_4-5_1.jpg","DZ1_2.jpg","EfbjOFEdnCU (1).jpg","IHa-XGjhitc.jpg","IMG_9891.jpg","S-bmtRTQeAg.jpg","Tf0DAJ7iscQ.jpg","Z5cWmM5ukBA.jpg","_TWxpoWLdbA.jpg","cenXsPtMRvM.jpg","gI0qs9g6hLc.jpg","gmKE77EJ5Yw.jpg","kCoVE3ko2FA.jpg","kzB4Z6ZGaXE.jpg","lf9fll6k7dU.jpg","qRh84jpHNYQ.jpg","whH6Bf0nsqo.jpg","x4Bvq4B0Ff8.jpg","yJja0tmYfF8.jpg","zMqTNn94ngQ.jpg"];
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Фотографии наших учеников
       .row
-        | {% for item in gallery_imgs %}
+        | {% for item in list_imgs %}
         .col-xs-6.col-md-3
           .img-container
-            .img(style="background-image: url('/static/images/school/studio_photo/gallery/#{item}')")
+            .img(style="background-image: url('#{item}')")
         | {% endfor %}
   section.atm-feedback.alternation-section
     .container
@@ -277,5 +226,3 @@ block content
                     .atm-feedback__text
                       a.atm-feedback__name(href="https://vk.com/id86644786", target="_blank") Аня Дымова
                       p Меня зовут Анна Дымова, я посещала самые первые курсы "Основы студийной съёмки 1.0" До этого у меня не было совершенно никого представления о работе в студии,если честно. Совершенно не сомневаясь в своем решении, я записалась и это было одно из самых верных решений за всю мою жизнь. Этот курс не просто дал мне знания о студийном свете, он принес в мою жизнь прекрасных людей, изменил отношение не только к студийному свету. Наверное,стоит сказать,что отношение изменилось не только к свету,но и к самой фотографии. Как говорится, нет предела совершенству, и именно этот курс стал для меня первым шагом. Когда у тебя есть идеи,которые можешь воплотить - просто непередаваемое чувство. Для меня курс по основам студийной съемки стал гораздо большим,чем просто занятиями, где тебе сухо подают информацию. "Основы студийной съемки" - живое общение, прекрасные люди, задерживаться в студии до 24.00, вкусный чай с печеньками, и то,ради чего я пошла, - развитие и совершенствование
-  section.alternation-section
-    include includes/feedback_inc.pug

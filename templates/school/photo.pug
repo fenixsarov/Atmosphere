@@ -3,14 +3,15 @@ extends base
 include mixins/mixins.pug
 
 prepend page
-  //- var title = "Обучение фотографии"
+  var title = "Фотография с нуля"
 block content
   input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
     .container
       .row
         .col-xs-12.col-md-7
-          img#image(src="#{desc_image}" alt="Description image")
+          img#image(src="{% static '/images/school/photo/main_header.jpg' %}")
+          //- img#image(src="#{desc_image}" alt="Description image")
         .col-xs-12.col-md-5.description
           .box
             .row.center-xs.start-md
@@ -19,14 +20,15 @@ block content
             .row.center-xs.start-md
               .col-xs-12.description__text
                 p.desc
-                  | {{ full_desc |safe }}
-                //- p.desc Это базовый курс по фотографии.
-                //-  |  Учим осознанно нажимать на кнопки, думать как фотограф, делать твои кадры.
-                //-  | Помогаем тебе изучить фотографию с нуля или систематизируем твои знания.
-                //-  | Вместе проведём 9 уроков. Закрепим материал домашними работами и практикой.
+                  p.desc Это базовый курс по фотографии.
+                  |  Учим осознанно нажимать на кнопки, думать как фотограф, делать твои кадры.
+                  | Помогаем тебе изучить фотографию с нуля или систематизируем твои знания.
+                  | Вместе проведём 9 уроков. Закрепим материал домашними работами и практикой.
+                //-  | {{ full_desc |safe }}
             .row.center-xs
               .col-xs-12
-                p.price Стоимость курса – #{price} ₽
+                p.price Стоимость курса – 12900 ₽
+                //- p.price Стоимость курса – #{price} ₽
             .row.center-xs.center-md
               .col-xs-12.description_btn
                 a.atm-btn-reserved.reserved-btn-scroolled(type="_blank") ЗАПИСАТЬСЯ
@@ -38,10 +40,10 @@ block content
       .row
         .col-xs-12.font-light
           p.atm-school-p
-            | {{ who_interested |safe}}
-          //- p.atm-school-p Для тех, кто купил камеру и давно ее забросил, но хочет закрыть гештальт и разобраться.
-          //-  |  Для начинающих фотографов, которые хотят систематизировать свои знания по фотографии и вдохновиться на новые кадры.
-          //-  | Для фотографов, которые хотят движухи. Встать с кресла и наконец-то пойти снимать.
+            p.atm-school-p Для тех, кто купил камеру и давно ее забросил, но хочет закрыть гештальт и разобраться.
+            |  Для начинающих фотографов, которые хотят систематизировать свои знания по фотографии и вдохновиться на новые кадры.
+            | Для фотографов, которые хотят движухи. Встать с кресла и наконец-то пойти снимать.
+          //-  | {{ who_interested |safe}}
   section.atm-school-reason.alternation-section
     .container
       .row
@@ -104,9 +106,15 @@ block content
         .col-xs-12
           .atm-section-header.font-medium Преподаватели
       .row
-        each teacher in teachers
-          .col-xs-12.col-md-8.col-md-offset-2
-            +teacher_card(teacher.desc_image, teacher.title, teacher.content, teacher.social_link, teacher.social_name)
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
+          +teacher_card(teacher_1.img_url, teacher_1.name, teacher_1.description, teacher_1.social_link, teacher_1.social_name)
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
+          +teacher_card(teacher_2.img_url, teacher_2.name, teacher_2.description, teacher_2.social_link, teacher_2.social_name)
+        .col-xs-12.col-sm-6.col-md-8.col-md-offset-2
+          +teacher_card(teacher_3.img_url, teacher_3.name, teacher_3.description, teacher_3.social_link, teacher_3.social_name)
+        //- each teacher in teachers
+        //-  .col-xs-12.col-md-8.col-md-offset-2
+        //-    +teacher_card(teacher.desc_image, teacher.title, teacher.content, teacher.social_link, teacher.social_name)
 
   section.atm-school-program-container.alternation-section
     .container
@@ -277,15 +285,17 @@ block content
         section.atm-school-constructor-date.col-xs-12.center-xs
           p Ближайший набор на новый курс - Февраль 2019г.
   section.page_photogallery.alternation-section
+    - var gallery_imgs = ["5PdtOSzp_Mw.jpg","BErgyRIhgps.jpg","GD1MheKTJ6E.jpg","J-suFBn5ffQ.jpg","MemAkVyCmb0.jpg","U1G3cDrjlL0.jpg","UPCDeRgkR2k.jpg","Ud2jJmM2YZg.jpg","ZtSbY2pydh4.jpg","_zrL0emCafI.jpg","dtWs1M3d0No.jpg","gBa6YIbnnB4.jpg","ko0l06NgUxQ.jpg","nQREyMz7ugg.jpg","s2uXV3IHsgk.jpg","x__Dvuh111Q.jpg","y_7rLjt7Fdg.jpg",];
     .container
       .row
         .col-xs-12
           .atm-section-header.font-medium Фотографии наших учеников
       .row
-        | {% for item in list_imgs %}
+        | {% for item in gallery_imgs %}
         .col-xs-6.col-md-3
           .img-container
-            .img(style="background-image: url('#{item}')")
+            .img(style="background-image: url('/static/images/school/photo/gallery/#{item}')")
+            //-.img(style="background-image: url('#{item}')")
         | {% endfor %}
   section.atm-feedback.alternation-section
     .container

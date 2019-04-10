@@ -251,7 +251,6 @@ class Feedback(models.Model):
 
 # Класс модели данных фотографии с нуля в разделе фотошколы
 class CourseBlockProgram(models.Model):
-    intro = RichTextField(verbose_name='Вступление перед блоком', max_length=4096)
     title = models.CharField('Название блока', max_length=128)
     desc = RichTextField(verbose_name='Описание блока', max_length=4096)
     teacher = models.ManyToManyField(TeamPerson,  blank=False)
@@ -265,6 +264,7 @@ class CourseBlockProgram(models.Model):
 
 class CoursePrograms(models.Model):
     title = models.CharField('Название программы курса', max_length=128)
+    intro = RichTextField(verbose_name='Вступление перед блоком', max_length=4096)
     course = models.ManyToManyField(CourseBlockProgram, blank=False)
 
     def __str__(self):
@@ -273,7 +273,7 @@ class CoursePrograms(models.Model):
     class Meta:
         verbose_name_plural = '2.1.0 Содержание курсов фотошколы'
 
-class PhotoFromScratch(models.Model):
+class PhotoCourses(models.Model):
     title = models.CharField('Название курса', max_length=128)
     short_desc = RichTextField(verbose_name='Кракое описание курса', max_length=640)
     full_desc = RichTextField(verbose_name='Полное описание курса', max_length=3072)
@@ -295,9 +295,9 @@ class PhotoFromScratch(models.Model):
         verbose_name_plural = '2.1 Фотошкола'
 
 
-class PicPhotoFromScratch(Picture):
+class PicPhotoCourses(Picture):
     galleryMasterclass = models.ForeignKey(
-        PhotoFromScratch, related_name='images', blank=True, null=True)
+        PhotoCourses, related_name='images', blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Все изображения курсов фотошколы'

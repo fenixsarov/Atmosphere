@@ -103,15 +103,15 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 # class CourseBlockProgram(admin.ModelAdmin):
 #     list_display = ('name')
-
-
+#
+#
 # class CoursePrograms(admin.ModelAdmin):
 #     list_display = ('name')
 
-class PhotoFromScratchAdmin(GalleryAdmin):
+class PhotoCoursesAdmin(GalleryAdmin):
     multiupload_list = False
 
-class PicPhotoFromScratchAdmin(PictureAdmin):
+class PicPhotoCoursesAdmin(PictureAdmin):
     list_display = ['filename', 'title']
 
 # admin.site.register(Gallery, GalleryAdmin)
@@ -136,6 +136,6 @@ admin.site.register(MasterclassFeedback)
 admin.site.register(Feedback, FeedbackAdmin)
 admin.site.register(CourseBlockProgram)
 admin.site.register(CoursePrograms)
-admin.site.register(PhotoFromScratch, PhotoFromScratchAdmin)
-admin.site.register(PicPhotoFromScratch, PicPhotoFromScratchAdmin)
+admin.site.register(PhotoCourses, PhotoCoursesAdmin)
+admin.site.register(PicPhotoCourses, PicPhotoCoursesAdmin)
 # Register your models here.
