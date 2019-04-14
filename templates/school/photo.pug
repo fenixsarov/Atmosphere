@@ -3,7 +3,7 @@ extends base
 include mixins/mixins.pug
 
 prepend page
-  var title = "Фотография с нуля"
+  //var title = "Фотография с нуля"
 block content
   input#page_name(type="hidden", value="#{page}")
   section.page_mainheader
@@ -16,7 +16,7 @@ block content
           .box
             .row.center-xs.start-md
               .col-xs-12.description__title
-                h1.title #{title}
+                h1.title "Фотография с нуля"
             .row.center-xs.start-md
               .col-xs-12.description__text
                 p.desc

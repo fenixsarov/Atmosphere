@@ -12,7 +12,7 @@ import sys
 import site
 
 
-PROJECT_DIR = '/var/www/html/django_demo_app/Atmosphere'
+PROJECT_DIR = '/var/www/html/django_app/Atmosphere'
 if os.path.exists(PROJECT_DIR):
     PACKAGE_DIR = os.path.join(PROJECT_DIR, '/usr/local/lib/python3.6/dist-packages')
 
